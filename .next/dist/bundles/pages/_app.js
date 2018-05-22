@@ -70,30 +70,25 @@ module.exports =
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./node_modules/next/dist/pages/_app.js":
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("next/app")
+module.exports = __webpack_require__(1);
 
 
 /***/ }),
-
-/***/ 0:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./node_modules/next/dist/pages/_app.js");
+module.exports = __webpack_require__(2)
 
 
 /***/ }),
-
-/***/ "next/app":
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = require("next/app");
 
 /***/ })
-
-/******/ });
-//# sourceMappingURL=_app.js.map
+/******/ ]);
