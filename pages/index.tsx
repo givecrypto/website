@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
+import Head from 'next/head';
+import HeadContent from '../components/HeadContent';
+
 const { div } = glamorous;
 
 const Container = div({
   padding: Step(5)
-})
+});
 
 export interface AppProps {}
 export interface AppState {
@@ -20,10 +23,14 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
-    const { message = 'folks' } = this.state;
+    const { message = 'Giving copy' } = this.state;
     return (
       <Container>
-        <h1>Really cool {message}</h1>
+        <Head>
+          <title>Home page</title>
+          <HeadContent page="home" />
+        </Head>
+        <h1>GiveCrypto - {message}</h1>
       </Container>
     );
   }

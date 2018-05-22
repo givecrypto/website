@@ -1,14 +1,17 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 
 # build
-/src/icons/source
-/src/icons/tsx
+dist
+.next
 
 # testing
-/coverage
+.nyc_output
+coverage
+
+# test output
+__test__/**/out
+.DS_Store
 
 # production
 /build
