@@ -1,34 +1,43 @@
 import * as React from 'react';
+import glamorous from 'glamorous';
+import { Step } from '../utils/Scale';
+import { colors } from '../design-system';
+import * as chroma from 'chroma-js';
 
 export interface DonateProps {
   anonymous?: boolean;
 }
 
+const linkStyles = {
+  padding: Step(4),
+  borderRadius: Step(3),
+  color: 'white',
+  background: colors.green,
+  textDecoration: 'none',
+  '&:hover': {
+    background: chroma(colors.green)
+      .brighten(0.25)
+      .css()
+  }
+};
+const Link = glamorous.a(linkStyles);
+
 export default class Donate extends React.Component<DonateProps, any> {
   render() {
-    const { anonymous = false } = this.props;
-    if (anonymous) {
-      <div>
-        <a
-          className="donate-with-crypto"
-          href="https://commerce.coinbase.com/checkout/4ebc0918-08e8-4c9c-8085-ed756e9a7625"
-        >
-          <span>Donate with Crypto</span>
-        </a>
-        <script src="https://commerce.coinbase.com/v1/checkout.js" />
-      </div>;
-    }
+    let id = this.props.anonymous
+      ? process.env.COMMERCE_ID_TEST
+      : process.env.COMMERCE_ID_DEFAULT;
 
     return (
-      <div>
-        <a
+      <>
+        <Link
           className="donate-with-crypto"
-          href="https://commerce.coinbase.com/checkout/ab0a435a-6e00-46f6-b4dc-f72a5924ef39"
+          href={`https://commerce.coinbase.com/checkout/${id}`}
         >
-          <span>Donate with Crypto</span>
-        </a>
+          <span>Donate Crypto</span>
+        </Link>
         <script src="https://commerce.coinbase.com/v1/checkout.js" />
-      </div>
+      </>
     );
   }
 }

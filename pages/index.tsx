@@ -32,7 +32,7 @@ export default class App extends React.Component<AppProps, AppState> {
           <HeadContent page="home" />
         </Head>
         <h1>GiveCrypto - {message}</h1>
-        <Donate />
+        <Donate anonymous={true} />
       </Container>
     );
   }
