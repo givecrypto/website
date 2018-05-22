@@ -2,7 +2,7 @@
   "name": "givecrypto",
   "version": "0.0.1",
   "description":
-    "Giving the gift of crypto to people in need around the world.",
+    "Empowering, educating and elevating communities into the open financial system.",
   "main": "index.js",
   "dependencies": {
     "@zeit/next-typescript": "^1.0.0",
