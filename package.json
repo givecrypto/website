@@ -1,0 +1,62 @@
+{
+  "name": "givecrypto",
+  "version": "1.0.0",
+  "description":
+    "Giving the gift of crypto to people in need around the world.",
+  "main": "index.js",
+  "dependencies": {
+    "@zeit/next-typescript": "^1.0.0",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.0",
+    "natural-scale": "^1.2.9",
+    "next": "^6.0.3",
+    "prettier": "^1.12.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.8",
+    "@types/enzyme-adapter-react-16": "^1.0.1",
+    "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.14",
+    "@types/react-test-renderer": "^16.0.1",
+    "babel-jest": "^22.4.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.4",
+    "lint-staged": "^7.1.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.3.2",
+    "ts-jest": "^22.4.6",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.8.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "precommit": "lint-staged",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/givecrypto/website.git"
+  },
+  "keywords": ["crypto"],
+  "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/givecrypto/website/issues"
+  },
+  "homepage": "https://github.com/givecrypto/website#readme"
+}
