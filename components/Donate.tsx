@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export interface AppProps {
+export interface DonateProps {
   anonymous?: boolean;
 }
 
-export default class App extends React.Component<AppProps, any> {
+export default class Donate extends React.Component<DonateProps, any> {
   render() {
     const { anonymous = false } = this.props;
     if (anonymous) {
