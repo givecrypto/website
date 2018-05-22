@@ -1,9 +1,7 @@
 const withTypescript = require('@zeit/next-typescript');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
-module.exports = withTypescript();
-module.exports = withBundleAnalyzer({
+const BundleAnalyzerOptions = {
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
   bundleAnalyzerConfig: {
@@ -16,4 +14,6 @@ module.exports = withBundleAnalyzer({
       reportFilename: '../bundles/client.html'
     }
   }
-});
+};
+
+module.exports = withTypescript(withBundleAnalyzer(BundleAnalyzerOptions));
