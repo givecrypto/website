@@ -86,6 +86,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_document__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server__ = __webpack_require__("glamor/server");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_glamor_server__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamor__ = __webpack_require__("glamor");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_glamor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_glamorous__ = __webpack_require__("glamorous");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_glamorous___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_glamorous__);
 
 var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.js";
 
@@ -109,6 +113,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -169,43 +175,48 @@ function (_Document) {
   _createClass(MyDocument, [{
     key: "render",
     value: function render() {
+      __WEBPACK_IMPORTED_MODULE_4_glamor__["css"].global('@font-face', {
+        fontFamily: 'Apercu',
+        src: "url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')"
+      });
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("html", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 28
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Head"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 29
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 30
         }
-      }, "With Glamorous"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("style", {
+      }, "GiveCrypto | Empowering, educating and elevating communities into the open financial system."), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
           __html: this.props.css
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 34
         }
-      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("body", {
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_glamorous__["Body"], {
+        fontFamily: "Apercu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 36
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 37
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 38
         }
       })));
     }
@@ -233,10 +244,24 @@ module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 
+/***/ "glamor":
+/***/ (function(module, exports) {
+
+module.exports = require("glamor");
+
+/***/ }),
+
 /***/ "glamor/server":
 /***/ (function(module, exports) {
 
 module.exports = require("glamor/server");
+
+/***/ }),
+
+/***/ "glamorous":
+/***/ (function(module, exports) {
+
+module.exports = require("glamorous");
 
 /***/ }),
 

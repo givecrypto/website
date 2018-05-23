@@ -9,7 +9,8 @@ import '../utils/rehydrate';
 const { div } = glamorous;
 
 const Container = div({
-  padding: Step(5)
+  padding: Step(5),
+  fontFamily: '"Apercu", "Helvetica", sans-serif'
 });
 
 export interface AppProps {}
@@ -20,7 +21,6 @@ export interface AppState {
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props) {
     super(props);
-
     this.state = {};
   }
 
@@ -29,7 +29,10 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <Container>
         <Head>
-          <title>Home page</title>
+          <title>
+            GiveCrypto | Empowering, educating and elevating communities into
+            the open financial system.
+          </title>
           <HeadContent page="home" />
         </Head>
         <h1>GiveCrypto - {message}</h1>

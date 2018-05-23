@@ -13,8 +13,9 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_glamorous__ = __webpack_require__("./node_modules/glamorous/dist/glamorous.esm.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__design_system__ = __webpack_require__("./design-system/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chroma_js__ = __webpack_require__("./node_modules/chroma-js/chroma.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chroma_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chroma_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Scale__ = __webpack_require__("./utils/Scale.tsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_chroma_js__ = __webpack_require__("./node_modules/chroma-js/chroma.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_chroma_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_chroma_js__);
 var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/components/Donate.tsx";
 
 (function () {
@@ -41,20 +42,32 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var linkStyles = {
   '&.donate-with-crypto': {
+    transition: 'all 200ms ease',
     color: 'white',
     background: __WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green,
     textDecoration: 'none',
+    padding: Object(__WEBPACK_IMPORTED_MODULE_3__utils_Scale__["a" /* Step */])(4),
+    height: 'auto',
+    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
     '&:hover': {
-      background: __WEBPACK_IMPORTED_MODULE_3_chroma_js___default()(__WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green).brighten(0.25).css()
+      background: __WEBPACK_IMPORTED_MODULE_4_chroma_js___default()(__WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green).brighten(0.25).css()
+    },
+    '&:active': {
+      padding: "".concat(Object(__WEBPACK_IMPORTED_MODULE_3__utils_Scale__["a" /* Step */])(4), " !important"),
+      height: 'auto',
+      background: __WEBPACK_IMPORTED_MODULE_4_chroma_js___default()(__WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green).brighten(0.125).css(),
+      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
     },
     '> span': {
-      textShadow: 'none'
+      textShadow: 'none',
+      padding: 0
     }
   }
 };
-var Link = __WEBPACK_IMPORTED_MODULE_1_glamorous__["a" /* default */].a(linkStyles);
+var Link = __WEBPACK_IMPORTED_MODULE_1_glamorous__["b" /* default */].a(linkStyles);
 
 var Donate =
 /*#__PURE__*/
@@ -76,18 +89,18 @@ function (_React$Component) {
         href: "https://commerce.coinbase.com/checkout/".concat(id),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 49
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 53
         }
       }, "Donate Crypto")), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("script", {
         src: "https://commerce.coinbase.com/v1/checkout.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 55
         }
       }));
     }
@@ -248,7 +261,9 @@ function (_React$Component) {
 })();
 
 var colors = {
-  green: '#00CD90'
+  green: '#00CD90',
+  black: '#323232',
+  grey: '#898F9C'
 };
 var _default = colors;
 /* harmony default export */ __webpack_exports__["a"] = (_default);
@@ -5179,7 +5194,7 @@ function StyleSheet() {
 /* unused harmony export Big */
 /* unused harmony export Blink */
 /* unused harmony export Blockquote */
-/* unused harmony export Body */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Body; });
 /* unused harmony export Br */
 /* unused harmony export Button */
 /* unused harmony export Canvas */
@@ -7192,7 +7207,7 @@ var Use = glamorous['Use'];
 var View = glamorous['View'];
 var Vkern = glamorous['Vkern'];
 
-/* harmony default export */ __webpack_exports__["a"] = (glamorous);
+/* harmony default export */ __webpack_exports__["b"] = (glamorous);
 
 
 
@@ -7881,9 +7896,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var div = __WEBPACK_IMPORTED_MODULE_2_glamorous__["a" /* default */].div;
+var div = __WEBPACK_IMPORTED_MODULE_2_glamorous__["b" /* default */].div;
 var Container = div({
-  padding: Object(__WEBPACK_IMPORTED_MODULE_1__utils_Scale__["a" /* Step */])(5)
+  padding: Object(__WEBPACK_IMPORTED_MODULE_1__utils_Scale__["a" /* Step */])(5),
+  fontFamily: '"Apercu", "Helvetica", sans-serif'
 });
 
 var App =
@@ -7921,22 +7937,22 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 32
         }
-      }, "Home page"), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__components_HeadContent__["a" /* default */], {
+      }, "GiveCrypto | Empowering, educating and elevating communities into the open financial system."), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__components_HeadContent__["a" /* default */], {
         page: "home",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 36
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         }
       }, "GiveCrypto - ", message), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__components_Donate__["a" /* default */], {
         anonymous: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 39
         }
       }));
     }

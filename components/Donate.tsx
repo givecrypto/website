@@ -1,6 +1,7 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 import { colors } from '../design-system';
+import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 
 export interface DonateProps {
@@ -9,16 +10,29 @@ export interface DonateProps {
 
 const linkStyles = {
   '&.donate-with-crypto': {
+    transition: 'all 200ms ease',
     color: 'white',
     background: colors.green,
     textDecoration: 'none',
+    padding: Step(4),
+    height: 'auto',
+    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
     '&:hover': {
       background: chroma(colors.green)
         .brighten(0.25)
         .css()
     },
+    '&:active': {
+      padding: `${Step(4)} !important`,
+      height: 'auto',
+      background: chroma(colors.green)
+        .brighten(0.125)
+        .css(),
+      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+    },
     '> span': {
-      textShadow: 'none'
+      textShadow: 'none',
+      padding: 0
     }
   }
 };

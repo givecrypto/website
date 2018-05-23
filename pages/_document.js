@@ -1,5 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { renderStatic } from 'glamor/server';
+import { css } from 'glamor';
+import { Body } from 'glamorous';
 
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
@@ -17,16 +19,24 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    css.global('@font-face', {
+      fontFamily: 'Apercu',
+      src: `url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')`
+    });
+
     return (
       <html>
         <Head>
-          <title>With Glamorous</title>
+          <title>
+            GiveCrypto | Empowering, educating and elevating communities into
+            the open financial system.
+          </title>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
         </Head>
-        <body>
+        <Body fontFamily="Apercu">
           <Main />
           <NextScript />
-        </body>
+        </Body>
       </html>
     );
   }
