@@ -4,6 +4,7 @@ import glamorous from 'glamorous';
 import Head from 'next/head';
 import HeadContent from '../components/HeadContent';
 import Donate from '../components/Donate';
+import Navigation from '../components/Navigation';
 import '../utils/rehydrate';
 
 const { div } = glamorous;
@@ -34,6 +35,7 @@ export default class App extends React.Component<AppProps, AppState> {
           </title>
           <HeadContent page="home" />
         </Head>
+        <Navigation />
         <h1>GiveCrypto - {message}</h1>
         <Donate anonymous={true} />
       </Container>
