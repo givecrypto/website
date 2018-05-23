@@ -19,6 +19,10 @@ export default class HeadContent extends React.Component<
         info.title = 'OMG';
         break;
 
+      case 'donors':
+        info.title = 'The Donors';
+        break;
+
       default:
         info.title = 'Nevermind';
         break;

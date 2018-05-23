@@ -5,7 +5,9 @@ import Donate from '../Donate';
 import Logo from '../../svgs/logo.svg';
 import { Step } from '../../utils/Scale';
 import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
-export interface NavigationProps {}
+export interface NavigationProps {
+  theme?: string;
+}
 
 export default class Navigation extends React.Component<NavigationProps, any> {
   constructor(props: any) {
@@ -23,10 +25,14 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   }
 
   render() {
+    const { theme } = this.props;
+    const donateTheme = theme === 'light' ? 'ghost' : 'default';
     return (
       <Nav display="flex" alignItems="center" justifyContent="space-between">
         <Div lineHeight="0">
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
         </Div>
         <Div alignSelf="end">
           <Ul
@@ -38,7 +44,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
           >
             {this.mapLinks()}
             <Li display="inline-block">
-              <Donate />
+              <Donate theme={donateTheme} />
             </Li>
           </Ul>
         </Div>

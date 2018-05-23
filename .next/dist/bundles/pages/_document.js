@@ -234,8 +234,8 @@ function (_Document) {
 
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
-  fontStyle: 'mono',
-  fontWeight: 400,
+  fontStyle: 'normal',
+  fontWeight: 200,
   src: "url('/static/Apercu-Mono.woff2') format('woff2'), url('/static/Apercu-Mono.woff') format('woff')"
 }); // Normal
 

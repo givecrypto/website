@@ -3,6 +3,7 @@ import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
 import Head from 'next/head';
 import HeadContent from '../components/HeadContent';
+import Donate from '../components/Donate';
 import Navigation from '../components/Navigation/Navigation';
 import '../utils/rehydrate';
 
@@ -14,28 +15,34 @@ const Container = div({
 
 export interface AppProps {}
 export interface AppState {
-  message?: string;
+  donation: string;
+  message: string;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      donation: 'pending',
+      message: 'Donate Today'
+    };
   }
 
   render() {
-    const { message = 'Giving copy' } = this.state;
+    const { donation, message } = this.state;
+
     return (
       <Container>
         <Head>
           <title>
-            GiveCrypto | Empowering, educating and elevating communities into
-            the open financial system.
+            GiveCrypto Donors | Empowering, educating and elevating communities
+            into the open financial system.
           </title>
-          <HeadContent page="home" />
+          <HeadContent page="donors" />
         </Head>
-        <Navigation />
-        <h1>Home Template. {message}</h1>
+        <Navigation theme="light" />
+        <h1>{message}</h1>
+        {donation === 'pending' && <Donate theme="ghost" />}
       </Container>
     );
   }
