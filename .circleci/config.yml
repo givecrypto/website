@@ -1,0 +1,132 @@
+# ================================================================
+# REQUIRED: Set up the following environment variables in CircleCI
+# NOW_TEAM
+# NOW_STAGE_URL
+# NOW_PRODUCTION_URL
+# NOW_TOKEN
+# GITHUB_ACCESS_TOKEN
+# ================================================================
+version: 2
+jobs:
+    # The build job
+    build:
+        working_directory: ~/project
+        docker:
+            - image: circleci/node:8.9.1-browsers
+        steps:
+            # Checkout the code from the branch into the working_directory
+            - checkout
+            # Log the current branch
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BRANCH}
+            # Restore local dependencies from cache
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            # Install project dependencies
+            - run:
+                name: Install local dependencies
+                command: npm install
+            # Cache local dependencies if they don't exist
+            - save_cache:
+                key: v1-dependencies-{{ checksum "package.json" }}
+                paths:
+                    - node_modules
+            # Install test deps 
+            - run:
+                name: Install testing dependencies
+                command: |
+                    # Install test deps 
+                    sudo npm i -g codeclimate-test-reporter
+            # Test the source code
+            - run:
+                name: Testing
+                command: npm run circle
+            # Run coverage report 
+            - run:
+                name: Run Coverage Report
+                command: codeclimate-test-reporter < 'coverage/lcov.info'
+            - store_artifacts:
+                path: coverage
+            - store_test_results:
+                path: coverage
+            # Build project
+            - run:
+                name: Building
+                command: npm run build
+            # Cache the dist folder for the deploy job
+            - save_cache:
+                key: v1-project-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+                paths:
+                    - .
+
+    # The deploy job
+    deploy:
+        working_directory: ~/project
+        docker:
+            - image: circleci/node:8.9.1-browsers
+        steps:
+            # Log the current branch
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BRANCH}
+            # Set deployment status
+            - run:
+                name: Set deployment status to pending
+                command: |
+                    # Update status 
+                    curl "https://api.github.com/repos/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}/statuses/${CIRCLE_SHA1}" \
+                    -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" \
+                    -X POST \
+                    -d "{\"state\": \"pending\", \"description\": \"Deploying to Staging\", \"context\": \"ci/circleci: stage\"}"
+            # Restore cache from the build job which contains the
+            # dist folder that needs to be deployed
+            - restore_cache:
+                key: v1-project-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+            # Install now cli
+            - run:
+                name: Install now cli
+                command: npm i now
+            # Deploy to now.sh 
+            - run:
+                name: Deploy to Now.sh
+                command: ./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public
+            - run:
+                name: Alias deployment 
+                command: |
+                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_PRODUCTION_URL} 
+                    elif [ "${CIRCLE_BRANCH}" == "development" ]; then
+                        ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_STAGE_URL} 
+                    else
+                        ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_TEAM}-${CIRCLE_BRANCH} 
+                    fi
+            - run:
+                name: Update deployment status 
+                command: |
+                    # set staging url
+                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        export STAGE_URL="${NOW_PRODUCTION_URL}"
+                    elif [ "${CIRCLE_BRANCH}" == "development" ]; then
+                        export STAGE_URL="${NOW_STAGE_URL}"
+                    else
+                        export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH}.now.sh"
+                    fi
+
+                    # Update status 
+                    curl "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/statuses/$CIRCLE_SHA1" \
+                    -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" \
+                    -X POST \
+                    -d "{\"state\": \"success\", \"description\": \"Deployed to Staging!\", \"target_url\": \"${STAGE_URL}\", \"context\": \"ci/circleci: stage\"}"
+
+workflows:
+  version: 2
+  # The build and deploy workflow
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
