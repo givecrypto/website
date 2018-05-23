@@ -1,14 +1,19 @@
 import Router from 'next/router';
 
-const onClickHandler = href => {
+interface LinkProps {
+  href: string;
+  children?: any;
+}
+
+const onClickHandler = (href: string) => {
   return e => {
     e.preventDefault();
     Router.push(href);
   };
 };
 
-const Link = ({ children, href }) => (
-  <a href="#" onClick={onClickHandler(href)}>
+const Link = ({ children, href, ...rest }: LinkProps) => (
+  <a href={href} onClick={onClickHandler(href)} {...rest}>
     {children}
   </a>
 );
