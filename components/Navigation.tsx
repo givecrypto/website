@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Router from 'next/router';
 import Link from '../components/Link';
 
 export interface NavigationProps {}

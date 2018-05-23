@@ -72,7 +72,7 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/_document.js":
+/***/ "./pages/_document.tsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90,7 +90,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamorous___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_glamorous__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_setupFonts__ = __webpack_require__("./utils/setupFonts.tsx");
 
-var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.js";
+var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.tsx";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -282,7 +282,7 @@ __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/_document.js");
+module.exports = __webpack_require__("./pages/_document.tsx");
 
 
 /***/ }),
