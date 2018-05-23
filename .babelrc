@@ -2,15 +2,15 @@
   "env": {
     "development": {
       "presets": ["next/babel", "@zeit/next-typescript/babel"],
-      "plugins": ["inline-dotenv"]
+      "plugins": ["inline-dotenv", "inline-react-svg"]
     },
     "production": {
       "presets": ["next/babel", "@zeit/next-typescript/babel"],
-      "plugins": ["transform-inline-environment-variables"]
+      "plugins": ["transform-inline-environment-variables", "inline-react-svg"]
     },
     "test": {
       "presets": ["es2016", "next/babel", "@zeit/next-typescript/babel"],
-      "plugins": ["transform-inline-environment-variables"]
+      "plugins": ["transform-inline-environment-variables", "inline-react-svg"]
     }
   }
 }

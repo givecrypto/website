@@ -3,8 +3,7 @@ import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
 import Head from 'next/head';
 import HeadContent from '../components/HeadContent';
-import Donate from '../components/Donate';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation/Navigation';
 import '../utils/rehydrate';
 
 const { div } = glamorous;
@@ -37,7 +36,6 @@ export default class App extends React.Component<AppProps, AppState> {
         </Head>
         <Navigation />
         <h1>GiveCrypto - {message}</h1>
-        <Donate anonymous={true} />
       </Container>
     );
   }

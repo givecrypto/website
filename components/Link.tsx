@@ -1,4 +1,6 @@
 import Router from 'next/router';
+import glamorous from 'glamorous';
+import { colors } from '../design-system';
 
 interface LinkProps {
   href: string;
@@ -12,10 +14,22 @@ const onClickHandler = (href: string) => {
   };
 };
 
+const A = glamorous.a({
+  color: colors.black,
+  textDecoration: 'none',
+  '&:hover, &:active': {
+    color: colors.grey
+  },
+  '&.active': {
+    color: colors.grey,
+    pointerEvents: 'none'
+  }
+});
+
 const Link = ({ children, href, ...rest }: LinkProps) => (
-  <a href={href} onClick={onClickHandler(href)} {...rest}>
+  <A href={href} onClick={onClickHandler(href)} {...rest}>
     {children}
-  </a>
+  </A>
 );
 
 export default Link;

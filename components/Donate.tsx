@@ -12,11 +12,15 @@ const linkStyles = {
   '&.donate-with-crypto': {
     transition: 'all 200ms ease',
     color: 'white',
+    cursor: 'pointer',
     background: colors.green,
     textDecoration: 'none',
     padding: Step(4),
     height: 'auto',
     boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+    '&:after': {
+      display: 'none'
+    },
     '&:hover': {
       background: chroma(colors.green)
         .brighten(0.25)
