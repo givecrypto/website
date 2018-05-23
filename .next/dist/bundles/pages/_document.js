@@ -72,7 +72,7 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/_document.tsx":
+/***/ "./pages/_document.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87,7 +87,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server__ = __webpack_require__("glamor/server");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_glamor_server__);
 
-var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.tsx";
+var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -221,7 +221,7 @@ function (_Document) {
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/_document.tsx");
+module.exports = __webpack_require__("./pages/_document.js");
 
 
 /***/ }),

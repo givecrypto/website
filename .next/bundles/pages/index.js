@@ -12,10 +12,9 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_glamorous__ = __webpack_require__("./node_modules/glamorous/dist/glamorous.esm.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_Scale__ = __webpack_require__("./utils/Scale.tsx");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__design_system__ = __webpack_require__("./design-system/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_chroma_js__ = __webpack_require__("./node_modules/chroma-js/chroma.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_chroma_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_chroma_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__design_system__ = __webpack_require__("./design-system/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chroma_js__ = __webpack_require__("./node_modules/chroma-js/chroma.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chroma_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chroma_js__);
 var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/components/Donate.tsx";
 
 (function () {
@@ -42,15 +41,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
 var linkStyles = {
-  padding: Object(__WEBPACK_IMPORTED_MODULE_2__utils_Scale__["a" /* Step */])(4),
-  borderRadius: Object(__WEBPACK_IMPORTED_MODULE_2__utils_Scale__["a" /* Step */])(3),
-  color: 'white',
-  background: __WEBPACK_IMPORTED_MODULE_3__design_system__["a" /* colors */].green,
-  textDecoration: 'none',
-  '&:hover': {
-    background: __WEBPACK_IMPORTED_MODULE_4_chroma_js__(__WEBPACK_IMPORTED_MODULE_3__design_system__["a" /* colors */].green).brighten(0.25).css()
+  '&.donate-with-crypto': {
+    color: 'white',
+    background: __WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green,
+    textDecoration: 'none',
+    '&:hover': {
+      background: __WEBPACK_IMPORTED_MODULE_3_chroma_js___default()(__WEBPACK_IMPORTED_MODULE_2__design_system__["a" /* colors */].green).brighten(0.25).css()
+    },
+    '> span': {
+      textShadow: 'none'
+    }
   }
 };
 var Link = __WEBPACK_IMPORTED_MODULE_1_glamorous__["a" /* default */].a(linkStyles);
@@ -69,24 +70,24 @@ function (_React$Component) {
   _createClass(Donate, [{
     key: "render",
     value: function render() {
-      var id = this.props.anonymous ? process && process.env && process.env.COMMERCE_ID_TEST || "ec081042-4a98-42bf-bf04-e882a81db30f" : process && process.env && process.env.COMMERCE_ID_DEFAULT || "ab0a435a-6e00-46f6-b4dc-f72a5924ef39";
+      var id = this.props.anonymous ? process && process.env && process.env.COMMERCE_ID_ANONYMOUS || "ec081042-4a98-42bf-bf04-e882a81db30f" : process && process.env && process.env.COMMERCE_ID_DEFAULT || "ec081042-4a98-42bf-bf04-e882a81db30f";
       return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_0_react__["Fragment"], null, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Link, {
         className: "donate-with-crypto",
         href: "https://commerce.coinbase.com/checkout/".concat(id),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 35
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 39
         }
       }, "Donate Crypto")), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("script", {
         src: "https://commerce.coinbase.com/v1/checkout.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 41
         }
       }));
     }
