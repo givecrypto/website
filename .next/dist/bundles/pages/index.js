@@ -279,6 +279,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_head__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_HeadContent__ = __webpack_require__("./components/HeadContent.tsx");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Donate__ = __webpack_require__("./components/Donate.tsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_rehydrate__ = __webpack_require__("./utils/rehydrate.tsx");
 var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/index.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -294,6 +295,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -329,34 +331,34 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 30
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3_next_head___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 32
         }
       }, "Home page"), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__components_HeadContent__["a" /* default */], {
         page: "home",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         }
       }, "GiveCrypto - ", message), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__components_Donate__["a" /* default */], {
         anonymous: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 36
         }
       }));
     }
@@ -387,6 +389,25 @@ var Step = Object(__WEBPACK_IMPORTED_MODULE_0_natural_scale__["Scale"])(Interval
 
 /***/ }),
 
+/***/ "./utils/rehydrate.tsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_glamor__ = __webpack_require__("glamor");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_glamor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_glamor__);
+
+
+var loadStyles = function loadStyles() {
+  if (typeof window !== 'undefined') {
+    window.__NEXT_DATA__ = window.__NEXT_DATA__ || {};
+    Object(__WEBPACK_IMPORTED_MODULE_0_glamor__["rehydrate"])(window.__NEXT_DATA__.ids);
+  }
+};
+
+/* unused harmony default export */ var _unused_webpack_default_export = (loadStyles());
+
+/***/ }),
+
 /***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -399,6 +420,13 @@ module.exports = __webpack_require__("./pages/index.tsx");
 /***/ (function(module, exports) {
 
 module.exports = require("chroma-js");
+
+/***/ }),
+
+/***/ "glamor":
+/***/ (function(module, exports) {
+
+module.exports = require("glamor");
 
 /***/ }),
 
