@@ -1,7 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { renderStatic } from 'glamor/server';
-import { css } from 'glamor';
 import { Body } from 'glamorous';
+import '../utils/setupFonts';
 
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
@@ -19,11 +19,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    css.global('@font-face', {
-      fontFamily: 'Apercu',
-      src: `url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')`
-    });
-
     return (
       <html>
         <Head>

@@ -321,8 +321,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var div = __WEBPACK_IMPORTED_MODULE_2_glamorous___default.a.div;
 var Container = div({
-  padding: Object(__WEBPACK_IMPORTED_MODULE_1__utils_Scale__["a" /* Step */])(5),
-  fontFamily: '"Apercu", "Helvetica", sans-serif'
+  padding: Object(__WEBPACK_IMPORTED_MODULE_1__utils_Scale__["a" /* Step */])(5)
 });
 
 var App =
@@ -348,34 +347,34 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 29
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3_next_head___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 30
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 31
         }
       }, "GiveCrypto | Empowering, educating and elevating communities into the open financial system."), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__components_HeadContent__["a" /* default */], {
         page: "home",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 35
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 37
         }
       }, "GiveCrypto - ", message), __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__components_Donate__["a" /* default */], {
         anonymous: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 38
         }
       }));
     }

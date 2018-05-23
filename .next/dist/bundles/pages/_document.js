@@ -86,10 +86,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_document__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server__ = __webpack_require__("glamor/server");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_glamor_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_glamor_server__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamor__ = __webpack_require__("glamor");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_glamor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_glamorous__ = __webpack_require__("glamorous");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_glamorous___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_glamorous__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamorous__ = __webpack_require__("glamorous");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_glamorous___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_glamorous__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_setupFonts__ = __webpack_require__("./utils/setupFonts.tsx");
 
 var _jsxFileName = "/Users/jklb/Development/work/freelance/givecrypto/pages/_document.js";
 
@@ -175,24 +174,20 @@ function (_Document) {
   _createClass(MyDocument, [{
     key: "render",
     value: function render() {
-      __WEBPACK_IMPORTED_MODULE_4_glamor__["css"].global('@font-face', {
-        fontFamily: 'Apercu',
-        src: "url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')"
-      });
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("html", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 23
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Head"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 24
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 25
         }
       }, "GiveCrypto | Empowering, educating and elevating communities into the open financial system."), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
@@ -200,23 +195,23 @@ function (_Document) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 29
         }
-      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_glamorous__["Body"], {
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_glamorous__["Body"], {
         fontFamily: "Apercu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 31
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 32
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 33
         }
       })));
     }
@@ -226,6 +221,61 @@ function (_Document) {
 }(__WEBPACK_IMPORTED_MODULE_2_next_document___default.a);
 
 
+
+/***/ }),
+
+/***/ "./utils/setupFonts.tsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_glamor__ = __webpack_require__("glamor");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_glamor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_glamor__);
+ // Mono
+
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'mono',
+  fontWeight: 400,
+  src: "url('/static/Apercu-Mono.woff2') format('woff2'), url('/static/Apercu-Mono.woff') format('woff')"
+}); // Normal
+
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  src: "url('/static/Apercu-Light.woff2') format('woff2'), url('/static/Apercu-Light.woff') format('woff')"
+});
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  src: "url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')"
+});
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'normal',
+  fontWeight: 700,
+  src: "url('/static/Apercu-Medium.woff2') format('woff2'), url('/static/Apercu-Medium.woff') format('woff')"
+});
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'normal',
+  fontWeight: 900,
+  src: "url('/static/Apercu-Bold.woff2') format('woff2'), url('/static/Apercu-Bold.woff') format('woff')"
+}); // Italic
+
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'italic',
+  fontWeight: 700,
+  src: "url('/static/Apercu-MediumItalic.woff2') format('woff2'), url('/static/Apercu-MediumItalic.woff') format('woff')"
+});
+__WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'italic',
+  fontWeight: 900,
+  src: "url('/static/Apercu-BoldItalic.woff2') format('woff2'), url('/static/Apercu-BoldItalic.woff') format('woff')"
+});
 
 /***/ }),
 

@@ -9,8 +9,7 @@ import '../utils/rehydrate';
 const { div } = glamorous;
 
 const Container = div({
-  padding: Step(5),
-  fontFamily: '"Apercu", "Helvetica", sans-serif'
+  padding: Step(5)
 });
 
 export interface AppProps {}
