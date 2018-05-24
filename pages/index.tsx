@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
 import Head from 'next/head';
-import HeadContent from '../components/HeadContent';
+import HeadMeta from '../components/HeadMeta';
 import Navigation from '../components/Navigation/Navigation';
 import '../utils/rehydrate';
 
@@ -28,11 +28,11 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <Container>
         <Head>
-          <title>
+          <title key="head-title">
             GiveCrypto | Empowering, educating and elevating communities into
             the open financial system.
           </title>
-          <HeadContent page="home" />
+          <HeadMeta page="home" />
         </Head>
         <Navigation />
         <h1>Home Template. {message}</h1>

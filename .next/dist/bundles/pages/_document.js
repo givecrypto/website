@@ -184,41 +184,36 @@ function (_Document) {
           fileName: _jsxFileName,
           lineNumber: 24
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("title", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 25
-        }
-      }, "GiveCrypto | Empowering, educating and elevating communities into the open financial system."), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("style", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
           __html: this.props.css
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 25
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
         rel: "icon",
         href: "/static/favicon.ico",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 26
         }
       })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_glamorous__["Body"], {
         fontFamily: "Apercu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 28
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 29
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 30
         }
       })));
     }
