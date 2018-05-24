@@ -4,6 +4,7 @@ import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
 import Navigation from '../components/Navigation/Navigation';
+import Button from '../components/Button';
 import '../utils/rehydrate';
 
 const { div } = glamorous;

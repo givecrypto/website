@@ -6,6 +6,7 @@ import Head from 'next/head';
 import HeadMeta from '../components/HeadMeta';
 import Navigation from '../components/Navigation/Navigation';
 import { animateScroll } from 'react-scroll';
+import Faq from '../components/Faq';
 import '../utils/rehydrate';
 
 const { div } = glamorous;
@@ -58,6 +59,9 @@ export default class App extends React.Component<AppProps, AppState> {
           <h1 id="how-it-works">How It Works</h1>
           <Div display="block" height="300px" />
           <h1 id="about">About</h1>
+          <Div display="block" height="300px" />
+          <h1 id="faq">FAQ</h1>
+          <Faq />
         </Container>
       </>
     );

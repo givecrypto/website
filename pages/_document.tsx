@@ -27,6 +27,7 @@ export default class MyDocument extends Document {
         <Head>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
+          <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <ErrorBoundary>
           <Body

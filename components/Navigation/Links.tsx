@@ -9,7 +9,7 @@ export default [
   },
   {
     title: 'FAQ',
-    href: '/faq'
+    to: 'faq'
   },
   {
     title: 'Donors',

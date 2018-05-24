@@ -1,3 +1,4 @@
+const withCSS = require('@zeit/next-css');
 const withTypescript = require('@zeit/next-typescript');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -16,4 +17,6 @@ const BundleAnalyzerOptions = {
   }
 };
 
-module.exports = withTypescript(withBundleAnalyzer(BundleAnalyzerOptions));
+module.exports = withCSS(
+  withTypescript(withBundleAnalyzer(BundleAnalyzerOptions))
+);
