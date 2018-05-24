@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
-import Donate from '../components/Donate';
+import DonateButton from '../components/DonateButton';
 import Navigation from '../components/Navigation/Navigation';
 import '../utils/rehydrate';
 
@@ -39,7 +39,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <Navigation theme="light" />
         <Container>
           <h1>{message}</h1>
-          {donation === 'pending' && <Donate theme="ghost" />}
+          {donation === 'pending' && <DonateButton theme="ghost" />}
         </Container>
       </>
     );

@@ -1,13 +1,14 @@
 import * as React from 'react';
+import Router from 'next/router';
 import Link, { linkStyles } from '../../components/Link';
 import Links from './Links';
-import Donate from '../Donate';
 import Headroom from 'react-headroom';
 import { colors } from '../../design-system';
 import Logo from '../../svgs/logotype.svg';
 import { Step } from '../../utils/Scale';
 import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
 import { Link as ScrollLink } from 'react-scroll';
+import Button from '../../components/Button';
 export interface NavigationProps {
   theme?: string;
 }
@@ -15,33 +16,54 @@ export interface NavigationProps {
 export default class Navigation extends React.Component<NavigationProps, any> {
   constructor(props: any) {
     super(props);
+
+    this.state = {
+      currentRoute: null
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      currentRoute: Router.pathname
+    });
   }
 
   mapLinks() {
+    const { currentRoute } = this.state;
     return Links.map(({ href, title, to }: any) => {
-      if (to) {
-        const Span = glamorous.span(linkStyles);
-        return (
-          <NavItem key={title}>
-            <ScrollLink
-              activeClass="active"
-              to={to}
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <Span>{title}</Span>
-            </ScrollLink>
-          </NavItem>
-        );
-      }
-
-      return (
+      const defaultLink = (url = href): any => (
         <NavItem key={title}>
-          <Link href={href}>{title}</Link>
+          <Link href={url}>{title}</Link>
         </NavItem>
       );
+
+      if (to) {
+        const Span = glamorous.span(linkStyles);
+        const ElementIsAvailable =
+          typeof document !== 'undefined' && document.getElementById(to);
+
+        if (ElementIsAvailable && currentRoute === '/') {
+          return (
+            <NavItem key={title}>
+              <ScrollLink
+                activeClass="active"
+                to={to}
+                spy={true}
+                hashSpy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                <Span>{title}</Span>
+              </ScrollLink>
+            </NavItem>
+          );
+        } else {
+          return defaultLink(`/#${to}`);
+        }
+      }
+
+      return defaultLink();
     });
   }
 
@@ -71,7 +93,9 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             >
               {this.mapLinks()}
               <Li display="inline-block">
-                <Donate theme={donateTheme} />
+                <Button href={'/donate'} theme={donateTheme}>
+                  Donate Crypto
+                </Button>
               </Li>
             </Ul>
           </Div>
