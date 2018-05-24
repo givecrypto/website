@@ -197,21 +197,28 @@ function (_Document) {
           fileName: _jsxFileName,
           lineNumber: 29
         }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
+        rel: "icon",
+        href: "/static/favicon.ico",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
       })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_glamorous__["Body"], {
         fontFamily: "Apercu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 32
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_document__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         }
       })));
     }
@@ -236,45 +243,45 @@ __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'normal',
   fontWeight: 200,
-  src: "url('/static/Apercu-Mono.woff2') format('woff2'), url('/static/Apercu-Mono.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-Mono.woff2') format('woff2'), url('/static/fonts/Apercu-Mono.woff') format('woff')"
 }); // Normal
 
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'normal',
   fontWeight: 400,
-  src: "url('/static/Apercu-Light.woff2') format('woff2'), url('/static/Apercu-Light.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-Light.woff2') format('woff2'), url('/static/fonts/Apercu-Light.woff') format('woff')"
 });
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'normal',
   fontWeight: 500,
-  src: "url('/static/Apercu-Regular.woff2') format('woff2'), url('/static/Apercu-Regular.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-Regular.woff2') format('woff2'), url('/static/fonts/Apercu-Regular.woff') format('woff')"
 });
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'normal',
   fontWeight: 700,
-  src: "url('/static/Apercu-Medium.woff2') format('woff2'), url('/static/Apercu-Medium.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-Medium.woff2') format('woff2'), url('/static/fonts/Apercu-Medium.woff') format('woff')"
 });
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'normal',
   fontWeight: 900,
-  src: "url('/static/Apercu-Bold.woff2') format('woff2'), url('/static/Apercu-Bold.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-Bold.woff2') format('woff2'), url('/static/fonts/Apercu-Bold.woff') format('woff')"
 }); // Italic
 
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'italic',
   fontWeight: 700,
-  src: "url('/static/Apercu-MediumItalic.woff2') format('woff2'), url('/static/Apercu-MediumItalic.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-MediumItalic.woff2') format('woff2'), url('/static/fonts/Apercu-MediumItalic.woff') format('woff')"
 });
 __WEBPACK_IMPORTED_MODULE_0_glamor__["css"].global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'italic',
   fontWeight: 900,
-  src: "url('/static/Apercu-BoldItalic.woff2') format('woff2'), url('/static/Apercu-BoldItalic.woff') format('woff')"
+  src: "url('/static/fonts/Apercu-BoldItalic.woff2') format('woff2'), url('/static/fonts/Apercu-BoldItalic.woff') format('woff')"
 });
 
 /***/ }),
