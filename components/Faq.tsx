@@ -6,7 +6,7 @@ import {
   AccordionItemBody,
   resetNextUuid
 } from 'react-accessible-accordion';
-import './accordion.css';
+import '../styles/accordion.css';
 
 export interface FaqProps {}
 
@@ -16,27 +16,25 @@ export default class Faq extends React.Component<FaqProps, any> {
     resetNextUuid();
 
     return (
-      <>
-        <Accordion>
-          <AccordionItem>
-            <AccordionItemTitle>
-              <h3>Simple title</h3>
-            </AccordionItemTitle>
-            <AccordionItemBody>
-              <p>Body content</p>
-            </AccordionItemBody>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemTitle>
-              <h3>Complex title</h3>
-              <div>With a bit of description</div>
-            </AccordionItemTitle>
-            <AccordionItemBody>
-              <p>Body content</p>
-            </AccordionItemBody>
-          </AccordionItem>
-        </Accordion>
-      </>
+      <Accordion>
+        <AccordionItem>
+          <AccordionItemTitle>
+            <h3>Simple title</h3>
+          </AccordionItemTitle>
+          <AccordionItemBody>
+            <p>Body content</p>
+          </AccordionItemBody>
+        </AccordionItem>
+        <AccordionItem>
+          <AccordionItemTitle>
+            <h3>Complex title</h3>
+            <div>With a bit of description</div>
+          </AccordionItemTitle>
+          <AccordionItemBody>
+            <p>Body content</p>
+          </AccordionItemBody>
+        </AccordionItem>
+      </Accordion>
     );
   }
 }

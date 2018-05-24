@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import ErrorBoundary from '../components/ErrorBoundary';
 import '../utils/setupFonts';
 
-export default class MyDocument extends Document {
+export default class GiveCrypto extends Document {
   static async getInitialProps({ renderPage }) {
     const page = renderPage();
     const styles = renderStatic(() => page.html || page.errorHtml);

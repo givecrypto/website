@@ -432,7 +432,7 @@ var colors = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GiveCrypto; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
@@ -480,12 +480,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var MyDocument =
+var GiveCrypto =
 /*#__PURE__*/
 function (_Document) {
-  _inherits(MyDocument, _Document);
+  _inherits(GiveCrypto, _Document);
 
-  _createClass(MyDocument, null, [{
+  _createClass(GiveCrypto, null, [{
     key: "getInitialProps",
     value: function () {
       var _getInitialProps = _asyncToGenerator(
@@ -517,12 +517,12 @@ function (_Document) {
     }()
   }]);
 
-  function MyDocument(props) {
+  function GiveCrypto(props) {
     var _this;
 
-    _classCallCheck(this, MyDocument);
+    _classCallCheck(this, GiveCrypto);
 
-    _this = _possibleConstructorReturn(this, (MyDocument.__proto__ || Object.getPrototypeOf(MyDocument)).call(this, props));
+    _this = _possibleConstructorReturn(this, (GiveCrypto.__proto__ || Object.getPrototypeOf(GiveCrypto)).call(this, props));
     var __NEXT_DATA__ = props.__NEXT_DATA__,
         ids = props.ids;
 
@@ -533,7 +533,7 @@ function (_Document) {
     return _this;
   }
 
-  _createClass(MyDocument, [{
+  _createClass(GiveCrypto, [{
     key: "render",
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("html", {
@@ -608,7 +608,7 @@ function (_Document) {
     }
   }]);
 
-  return MyDocument;
+  return GiveCrypto;
 }(__WEBPACK_IMPORTED_MODULE_2_next_document___default.a);
 
 
