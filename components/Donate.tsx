@@ -78,10 +78,12 @@ export default class Donate extends React.Component<DonateProps, any> {
         <Link
           className={`donate-with-crypto theme-${theme}`}
           href={`https://commerce.coinbase.com/checkout/${id}`}
+          rel="ha"
+          target="idk"
         >
           <span>Donate Crypto</span>
         </Link>
-        <script src="https://commerce.coinbase.com/v1/checkout.js" />
+        <script src="/static/vendor/checkout.js" />
       </>
     );
   }

@@ -1,11 +1,11 @@
 export default [
   {
     title: 'How It Works',
-    href: '/how-it-works'
+    to: 'how-it-works'
   },
   {
     title: 'About',
-    href: '/about'
+    to: 'about'
   },
   {
     title: 'FAQ',

@@ -1,40 +1,54 @@
-import * as React from 'react';
+import Head from 'next/head';
 
-interface HeadContentProps {
-  page: string;
+interface HeadMetaProps {
+  path: string;
+  title?: string;
+  image?: string;
+  description?: string;
+  url?: string;
 }
 
-export default class HeadContent extends React.Component<
-  HeadContentProps,
-  any
-> {
-  render() {
-    const { page } = this.props;
-    let info = {
-      title:
-        'GiveCrypto | Empowering, educating and elevating communities into the open financial system.'
-    };
+const defaults = {
+  title: 'GiveCrypto | Give cryptocurrency to people in need.',
+  description:
+    'Empowering, educating and elevating communities into the open financial system.',
+  image: 'https://jklb-os.s3.amazonaws.com/givecrypto/social-image@2x.jpg'
+};
 
-    switch (page) {
-      case 'home':
-        info.title = 'OMG';
-        break;
+export default ({
+  path,
+  title = defaults.title,
+  description = defaults.description,
+  image = defaults.image
+}: HeadMetaProps) => (
+  <Head>
+    <meta key="twitter-card" name="twitter:card" content="summary" />
+    <meta key="twitter-site" name="twitter:site" content="@givecrypto" />
+    <meta key="twitter-title" name="twitter:title" content={title} />
+    <meta
+      key="twitter-description"
+      name="twitter:description"
+      content={description}
+    />
+    <meta key="twitter-image" name="twitter:image" content={image} />
+    <meta
+      key="twitter-url"
+      name="twitter:url"
+      content={`https://www.givecrypto.com${path}`}
+    />
 
-      case 'donors':
-        info.title = 'The Donors';
-        break;
-
-      default:
-        info.title = 'Nevermind';
-        break;
-    }
-
-    return (
-      <>
-        <title key="head-title">{info.title}</title>
-        <meta name="twitter" key="title" content={info.title} />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </>
-    );
-  }
-}
+    <meta key="facebook-type" property="og:type" content="article" />
+    <meta key="facebook-title" property="og:title" content={title} />
+    <meta
+      key="facebook-description"
+      property="og:description"
+      content={description}
+    />
+    <meta key="facebook-image" property="og:image" content={image} />
+    <meta
+      key="facebook-url"
+      property="og:url"
+      content={`https://www.givecrypto.com${path}`}
+    />
+  </Head>
+);

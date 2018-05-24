@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Step } from '../utils/Scale';
-import glamorous from 'glamorous';
+import glamorous, { Div } from 'glamorous';
 import Head from 'next/head';
 import HeadMeta from '../components/HeadMeta';
 import Navigation from '../components/Navigation/Navigation';
@@ -26,17 +26,23 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     const { message = 'Giving copy' } = this.state;
     return (
-      <Container>
+      <>
         <Head>
           <title key="head-title">
             GiveCrypto | Empowering, educating and elevating communities into
             the open financial system.
           </title>
-          <HeadMeta page="home" />
         </Head>
+        <HeadMeta path="/home" />
         <Navigation />
-        <h1>Home Template. {message}</h1>
-      </Container>
+        <Container>
+          <h1>Home Template. {message}</h1>
+          <Div display="block" height="300px" />
+          <h1 id="how-it-works">How It Works</h1>
+          <Div display="block" height="300px" />
+          <h1 id="about">About</h1>
+        </Container>
+      </>
     );
   }
 }
