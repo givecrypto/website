@@ -4,7 +4,7 @@ import Links from './Links';
 import Donate from '../Donate';
 import Headroom from 'react-headroom';
 import { colors } from '../../design-system';
-import Logo from '../../svgs/logo.svg';
+import Logo from '../../svgs/logotype.svg';
 import { Step } from '../../utils/Scale';
 import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
 import { Link as ScrollLink } from 'react-scroll';

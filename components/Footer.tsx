@@ -4,7 +4,7 @@ import { Step } from '../utils/Scale';
 import Reddit from '../svgs/social/reddit.svg';
 import Twitter from '../svgs/social/twitter.svg';
 import Medium from '../svgs/social/medium.svg';
-import Logo from '../svgs/logo.svg';
+import Logo from '../svgs/logotype.svg';
 import Link from '../components/Link';
 
 interface FooterProps {}
