@@ -7,13 +7,17 @@ import HeadMeta from '../components/HeadMeta';
 import Navigation from '../components/Navigation/Navigation';
 import { animateScroll } from 'react-scroll';
 import Faq from '../components/Faq';
+import withWrapper from '../components/withWrapper';
 import '../utils/rehydrate';
+import { colors } from '../design-system';
 
 const { div } = glamorous;
 
 const Container = div({
   padding: Step(5)
 });
+
+const WrappedFaq = withWrapper(Faq);
 
 export interface AppProps {}
 
@@ -60,8 +64,12 @@ export default class App extends React.Component<AppProps, AppState> {
           <Div display="block" height="300px" />
           <h1 id="about">About</h1>
           <Div display="block" height="300px" />
-          <h1 id="faq">FAQ</h1>
-          <Faq />
+          <WrappedFaq
+            id="faq"
+            color={colors.white}
+            background={colors.blueDark}
+            padding={'4rem'}
+          />
         </Container>
       </>
     );
