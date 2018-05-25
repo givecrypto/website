@@ -11,6 +11,7 @@ export interface DonateProps {
 
 const linkStyles = {
   '&.donate-with-crypto': {
+    boxSizing: 'border-box',
     transition: 'all 200ms ease',
     cursor: 'pointer',
     color: 'white',
@@ -18,9 +19,14 @@ const linkStyles = {
     background: colors.green,
     textDecoration: 'none',
     padding: Step(4),
-    height: 'auto',
+    borderRadius: Step(2),
+    fontSize: Step(3.75),
+    height: 'inherit !important',
     boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
+    display: 'inline',
     '> span': {
+      display: 'inline',
+      fontSize: '1em',
       fontFamily: 'Apercu',
       fontWeight: 200,
       textTransform: 'uppercase',

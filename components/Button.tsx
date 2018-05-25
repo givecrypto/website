@@ -5,12 +5,14 @@ import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 
 export interface ButtonProps {
-  href: string;
+  href?: string;
+  to?: string;
   theme?: string;
   target?: string;
 }
 
 const buttonStyles: CSSProperties = {
+  boxSizing: 'border-box',
   transition: 'all 200ms',
   cursor: 'pointer',
   color: 'white',
@@ -19,10 +21,11 @@ const buttonStyles: CSSProperties = {
   background: colors.green,
   textDecoration: 'none',
   padding: Step(4),
+  display: 'inline-block',
+  fontSize: Step(3.75),
   boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
   fontFamily: 'Apercu',
   fontWeight: 200,
-  fontSize: Step(3.75),
   textTransform: 'uppercase',
   letterSpacing: `0.1rem`,
   '&:hover': {
@@ -60,7 +63,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <Link className={`Link-with-crypto theme-${theme}`} href={href} {...rest}>
-        {children}
+        <span>{children}</span>
       </Link>
     );
   }
