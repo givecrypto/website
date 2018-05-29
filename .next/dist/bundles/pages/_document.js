@@ -411,8 +411,10 @@ var Link = function Link(_ref) {
 var colors = {
   green: '#00CD90',
   blue: '#5890FF',
+  red: '#D9694B',
   blueDark: '#374056',
   grey: '#898F9C',
+  greyLight: '#9FA4AE',
   black: '#323232',
   white: '#ffffff'
 };
@@ -627,7 +629,7 @@ function (_Document) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_natural_scale__ = __webpack_require__("natural-scale");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_natural_scale___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_natural_scale__);
 
-var Interval = __WEBPACK_IMPORTED_MODULE_0_natural_scale__["Ratio"].GOLDEN_RATIO;
+var Interval = __WEBPACK_IMPORTED_MODULE_0_natural_scale__["Ratio"].MINOR_SEVENTH;
 var Step = Object(__WEBPACK_IMPORTED_MODULE_0_natural_scale__["Scale"])(Interval, 'rem');
 /* unused harmony default export */ var _unused_webpack_default_export = ({
   Step: Step,
