@@ -74,6 +74,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       <Headroom>
         <Nav
           padding={Step(5)}
+          background={colors.white}
           display="flex"
           alignItems="center"
           justifyContent="space-between"

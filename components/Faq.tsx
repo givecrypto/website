@@ -28,6 +28,13 @@ const Faqs: any = () => {
       borderBottom: `2px solid ${colors.white}`,
       '> div': {
         overflow: 'hidden',
+        outline: 'none',
+        '& a': {
+          color: colors.green,
+          '&:hover': {
+            color: colors.white
+          }
+        },
         '> h2': {
           cursor: 'pointer',
           position: 'relative',
@@ -49,15 +56,19 @@ const Faqs: any = () => {
             top: `0.85rem`
           }
         },
-        '> p': {
+        '& p, & li': {
           fontSize: Step(5),
-          color: colors.greyLight,
-          '> a': {
-            color: colors.green
+          lineHeight: Step(4.95, 'none'),
+          color: colors.greyLight
+        },
+        '&:focus': {
+          '& h2': {
+            color: colors.greyLight
           }
         },
-        '&[aria-selected=true]': {
-          '> h2': {
+        '&[aria-expanded=true]': {
+          '& h2': {
+            color: colors.red,
             '&:after': {
               color: colors.red,
               transform: `rotate(45deg)`
@@ -91,7 +102,7 @@ export default class Faq extends React.Component<FaqProps, any> {
     return (
       <>
         <Heading>FAQs</Heading>
-        <Accordion>
+        <Accordion accordion={false}>
           <Faqs />
         </Accordion>
       </>
