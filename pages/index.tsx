@@ -10,6 +10,7 @@ import Faq from '../components/Faq';
 import withWrapper from '../components/withWrapper';
 import '../utils/rehydrate';
 import { colors } from '../design-system';
+import Hero from '../components/Hero';
 
 const { div } = glamorous;
 
@@ -58,6 +59,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <HeadMeta path="/home" />
         <Navigation />
         <Container>
+          <Hero page="home" />
           <h1>Home Template. {message}</h1>
           <Div display="block" height="300px" />
           <h1 id="how-it-works">How It Works</h1>
