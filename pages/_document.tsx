@@ -5,6 +5,7 @@ import { Body, Section } from 'glamorous';
 import Footer from '../components/Footer';
 import ErrorBoundary from '../components/ErrorBoundary';
 import '../utils/setupFonts';
+import '../styles/index.css';
 
 export default class GiveCrypto extends Document {
   static async getInitialProps({ renderPage }) {
