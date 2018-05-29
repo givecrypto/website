@@ -579,7 +579,7 @@ function (_Document) {
           lineNumber: 32
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_glamorous__["Body"], {
-        fontFamily: "Apercu",
+        fontFamily: "Apercu, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial, sans-serif",
         display: "flex",
         flexDirection: "column",
         height: "100vh",

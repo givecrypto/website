@@ -31,7 +31,7 @@ export default class GiveCrypto extends Document {
         </Head>
         <ErrorBoundary>
           <Body
-            fontFamily="Apercu"
+            fontFamily="Apercu, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial, sans-serif"
             display="flex"
             flexDirection="column"
             height="100vh"

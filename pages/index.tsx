@@ -22,9 +22,7 @@ const WrappedFaq = withWrapper(Faq);
 
 export interface AppProps {}
 
-export interface AppState {
-  message?: string;
-}
+export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props) {
@@ -47,7 +45,6 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
-    const { message = 'Giving copy' } = this.state;
     return (
       <>
         <Head>
@@ -60,7 +57,6 @@ export default class App extends React.Component<AppProps, AppState> {
         <Navigation />
         <Container>
           <Hero page="home" />
-          <h1>Home Template. {message}</h1>
           <Div display="block" height="300px" />
           <h1 id="how-it-works">How It Works</h1>
           <Div display="block" height="300px" />
