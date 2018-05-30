@@ -3,6 +3,8 @@ import content from '../content/home/hero';
 import glamorous from 'glamorous';
 import { Step } from '../utils/Scale';
 import { colors } from '../design-system';
+import SceneFive from '../svgs/givecrypto-scene-01.svg';
+import SubscriptionForm from './SubscriptionForm';
 
 export interface HeroProps {
   page: string;
@@ -26,9 +28,13 @@ export default class Hero extends React.Component<HeroProps, any> {
       const { title, subtitle } = content;
 
       return (
-        <div className="flex">
-          <Title>{title}</Title>
-          <SubTitle>{subtitle}</SubTitle>
+        <div className="flex align-center items-center flex-column flex-row-ns">
+          <SceneFive />
+          <div>
+            <Title className="lh-title">{title}</Title>
+            <SubTitle className="lh-copy">{subtitle}</SubTitle>
+            <SubscriptionForm />
+          </div>
         </div>
       );
     }
