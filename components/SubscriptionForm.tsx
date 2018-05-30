@@ -78,7 +78,11 @@ export default class SubscriptionForm extends React.Component<any, any> {
             onChange={this.handleChange}
           />
         </label>
-        <input type="submit" value="Submit" disabled={!value || error} />
+        <input
+          type="submit"
+          value="Subscribe To Our Blog"
+          disabled={!value || error}
+        />
       </form>
     );
   }
