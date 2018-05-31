@@ -52,17 +52,46 @@ const buttonStyles: CSSProperties = {
         .brighten(0.25)
         .css()
     }
+  },
+  '&.theme-submit': {
+    transition: 'all 300ms',
+    color: colors.white,
+    background: chroma(colors.green)
+      .brighten(0.25)
+      .css(),
+    borderColor: colors.green,
+    textTransform: 'none',
+    fontWeight: 400,
+    letterSpacing: `0.075rem`,
+    boxShadow: 'none',
+    borderRadius: `0 ${Step(2)} ${Step(2)} 0`,
+    '&:hover': {
+      color: colors.white,
+      background: chroma(colors.green)
+        .brighten(0.25)
+        .css()
+    },
+    '&.disable-true, &[disabled]': {
+      pointerEvents: 'none',
+      color: colors.black,
+      background: colors.white
+    }
   }
 };
 
-const Link = glamorous.a(buttonStyles);
-
-export default class Button extends React.Component<ButtonProps, any> {
+export default class Button extends React.Component<any, any> {
   render() {
-    const { href, theme = 'default', children, ...rest } = this.props;
+    const { tabindex, href, theme = 'default', children, ...rest } = this.props;
+    const el = href ? glamorous.a : glamorous.button;
+    const Link = el(buttonStyles);
 
     return (
-      <Link className={`Link-with-crypto theme-${theme}`} href={href} {...rest}>
+      <Link
+        tabIndex={tabindex}
+        className={`Link-with-crypto theme-${theme}`}
+        href={href}
+        {...rest}
+      >
         <span>{children}</span>
       </Link>
     );

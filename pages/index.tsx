@@ -58,9 +58,13 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <Hero page="home" />
           <Div display="block" height="300px" />
-          <h1 id="how-it-works">How It Works</h1>
+          <h1 id="how-it-works" className="tc">
+            How It Works
+          </h1>
           <Div display="block" height="300px" />
-          <h1 id="about">About</h1>
+          <h1 id="about" className="tc">
+            About
+          </h1>
           <Div display="block" height="300px" />
           <WrappedFaq
             id="faq"

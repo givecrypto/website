@@ -7,17 +7,24 @@ const exampleList = `
   - So are [links](/)
 `;
 
+const exampleStyles = `
+Emphasis, aka italics, with *asterisks* or _underscores_.
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+Combined emphasis with **asterisks and _underscores_**.
+Strikethrough uses two tildes. ~~Scratch this.~~
+`;
+
 const faqs = [
-  {
-    question: 'Basic question',
-    answer: `We have the best answers. [I'm an inline-style link](/)`
-  },
   {
     question: 'Answer with link',
     answer: `Learn more about us on the internet. [I'm an inline-style link](/)`
   },
   {
-    question: 'Great title',
+    question: 'Styled example',
+    answer: exampleStyles
+  },
+  {
+    question: 'List example',
     answer: exampleList
   },
   {

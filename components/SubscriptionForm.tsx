@@ -3,18 +3,38 @@ import ValidateEmail from '../validators/ValidateEmail';
 import { sample } from 'lodash';
 import glamorous from 'glamorous';
 import { colors } from '../design-system';
+import Button from './Button';
+import { Step } from '../utils/Scale';
 
 const FormInput = glamorous.input({
-  border: `1px solid ${colors.greyLight}`,
+  fontFamily: 'Apercu',
+  padding: Step(4),
+  minWidth: 260,
+  fontSize: Step(3.75),
+  border: `1px solid ${colors.greyLighter}`,
+  borderRight: 'none',
+  color: colors.black,
+  background: colors.white,
+  textTransform: 'none',
+  fontWeight: 400,
+  letterSpacing: `0.075rem`,
+  borderRadius: `${Step(2)} 0 0 ${Step(2)}`,
+  '&::placeholder': {
+    color: colors.greyLight
+  },
+  '&:focus': {
+    borderColor: colors.grey,
+    outline: 'none'
+  },
   '&.error': {
-    borderColor: colors.red
+    // borderColor: colors.red
   }
 });
 
 export default class SubscriptionForm extends React.Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: '', placeholder: 'Your email' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,18 +47,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
 
   getErrorText(mood: 'sad' | 'angry' | 'cheeky') {
     const response = {
-      sad: [
-        `Oh, I see how it is...`,
-        `I guess you don't trust us?`,
-        `Is it something we said?`
-      ],
-      angry: [`WTF?!`, `This field is required!`],
-      cheeky: [
-        `Please, we don't bite`,
-        `Cat got your tongue?`,
-        `Typing is hard...`,
-        `There's always teespring?`
-      ]
+      sad: [`Email please?`, `Is it something we said?`]
     };
 
     return sample(response[mood]);
@@ -46,7 +55,8 @@ export default class SubscriptionForm extends React.Component<any, any> {
 
   handleSubmit(event) {
     event.preventDefault();
-    alert('An email was submitted: ' + this.state.value);
+    const { error, value } = this.state;
+    if (!error && value) alert('An email was submitted: ' + value);
   }
 
   validate() {
@@ -54,7 +64,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
     const errorState = ValidateEmail(value);
     this.setState({
       error: errorState ? false : true,
-      placeholder: errorState ? '' : this.getErrorText('cheeky')
+      placeholder: errorState ? 'Your Email' : this.getErrorText('sad')
     });
   }
 
@@ -78,11 +88,13 @@ export default class SubscriptionForm extends React.Component<any, any> {
             onChange={this.handleChange}
           />
         </label>
-        <input
+        <Button
+          tabindex="0"
+          theme={`submit disable-${!value || error}`}
           type="submit"
-          value="Subscribe To Our Blog"
-          disabled={!value || error}
-        />
+        >
+          Subscribe To Our Blog
+        </Button>
       </form>
     );
   }

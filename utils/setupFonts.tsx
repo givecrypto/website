@@ -38,6 +38,12 @@ css.global('@font-face', {
 css.global('@font-face', {
   fontFamily: 'Apercu',
   fontStyle: 'italic',
+  fontWeight: 500,
+  src: `url('/static/fonts/Apercu-Italic.woff2') format('woff2'), url('/static/fonts/Apercu-Italic.woff') format('woff')`
+});
+css.global('@font-face', {
+  fontFamily: 'Apercu',
+  fontStyle: 'italic',
   fontWeight: 700,
   src: `url('/static/fonts/Apercu-MediumItalic.woff2') format('woff2'), url('/static/fonts/Apercu-MediumItalic.woff') format('woff')`
 });

@@ -4,6 +4,7 @@ import glamorous from 'glamorous';
 import { Step } from '../utils/Scale';
 import { colors } from '../design-system';
 import SceneB from '../svgs/givecrypto-scene-05.svg';
+import Share from './Share';
 import SubscriptionForm from './SubscriptionForm';
 
 export interface HeroProps {
@@ -38,13 +39,16 @@ export default class Hero extends React.Component<HeroProps, any> {
 
       return (
         <div className="flex align-center justify-around items-center flex-column flex-row-ns">
-          <Illustration>
+          <Illustration className="responsive">
             <SceneB />
           </Illustration>
           <Details>
-            <Title className="lh-title">{title}</Title>
-            <SubTitle className="lh-copy">{subtitle}</SubTitle>
+            <Title className="lh-title measure">{title}</Title>
+            <SubTitle className="lh-copy measure-narrow mb4">
+              {subtitle}
+            </SubTitle>
             <SubscriptionForm />
+            <Share />
           </Details>
         </div>
       );
