@@ -10,9 +10,16 @@ export interface WrapperProps {
 }
 
 // This will be a wrapper we can use with render props
-export default class Wrapper extends React.Component<WrapperProps, any> {
+export default class Wrapper extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      attrs: props
+    };
+  }
+
   render() {
-    const { background, narrow, render, ...rest } = this.props;
+    const { background, narrow, render, ...rest } = this.state.attrs;
     const Wrapper = glamorous.section({
       width: '100%',
       background: background
@@ -21,7 +28,7 @@ export default class Wrapper extends React.Component<WrapperProps, any> {
     const WrapperInner = glamorous.section({
       maxWidth: narrow ? 900 : 1100,
       margin: '0 auto',
-      color: rest.color
+      ...rest
     });
 
     return (
