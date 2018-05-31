@@ -11,6 +11,7 @@ import withWrapper from '../components/withWrapper';
 import '../utils/rehydrate';
 import { colors } from '../design-system';
 import Hero from '../components/Hero';
+import HowItWorks from '../components/HowItWorks';
 
 const { div } = glamorous;
 
@@ -19,6 +20,7 @@ const Container = div({
 });
 
 const WrappedFaq = withWrapper(Faq);
+const WrappedHowItWorks = withWrapper(HowItWorks);
 
 export interface AppProps {}
 
@@ -58,9 +60,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <Hero page="home" />
           <Div display="block" height="300px" />
-          <h1 id="how-it-works" className="tc">
-            How It Works
-          </h1>
+          <WrappedHowItWorks />
           <Div display="block" height="300px" />
           <h1 id="about" className="tc">
             About
@@ -70,7 +70,7 @@ export default class App extends React.Component<AppProps, AppState> {
             id="faq"
             color={colors.white}
             background={colors.blueDark}
-            padding={'4rem'}
+            padding={'4rem 0'}
           />
         </Container>
       </>
