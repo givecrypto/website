@@ -2,9 +2,10 @@ import * as React from 'react';
 import glamorous from 'glamorous';
 import { Step } from '../utils/Scale';
 import { colors, shadows } from '../design-system';
-import DistributeIcon from '../svgs/givecrypto-distribute.svg';
-import DonateIcon from '../svgs/givecrypto-donate.svg';
-import HelpIcon from '../svgs/givecrypto-help.svg';
+import content from '../content/home/how-it-works';
+import Help from '../svgs/givecrypto-help.svg';
+import Distribute from '../svgs/givecrypto-distribute.svg';
+import Donate from '../svgs/givecrypto-donate.svg';
 
 const Title = glamorous.h1({
   fontSize: Step(6),
@@ -69,47 +70,48 @@ const CardSubTitle = glamorous.p({
   fontWeight: 400
 });
 
+const Cards: any = () => {
+  const { cards } = content;
+  return cards.map(({ title, subtitle, icon }, index) => {
+    let Icon = Help;
+    switch (icon) {
+      case 'Help':
+        Icon = Help;
+        break;
+      case 'Donate':
+        Icon = Donate;
+        break;
+      case 'Distribute':
+        Icon = Distribute;
+        break;
+
+      default:
+        break;
+    }
+
+    return (
+      <Card className="tc" key={title}>
+        <CardNumber>Step {index + 1}</CardNumber>
+        <IconContainer className="responsive">
+          <Icon />
+        </IconContainer>
+        <CardTitle>{title}</CardTitle>
+        <CardSubTitle className="lh-copy">{subtitle}</CardSubTitle>
+      </Card>
+    );
+  });
+};
+
 export default () => {
+  const { title, subtitle } = content;
   return (
     <>
       <Title id="how-it-works" className="lh-title">
-        How It Works
+        {title}
       </Title>
-      <SubTitle className="measure lh-copy">
-        We distribute your cryptocurrency to impact communities and help drive
-        the real-world utility of crypto.
-      </SubTitle>
+      <SubTitle className="measure lh-copy">{subtitle}</SubTitle>
       <CardWrapper className="flex flex-wrap justify-between">
-        <Card className="tc">
-          <CardNumber>Step 1</CardNumber>
-          <IconContainer className="responsive">
-            <DistributeIcon />
-          </IconContainer>
-          <CardTitle>Donate Crypto</CardTitle>
-          <CardSubTitle className="lh-copy">
-            Put your crypto to work to benefit the world.
-          </CardSubTitle>
-        </Card>
-        <Card className="tc">
-          <CardNumber>Step 2</CardNumber>
-          <IconContainer className="responsive">
-            <DonateIcon />
-          </IconContainer>
-          <CardTitle>We Distribute It</CardTitle>
-          <CardSubTitle className="lh-copy">
-            We make direct cash transfers to those in need.
-          </CardSubTitle>
-        </Card>
-        <Card className="tc">
-          <CardNumber>Step 3</CardNumber>
-          <IconContainer className="responsive">
-            <HelpIcon />
-          </IconContainer>
-          <CardTitle>Help People</CardTitle>
-          <CardSubTitle className="lh-copy">
-            People use the funds in their local economy.
-          </CardSubTitle>
-        </Card>
+        <Cards />
       </CardWrapper>
     </>
   );
