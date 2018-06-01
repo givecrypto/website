@@ -9,6 +9,12 @@ export interface DonateProps {
   theme?: string;
 }
 
+declare global {
+  interface Window {
+    BuyWithCrypto: any;
+  }
+}
+
 const linkStyles = {
   '&.donate-with-crypto': {
     boxSizing: 'border-box',
@@ -72,9 +78,15 @@ const linkStyles = {
 };
 const Link = glamorous.a(linkStyles);
 
-export default class Donate extends React.Component<DonateProps, any> {
+export default class Donate extends React.Component<DonateProps, {}> {
+  // componentDidMount() {
+  //   const doThing = checkout();
+  //   doThing(window, document);
+  // }
+
   render() {
     const { anonymous, theme = 'default' } = this.props;
+
     let id = anonymous
       ? process.env.COMMERCE_ID_ANONYMOUS
       : process.env.COMMERCE_ID_DEFAULT;
@@ -84,8 +96,8 @@ export default class Donate extends React.Component<DonateProps, any> {
         <Link
           className={`donate-with-crypto theme-${theme}`}
           href={`https://commerce.coinbase.com/checkout/${id}`}
-          rel="ha"
-          target="idk"
+          rel="noopener"
+          target="_self"
         >
           <span>Donate Crypto</span>
         </Link>

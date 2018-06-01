@@ -5,6 +5,7 @@ export const colors: any = {
   blueDark: '#374056',
   grey: '#898F9C',
   greyLight: '#9FA4AE',
+  greyDark: '#4E5665',
   greyLighter: '#DBDBDB',
   black: '#323232',
   white: '#ffffff'

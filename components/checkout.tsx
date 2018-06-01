@@ -1,6 +1,5 @@
-'use strict';
-!(function(t, i) {
-  console.log('original', t, i);
+export default () => (t, i) => {
+  console.log('test', t, i);
   var e = '/embed/checkout/',
     n =
       'background: none; box-sizing: border-box; clear: none; clip: auto; float: none; margin: 0; padding: 0; border: 0; opacity: 1; vertical-align: baseline;visibility: visible; min-width: 0; max-width: none; min-height: 0; max-height: none; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; ',
@@ -188,4 +187,4 @@
           (t.BuyWithCrypto = n),
           n.findButtonAndInstall(i.currentScript);
       })();
-})(this, this.document);
+};

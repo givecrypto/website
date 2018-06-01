@@ -11,6 +11,10 @@ export interface HeroProps {
   page: string;
 }
 
+const Details = glamorous.div({
+  width: '75%',
+  maxWidth: 560
+});
 const Title = glamorous.h1({
   fontSize: Step(6),
   color: colors.black
@@ -21,10 +25,6 @@ const SubTitle = glamorous.h1({
   fontWeight: 500
 });
 const Illustration = glamorous.div({
-  width: '75%',
-  maxWidth: 560
-});
-const Details = glamorous.div({
   width: '75%',
   maxWidth: 560
 });

@@ -20,7 +20,6 @@ const Container = div({
 });
 
 export interface AppProps {}
-
 export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -57,7 +56,9 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <Hero page="home" />
           <Div display="block" height="300px" />
-          <Wrapper render={<HowItWorks />} />
+          <Wrapper narrow>
+            <HowItWorks />
+          </Wrapper>
           <Div display="block" height="300px" />
           <h1 id="about" className="tc">
             About
@@ -68,8 +69,9 @@ export default class App extends React.Component<AppProps, AppState> {
             color={colors.white}
             background={colors.blueDark}
             padding={'4rem 0'}
-            render={<Faq />}
-          />
+          >
+            <Faq />
+          </Wrapper>
         </Container>
       </>
     );

@@ -1,15 +1,15 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 
-export interface WrapperProps {
-  id?: string;
-  color?: string;
-  background?: string;
-  narrow?: boolean;
-  render: any;
-}
+// export interface WrapperProps {
+//   id?: string;
+//   color?: string;
+//   background?: string;
+//   narrow?: boolean;
+//   render: any;
+// }
+// export interface WrapperState {}
 
-// This will be a wrapper we can use with render props
 export default class Wrapper extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -19,21 +19,21 @@ export default class Wrapper extends React.Component<any, any> {
   }
 
   render() {
-    const { background, narrow, render, ...rest } = this.state.attrs;
+    const { background, narrow, children, ...rest } = this.state.attrs;
     const Wrapper = glamorous.section({
       width: '100%',
-      background: background
+      background
     });
 
     const WrapperInner = glamorous.section({
-      maxWidth: narrow ? 900 : 1100,
+      maxWidth: narrow ? 890 : 1100,
       margin: '0 auto',
       ...rest
     });
 
     return (
       <Wrapper {...rest}>
-        <WrapperInner>{render}</WrapperInner>
+        <WrapperInner>{children}</WrapperInner>
       </Wrapper>
     );
   }
