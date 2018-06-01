@@ -1,2 +1,2 @@
-@import 'tachyons';
+@import '../node_modules/tachyons/css/tachyons.min.css';
 @import './_media.css';
