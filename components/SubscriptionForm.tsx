@@ -6,6 +6,7 @@ import { colors } from '../design-system';
 import Button from './Button';
 import { Step } from '../utils/Scale';
 import Loader from './Loader';
+import { AddToList } from '../utils/klaviyo';
 
 const InputGroup = glamorous.div({});
 
@@ -71,7 +72,21 @@ export default class SubscriptionForm extends React.Component<any, any> {
     });
 
     if (!error && value) {
-      this.addToList('LZehJe', value);
+      AddToList('LZehJe', value)
+        .then(() => {
+          this.setState({
+            error: false,
+            success: true,
+            loading: false
+          });
+        })
+        .catch(() => {
+          this.setState({
+            error: true,
+            success: false,
+            loading: false
+          });
+        });
     }
   }
 
@@ -81,26 +96,6 @@ export default class SubscriptionForm extends React.Component<any, any> {
     this.setState({
       error: errorState ? false : true,
       placeholder: errorState ? 'Your Email' : this.getErrorText('sad')
-    });
-  }
-
-  addToList(listId: string, email: any) {
-    fetch(`https://a.klaviyo.com/api/v1/list/${listId}/members`, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: `api_key=${
-        process.env.KLAVIYO_API_KEY
-      }&email=${email}&confirm_optin=false&$consent:web`
-    }).then(response => {
-      console.log(response);
-      this.setState({
-        success: true,
-        loading: false
-      });
     });
   }
 
