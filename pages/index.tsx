@@ -13,6 +13,7 @@ import HowItWorks from '../components/HowItWorks';
 import Wrapper from '../components/Wrapper';
 import DonorsHero from '../components/DonorsHero';
 import Mission from '../components/MissionSection';
+import VideoSection from '../components/VideoSection';
 
 const { div } = glamorous;
 
@@ -60,16 +61,15 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <Hero page="home" />
           <Div display="block" height="300px" />
+
           <Wrapper narrow>
             <HowItWorks />
-          </Wrapper>
-
-          <Wrapper>
             <DonorsHero />
+            <Mission />
           </Wrapper>
 
-          <Wrapper>
-            <Mission />
+          <Wrapper background={colors.red} padding={'4rem 0'}>
+            <VideoSection />
           </Wrapper>
 
           {/* Fake things */}

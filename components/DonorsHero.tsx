@@ -26,6 +26,7 @@ const InfoCard = glamorous.div({
 
 const CardTitle = glamorous.h4({
   textTransform: 'uppercase',
+  fontWeight: 800,
   fontSize: Step(3.5),
   color: colors.blue
 });
@@ -44,6 +45,7 @@ const CardLink = glamorous.h2({
   '> a': {
     textTransform: 'uppercase',
     fontSize: Step(3.5),
+    fontWeight: 800,
     color: colors.blue,
 
     '&:hover': {
