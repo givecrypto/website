@@ -5,7 +5,7 @@ import { colors, shadows } from '../design-system';
 import { Step } from '../utils/Scale';
 
 const Container = glamorous.section({
-  background: `url('/static/images/donor-cta.jpg')`,
+  background: `url('/static/images/donor-hero.jpg')`,
   backgroundSize: 'cover',
   width: '100%',
   height: 575,
@@ -52,9 +52,9 @@ const CardLink = glamorous.h2({
   }
 });
 
-interface DonorsCTAProps {}
+interface DonorsHeroProps {}
 
-const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
+const DonorsHero: React.SFC<DonorsHeroProps> = () => {
   return (
     <Container className="flex items-center">
       <InfoCard>
@@ -69,4 +69,4 @@ const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
   );
 };
 
-export default DonorsCTA;
+export default DonorsHero;

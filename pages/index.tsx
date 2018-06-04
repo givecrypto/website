@@ -11,7 +11,8 @@ import { colors } from '../design-system';
 import Hero from '../components/Hero';
 import HowItWorks from '../components/HowItWorks';
 import Wrapper from '../components/Wrapper';
-import DonorsCTA from '../components/DonorsCta';
+import DonorsHero from '../components/DonorsHero';
+import MissionHero from '../components/MissionHero';
 
 const { div } = glamorous;
 
@@ -64,7 +65,11 @@ export default class App extends React.Component<AppProps, AppState> {
           </Wrapper>
 
           <Wrapper>
-            <DonorsCTA />
+            <DonorsHero />
+          </Wrapper>
+
+          <Wrapper>
+            <MissionHero />
           </Wrapper>
 
           {/* Fake things */}
