@@ -12,7 +12,7 @@ import Hero from '../components/Hero';
 import HowItWorks from '../components/HowItWorks';
 import Wrapper from '../components/Wrapper';
 import DonorsHero from '../components/DonorsHero';
-import MissionHero from '../components/MissionHero';
+import Mission from '../components/MissionSection';
 
 const { div } = glamorous;
 
@@ -69,7 +69,7 @@ export default class App extends React.Component<AppProps, AppState> {
           </Wrapper>
 
           <Wrapper>
-            <MissionHero />
+            <Mission />
           </Wrapper>
 
           {/* Fake things */}

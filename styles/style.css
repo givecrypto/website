@@ -1,2 +1,7 @@
 @import 'tachyons';
 @import './_media.css';
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
