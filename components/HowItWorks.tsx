@@ -106,7 +106,7 @@ const Cards: any = () => {
 export default () => {
   const { title, subtitle } = content;
   return (
-    <>
+    <div id="how-it-works">
       <Title id="how-it-works" className="lh-title">
         {title}
       </Title>
@@ -114,6 +114,6 @@ export default () => {
       <CardWrapper className="flex flex-wrap justify-between">
         <Cards />
       </CardWrapper>
-    </>
+    </div>
   );
 };

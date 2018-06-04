@@ -5,7 +5,8 @@ import { Step } from '../utils/Scale';
 
 const Container = glamorous.section({
   background: `url('/static/images/map@2x.png')`,
-  backgroundSize: 'cover',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   width: '100%',
   height: 575,
   marginTop: Step(7.5)
@@ -22,7 +23,7 @@ interface DonorsCTAProps {}
 
 const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
   return (
-    <Container className="flex items-center justify-center">
+    <Container id="about" className="flex items-center justify-center">
       <Title className="lh-copy measure">
         Our mission is to financially empower people by distributing
         cryptocurrency globally.
