@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Router from 'next/router';
 import { Step } from '../utils/Scale';
 import glamorous, { Div } from 'glamorous';
 import Head from 'next/head';
@@ -28,8 +27,7 @@ export default class App extends React.Component<AppProps, AppState> {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.log(Router.asPath);
+  scrollToLocation() {
     if (
       typeof document !== 'undefined' &&
       location.hash &&
@@ -40,6 +38,10 @@ export default class App extends React.Component<AppProps, AppState> {
           .top - 50;
       animateScroll.scrollMore(offset);
     }
+  }
+
+  componentDidMount() {
+    this.scrollToLocation();
   }
 
   render() {

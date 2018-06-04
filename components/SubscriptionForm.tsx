@@ -5,6 +5,9 @@ import glamorous from 'glamorous';
 import { colors } from '../design-system';
 import Button from './Button';
 import { Step } from '../utils/Scale';
+import Loader from './Loader';
+
+const InputGroup = glamorous.div({});
 
 const FormInput = glamorous.input({
   fontFamily: 'Apercu',
@@ -34,7 +37,13 @@ const FormInput = glamorous.input({
 export default class SubscriptionForm extends React.Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = { value: '', placeholder: 'Your email' };
+    this.state = {
+      value: '',
+      placeholder: 'Your email',
+      success: false,
+      loading: false,
+      error: false
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,7 +65,14 @@ export default class SubscriptionForm extends React.Component<any, any> {
   handleSubmit(event) {
     event.preventDefault();
     const { error, value } = this.state;
-    if (!error && value) alert('An email was submitted: ' + value);
+    this.setState({
+      success: false,
+      loading: true
+    });
+
+    if (!error && value) {
+      this.addToList('LZehJe', value);
+    }
   }
 
   validate() {
@@ -68,33 +84,66 @@ export default class SubscriptionForm extends React.Component<any, any> {
     });
   }
 
+  addToList(listId: string, email: any) {
+    fetch(`https://a.klaviyo.com/api/v1/list/${listId}/members`, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: `api_key=pk_0e2401f29946c6070b589952f0687232ff&email=${email}&confirm_optin=false&$consent:web`
+    }).then(response => {
+      console.log(response);
+      this.setState({
+        success: true,
+        loading: false
+      });
+    });
+  }
+
   render() {
-    const { value, dirty, error, valid, placeholder } = this.state;
+    const {
+      value,
+      dirty,
+      error,
+      valid,
+      placeholder,
+      success,
+      loading
+    } = this.state;
+
+    if (success) {
+      return <h2>Thanks!</h2>;
+    }
 
     return (
       <form onSubmit={this.handleSubmit} noValidate>
         <h1>{this.state.errorState}</h1>
-        <label>
-          <FormInput
-            className={`email-input
+        <InputGroup className="flex items-center">
+          <label>
+            <FormInput
+              className={`email-input
               ${dirty ? 'dirty' : 'pristine'}
               ${error ? 'error' : ''}
               ${valid ? 'valid' : ''}
             `}
-            name="email"
-            type="email"
-            value={value}
-            placeholder={placeholder}
-            onChange={this.handleChange}
-          />
-        </label>
-        <Button
-          tabindex="0"
-          theme={`submit disable-${!value || error}`}
-          type="submit"
-        >
-          Subscribe To Our Blog
-        </Button>
+              name="email"
+              type="email"
+              value={value}
+              placeholder={placeholder}
+              onChange={this.handleChange}
+            />
+          </label>
+          <Button
+            tabindex="0"
+            theme={`submit disable-${!value || error} loading-${loading}`}
+            type="submit"
+          >
+            {loading && <Loader />}
+            {!loading && 'Subscribe To Our Blog'}
+          </Button>
+        </InputGroup>
       </form>
     );
   }

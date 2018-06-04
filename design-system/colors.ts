@@ -8,7 +8,9 @@ export const colors: any = {
   greyDark: '#4E5665',
   greyLighter: '#DBDBDB',
   black: '#323232',
-  white: '#ffffff'
+  white: '#ffffff',
+  yellow: '#fbd281',
+  yellowLight: '#fbe2bb'
 };
 
 export default colors;

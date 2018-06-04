@@ -75,6 +75,11 @@ const buttonStyles: CSSProperties = {
       pointerEvents: 'none',
       color: colors.black,
       background: colors.white
+    },
+    '&.loading-true': {
+      padding: `0 ${Step(4)}`,
+      backgroundColor: `${colors.yellowLight} !important`,
+      borderColor: colors.yellow
     }
   }
 };

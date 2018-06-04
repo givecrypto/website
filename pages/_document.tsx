@@ -29,6 +29,9 @@ export default class GiveCrypto extends Document {
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
+
+          {/* Only for staging */}
+          <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js" />
         </Head>
         <ErrorBoundary>
           <Body
@@ -37,7 +40,7 @@ export default class GiveCrypto extends Document {
             flexDirection="column"
             height="100vh"
           >
-            <Section role="main" flex="1 0 auto">
+            <Section role="main" flex="1 0 auto" className="overflow-hidden">
               <Main />
             </Section>
             <NextScript />
