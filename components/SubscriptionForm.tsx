@@ -92,7 +92,9 @@ export default class SubscriptionForm extends React.Component<any, any> {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*'
       },
-      body: `api_key=pk_0e2401f29946c6070b589952f0687232ff&email=${email}&confirm_optin=false&$consent:web`
+      body: `api_key=${
+        process.env.KLAVIYO_API_KEY
+      }&email=${email}&confirm_optin=false&$consent:web`
     }).then(response => {
       console.log(response);
       this.setState({
