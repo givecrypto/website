@@ -57,7 +57,8 @@ const IconContainer = glamorous.div({
   boxShadow: shadows.card
 });
 const CardNumber = glamorous.h4({
-  fontSize: Step(4),
+  textTransform: 'uppercase',
+  fontSize: Step(3.5),
   color: colors.blue
 });
 const CardTitle = glamorous.h2({
