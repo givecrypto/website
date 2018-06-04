@@ -14,6 +14,7 @@ import Wrapper from '../components/Wrapper';
 import DonorsHero from '../components/DonorsHero';
 import Mission from '../components/MissionSection';
 import VideoSection from '../components/VideoSection';
+import TeamSection from '../components/TeamSection';
 
 const { div } = glamorous;
 
@@ -70,6 +71,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
           <Wrapper background={colors.red} padding={'4rem 0'}>
             <VideoSection />
+            <TeamSection />
           </Wrapper>
 
           {/* Fake things */}
