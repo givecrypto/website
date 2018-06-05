@@ -65,21 +65,22 @@ export default class App extends React.Component<AppProps, AppState> {
 
           <Wrapper narrow>
             <HowItWorks />
+          </Wrapper>
+          <Wrapper>
             <DonorsHero />
+          </Wrapper>
+          <Wrapper>
             <Mission />
           </Wrapper>
 
-          <Wrapper background={colors.red} padding={'4rem 0'}>
+          <Wrapper padding={'3rem 0'}>
             <VideoSection />
+          </Wrapper>
+
+          <Wrapper>
             <TeamSection />
           </Wrapper>
 
-          {/* Fake things */}
-          <Div display="block" height="300px" />
-          <h1 id="about" className="tc">
-            About
-          </h1>
-          {/* End Fake things */}
           <Wrapper
             id="faq"
             color={colors.white}

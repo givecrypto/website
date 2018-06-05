@@ -7,6 +7,7 @@ export const colors: any = {
   greyLight: '#9FA4AE',
   greyDark: '#4E5665',
   greyLighter: '#DBDBDB',
+  greyLightest: '#e7eaf2',
   black: '#323232',
   white: '#ffffff',
   yellow: '#fbd281',

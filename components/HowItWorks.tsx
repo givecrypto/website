@@ -19,9 +19,15 @@ const SubTitle = glamorous.h1({
 });
 const CardWrapper = glamorous.div({
   position: 'relative',
+  zIndex: 1,
+
+  '> *': {
+    position: 'relative',
+    zIndex: 1
+  },
 
   '&::after, &::before': {
-    zIndex: -1,
+    zIndex: 0,
     content: `''`,
     display: 'block',
     background: 'url(/static/images/pattern@2x.png)',
@@ -33,7 +39,6 @@ const CardWrapper = glamorous.div({
     transform: 'translateY(40px)'
   },
   '&::after': {
-    zIndex: -1,
     left: 'auto',
     right: -200
   }

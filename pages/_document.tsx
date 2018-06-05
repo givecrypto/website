@@ -31,7 +31,10 @@ export default class GiveCrypto extends Document {
           <link rel="stylesheet" href="/_next/static/style.css" />
 
           {/* Only for staging */}
-          <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js" />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.9.1/tachyons.min.css"
+          />
         </Head>
         <ErrorBoundary>
           <Body
