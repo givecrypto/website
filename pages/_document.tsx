@@ -27,12 +27,6 @@ export default class GiveCryptoDocument extends Document {
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
-
-          {/* Only for staging */}
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.9.1/tachyons.min.css"
-          />
         </Head>
         <ErrorBoundary>
           <Body

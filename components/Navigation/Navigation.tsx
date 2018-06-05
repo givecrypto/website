@@ -71,13 +71,14 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     const { theme } = this.props;
     const donateTheme = theme === 'light' ? 'ghost' : 'default';
     return (
-      <Headroom>
+      <Headroom className="relative z-max">
         <Nav
           padding={Step(5)}
           background={colors.white}
           display="flex"
           alignItems="center"
           justifyContent="space-between"
+          className="z-max relative"
         >
           <Div lineHeight="0">
             <Link href="/">
