@@ -12,6 +12,7 @@ import Hero from '../components/Hero';
 import HowItWorks from '../components/HowItWorks';
 import Wrapper from '../components/Wrapper';
 import DonorsHero from '../components/DonorsHero';
+import DonateHero from '../components/DonateHero';
 import Mission from '../components/MissionSection';
 import VideoSection from '../components/VideoSection';
 import TeamSection from '../components/TeamSection';
@@ -88,6 +89,10 @@ export default class App extends React.Component<AppProps, AppState> {
             padding={'4rem 0'}
           >
             <Faq />
+          </Wrapper>
+
+          <Wrapper>
+            <DonateHero />
           </Wrapper>
         </Container>
       </>

@@ -68,7 +68,8 @@ const Faqs: any = () => {
         },
         '&[aria-expanded=true]': {
           '& h2': {
-            color: colors.red,
+            color: colors.white,
+            // textShadow: '0 0 10px rgba(255,255,255,0.25)',
             '&:after': {
               color: colors.red,
               transform: `rotate(45deg)`

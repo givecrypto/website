@@ -3,6 +3,7 @@ import glamorous, { CSSProperties } from 'glamorous';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
+import Link from './Link';
 
 export interface ButtonProps {
   href?: string;
@@ -88,16 +89,18 @@ export default class Button extends React.Component<any, any> {
   render() {
     const { tabindex, href, theme = 'default', children, ...rest } = this.props;
     const el = href ? glamorous.a : glamorous.button;
-    const Link = el(buttonStyles);
+    const LinkEl = el(buttonStyles);
 
     return (
-      <Link
-        tabIndex={tabindex}
-        className={`Link-with-crypto theme-${theme}`}
-        href={href}
-        {...rest}
-      >
-        <span>{children}</span>
+      <Link href={href}>
+        <LinkEl
+          tabIndex={tabindex}
+          className={`Link-with-crypto theme-${theme}`}
+          href={href}
+          {...rest}
+        >
+          <span>{children}</span>
+        </LinkEl>
       </Link>
     );
   }
