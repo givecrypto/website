@@ -88,7 +88,7 @@ const buttonStyles: CSSProperties = {
 export default class Button extends React.Component<any, any> {
   render() {
     const { tabindex, href, theme = 'default', children, ...rest } = this.props;
-    const el = href ? glamorous.a : glamorous.button;
+    const el = href ? glamorous.span : glamorous.button;
     const LinkEl = el(buttonStyles);
 
     return (

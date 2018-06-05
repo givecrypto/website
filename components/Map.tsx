@@ -9,6 +9,7 @@ const fadeDot = cssShim.keyframes({
   '0%': { fill: colors.greyLightest },
   '100%': { fill: colors.blue }
 });
+
 const dotStyles = {
   fill: colors.greyLightest,
   '&:nth-child(420n+4)': {

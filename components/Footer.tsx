@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { default as glamorous, Section, Div, P } from 'glamorous';
+import glamorous, { Section, Div } from 'glamorous';
 import { Step } from '../utils/Scale';
 import Reddit from '../svgs/social/reddit.svg';
 import Twitter from '../svgs/social/twitter.svg';
@@ -11,8 +11,15 @@ interface FooterProps {}
 
 const Icons = glamorous.div({
   '> a': {
-    padding: `0 ${Step(3)}`
+    padding: `0 ${Step(4)}`
   }
+});
+
+const Legal = glamorous.p({
+  margin: 0,
+  padding: 0,
+  fontWeight: 400,
+  fontSize: Step(3.75)
 });
 
 const Footer: React.SFC<FooterProps> = () => {
@@ -30,9 +37,7 @@ const Footer: React.SFC<FooterProps> = () => {
           </Link>
         </Div>
         <Div>
-          <P fontWeight={500} margin="0" padding="0">
-            &copy; 2018 GiveCrypto. All rights reserved.
-          </P>
+          <Legal>&copy; 2018 GiveCrypto. All rights reserved.</Legal>
         </Div>
         <Icons>
           <Link href="http://twitter.com/givecrypto/">
