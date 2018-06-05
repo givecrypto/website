@@ -61,8 +61,10 @@ export default class App extends React.Component<AppProps, AppState> {
         <HeadMeta path="/home" />
         <Navigation />
         <Container>
-          <Hero page="home" />
-          <Div display="block" height="300px" />
+          <Wrapper wide>
+            <Hero page="home" />
+            <Div display="block" height="220px" />
+          </Wrapper>
 
           <Wrapper narrow>
             <HowItWorks />

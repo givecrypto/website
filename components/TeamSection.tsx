@@ -86,7 +86,7 @@ const PersonTitle = glamorous.h3({
   color: colors.black
 });
 
-const TeamSection: React.SFC<TeamSectionProps> = props => {
+const TeamSection: React.SFC<TeamSectionProps> = () => {
   return (
     <Container>
       <Title>The Team</Title>

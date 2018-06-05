@@ -5,7 +5,7 @@ import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 
 export interface DonateProps {
-  anonymous?: boolean;
+  type?: string;
   theme?: string;
 }
 
@@ -29,7 +29,7 @@ const linkStyles = {
     fontSize: Step(3.75),
     height: 'inherit !important',
     boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
-    display: 'inline',
+    display: 'inline-block',
     '> span': {
       display: 'inline',
       fontSize: '1em',
@@ -73,6 +73,10 @@ const linkStyles = {
           color: 'white'
         }
       }
+    },
+    '&.theme-full': {
+      display: 'block',
+      width: '100%'
     }
   }
 };
@@ -85,11 +89,28 @@ export default class Donate extends React.Component<DonateProps, {}> {
   // }
 
   render() {
-    const { anonymous, theme = 'default' } = this.props;
+    const { type = 'default', theme = 'default', children } = this.props;
 
-    let id = anonymous
-      ? process.env.COMMERCE_ID_ANONYMOUS
-      : process.env.COMMERCE_ID_DEFAULT;
+    const buttonText = () => {
+      switch (type) {
+        case 'default':
+          return 'Donate Crypto';
+
+        case 'anonymous':
+          return 'Donate Anonymously';
+
+        case 'ripple':
+          return 'Donate Ripple';
+
+        default:
+          break;
+      }
+    };
+
+    let id =
+      type === 'anonyomous'
+        ? process.env.COMMERCE_ID_ANONYMOUS
+        : process.env.COMMERCE_ID_DEFAULT;
 
     return (
       <>
@@ -99,7 +120,7 @@ export default class Donate extends React.Component<DonateProps, {}> {
           rel="noopener"
           target="_self"
         >
-          <span>Donate Crypto</span>
+          <span>{children || buttonText()}</span>
         </Link>
         <script src="/static/vendor/checkout.js" />
       </>

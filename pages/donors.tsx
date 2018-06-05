@@ -40,6 +40,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <h1>{message}</h1>
           {donation === 'pending' && <DonateButton theme="ghost" />}
+          <DonateButton theme="ghost" />
         </Container>
       </>
     );

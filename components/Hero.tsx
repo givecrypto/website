@@ -12,20 +12,20 @@ export interface HeroProps {
 }
 
 const Details = glamorous.div({
-  width: '75%',
+  width: '50%',
   maxWidth: 560
 });
 const Title = glamorous.h1({
   fontSize: Step(6),
   color: colors.black
 });
-const SubTitle = glamorous.h1({
+const Subtitle = glamorous.h1({
   fontSize: Step(5),
-  color: colors.greyLight,
+  color: colors.grey,
   fontWeight: 500
 });
 const Illustration = glamorous.div({
-  width: '75%',
+  width: '45%',
   maxWidth: 560
 });
 
@@ -44,9 +44,9 @@ export default class Hero extends React.Component<HeroProps, any> {
           </Illustration>
           <Details>
             <Title className="lh-title measure">{title}</Title>
-            <SubTitle className="lh-copy measure-narrow mb4">
+            <Subtitle className="lh-copy measure-narrow mb4">
               {subtitle}
-            </SubTitle>
+            </Subtitle>
             <SubscriptionForm />
             <Share />
           </Details>
