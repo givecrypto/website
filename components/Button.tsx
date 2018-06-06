@@ -91,17 +91,29 @@ export default class Button extends React.Component<any, any> {
     const el = href ? glamorous.span : glamorous.button;
     const LinkEl = el(buttonStyles);
 
-    return (
-      <Link href={href}>
+    if (href) {
+      return (
+        <Link href={href}>
+          <LinkEl
+            tabIndex={tabindex}
+            className={`Link-with-crypto theme-${theme}`}
+            href={href}
+            {...rest}
+          >
+            <span>{children}</span>
+          </LinkEl>
+        </Link>
+      );
+    } else {
+      return (
         <LinkEl
           tabIndex={tabindex}
           className={`Link-with-crypto theme-${theme}`}
-          href={href}
           {...rest}
         >
           <span>{children}</span>
         </LinkEl>
-      </Link>
-    );
+      );
+    }
   }
 }

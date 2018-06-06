@@ -48,9 +48,9 @@ export default class App extends React.Component<AppProps, AppState> {
     };
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+  // componentDidMount() {
+  //   window.scrollTo(0, 0);
+  // }
 
   render() {
     const { message } = this.state;
