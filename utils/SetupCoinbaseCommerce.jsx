@@ -1,6 +1,5 @@
-'use strict';
-!(function(t, i) {
-  console.log('original', t, i);
+export default (t, i, el, buttonType) => {
+  var doc = i;
   var e = '/embed/checkout/',
     n =
       'background: none; box-sizing: border-box; clear: none; clip: auto; float: none; margin: 0; padding: 0; border: 0; opacity: 1; vertical-align: baseline;visibility: visible; min-width: 0; max-width: none; min-height: 0; max-height: none; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; ',
@@ -8,7 +7,7 @@
       n +
       'display: block; position: fixed; transition: all 0.3s ease-out; z-index: 99999;';
   t.BuyWithCrypto && t.BuyWithCrypto.version >= 1
-    ? t.BuyWithCrypto.findButtonAndInstall(i.currentScript)
+    ? t.BuyWithCrypto.findButtonAndInstall(i.currentScript, buttonType)
     : (function() {
         function n() {
           (this.root = 'https://commerce.coinbase.com'),
@@ -17,19 +16,9 @@
             (this.handleMessage = this.handleMessage.bind(this));
         }
         (n.version = 1),
-          (n.findButtonAndInstall = function(i) {
-            for (var e = 0; i && e < 3; e++)
-              if ((i = i.previousSibling) && 1 === i.nodeType) {
-                if (
-                  'A' === i.tagName &&
-                  (i.classList.contains('buy-with-crypto') ||
-                    i.classList.contains('donate-with-crypto'))
-                ) {
-                  new t.BuyWithCrypto().install(i);
-                  break;
-                }
-                if ('SCRIPT' === i.tagName) break;
-              }
+          (n.findButtonAndInstall = function(i, type) {
+            var element = doc.getElementById('button-' + (type || 'default'));
+            new t.BuyWithCrypto().install(element);
           });
         var a = n.prototype;
         (a.install = function(i, e) {
@@ -188,4 +177,4 @@
           (t.BuyWithCrypto = n),
           n.findButtonAndInstall(i.currentScript);
       })();
-})(this, this.document);
+};

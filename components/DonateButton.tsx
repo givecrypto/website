@@ -3,9 +3,13 @@ import glamorous from 'glamorous';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
+import Modal from 'react-responsive-modal';
+import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
+import _ from 'lodash';
 
 export interface DonateProps {
   type?: string;
+  onClick?: any;
   theme?: string;
 }
 
@@ -82,14 +86,41 @@ const linkStyles = {
 };
 const Link = glamorous.a(linkStyles);
 
-export default class Donate extends React.Component<DonateProps, {}> {
-  // componentDidMount() {
-  //   const doThing = checkout();
-  //   doThing(window, document);
-  // }
+declare global {
+  interface Window {
+    checkoutScript: any;
+  }
+}
+
+export default class Donate extends React.Component<DonateProps, any> {
+  constructor(props) {
+    super(props);
+    const uuid = _.uniqueId('coinbase-commerce--');
+    this.state = {
+      rippleModalState: false,
+      uuid
+    };
+  }
+
+  componentDidMount() {
+    const { uuid } = this.state;
+    const { type = 'default' } = this.props;
+    if (type !== 'ripple') {
+      SetupCoinbaseCommerce(window, document, uuid, type);
+    }
+  }
+
+  onOpenModal = () => {
+    this.setState({ rippleModalState: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ rippleModalState: false });
+  };
 
   render() {
     const { type = 'default', theme = 'default', children } = this.props;
+    const { rippleModalState } = this.state;
 
     const buttonText = () => {
       switch (type) {
@@ -112,9 +143,29 @@ export default class Donate extends React.Component<DonateProps, {}> {
         ? process.env.COMMERCE_ID_ANONYMOUS
         : process.env.COMMERCE_ID_DEFAULT;
 
+    if (type === 'ripple') {
+      return (
+        <>
+          <Link
+            onClick={this.onOpenModal}
+            className={`donate-with-crypto theme-${theme}`}
+            rel="noopener"
+            target="_self"
+          >
+            <span>{children || buttonText()}</span>
+          </Link>
+          <Modal open={rippleModalState} onClose={this.onCloseModal} center>
+            <>
+              <h1>Ripple title</h1>
+            </>
+          </Modal>
+        </>
+      );
+    }
     return (
       <>
         <Link
+          id={`button-${type}`}
           className={`donate-with-crypto theme-${theme}`}
           href={`https://commerce.coinbase.com/checkout/${id}`}
           rel="noopener"
@@ -122,7 +173,7 @@ export default class Donate extends React.Component<DonateProps, {}> {
         >
           <span>{children || buttonText()}</span>
         </Link>
-        <script src="/static/vendor/checkout.js" />
+        {/* <script src="/static/vendor/checkout-default.js" /> */}
       </>
     );
   }

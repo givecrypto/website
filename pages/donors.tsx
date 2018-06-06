@@ -61,9 +61,9 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   cardList(list: any) {
-    return list.map(({ name, role, filename }: any) => {
+    return list.map(({ name, role, filename }: any, index) => {
       return (
-        <div className="w-30">
+        <div className="w-30" key={`person-${filename}-${index}`}>
           <PersonCard name={name} role={role} filename={filename} />
         </div>
       );
@@ -71,8 +71,8 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   list(list: string[]) {
-    return list.map(name => {
-      return <Item>{name}</Item>;
+    return list.map((name, index) => {
+      return <Item key={`list${name}-${index}`}>{name}</Item>;
     });
   }
 

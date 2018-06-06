@@ -35,7 +35,7 @@ const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
         {/* <div className="z-1 absolute responsive w-100 h-100">
           <Map />
         </div> */}
-        <div className="z-999">
+        <div className="z-5">
           <Title className="lh-copy measure">
             Our mission is to financially empower people by distributing
             cryptocurrency globally.
