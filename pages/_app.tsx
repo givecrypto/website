@@ -21,8 +21,9 @@ export default class GiveCryptoApp extends App<any, any> {
     let theme = 'default';
     if (router) {
       theme = router.pathname === '/donate' ? 'light' : 'default';
-      const authRoute = router.pathname === '/authenticate';
 
+      // Authentication
+      const authRoute = router.pathname === '/authenticate';
       if (!authRoute && process.browser) {
         const password = localStorage.getItem('password');
         if (password !== `${process.env.PASSWORD}`) {

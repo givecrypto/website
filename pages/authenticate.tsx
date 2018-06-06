@@ -5,8 +5,6 @@ import Router from 'next/router';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 
-export interface AuthenticateProps {}
-
 const Container = glamorous.div({});
 const Input = glamorous.input({
   fontWeight: 100,
@@ -31,16 +29,9 @@ const Input = glamorous.input({
   }
 });
 
-export default class Authenticate extends React.Component<
-  AuthenticateProps,
-  any
-> {
+export default class Authenticate extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      referralLink: '',
-      clipboardState: 'EMPTY'
-    };
     this.handleChange = this.handleChange.bind(this);
   }
 
