@@ -1,12 +1,12 @@
 export const top = [
   {
     name: 'Brian Armstrong',
-    role: 'CEO',
+    role: 'CEO, Coinbase',
     filename: 'brian-armstrong'
   },
   {
     name: 'Rose Broome',
-    role: 'Some cool Role',
+    role: 'Founder, HandUp.org',
     filename: 'rose-broome'
   },
   {

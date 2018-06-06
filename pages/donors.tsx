@@ -19,7 +19,6 @@ const List = glamorous.ul(
   {
     height: 500,
     listStyle: 'none',
-    margin: `${Step(6)} 0 0`,
     padding: 0
   },
   ({ height }: any) => {
@@ -37,6 +36,7 @@ const Item = glamorous.li({
 });
 
 const SectionTitle = glamorous.h3({
+  marginBottom: Step(6),
   fontSize: Step(4.75),
   color: colors.black,
   paddingBottom: Step(4),

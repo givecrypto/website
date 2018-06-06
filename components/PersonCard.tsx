@@ -5,62 +5,69 @@ import { Step } from '../utils/Scale';
 
 interface PersonCardProps {
   name: string;
+  pattern?: string;
   filename: string;
   role: string;
   bio?: string;
 }
 
-const ImageCard = glamorous.div({
-  position: 'relative',
-  overflow: 'hidden',
-  zIndex: 1,
-  display: 'block',
-  background: colors.white,
-  borderRadius: Step(2),
-  width: '100%',
-  boxShadow: shadows.default,
-
-  '& img': {
+const ImageCard = glamorous.div(
+  {
     position: 'relative',
     zIndex: 1,
     display: 'block',
+    background: colors.white,
+    borderRadius: Step(2),
     width: '100%',
-    margin: 0,
-    padding: 0
-  },
-  '&::before': {
-    top: 0,
-    zIndex: 0,
-    content: `''`,
-    display: 'block',
-    background: 'url(/static/images/pattern@2x.png)',
-    backgroundSize: '100%',
-    position: 'absolute',
-    left: -200,
-    width: 423,
-    height: 263,
-    transform: 'translateY(40px)'
-  },
-  '&.right': {
-    '&::before': {
-      display: 'none'
-    },
-    '&::after': {
-      top: 0,
-      zIndex: 0,
-      content: `''`,
+    boxShadow: shadows.default,
+
+    '& img': {
+      position: 'relative',
+      zIndex: 1,
       display: 'block',
-      background: 'url(/static/images/pattern@2x.png)',
-      backgroundSize: '100%',
-      position: 'absolute',
-      left: 'auto',
-      right: -200,
-      width: 423,
-      height: 263,
-      transform: 'translateY(40px)'
+      width: '100%',
+      margin: 0,
+      padding: 0
+    }
+  },
+  ({ pattern }: any) => {
+    if (pattern === 'right') {
+      return {
+        '&::after': {
+          top: 0,
+          zIndex: 0,
+          content: `''`,
+          display: 'block',
+          background: 'url(/static/images/pattern@2x.png)',
+          backgroundSize: '100%',
+          position: 'absolute',
+          left: 'auto',
+          right: -200,
+          width: 423,
+          height: 263,
+          transform: 'translateY(40px)'
+        }
+      };
+    }
+    if (pattern === 'left') {
+      return {
+        '&::before': {
+          top: 0,
+          zIndex: 0,
+          content: `''`,
+          display: 'block',
+          background: 'url(/static/images/pattern@2x.png)',
+          backgroundSize: '100%',
+          position: 'absolute',
+          left: -200,
+          width: 423,
+          height: 263,
+          transform: 'translateY(40px)'
+        }
+      };
     }
   }
-});
+);
 
 const Meta = glamorous.div({
   padding: `${Step(4)} 0`
@@ -84,11 +91,12 @@ const PersonCard: React.SFC<PersonCardProps> = ({
   filename,
   name,
   role,
-  bio
+  bio,
+  pattern
 }) => {
   return (
     <>
-      <ImageCard>
+      <ImageCard pattern={pattern}>
         <img
           src={`/static/images/${filename}.webp`}
           srcSet={`/static/images/${filename}.webp, /static/images/${filename}@2x.webp 2x`}
