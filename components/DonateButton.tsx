@@ -140,7 +140,7 @@ export default class Donate extends React.Component<DonateProps, any> {
     };
 
     let id =
-      type === 'anonyomous'
+      type === 'anonymous'
         ? process.env.COMMERCE_ID_ANONYMOUS
         : process.env.COMMERCE_ID_DEFAULT;
 
