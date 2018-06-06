@@ -22,6 +22,7 @@ const ImageCard = glamorous.div(
     boxShadow: shadows.default,
 
     '& img': {
+      borderRadius: Step(2),
       position: 'relative',
       zIndex: 1,
       display: 'block',
@@ -97,11 +98,20 @@ const PersonCard: React.SFC<PersonCardProps> = ({
   return (
     <>
       <ImageCard pattern={pattern}>
-        <img
-          src={`/static/images/${filename}.webp`}
-          srcSet={`/static/images/${filename}.webp, /static/images/${filename}@2x.webp 2x`}
-          alt={`${name}'s Headshot`}
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`/static/images/${filename}.webp, /static/images/${filename}@2x.webp 2x`}
+          />
+          <source
+            srcSet={`/static/images/${filename}.jpg, /static/images/${filename}@2x.jpg 2x`}
+          />
+          <img
+            src={`/static/images/${filename}.jpg`}
+            srcSet={`/static/images/${filename}.jpg, /static/images/${filename}@2x.jpg 2x`}
+            alt={`${name}'s Headshot`}
+          />
+        </picture>
       </ImageCard>
       <Meta>
         <Name>{name}</Name>
