@@ -5,6 +5,9 @@ import { Body, Section } from 'glamorous';
 import Footer from '../components/Footer';
 import ErrorBoundary from '../components/ErrorBoundary';
 
+// Force style update on the server
+import '../styles/style.css';
+
 export default class GiveCryptoDocument extends Document {
   static async getInitialProps({ renderPage }) {
     const page = renderPage();

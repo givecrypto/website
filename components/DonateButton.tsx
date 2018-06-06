@@ -4,6 +4,7 @@ import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 import Modal from 'react-responsive-modal';
+import RippleModal from './RippleModal';
 import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
 import _ from 'lodash';
 
@@ -154,10 +155,13 @@ export default class Donate extends React.Component<DonateProps, any> {
           >
             <span>{children || buttonText()}</span>
           </Link>
-          <Modal open={rippleModalState} onClose={this.onCloseModal} center>
-            <>
-              <h1>Ripple title</h1>
-            </>
+          <Modal
+            open={rippleModalState}
+            onClose={this.onCloseModal}
+            center
+            classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
+          >
+            <RippleModal />
           </Modal>
         </>
       );
@@ -173,7 +177,6 @@ export default class Donate extends React.Component<DonateProps, any> {
         >
           <span>{children || buttonText()}</span>
         </Link>
-        {/* <script src="/static/vendor/checkout-default.js" /> */}
       </>
     );
   }

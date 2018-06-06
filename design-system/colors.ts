@@ -3,6 +3,7 @@ export const colors: any = {
   blue: '#5890FF',
   blueDark: '#374056',
   red: '#D9694B',
+  redWarning: 'rgba(248, 90, 39, .20)',
   grey: '#898F9C',
   greyLight: '#9FA4AE',
   greyDark: '#4E5665',

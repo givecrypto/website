@@ -19,6 +19,14 @@ const Title = glamorous.h2({
   color: colors.black
 });
 
+const Meta = glamorous.h2({
+  textTransform: 'uppercase',
+  marginBottom: Step(5),
+  fontSize: Step(3.5),
+  color: colors.blue,
+  fontWeight: 800
+});
+
 const IconContainer = glamorous.div({
   maxWidth: 450,
   margin: `${Step(5)} auto`
@@ -67,7 +75,7 @@ export default class App extends React.Component<AppProps, AppState> {
             Give the gift of crypto to help people in need around the world.
           </Subtitle>
           <div className="center tc mb5">
-            <h4>Now accepting</h4>
+            <Meta>Now accepting</Meta>
             <div className="flex flex-wrap justify-between w5 center">
               <BitcoinIcon />
               <BitcoinCashIcon />

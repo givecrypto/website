@@ -1,6 +1,8 @@
 @import 'tachyons';
 @import './_media.css';
+@import './_modal.css';
 
+// Smooth those fonts
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
