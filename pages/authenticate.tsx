@@ -47,7 +47,7 @@ export default class Authenticate extends React.Component<
   handleChange(event) {
     let password = event.target.value;
 
-    if (password === process.env.PASSWORD) {
+    if (password === `${process.env.PASSWORD}`) {
       localStorage.setItem('password', password);
       Router.push('/');
     }
@@ -59,6 +59,7 @@ export default class Authenticate extends React.Component<
         <Container className="vh-75 dt w-100 tc center">
           <div className="v-mid dtc">
             <Input
+              type="password"
               placeholder="What's the password?"
               onChange={this.handleChange}
             />

@@ -25,7 +25,7 @@ export default class GiveCryptoApp extends App<any, any> {
 
       if (!authRoute && process.browser) {
         const password = localStorage.getItem('password');
-        if (password !== process.env.PASSWORD) {
+        if (password !== `${process.env.PASSWORD}`) {
           console.log(password);
           Router.push('/authenticate');
         }
