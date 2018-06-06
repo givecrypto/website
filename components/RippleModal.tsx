@@ -7,7 +7,7 @@ import copy from 'copy-to-clipboard';
 import Logo from '../svgs/logotype.svg';
 import Copy from '../svgs/copy.svg';
 import Delay from '../utils/Delay';
-const address = 'rEb8tk592300d37181fCFc758d722d1dfddd338911';
+const address = process.env.RIPPLE_WALLET_ID;
 
 interface RippleModalProps {}
 
@@ -21,10 +21,9 @@ const IconContainer = glamorous.div({
   width: 14,
   marginLeft: Step(5)
 });
-const QR = glamorous.img({
+const QR = glamorous.picture({
   display: 'block',
-  width: 203,
-  transform: 'translateX(-22px)'
+  width: 203
 });
 
 const Heading = glamorous.h2({
@@ -116,7 +115,20 @@ export default class RippleModal extends React.Component<
             </div>
           </WalletInput>
           <div className="flex justify-between items-center">
-            <QR src="/static/images/temp-qr-code@2x.jpg" width="203" />
+            <QR>
+              <source
+                type="image/webp"
+                srcSet={`/static/images/ripple-qr-code.webp, /static/images/ripple-qr-code@2x.webp 2x`}
+              />
+              <source
+                srcSet={`/static/images/ripple-qr-code.jpg, /static/images/ripple-qr-code@2x.jpg 2x`}
+              />
+              <img
+                src={`/static/images/ripple-qr-code.jpg`}
+                srcSet={`/static/images/ripple-qr-code.jpg, /static/images/ripple-qr-code@2x.jpg 2x`}
+                alt={`${name}'s Headshot`}
+              />
+            </QR>
             <Notice type="warning">
               Send only Ripple (XRP) to this address.
             </Notice>
