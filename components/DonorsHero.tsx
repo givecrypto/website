@@ -9,7 +9,8 @@ const Container = glamorous.section({
   backgroundSize: 'cover',
   width: '100%',
   height: 575,
-  marginTop: Step(7.5)
+  marginTop: Step(7.5),
+  boxShadow: shadows.default
 });
 
 const InfoCard = glamorous.div({
@@ -42,7 +43,7 @@ const CardDetails = glamorous.h2({
   color: colors.greyDark
 });
 const CardLink = glamorous.h2({
-  '> a': {
+  '& a': {
     textTransform: 'uppercase',
     fontSize: Step(3.5),
     fontWeight: 800,

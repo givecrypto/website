@@ -1,49 +1,45 @@
 import * as React from 'react';
 import { Step } from '../utils/Scale';
+import { colors } from '../design-system';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
-import DonateButton from '../components/DonateButton';
+import DonateHero from '../components/DonateHero';
+import Wrapper from '../components/Wrapper';
+import DonorsIcon from '../svgs/givecrypto-scene-04.svg';
 import '../utils/rehydrate';
 
-const { div } = glamorous;
+const Title = glamorous.h2({
+  fontSize: Step(6),
+  color: colors.black
+});
 
-const Container = div({
-  padding: Step(5)
+const IconContainer = glamorous.div({
+  maxWidth: 450,
+  margin: `${Step(5)} auto`
 });
 
 export interface AppProps {}
-export interface AppState {
-  donation: string;
-  message: string;
-}
+export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      donation: 'pending',
-      message: 'Donate Today'
-    };
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
-  // componentDidMount() {
-  //   window.scrollTo(0, 0);
-  // }
-
   render() {
-    const { donation, message } = this.state;
-
     return (
       <>
         <HeadMeta
           path="/donors"
           title="Give the gift of crypto to help people in need around the world."
         />
-        <Container>
-          <h1>{message}</h1>
-          {donation === 'pending' && <DonateButton theme="ghost" />}
-          <DonateButton theme="ghost" />
-        </Container>
+        <Wrapper className="center tc">
+          <Title>Meet our generous donors</Title>
+          <IconContainer className="responsive">
+            <DonorsIcon />
+          </IconContainer>
+          <DonateHero />
+        </Wrapper>
       </>
     );
   }

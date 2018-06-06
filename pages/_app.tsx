@@ -17,7 +17,10 @@ export default class GiveCryptoApp extends App<any, any> {
 
   render() {
     const { Component, pageProps, router } = this.props;
-    const theme = router.pathname === '/donate' ? 'light' : 'default';
+    let theme = 'default';
+    if (router) {
+      theme = router.pathname === '/donate' ? 'light' : 'default';
+    }
     return (
       <Container>
         <Navigation theme={theme} />

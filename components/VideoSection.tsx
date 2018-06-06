@@ -9,7 +9,7 @@ import Wrapper from './Wrapper';
 interface VideoSectionProps {}
 
 const LinkContainer = glamorous.h2({
-  '> a': {
+  '& a': {
     textTransform: 'uppercase',
     fontSize: Step(3.5),
     color: colors.blue,

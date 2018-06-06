@@ -30,10 +30,12 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
   mapLinks() {
     const { currentRoute } = this.state;
-    return Links.map(({ href, title, to }: any) => {
+    return Links.map(({ href, title, to, activeClass }: any) => {
       const defaultLink = (url = href): any => (
         <NavItem key={title}>
-          <Link href={url}>{title}</Link>
+          <Link activeClass={activeClass} href={url}>
+            {title}
+          </Link>
         </NavItem>
       );
 

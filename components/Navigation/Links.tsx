@@ -13,7 +13,8 @@ export default [
   },
   {
     title: 'Donors',
-    href: '/donors'
+    href: '/donors',
+    activeClass: 'active active-style' // Leave this alone :)
   },
   {
     title: 'Blog',

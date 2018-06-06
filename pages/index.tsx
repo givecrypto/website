@@ -45,7 +45,7 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   componentDidMount() {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     this.scrollToLocation();
   }
 

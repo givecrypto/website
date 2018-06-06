@@ -10,7 +10,7 @@ import Link from '../components/Link';
 interface FooterProps {}
 
 const Icons = glamorous.div({
-  '> a': {
+  '& a': {
     padding: `0 ${Step(4)}`
   }
 });
