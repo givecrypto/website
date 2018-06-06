@@ -4,7 +4,6 @@ import { colors } from '../design-system';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
-import Navigation from '../components/Navigation/Navigation';
 import Wrapper from '../components/Wrapper';
 import BitcoinIcon from '../svgs/crypto/btc.svg';
 import BitcoinCashIcon from '../svgs/crypto/bch.svg';
@@ -49,6 +48,10 @@ export default class App extends React.Component<AppProps, AppState> {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { message } = this.state;
 
@@ -58,7 +61,6 @@ export default class App extends React.Component<AppProps, AppState> {
           path="/donate"
           title="Give the gift of crypto to help people in need around the world."
         />
-        <Navigation theme="light" />
         <Wrapper className="center tc">
           <Title>{message}</Title>
           <Subtitle className="measure-narrow center lh-copy">

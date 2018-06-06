@@ -2,7 +2,7 @@ import * as React from 'react';
 import MissionHero from './MissionHero';
 import glamorous from 'glamorous';
 import { colors } from '../design-system';
-import SceneSix from '../svgs/givecrypto-scene-06.svg';
+import SceneNine from '../svgs/givecrypto-scene-09.svg';
 import SceneTwo from '../svgs/givecrypto-scene-02.svg';
 import SceneOne from '../svgs/givecrypto-scene-01.svg';
 import { Step } from '../utils/Scale';
@@ -60,7 +60,7 @@ const Mission: React.SFC<MissionProps> = () => {
   return (
     <>
       <MissionHero />
-      <Detail icon={<SceneSix />}>
+      <Detail icon={<SceneNine />}>
         <h3>
           Two billion people have smartphones, but don't have access to basic
           financial services.

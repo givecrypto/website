@@ -3,7 +3,6 @@ import { Step } from '../utils/Scale';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
-import Navigation from '../components/Navigation/Navigation';
 import '../utils/rehydrate';
 
 const { div } = glamorous;
@@ -27,6 +26,10 @@ export default class App extends React.Component<AppProps, AppState> {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { donation, message } = this.state;
 
@@ -36,7 +39,6 @@ export default class App extends React.Component<AppProps, AppState> {
           path="/donors"
           title="Give the gift of crypto to help people in need around the world."
         />
-        <Navigation theme="light" />
         <Container>
           <h1>{message}</h1>
           {donation === 'pending' && <DonateButton theme="ghost" />}

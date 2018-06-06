@@ -3,7 +3,6 @@ import { Step } from '../utils/Scale';
 import glamorous, { Div } from 'glamorous';
 import Head from 'next/head';
 import HeadMeta from '../components/HeadMeta';
-import Navigation from '../components/Navigation/Navigation';
 import { animateScroll } from 'react-scroll';
 import Faq from '../components/Faq';
 import '../utils/rehydrate';
@@ -46,6 +45,7 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.scrollToLocation();
   }
 
@@ -59,7 +59,6 @@ export default class App extends React.Component<AppProps, AppState> {
           </title>
         </Head>
         <HeadMeta path="/home" />
-        <Navigation />
         <Container>
           <Wrapper wide>
             <Hero page="home" />

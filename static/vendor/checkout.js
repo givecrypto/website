@@ -6,7 +6,7 @@
       'background: none; box-sizing: border-box; clear: none; clip: auto; float: none; margin: 0; padding: 0; border: 0; opacity: 1; vertical-align: baseline;visibility: visible; min-width: 0; max-width: none; min-height: 0; max-height: none; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; ',
     o =
       n +
-      'display: block; position: fixed; transition: all 0.3s ease-out; z-index: 9999;';
+      'display: block; position: fixed; transition: all 0.3s ease-out; z-index: 99999;';
   t.BuyWithCrypto && t.BuyWithCrypto.version >= 1
     ? t.BuyWithCrypto.findButtonAndInstall(i.currentScript)
     : (function() {
@@ -65,7 +65,7 @@
             if (!this.modalContainer) {
               (this.modalContainer = i.createElement('div')),
                 (this.modalContainer.style =
-                  'background: none; box-sizing: border-box; clear: none; clip: auto; float: none; margin: 0; padding: 0; border: 0; opacity: 1; vertical-align: baseline;visibility: visible; min-width: 0; max-width: none; min-height: 0; max-height: none; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; display: none; position: fixed; z-index: 9000;'),
+                  'background: none; box-sizing: border-box; clear: none; clip: auto; float: none; margin: 0; padding: 0; border: 0; opacity: 1; vertical-align: baseline;visibility: visible; min-width: 0; max-width: none; min-height: 0; max-height: none; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; display: none; position: fixed; z-index: 99000;'),
                 i.body.appendChild(this.modalContainer);
               var t = i.createElement('div');
               (t.style =
