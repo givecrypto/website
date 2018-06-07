@@ -101,6 +101,7 @@ export interface FaqProps {
 export default class Faq extends React.Component<FaqProps, any> {
   render() {
     const { title = 'FAQs', theme = 'dark', donate } = this.props;
+    const qa = donate ? donationFaq : compactFaq;
 
     const Heading = glamorous.h2({
       color: theme === 'light' ? colors.black : colors.white,
@@ -115,7 +116,7 @@ export default class Faq extends React.Component<FaqProps, any> {
       <>
         <Heading>{title}</Heading>
         <Accordion accordion={false}>
-          <Faqs qa={donate ? donationFaq : compactFaq} theme={theme} />
+          <Faqs qa={qa} theme={theme} />
         </Accordion>
       </>
     );
