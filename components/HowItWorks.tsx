@@ -48,7 +48,7 @@ const Card = glamorous.div({
   background: colors.white,
   borderRadius: Step(2),
   padding: Step(5),
-  maxWidth: 260,
+  maxWidth: 280,
   boxShadow: shadows.card
 });
 const IconContainer = glamorous.div({
