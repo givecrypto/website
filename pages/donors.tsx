@@ -7,7 +7,7 @@ import DonateHero from '../components/DonateHero';
 import Wrapper from '../components/Wrapper';
 import DonorsIcon from '../svgs/givecrypto-scene-04.svg';
 import PersonCard from '../components/PersonCard';
-import { top, middle, bottom } from '../content/donors/donors-list';
+import donors from '../content/donors/donors-list';
 import '../utils/rehydrate';
 
 const Title = glamorous.h2({
@@ -76,6 +76,35 @@ export default class App extends React.Component<AppProps, AppState> {
     });
   }
 
+  listSections(list: any) {
+    let results = [];
+    for (var key in list) {
+      const person = list[key];
+      const showCard = typeof person[0] === 'object';
+
+      results.push(
+        <Wrapper key={`wrap-${key}`} marginBottom={Step(7)}>
+          <SectionTitle>{key}</SectionTitle>
+          {showCard && (
+            <div className="flex flex-wrap justify-between">
+              {this.cardList(person)}
+            </div>
+          )}
+          {!showCard && (
+            <List
+              height={this.listHeight(list)}
+              className="flex flex-wrap flex-column"
+            >
+              {this.list(person)}
+            </List>
+          )}
+        </Wrapper>
+      );
+    }
+
+    return results;
+  }
+
   listHeight(list: string[]) {
     return list.length / 5 * 90;
   }
@@ -91,32 +120,7 @@ export default class App extends React.Component<AppProps, AppState> {
           </IconContainer>
         </Wrapper>
 
-        <Wrapper marginBottom={Step(7)}>
-          <SectionTitle>$1M+</SectionTitle>
-          <div className="flex flex-wrap justify-between">
-            {this.cardList(top)}
-          </div>
-        </Wrapper>
-
-        <Wrapper marginBottom={Step(7)}>
-          <SectionTitle>$100k+</SectionTitle>
-          <List
-            height={this.listHeight(middle)}
-            className="flex flex-wrap flex-column"
-          >
-            {this.list(middle)}
-          </List>
-        </Wrapper>
-
-        <Wrapper>
-          <SectionTitle>$25k+</SectionTitle>
-          <List
-            height={this.listHeight(bottom)}
-            className="flex flex-wrap flex-column"
-          >
-            {this.list(bottom)}
-          </List>
-        </Wrapper>
+        {this.listSections(donors)}
 
         <Wrapper>
           <DonateHero />
