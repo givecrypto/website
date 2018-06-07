@@ -56,9 +56,7 @@ const VideoSection: React.SFC<VideoSectionProps> = () => {
       <Subtitle className="lh-copy measure center">
         <ReactMarkdown source={content.subtitle} />
       </Subtitle>
-      <Meta className="lh-title">
-        <ReactMarkdown source={content.meta} />
-      </Meta>
+      <Meta className="lh-title">{content.meta}</Meta>
       <LinkContainer>
         <Link href={content.link}>Read the story -></Link>
       </LinkContainer>
