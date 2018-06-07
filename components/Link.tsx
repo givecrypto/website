@@ -12,6 +12,7 @@ interface LinkProps {
 const onClickHandler = (href: string) => {
   return e => {
     e.preventDefault();
+    console.log('wtf', href);
     Router.push(href);
   };
 };

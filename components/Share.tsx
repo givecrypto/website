@@ -8,7 +8,6 @@ import { Step } from '../utils/Scale';
 
 export interface ShareProps {}
 const Icons = glamorous.div({
-  padding: `${Step(5)} 0 0 0`,
   '& a': {
     padding: `0 ${Step(4)}`
   }

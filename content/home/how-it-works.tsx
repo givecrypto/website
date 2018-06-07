@@ -14,7 +14,7 @@ export default {
       subtitle: 'We make direct cash transfers to those in need.'
     },
     {
-      title: 'Help People',
+      title: 'Empower People',
       icon: 'Help',
       subtitle: 'People use the funds in their local economy.'
     }

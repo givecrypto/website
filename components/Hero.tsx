@@ -48,7 +48,9 @@ export default class Hero extends React.Component<HeroProps, any> {
               {subtitle}
             </Subtitle>
             <SubscriptionForm />
-            <Share />
+            <div className="mt3">
+              <Share />
+            </div>
           </Details>
         </div>
       );
