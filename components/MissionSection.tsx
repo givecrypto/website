@@ -5,7 +5,9 @@ import { colors } from '../design-system';
 import SceneNine from '../svgs/givecrypto-scene-09.svg';
 import SceneTwo from '../svgs/givecrypto-scene-02.svg';
 import SceneOne from '../svgs/givecrypto-scene-01.svg';
+import content from '../content/home/about';
 import { Step } from '../utils/Scale';
+import ReactMarkdown from 'react-markdown';
 
 interface MissionProps {}
 
@@ -62,23 +64,16 @@ const Mission: React.SFC<MissionProps> = () => {
       <MissionHero />
       <Detail icon={<SceneNine />}>
         <h3>
-          Two billion people have smartphones, but don't have access to basic
-          financial services.
+          <ReactMarkdown source={content.sectionOne} />
         </h3>
       </Detail>
       <Detail left icon={<SceneTwo />}>
         <h3>
-          Bringing cryptocurrency to those smartphones enables basic financial
-          services for everyone.
+          <ReactMarkdown source={content.sectionTwo} />
         </h3>
       </Detail>
       <Detail icon={<SceneOne />}>
-        <h3>Our first steps to acheiving this:</h3>
-        <ul className="lh-title">
-          <li>Send direct cash transfers to people in need</li>
-          <li>They can exchange it to their local currency</li>
-          <li>We provide a way to safely store funds</li>
-        </ul>
+        <ReactMarkdown className="lh-title" source={content.sectionThree} />
       </Detail>
     </>
   );

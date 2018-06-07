@@ -2,6 +2,8 @@ import * as React from 'react';
 import glamorous from 'glamorous';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
+import ReactMarkdown from 'react-markdown';
+import content from '../content/home/about';
 /* Uncomment this when ready for deploying */
 // import Map from './Map';
 
@@ -37,8 +39,7 @@ const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
         </div> */}
         <div className="z-5">
           <Title className="lh-copy measure">
-            Our mission is to financially empower people by distributing
-            cryptocurrency globally.
+            <ReactMarkdown source={content.title} />
           </Title>
         </div>
       </Container>

@@ -3,6 +3,7 @@ import glamorous from 'glamorous';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import PersonCard from './PersonCard';
+// import content from '../content/home/team';
 
 interface TeamSectionProps {}
 

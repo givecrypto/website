@@ -3,7 +3,9 @@ import YouTube from 'react-youtube';
 import glamorous from 'glamorous';
 import { shadows } from '../design-system';
 
-export interface VideoPlayerProps {}
+export interface VideoPlayerProps {
+  videoId: string;
+}
 const VideoContainer = glamorous.div({
   height: 0,
   display: 'block',
@@ -38,7 +40,7 @@ export default class VideoPlayer extends React.Component<
     };
     return (
       <VideoContainer>
-        <YouTube videoId="0_bx8bnCoiU" opts={opts} />
+        <YouTube videoId={this.props.videoId} opts={opts} />
       </VideoContainer>
     );
   }
