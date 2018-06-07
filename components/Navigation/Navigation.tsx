@@ -112,6 +112,7 @@ const NavItem = glamorous.li({
   display: 'inline-block',
   marginRight: Step(6),
   '> .active > span': {
-    color: colors.grey
+    color: colors.black,
+    borderBottom: `1px solid ${colors.black}`
   }
 });
