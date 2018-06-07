@@ -75,7 +75,7 @@ export default class App extends React.Component<AppProps, AppState> {
             Give the gift of crypto to help people in need around the world.
           </Subtitle>
           <div className="center tc mb5">
-            <Meta>Now accepting</Meta>
+            <Meta>We currently accept:</Meta>
             <div className="flex flex-wrap justify-between w5 center">
               <BitcoinIcon />
               <BitcoinCashIcon />
@@ -100,7 +100,11 @@ export default class App extends React.Component<AppProps, AppState> {
           </IconContainer>
         </Wrapper>
         <Wrapper background={colors.white} padding={'4rem 0'}>
-          <Faq theme="light" title="Understand more about your donation" />
+          <Faq
+            donate={true}
+            theme="light"
+            title="Understand more about your donation"
+          />
         </Wrapper>
       </>
     );

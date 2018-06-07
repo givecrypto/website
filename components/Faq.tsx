@@ -7,9 +7,10 @@ import {
   resetNextUuid
 } from 'react-accessible-accordion';
 import '../styles/accordion.css';
+import compactFaq from '../content/faq/compact-faq';
+import donationFaq from '../content/faq/donation-faq';
 import glamorous from 'glamorous';
 import { Step } from '../utils/Scale';
-import compactFaq from '../content/faq/compact-faq';
 import { colors } from '../design-system';
 import ReactMarkdown from 'react-markdown';
 
@@ -19,7 +20,7 @@ const SubHeading = glamorous.h2({
 });
 
 const Faqs: any = props => {
-  return compactFaq.map((item: any) => {
+  return props.qa.map((item: any) => {
     const Wrapper = glamorous.div({
       padding: `${Step(5)} 0`,
       borderBottom: `2px solid ${colors.greyLightest}`,
@@ -94,11 +95,12 @@ const Faqs: any = props => {
 export interface FaqProps {
   title?: string;
   theme?: string;
+  donate?: boolean;
 }
 
 export default class Faq extends React.Component<FaqProps, any> {
   render() {
-    const { title = 'FAQs', theme = 'dark' } = this.props;
+    const { title = 'FAQs', theme = 'dark', donate } = this.props;
 
     const Heading = glamorous.h2({
       color: theme === 'light' ? colors.black : colors.white,
@@ -113,7 +115,7 @@ export default class Faq extends React.Component<FaqProps, any> {
       <>
         <Heading>{title}</Heading>
         <Accordion accordion={false}>
-          <Faqs theme={theme} />
+          <Faqs qa={donate ? donationFaq : compactFaq} theme={theme} />
         </Accordion>
       </>
     );
