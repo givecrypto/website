@@ -4,6 +4,7 @@ import * as React from 'react';
 import '../utils/setupFonts';
 import '../styles/index.css';
 import Navigation from '../components/Navigation/Navigation';
+import { getCookie } from '../utils/session';
 
 export default class GiveCryptoApp extends App<any, any> {
   static async getInitialProps({ Component, ctx }) {
@@ -15,22 +16,22 @@ export default class GiveCryptoApp extends App<any, any> {
 
     if (ctx.res) {
       const authRoute = ctx.pathname === '/authenticate';
-      // if (ctx.query.auth == 'true') {
-      //   ctx.session = ctx.query.auth;
-      // }
+      const password = getCookie('password', ctx.req);
+      const isAuthenticated = password === `${process.env.PASSWORD}`;
 
-      if (!authRoute) {
+      if (!authRoute && !isAuthenticated) {
         ctx.res.writeHead(301, { Location: '/authenticate' });
         ctx.res.end();
         ctx.res.finished = true;
       }
     } else {
       const { router } = pageProps;
+      const isAuthenticated = getCookie('jwt', null);
       if (router) {
         const authenticationPath = router.pathname === '/authenticate';
         Router.replace('/authenticate');
 
-        if (!authenticationPath) {
+        if (!authenticationPath && !isAuthenticated) {
           const password = localStorage.getItem('password');
           if (password !== `${process.env.PASSWORD}`) {
             Router.push('/authenticate');

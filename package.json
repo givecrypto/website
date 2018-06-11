@@ -1,8 +1,7 @@
 {
   "name": "givecrypto",
   "version": "0.0.1",
-  "description":
-    "Empowering, educating and elevating communities into the open financial system.",
+  "description": "Empowering, educating and elevating communities into the open financial system.",
   "main": "index.js",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
@@ -13,6 +12,7 @@
     "dotenv": "^5.0.1",
     "glamor": "^2.20.40",
     "glamorous": "^4.13.0",
+    "js-cookie": "^2.2.0",
     "load-script": "^1.0.0",
     "natural-scale": "^1.2.9",
     "next": "^6.0.3",
@@ -36,6 +36,7 @@
     "@types/enzyme": "^3.1.8",
     "@types/enzyme-adapter-react-16": "^1.0.1",
     "@types/jest": "^22.2.3",
+    "@types/js-cookie": "^2.1.0",
     "@types/lodash": "^4.14.108",
     "@types/next": "^2.4.11",
     "@types/node": "^10.1.2",
@@ -50,8 +51,10 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.14.3",
+    "install": "^0.11.0",
     "jest": "^22.4.4",
     "lint-staged": "^7.1.2",
+    "npm": "^6.1.0",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.3.2",
     "tachyons-cli": "^1.3.0",
@@ -60,14 +63,15 @@
     "typescript": "^2.8.3"
   },
   "now": {
-    "alias": ["www.givecrypto.org"]
+    "alias": [
+      "www.givecrypto.org"
+    ]
   },
   "scripts": {
     "dev": "npm run css && next",
     "build": "next build",
     "start": "next start",
-    "deploy":
-      "now --dotenv=.env.production && now alias staging.givecrypto.org",
+    "deploy": "now --dotenv=.env.production && now alias staging.givecrypto.org",
     "deploy:prod": "now --dotenv=.env.production && now alias",
     "analyze": "BUNDLE_ANALYZE=both npm run build",
     "test": "NODE_ENV=test jest",
@@ -87,7 +91,9 @@
     "type": "git",
     "url": "git+https://github.com/givecrypto/website.git"
   },
-  "keywords": ["crypto"],
+  "keywords": [
+    "crypto"
+  ],
   "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
   "license": "ISC",
   "bugs": {

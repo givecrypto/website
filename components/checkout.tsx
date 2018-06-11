@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 export default () => (t, i) => {
   console.log('test', t, i);
   var e = '/embed/checkout/',

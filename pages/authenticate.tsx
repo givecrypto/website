@@ -4,6 +4,7 @@ import glamorous from 'glamorous';
 import Router from 'next/router';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
+import { setCookie } from '../utils/session';
 
 const Container = glamorous.div({});
 const Input = glamorous.input({
@@ -40,6 +41,7 @@ export default class Authenticate extends React.Component<any, any> {
 
     if (password === `${process.env.PASSWORD}`) {
       localStorage.setItem('password', password);
+      setCookie('password', password);
       // window.location.href = 'https://github.com/?auth=true';
       Router.push('/');
     }
