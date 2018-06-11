@@ -9,9 +9,17 @@ import { Step } from '../../utils/Scale';
 import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
 import { Link as ScrollLink } from 'react-scroll';
 import Button from '../../components/Button';
+import NProgress from 'nprogress';
+
 export interface NavigationProps {
   theme?: string;
 }
+
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+};
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 export default class Navigation extends React.Component<NavigationProps, any> {
   constructor(props: any) {

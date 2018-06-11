@@ -1,6 +1,7 @@
 @import 'tachyons';
 @import './_media.css';
 @import './_modal.css';
+@import './_nprogress.css';
 
 // Smooth those fonts
 * {
