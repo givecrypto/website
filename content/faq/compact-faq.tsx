@@ -13,7 +13,7 @@ export default [
   },
   {
     question: `How will my donation be used?`,
-    answer: `We've made the commitment that, for now, 100% of donated funds will go to our nonprofit distribution partners. GiveCrypto’s operating overhead will be covered by the founding team for right now.`
+    answer: `Funds will be used to distribute payments to recipients, distribution partners, and cover operational overhead. In the future we plan to move to a model where 100% of donated funds go to our recipients and distribution partners. At that time, GiveCrypto’s operating overhead will be covered by the board and initial fundraise.`
   },
   {
     question: `How do the funds get distributed to people in need?`,
