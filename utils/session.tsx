@@ -1,6 +1,7 @@
 import cookie from 'js-cookie';
 
-const isBrowser = process.browser;
+const processShim: any = process;
+const isBrowser = processShim.browser;
 
 export const setCookie = (key, value) => {
   if (isBrowser) {
