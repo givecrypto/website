@@ -40,6 +40,7 @@ export default class Authenticate extends React.Component<any, any> {
 
     if (password === `${process.env.PASSWORD}`) {
       localStorage.setItem('password', password);
+      // window.location.href = 'https://github.com/?auth=true';
       Router.push('/');
     }
   }

@@ -11,7 +11,7 @@ export const AddToList = (listId: string, email: any) => {
       },
       body: `api_key=${
         process.env.KLAVIYO_API_KEY
-      }&email=${email}&confirm_optin=false&$consent:web`
+      }&email=${email}&confirm_optin=true&$consent:web`
     })
       .then(response => {
         resolve(response);

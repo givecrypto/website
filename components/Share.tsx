@@ -18,9 +18,7 @@ export default class Share extends React.Component<ShareProps, any> {
     return (
       <Icons>
         <Link href="http://twitter.com/givecrypto/">
-          <a href="http://twitter.com/givecrypto/">
-            <Twitter className="test" />
-          </a>
+          <Twitter className="test" />
         </Link>
         <Link href="http://medium.com/givecrypto/">
           <Medium />
