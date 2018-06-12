@@ -43,15 +43,15 @@ jobs:
             # Test the source code
             - run:
                 name: Testing
-                command: npm run test:coverage
+                command: npm run test
             # Save coverage report 
-            - run:
-                name: Run Coverage Report
-                command: codeclimate-test-reporter < 'coverage/lcov.info'
-            - store_artifacts:
-                path: coverage
-            - store_test_results:
-                path: coverage
+            # - run:
+            #     name: Run Coverage Report
+            #     command: codeclimate-test-reporter < 'coverage/lcov.info'
+            # - store_artifacts:
+            #     path: coverage
+            # - store_test_results:
+            #     path: coverage
             # Build project
             - run:
                 name: Building
