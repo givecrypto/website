@@ -6,7 +6,7 @@ import { Step } from '../utils/Scale';
 import copy from 'copy-to-clipboard';
 import Logo from '../svgs/logotype.svg';
 import Copy from '../svgs/copy.svg';
-import Delay from '../utils/Delay';
+import delay from '../utils/delay';
 const address = process.env.RIPPLE_WALLET_ID;
 
 interface RippleModalProps {}
@@ -149,7 +149,7 @@ export default class RippleModal extends React.Component<
       clipboardFull: true
     });
 
-    await Delay(3000);
+    await delay(3000);
     this.setState({
       clipboardFull: false
     });
