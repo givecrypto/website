@@ -43,7 +43,7 @@ jobs:
             # Test the source code
             - run:
                 name: Testing
-                command: npm run circle
+                command: npm run test
             # Run coverage report 
             - run:
                 name: Run Coverage Report
