@@ -119,16 +119,12 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   }
 
   closeMenu() {
-    this.setState(
-      {
-        direction: -1,
-        isStopped: false,
-        menuModalState: false
-      },
-      () => {
-        document.querySelector('html').removeAttribute('style');
-      }
-    );
+    document.querySelector('html').removeAttribute('style');
+    this.setState({
+      direction: -1,
+      isStopped: false,
+      menuModalState: false
+    });
   }
 
   onOpenModal = () => {
@@ -250,13 +246,35 @@ const NavItem = glamorous.li({
   fontSize: Step(5),
   fontWeight: 500,
   '& a, & span': {
-    color: colors.white
+    color: colors.white,
+    '&:hover': {
+      color: colors.greyLighter
+    }
+  },
+  '& .active': {
+    color: colors.greyLightest,
+    borderBottom: `1px solid ${colors.greyLightest}`
   },
   [breakpoints.l]: {
     display: 'inline-block',
     marginRight: Step(6),
+    fontSize: Step(4),
+    fontWeight: 400,
     marginBottom: 0,
+    '& a, & span': {
+      color: colors.black,
+      '&:hover': {
+        color: colors.grey
+      }
+    },
     '> .active > span': {
+      '& a, & span': {
+        color: colors.black
+      },
+      color: colors.black,
+      borderBottom: `1px solid ${colors.black}`
+    },
+    '& .active': {
       color: colors.black,
       borderBottom: `1px solid ${colors.black}`
     }
