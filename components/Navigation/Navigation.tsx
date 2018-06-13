@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Link, { linkStyles } from '../../components/Link';
 import Links from './Links';
 import Headroom from 'react-headroom';
-import { colors } from '../../design-system';
+import { colors, breakpoints } from '../../design-system';
 import Logo from '../../svgs/logotype.svg';
 import { Step } from '../../utils/Scale';
 import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
@@ -18,16 +18,15 @@ export interface NavigationProps {
   theme?: string;
 }
 
-Router.onRouteChangeStart = () => {
-  NProgress.start();
-};
-Router.onRouteChangeComplete = () => NProgress.done();
-Router.onRouteChangeError = () => NProgress.done();
-
 const AnimationContainer = glamorous.div({
   display: 'inline-block',
   width: 24,
-  height: 24
+  height: 24,
+  '> *': {
+    '&:focus': {
+      outline: 'none'
+    }
+  }
 });
 
 export default class Navigation extends React.Component<NavigationProps, any> {
@@ -35,10 +34,27 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     super(props);
 
     this.state = {
-      currentRoute: null,
+      menuModalState: false,
+      currentRoute: '/',
       isStopped: false,
       direction: -1
     };
+
+    Router.onRouteChangeStart = () => {
+      NProgress.start();
+      this.setState({
+        menuModalState: false,
+        direction: -1,
+        isStopped: false
+      });
+    };
+    Router.onRouteChangeComplete = () => {
+      NProgress.done();
+      this.setState({
+        currentRoute: Router.pathname
+      });
+    };
+    Router.onRouteChangeError = () => NProgress.done();
   }
 
   componentDidMount() {
@@ -60,10 +76,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
       if (to) {
         const Span = glamorous.span(linkStyles);
-        const ElementIsAvailable =
-          typeof document !== 'undefined' && document.getElementById(to);
 
-        if (ElementIsAvailable && currentRoute === '/') {
+        if (currentRoute === '/') {
           return (
             <NavItem key={title}>
               <ScrollLink
@@ -73,9 +87,15 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 hashSpy={true}
                 smooth={true}
                 offset={-50}
-                duration={500}
+                duration={550}
               >
-                <Span>{title}</Span>
+                <Span
+                  onClick={() => {
+                    this.closeMenu();
+                  }}
+                >
+                  {title}
+                </Span>
               </ScrollLink>
             </NavItem>
           );
@@ -94,8 +114,21 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     direction = direction * -1;
     menuModalState = !menuModalState;
 
-    // Set it
+    // Set things
     this.setState({ direction, isStopped: false, menuModalState });
+  }
+
+  closeMenu() {
+    this.setState(
+      {
+        direction: -1,
+        isStopped: false,
+        menuModalState: false
+      },
+      () => {
+        document.querySelector('html').removeAttribute('style');
+      }
+    );
   }
 
   onOpenModal = () => {
@@ -151,7 +184,11 @@ export default class Navigation extends React.Component<NavigationProps, any> {
               </Ul>
             </Div>
             <Div lineHeight="0" className="flex items-center dn-l">
-              <Button className="mr3" href={'/donate'} theme={donateTheme}>
+              <Button
+                className="mr3 button-donate"
+                href={'/donate'}
+                theme={donateTheme}
+              >
                 Donate
               </Button>
               <AnimationContainer
@@ -177,7 +214,28 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             modal: 'flat-modal'
           }}
         >
-          <h1>Fake Menu</h1>
+          <Ul
+            role="navigation"
+            display="flex"
+            textAlign="center"
+            flexDirection="column"
+            alignItems="center"
+            listStyle="none"
+            margin={0}
+            padding={0}
+          >
+            {this.mapLinks()}
+            <li>
+              <Button
+                className="mt4 db button-donate"
+                href={'/donate'}
+                size={'big'}
+                theme="ghost"
+              >
+                Donate
+              </Button>
+            </li>
+          </Ul>
         </Modal>
       </>
     );
@@ -185,10 +243,22 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 }
 
 const NavItem = glamorous.li({
-  display: 'inline-block',
-  marginRight: Step(6),
-  '> .active > span': {
-    color: colors.black,
-    borderBottom: `1px solid ${colors.black}`
+  listStyle: 'none',
+  marginLeft: 0,
+  paddingLeft: 0,
+  marginBottom: Step(5),
+  fontSize: Step(5),
+  fontWeight: 500,
+  '& a, & span': {
+    color: colors.white
+  },
+  [breakpoints.l]: {
+    display: 'inline-block',
+    marginRight: Step(6),
+    marginBottom: 0,
+    '> .active > span': {
+      color: colors.black,
+      borderBottom: `1px solid ${colors.black}`
+    }
   }
 });

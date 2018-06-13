@@ -15,13 +15,21 @@
 }
 
 .headroom-wrapper {
+  .button-donate {
+    transition: all 200ms;
+    opacity: 1;
+  }
   &.open-true {
     z-index: 9999;
     svg path {
       fill: #fff;
     }
-  }
-  nav {
-    background: transparent;
+    nav {
+      background: transparent;
+    }
+    .button-donate {
+      pointer-events: none;
+      opacity: 0;
+    }
   }
 }

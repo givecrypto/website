@@ -1,12 +1,13 @@
 import * as React from 'react';
 import glamorous, { CSSProperties } from 'glamorous';
-import { colors, breakpoints } from '../design-system';
+import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 import BrowserLink from './Link';
 
 export interface ButtonProps {
   href?: string;
+  size?: string;
   to?: string;
   className?: string;
   theme?: string;
@@ -83,7 +84,13 @@ const buttonStyles: CSSProperties = {
       borderColor: colors.yellow
     }
   },
-  padding: Step(4)
+  padding: Step(4),
+  '&.size-big': {
+    fontSize: Step(5),
+    fontWeight: 500,
+    textTransform: 'none',
+    padding: `${Step(4)} ${Step(5)}`
+  }
 };
 
 export default class Button extends React.Component<any, any> {
@@ -93,6 +100,7 @@ export default class Button extends React.Component<any, any> {
       href,
       className,
       theme = 'default',
+      size = 'default',
       children,
       ...rest
     } = this.props;
@@ -104,7 +112,7 @@ export default class Button extends React.Component<any, any> {
         <BrowserLink href={href} className={className}>
           <Link
             tabIndex={tabindex}
-            className={`Link-with-crypto theme-${theme}`}
+            className={`Link-with-crypto theme-${theme} size-${size}`}
             href={href}
             {...rest}
           >
