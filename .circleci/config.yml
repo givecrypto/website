@@ -43,15 +43,15 @@ jobs:
             # Test the source code
             - run:
                 name: Testing
-                command: npm run circle
-            # Run coverage report 
-            - run:
-                name: Run Coverage Report
-                command: codeclimate-test-reporter < 'coverage/lcov.info'
-            - store_artifacts:
-                path: coverage
-            - store_test_results:
-                path: coverage
+                command: npm run test
+            # Save coverage report 
+            # - run:
+            #     name: Run Coverage Report
+            #     command: codeclimate-test-reporter < 'coverage/lcov.info'
+            # - store_artifacts:
+            #     path: coverage
+            # - store_test_results:
+            #     path: coverage
             # Build project
             - run:
                 name: Building
@@ -98,7 +98,7 @@ jobs:
                 command: |
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
                         ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_PRODUCTION_URL} 
-                    elif [ "${CIRCLE_BRANCH}" == "development" ]; then
+                    elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                         ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_STAGE_URL} 
                     else
                         ./node_modules/.bin/now alias --team=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --team=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_TEAM}-${CIRCLE_BRANCH} 
@@ -109,7 +109,7 @@ jobs:
                     # set staging url
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
                         export STAGE_URL="${NOW_PRODUCTION_URL}"
-                    elif [ "${CIRCLE_BRANCH}" == "development" ]; then
+                    elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                         export STAGE_URL="${NOW_STAGE_URL}"
                     else
                         export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH}.now.sh"
