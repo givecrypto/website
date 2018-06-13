@@ -29,10 +29,7 @@ interface DonorsCTAProps {}
 const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
   return (
     <>
-      <Container
-        id="about"
-        className="flex items-center justify-center relative mb6"
-      >
+      <Container className="flex items-center justify-center relative mb6">
         {/* Uncomment this when ready for deploying */}
         {/* <div className="z-1 absolute responsive w-100 h-100">
           <Map />

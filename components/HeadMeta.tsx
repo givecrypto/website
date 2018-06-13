@@ -12,7 +12,7 @@ const defaults = {
   title: 'GiveCrypto | Give cryptocurrency to people in need.',
   description:
     'Empowering, educating and elevating communities into the open financial system.',
-  image: 'https://jklb-os.s3.amazonaws.com/givecrypto/social-image@2x.jpg'
+  image: 'https://www.givecrypto.org/static/images/givecrypto-share.png'
 };
 
 export default ({

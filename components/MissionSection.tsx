@@ -60,7 +60,7 @@ const Detail: React.SFC<any> = ({ icon, left, children }: any) => {
 
 const Mission: React.SFC<MissionProps> = () => {
   return (
-    <>
+    <section id="about">
       <MissionHero />
       <Detail icon={<SceneNine />}>
         <h3>
@@ -75,7 +75,7 @@ const Mission: React.SFC<MissionProps> = () => {
       <Detail icon={<SceneOne />}>
         <ReactMarkdown className="lh-title" source={content.sectionThree} />
       </Detail>
-    </>
+    </section>
   );
 };
 
