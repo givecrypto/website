@@ -29,12 +29,12 @@ export default class GiveCryptoApp extends App<any, any> {
       const isAuthenticated = getCookie('jwt', null);
       if (router) {
         const authenticationPath = router.pathname === '/authenticate';
-        Router.replace('/authenticate');
+        Router.replace('/authenticate').then(() => window.scrollTo(0, 0));
 
         if (!authenticationPath && !isAuthenticated) {
           const password = localStorage.getItem('password');
           if (password !== `${process.env.PASSWORD}`) {
-            Router.push('/authenticate');
+            Router.push('/authenticate').then(() => window.scrollTo(0, 0));
           }
         }
       }

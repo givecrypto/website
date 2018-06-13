@@ -3,30 +3,47 @@ import content from '../content/home/hero';
 import glamorous from 'glamorous';
 import { Step } from '../utils/Scale';
 import { colors } from '../design-system';
-import SceneB from '../svgs/givecrypto-scene-05.svg';
+import SceneLarge from '../svgs/givecrypto-scene-05.svg';
+import SceneSmall from '../svgs/givecrypto-scene-06.svg';
 import Share from './Share';
 import SubscriptionForm from './SubscriptionForm';
+import { breakpoints } from '../design-system/breakpoints';
 
 export interface HeroProps {
   page: string;
 }
 
 const Details = glamorous.div({
-  width: '50%',
-  maxWidth: 560
+  width: '100%',
+  maxWidth: 560,
+  [breakpoints.ns]: {
+    width: '50%'
+  }
 });
 const Title = glamorous.h1({
-  fontSize: Step(6),
-  color: colors.black
+  fontSize: Step(5.25),
+  color: colors.black,
+  [breakpoints.ns]: {
+    fontSize: Step(6)
+  }
 });
 const Subtitle = glamorous.h1({
-  fontSize: Step(5),
+  fontSize: Step(4.25),
+  [breakpoints.ns]: {
+    fontSize: Step(5)
+  },
   color: colors.grey,
   fontWeight: 500
 });
 const Illustration = glamorous.div({
-  width: '45%',
-  maxWidth: 560
+  width: '100%',
+  maxWidth: 660,
+  padding: `0 ${Step(3)}`,
+  [breakpoints.ns]: {
+    maxWidth: 560,
+    width: '45%',
+    padding: 0
+  }
 });
 
 export default class Hero extends React.Component<HeroProps, any> {
@@ -40,7 +57,12 @@ export default class Hero extends React.Component<HeroProps, any> {
       return (
         <div className="flex align-center justify-around items-center flex-column flex-row-ns">
           <Illustration className="responsive">
-            <SceneB />
+            <div className="responsive dn db-l">
+              <SceneLarge />
+            </div>
+            <div className="responsive db dn-l">
+              <SceneSmall />
+            </div>
           </Illustration>
           <Details>
             <Title className="lh-title measure">{title}</Title>

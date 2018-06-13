@@ -10,8 +10,7 @@ export default class extends React.Component {
       res.end();
       res.finished = true;
     } else {
-      Router.push('/authenticate');
-
+      Router.push('/authenticate').then(() => window.scrollTo(0, 0));
       // if (router) {
       //   theme = router.pathname === '/donate' ? 'light' : 'default';
 

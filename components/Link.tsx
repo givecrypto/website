@@ -13,7 +13,7 @@ interface LinkProps {
 const onClickHandler = (href: string) => {
   return e => {
     e.preventDefault();
-    Router.push(href);
+    Router.push(href).then(() => window.scrollTo(0, 0));
   };
 };
 

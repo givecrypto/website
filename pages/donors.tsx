@@ -83,7 +83,11 @@ export default class App extends React.Component<AppProps, AppState> {
       const showCard = typeof person[0] === 'object';
 
       results.push(
-        <Wrapper key={`wrap-${key}`} marginBottom={Step(7)}>
+        <Wrapper
+          className="ph3 ph0-l"
+          key={`wrap-${key}`}
+          marginBottom={Step(7)}
+        >
           <SectionTitle>{key}</SectionTitle>
           {showCard && (
             <div className="flex flex-wrap justify-between">
@@ -113,7 +117,7 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <>
         <HeadMeta path="/donors" title="Meet our generous donors." />
-        <Wrapper className="center tc">
+        <Wrapper className="center tc ph3 ph0-l">
           <Title>Meet our generous donors</Title>
           <IconContainer className="responsive">
             <DonorsIcon />
@@ -122,7 +126,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
         {this.listSections(donors)}
 
-        <Wrapper>
+        <Wrapper className="ph3 ph0-l">
           <DonateHero />
         </Wrapper>
       </>

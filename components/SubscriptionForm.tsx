@@ -7,13 +7,18 @@ import Button from './Button';
 import { Step } from '../utils/Scale';
 import Loader from './Loader';
 import { AddToList } from '../utils/klaviyo';
+import { breakpoints } from '../design-system/breakpoints';
+import MediaQuery from 'react-responsive';
 
 const InputGroup = glamorous.div({});
 
 const FormInput = glamorous.input({
   fontFamily: 'Apercu',
   padding: Step(4),
-  minWidth: 260,
+  minWidth: 'auto',
+  [breakpoints.ns]: {
+    minWidth: 260
+  },
   fontSize: Step(3.75),
   border: `1px solid ${colors.greyLighter}`,
   borderRight: 'none',
@@ -138,7 +143,14 @@ export default class SubscriptionForm extends React.Component<any, any> {
             type="submit"
           >
             {loading && <Loader />}
-            {!loading && 'Subscribe To Our Blog'}
+            {!loading && (
+              <>
+                <MediaQuery minWidth={breakpoints.m}>
+                  Subscribe To Our Blog
+                </MediaQuery>
+                <MediaQuery maxWidth={breakpoints.m}>Subscribe</MediaQuery>
+              </>
+            )}
           </Button>
         </InputGroup>
       </form>

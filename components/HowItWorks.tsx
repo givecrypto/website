@@ -6,6 +6,7 @@ import content from '../content/home/how-it-works';
 import Help from '../svgs/givecrypto-help.svg';
 import Distribute from '../svgs/givecrypto-distribute.svg';
 import Donate from '../svgs/givecrypto-donate.svg';
+import { breakpoints } from '../design-system/breakpoints';
 
 const Title = glamorous.h1({
   fontSize: Step(6),
@@ -48,8 +49,11 @@ const Card = glamorous.div({
   background: colors.white,
   borderRadius: Step(2),
   padding: Step(5),
+  boxShadow: shadows.card,
   maxWidth: 280,
-  boxShadow: shadows.card
+  [breakpoints.ns]: {
+    maxWidth: '100%'
+  }
 });
 const IconContainer = glamorous.div({
   display: 'block',
@@ -96,7 +100,7 @@ const Cards: any = () => {
     }
 
     return (
-      <Card className="tc" key={title}>
+      <Card className="tc center mb4 mb0-l" key={title}>
         <CardNumber>Step {index + 1}</CardNumber>
         <IconContainer className="responsive">
           <Icon />

@@ -69,7 +69,7 @@ export default class App extends React.Component<AppProps, AppState> {
           path="/donate"
           title="Give the gift of crypto to help people in need around the world."
         />
-        <Wrapper className="center tc">
+        <Wrapper className="center tc ph3 ph0-l">
           <Title>{message}</Title>
           <Subtitle className="measure-narrow center lh-copy">
             Give the gift of crypto to help people in need around the world.
@@ -99,7 +99,11 @@ export default class App extends React.Component<AppProps, AppState> {
             <HappyIcon />
           </IconContainer>
         </Wrapper>
-        <Wrapper background={colors.white} padding={'4rem 0'}>
+        <Wrapper
+          className="ph3 ph0-l"
+          background={colors.white}
+          padding={'4rem 0'}
+        >
           <Faq
             donate={true}
             theme="light"
