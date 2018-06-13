@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous, { CSSProperties } from 'glamorous';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 import BrowserLink from './Link';
@@ -8,6 +8,7 @@ import BrowserLink from './Link';
 export interface ButtonProps {
   href?: string;
   to?: string;
+  className?: string;
   theme?: string;
   target?: string;
 }
@@ -21,7 +22,6 @@ const buttonStyles: CSSProperties = {
   borderRadius: Step(2),
   background: colors.green,
   textDecoration: 'none',
-  padding: Step(4),
   display: 'inline-block',
   fontSize: Step(3.75),
   boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
@@ -82,18 +82,26 @@ const buttonStyles: CSSProperties = {
       backgroundColor: `${colors.yellowLight} !important`,
       borderColor: colors.yellow
     }
-  }
+  },
+  padding: Step(4)
 };
 
 export default class Button extends React.Component<any, any> {
   render() {
-    const { tabindex, href, theme = 'default', children, ...rest } = this.props;
+    const {
+      tabindex,
+      href,
+      className,
+      theme = 'default',
+      children,
+      ...rest
+    } = this.props;
     const el = href ? glamorous.span : glamorous.button;
     const Link = el(buttonStyles);
 
     if (href) {
       return (
-        <BrowserLink href={href}>
+        <BrowserLink href={href} className={className}>
           <Link
             tabIndex={tabindex}
             className={`Link-with-crypto theme-${theme}`}

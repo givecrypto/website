@@ -10,6 +10,9 @@ import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
 import { Link as ScrollLink } from 'react-scroll';
 import Button from '../../components/Button';
 import NProgress from 'nprogress';
+import Lottie from 'react-lottie';
+import * as animationData from '../../animations/menu--grey-white.json';
+import Modal from 'react-responsive-modal';
 
 export interface NavigationProps {
   theme?: string;
@@ -21,12 +24,20 @@ Router.onRouteChangeStart = () => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
+const AnimationContainer = glamorous.div({
+  display: 'inline-block',
+  width: 24,
+  height: 24
+});
+
 export default class Navigation extends React.Component<NavigationProps, any> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      currentRoute: null
+      currentRoute: null,
+      isStopped: false,
+      direction: -1
     };
   }
 
@@ -77,41 +88,98 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     });
   }
 
+  toggleMenu() {
+    let { direction, menuModalState } = this.state;
+    // Reverse things
+    direction = direction * -1;
+    menuModalState = !menuModalState;
+
+    // Set it
+    this.setState({ direction, isStopped: false, menuModalState });
+  }
+
+  onOpenModal = () => {
+    this.setState({ menuModalState: true });
+  };
+
+  onCloseModal = () => {
+    this.toggleMenu();
+    this.setState({ menuModalState: false });
+  };
+
   render() {
     const { theme } = this.props;
+    const { menuModalState } = this.state;
     const donateTheme = theme === 'light' ? 'ghost' : 'default';
+    const defaultOptions = {
+      loop: false,
+      autoplay: false,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
+    };
     return (
-      <Headroom className="relative z-999">
-        <Nav
-          padding={Step(5)}
-          background={colors.white}
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
+      <>
+        <Headroom className={`relative z-999 open-${menuModalState}`}>
+          <Nav
+            padding={Step(5)}
+            background={colors.white}
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Div lineHeight="0">
+              <Link href="/">
+                <Logo />
+              </Link>
+            </Div>
+            <Div alignSelf="end" className="dn db-l">
+              <Ul
+                role="navigation"
+                display="flex"
+                alignItems="center"
+                listStyle="none"
+                margin={0}
+              >
+                {this.mapLinks()}
+                <Li display="inline-block">
+                  <Button href={'/donate'} theme={donateTheme}>
+                    Donate Crypto
+                  </Button>
+                </Li>
+              </Ul>
+            </Div>
+            <Div lineHeight="0" className="flex items-center dn-l">
+              <Button className="mr3" href={'/donate'} theme={donateTheme}>
+                Donate
+              </Button>
+              <AnimationContainer
+                onClick={() => this.toggleMenu()}
+                className="pointer responisive center"
+              >
+                <Lottie
+                  options={defaultOptions}
+                  isPaused={this.state.isStopped}
+                  direction={this.state.direction}
+                />
+              </AnimationContainer>
+            </Div>
+          </Nav>
+        </Headroom>
+        <Modal
+          open={menuModalState}
+          showCloseIcon={false}
+          onClose={this.onCloseModal}
+          center
+          classNames={{
+            overlay: 'green-overlay',
+            modal: 'flat-modal'
+          }}
         >
-          <Div lineHeight="0">
-            <Link href="/">
-              <Logo />
-            </Link>
-          </Div>
-          <Div alignSelf="end">
-            <Ul
-              role="navigation"
-              display="flex"
-              alignItems="center"
-              listStyle="none"
-              margin={0}
-            >
-              {this.mapLinks()}
-              <Li display="inline-block">
-                <Button href={'/donate'} theme={donateTheme}>
-                  Donate Crypto
-                </Button>
-              </Li>
-            </Ul>
-          </Div>
-        </Nav>
-      </Headroom>
+          <h1>Fake Menu</h1>
+        </Modal>
+      </>
     );
   }
 }

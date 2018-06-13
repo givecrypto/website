@@ -3,11 +3,7 @@ import Lottie from 'react-lottie';
 import * as animationData from '../animations/loader--blue.json';
 import glamorous from 'glamorous';
 
-export interface LoaderProps {
-  isInline?: boolean;
-  isStopped?: boolean;
-  isPaused?: boolean;
-}
+export interface LoaderProps {}
 
 const AnimationContainer = glamorous.div({
   display: 'inline-block',
@@ -18,8 +14,6 @@ const AnimationContainer = glamorous.div({
 export default class Loader extends React.Component<LoaderProps, any> {
   constructor(props) {
     super(props);
-    const { isStopped = false, isPaused = false } = props;
-    this.state = { isStopped, isPaused };
   }
 
   render() {

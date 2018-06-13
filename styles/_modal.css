@@ -1,7 +1,27 @@
 .custom-overlay {
   background: rgba(0, 0, 0, 0.5);
 }
+.green-overlay {
+  background: #00cd90;
+}
+.flat-modal {
+  background: transparent;
+  box-shadow: none;
+  color: #ffffff;
+}
 .custom-modal {
   border-radius: 10px;
   max-width: 1100px;
+}
+
+.headroom-wrapper {
+  &.open-true {
+    z-index: 9999;
+    svg path {
+      fill: #fff;
+    }
+  }
+  nav {
+    background: transparent;
+  }
 }
