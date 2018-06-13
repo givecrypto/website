@@ -107,7 +107,9 @@ jobs:
                 name: Update deployment status 
                 command: |
                     # set staging url
+                    export DEPLOYMENT_TITLE="staging"
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        export DEPLOYMENT_TITLE="production"
                         export STAGE_URL="${NOW_PRODUCTION_URL}"
                     elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                         export STAGE_URL="${NOW_STAGE_URL}"
@@ -119,7 +121,7 @@ jobs:
                     curl "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/statuses/$CIRCLE_SHA1" \
                     -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" \
                     -X POST \
-                    -d "{\"state\": \"success\", \"description\": \"Deployed to Staging!\", \"target_url\": \"${STAGE_URL}\", \"context\": \"ci/circleci: stage\"}"
+                    -d "{\"state\": \"success\", \"description\": \"Deployed to ${DEPLOYMENT_TITLE}!\", \"target_url\": \"${STAGE_URL}\", \"context\": \"now/${DEPLOYMENT_TITLE}: deploy\"}"
 
 workflows:
   version: 2
