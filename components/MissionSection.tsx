@@ -8,6 +8,7 @@ import SceneOne from '../svgs/givecrypto-scene-01.svg';
 import content from '../content/home/about';
 import { Step } from '../utils/Scale';
 import ReactMarkdown from 'react-markdown';
+import { breakpoints } from '../design-system';
 
 interface MissionProps {}
 
@@ -16,14 +17,28 @@ const DetailItem = glamorous.div({
   margin: `${Step(6)} 0`
 });
 
-const IconContainer = glamorous.div({
-  maxWidth: 450,
-  padding: Step(6)
-});
+const IconContainer: any = glamorous.div(
+  {
+    padding: Step(6),
+    [breakpoints.l]: {
+      maxWidth: 450,
+      order: 1
+    }
+  },
+  (props: any) => {
+    return {
+      order: 0,
+      [breakpoints.l]: {
+        order: props.left ? 0 : 2
+      }
+    };
+  }
+);
 
 const Description = glamorous.div({
   color: colors.greyLight,
   fontSize: Step(5),
+  order: 1,
 
   '> h3': {
     fontWeight: 500,
@@ -33,6 +48,10 @@ const Description = glamorous.div({
   '& ul': {
     listStyle: 'none',
     fontWeight: 400,
+    paddingLeft: 0,
+    [breakpoints.l]: {
+      paddingLeft: Step(3)
+    },
     '& li': {
       fontSize: Step(4.75),
       marginBottom: '1rem',
@@ -48,12 +67,11 @@ const Description = glamorous.div({
 
 const Detail: React.SFC<any> = ({ icon, left, children }: any) => {
   return (
-    <DetailItem className="flex items-center justify-center responsive">
-      <IconContainer>{left && icon}</IconContainer>
+    <DetailItem className="flex flex-wrap items-center justify-center responsive">
+      <IconContainer left={left}>{icon}</IconContainer>
       <Description className="measure-narrow lh-copy">
         <>{children}</>
       </Description>
-      <IconContainer>{!left && icon}</IconContainer>
     </DetailItem>
   );
 };

@@ -21,7 +21,6 @@ const Wrapper: React.SFC<any> = props => {
       background
     },
     (props: any) => {
-      // Handle full width sections
       if (!props.flush) {
         return {
           padding: `0 ${Step(4)}`,
