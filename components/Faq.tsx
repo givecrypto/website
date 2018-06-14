@@ -82,7 +82,7 @@ const Faqs: any = props => {
       <AccordionItem key={`key-${item.question}`}>
         <Wrapper>
           <AccordionItemTitle>
-            <SubHeading>{item.question}</SubHeading>
+            <SubHeading className="lh-title">{item.question}</SubHeading>
           </AccordionItemTitle>
           <AccordionItemBody>
             <ReactMarkdown source={item.answer} />

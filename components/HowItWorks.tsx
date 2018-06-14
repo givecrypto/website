@@ -6,17 +6,23 @@ import content from '../content/home/how-it-works';
 import Help from '../svgs/givecrypto-help.svg';
 import Distribute from '../svgs/givecrypto-distribute.svg';
 import Donate from '../svgs/givecrypto-donate.svg';
-import { breakpoints } from '../design-system/breakpoints';
+import { breakpoints } from '../design-system';
 
 const Title = glamorous.h1({
-  fontSize: Step(6),
-  color: colors.black
+  color: colors.black,
+  fontSize: Step(5),
+  [breakpoints.ns]: {
+    fontSize: Step(6)
+  }
 });
 const SubTitle = glamorous.h1({
-  fontSize: Step(5),
   marginBottom: Step(7),
   color: colors.greyLight,
-  fontWeight: 500
+  fontWeight: 400,
+  fontSize: Step(4.125),
+  [breakpoints.ns]: {
+    fontSize: Step(5)
+  }
 });
 const CardWrapper = glamorous.div({
   position: 'relative',
@@ -50,9 +56,9 @@ const Card = glamorous.div({
   borderRadius: Step(2),
   padding: Step(5),
   boxShadow: shadows.card,
-  maxWidth: 280,
+  maxWidth: '100%',
   [breakpoints.ns]: {
-    maxWidth: '100%'
+    maxWidth: 280
   }
 });
 const IconContainer = glamorous.div({
@@ -115,7 +121,7 @@ const Cards: any = () => {
 export default () => {
   const { title, subtitle } = content;
   return (
-    <div id="how-it-works">
+    <div id="how-it-works" className={'mt5 mt0-ns'}>
       <Title id="how-it-works" className="lh-title">
         {title}
       </Title>

@@ -37,12 +37,14 @@ const IconContainer: any = glamorous.div(
 
 const Description = glamorous.div({
   color: colors.greyLight,
-  fontSize: Step(5),
   order: 1,
 
-  '> h3': {
-    fontWeight: 500,
-    fontSize: Step(5)
+  '& p': {
+    fontWeight: 400,
+    fontSize: Step(4.5),
+    [breakpoints.ns]: {
+      fontSize: Step(5)
+    }
   },
 
   '& ul': {
@@ -50,7 +52,10 @@ const Description = glamorous.div({
     fontWeight: 400,
     paddingLeft: 0,
     '& li': {
-      fontSize: Step(4.75),
+      fontSize: Step(4.5),
+      [breakpoints.ns]: {
+        fontSize: Step(5)
+      },
       marginBottom: '1rem',
 
       '&:before': {
@@ -64,9 +69,9 @@ const Description = glamorous.div({
 
 const Detail: React.SFC<any> = ({ icon, left, children }: any) => {
   return (
-    <DetailItem className="flex flex-wrap items-center justify-center responsive">
+    <DetailItem className="flex flex-wrap items-center-ns justify-center-ns responsive">
       <IconContainer left={left}>{icon}</IconContainer>
-      <Description className="measure-narrow lh-copy">
+      <Description className="measure-narrow measure-ns lh-copy">
         <>{children}</>
       </Description>
     </DetailItem>
@@ -78,14 +83,10 @@ const Mission: React.SFC<MissionProps> = () => {
     <section id="about">
       <MissionHero />
       <Detail icon={<SceneNine />}>
-        <h3>
-          <ReactMarkdown source={content.sectionOne} />
-        </h3>
+        <ReactMarkdown source={content.sectionOne} />
       </Detail>
       <Detail left icon={<SceneTwo />}>
-        <h3>
-          <ReactMarkdown source={content.sectionTwo} />
-        </h3>
+        <ReactMarkdown source={content.sectionTwo} />
       </Detail>
       <Detail icon={<SceneOne />}>
         <ReactMarkdown className="lh-title" source={content.sectionThree} />

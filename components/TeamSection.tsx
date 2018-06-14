@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 import PersonCard from './PersonCard';
 // import content from '../content/home/team';
@@ -8,7 +8,10 @@ import PersonCard from './PersonCard';
 interface TeamSectionProps {}
 
 const Container = glamorous.section({
-  marginBottom: Step(8)
+  marginBottom: Step(5),
+  [breakpoints.ns]: {
+    marginBottom: Step(8)
+  }
 });
 
 const Title = glamorous.h2({
@@ -22,8 +25,8 @@ const TeamSection: React.SFC<TeamSectionProps> = () => {
   return (
     <Container>
       <Title>The Team</Title>
-      <div className="flex items-top justify-between">
-        <div className="w-40">
+      <div className="flex flex-wrap items-top justify-between">
+        <div className="w-100 w-40-ns">
           <PersonCard
             name="Brian Armstrong"
             role="CEO, Coinbase"
@@ -32,7 +35,7 @@ const TeamSection: React.SFC<TeamSectionProps> = () => {
             bio="Brian had the idea for GiveCrypto after seeing the enormous wealth creation from cryptocurrency and wanting to harness it for good. His personal mission is to help accelerate the world to an open financial system by spreading the adoption of cryptocurrency. Brian is the co-founder and CEO of Coinbase the largest digital currency exchange."
           />
         </div>
-        <div className="w-40">
+        <div className="mt5 mt0-ns w-100 w-40-ns">
           <PersonCard
             name="Rose Broome"
             role="Founder, HandUp.org"

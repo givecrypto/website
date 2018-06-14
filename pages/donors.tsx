@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Step } from '../utils/Scale';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
 import DonateHero from '../components/DonateHero';
@@ -11,8 +11,13 @@ import donors from '../content/donors/donors-list';
 import '../utils/rehydrate';
 
 const Title = glamorous.h2({
-  fontSize: Step(6),
-  color: colors.black
+  color: colors.black,
+  fontSize: Step(5.35),
+  padding: `0 ${Step(5)}`,
+  [breakpoints.ns]: {
+    padding: 0,
+    fontSize: Step(6)
+  }
 });
 
 const List = glamorous.ul(

@@ -28,12 +28,12 @@ const Title = glamorous.h1({
   }
 });
 const Subtitle = glamorous.h1({
-  fontSize: Step(4.25),
+  fontSize: Step(4.5),
+  fontWeight: 400,
   [breakpoints.ns]: {
     fontSize: Step(5)
   },
-  color: colors.grey,
-  fontWeight: 500
+  color: colors.grey
 });
 const Illustration = glamorous.div({
   width: '100%',
