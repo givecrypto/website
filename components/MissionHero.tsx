@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 import ReactMarkdown from 'react-markdown';
 import content from '../content/home/about';
@@ -13,15 +13,22 @@ const Container = glamorous.section({
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   width: '100%',
-  height: 475,
-  marginTop: Step(7.5)
+  marginTop: Step(7.5),
+  height: 'auto',
+  [breakpoints.ns]: {
+    height: 475
+  }
 });
 
 const Title = glamorous.h2({
   textAlign: 'center',
-  fontSize: Step(5.65),
-  padding: `0 ${Step(6)}`,
-  color: colors.black
+  padding: `0 ${Step(2)}`,
+  color: colors.black,
+  fontSize: Step(5),
+  [breakpoints.ns]: {
+    padding: `0 ${Step(6)}`,
+    fontSize: Step(5.65)
+  }
 });
 
 interface DonorsCTAProps {}
@@ -29,7 +36,7 @@ interface DonorsCTAProps {}
 const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
   return (
     <>
-      <Container className="flex items-center justify-center relative mb6">
+      <Container className="flex items-center justify-center relative mb6-ns">
         {/* Uncomment this when ready for deploying */}
         {/* <div className="z-1 absolute responsive w-100 h-100">
           <Map />

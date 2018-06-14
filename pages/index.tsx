@@ -15,11 +15,15 @@ import DonateHero from '../components/DonateHero';
 import Mission from '../components/MissionSection';
 import VideoSection from '../components/VideoSection';
 import TeamSection from '../components/TeamSection';
+import { breakpoints } from '../design-system';
 
 const { div } = glamorous;
 
 const Container = div({
-  padding: Step(5)
+  padding: `${Step(5)} 0`,
+  [breakpoints.l]: {
+    padding: Step(5)
+  }
 });
 
 export interface AppProps {}
@@ -62,13 +66,13 @@ export default class App extends React.Component<AppProps, AppState> {
         <Container>
           <Wrapper wide>
             <Hero page="home" />
-            <Div display="block" height="220px" />
+            <Div display="block" className="mb3 mb6-ns" />
           </Wrapper>
 
           <Wrapper narrow>
             <HowItWorks />
           </Wrapper>
-          <Wrapper>
+          <Wrapper flush={true}>
             <DonorsHero />
           </Wrapper>
           <Wrapper>

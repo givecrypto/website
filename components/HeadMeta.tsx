@@ -22,6 +22,7 @@ export default ({
   image = defaults.image
 }: HeadMetaProps) => (
   <Head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta key="twitter-card" name="twitter:card" content="summary" />
     <meta key="twitter-site" name="twitter:site" content="@givecrypto" />
     <meta key="twitter-title" name="twitter:title" content={title} />

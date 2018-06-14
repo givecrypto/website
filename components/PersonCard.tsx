@@ -43,7 +43,7 @@ const ImageCard = glamorous.div(
           backgroundSize: '100%',
           position: 'absolute',
           left: 'auto',
-          right: -200,
+          right: -272,
           width: 423,
           height: 263,
           transform: 'translateY(40px)'
@@ -60,7 +60,7 @@ const ImageCard = glamorous.div(
           background: 'url(/static/images/pattern@2x.png)',
           backgroundSize: '100%',
           position: 'absolute',
-          left: -200,
+          left: -272,
           width: 423,
           height: 263,
           transform: 'translateY(40px)'

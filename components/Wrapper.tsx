@@ -1,9 +1,12 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
+import { breakpoints } from '../design-system';
+import { Step } from '../utils/Scale';
 
 export interface WrapperProps extends React.HTMLProps<any> {
   color?: string;
   background?: string;
+  flush?: boolean;
   narrow?: boolean;
   wide?: boolean;
 }
@@ -18,6 +21,15 @@ const Wrapper: React.SFC<any> = props => {
       background
     },
     (props: any) => {
+      if (!props.flush) {
+        return {
+          padding: `0 ${Step(4)}`,
+          [breakpoints.l]: {
+            padding: 0
+          }
+        };
+      }
+
       if (props.pattern) {
         return {
           position: 'relative',

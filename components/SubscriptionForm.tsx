@@ -7,13 +7,34 @@ import Button from './Button';
 import { Step } from '../utils/Scale';
 import Loader from './Loader';
 import { AddToList } from '../utils/klaviyo';
+import { breakpoints } from '../design-system';
+import { breakpoints as bp } from '../design-system/breakpoints';
+import MediaQuery from 'react-responsive';
+import chroma from 'chroma-js';
 
 const InputGroup = glamorous.div({});
+const Thanks = glamorous.h2({
+  display: 'inline-block',
+  border: `1px solid ${colors.green}`,
+  fontSize: Step(3.75),
+  fontWeight: 400,
+  color: colors.greyDark,
+  borderRadius: Step(2),
+  margin: 0,
+  background: chroma(colors.green)
+    .alpha(0.05)
+    .css(),
+  padding: Step(4)
+});
 
 const FormInput = glamorous.input({
   fontFamily: 'Apercu',
   padding: Step(4),
-  minWidth: 260,
+  boxShadow: 'none',
+  outline: 'none',
+  [breakpoints.ns]: {
+    minWidth: 260
+  },
   fontSize: Step(3.75),
   border: `1px solid ${colors.greyLighter}`,
   borderRight: 'none',
@@ -111,7 +132,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
     } = this.state;
 
     if (success) {
-      return <h2>Thanks!</h2>;
+      return <Thanks>Thanks for your interest!</Thanks>;
     }
 
     return (
@@ -138,7 +159,19 @@ export default class SubscriptionForm extends React.Component<any, any> {
             type="submit"
           >
             {loading && <Loader />}
-            {!loading && 'Subscribe To Our Blog'}
+            {!loading && (
+              <>
+                <MediaQuery minWidth={bp.m}>
+                  {matches => {
+                    if (matches) {
+                      return <>Subscribe To Our Blog</>;
+                    } else {
+                      return <>Subscribe</>;
+                    }
+                  }}
+                </MediaQuery>
+              </>
+            )}
           </Button>
         </InputGroup>
       </form>

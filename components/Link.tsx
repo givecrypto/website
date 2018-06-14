@@ -5,6 +5,7 @@ import NextLink from '../components/NextLink';
 
 interface LinkProps {
   href: string;
+  className?: string;
   activeClass?: string;
   children?: any;
 }
@@ -12,7 +13,7 @@ interface LinkProps {
 const onClickHandler = (href: string) => {
   return e => {
     e.preventDefault();
-    Router.push(href);
+    Router.push(href).then(() => window.scrollTo(0, 0));
   };
 };
 
@@ -45,9 +46,15 @@ export const linkStyles = {
 
 const A = glamorous.a(linkStyles);
 
-const Link = ({ children, href, activeClass, ...rest }: LinkProps) => {
+const Link = ({
+  children,
+  href,
+  activeClass,
+  className,
+  ...rest
+}: LinkProps) => {
   return (
-    <span onClick={onClickHandler(href)}>
+    <span onClick={onClickHandler(href)} className={className}>
       <NextLink activeClassName={activeClass} href={href}>
         <A {...rest}>{children}</A>
       </NextLink>

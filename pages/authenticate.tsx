@@ -43,7 +43,7 @@ export default class Authenticate extends React.Component<any, any> {
       localStorage.setItem('password', password);
       setCookie('password', password);
       // window.location.href = 'https://github.com/?auth=true';
-      Router.push('/');
+      Router.replace('/').then(() => window.scrollTo(0, 0));
     }
   }
 

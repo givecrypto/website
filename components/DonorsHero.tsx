@@ -1,12 +1,13 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 import Link from './Link';
-import { colors, shadows } from '../design-system';
+import { colors, shadows, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 
 const Container = glamorous.section({
   background: `url('/static/images/donor-hero.jpg')`,
   backgroundSize: 'cover',
+  backgroundPosition: 'center center',
   width: '100%',
   height: 575,
   marginTop: Step(7.5),
@@ -14,7 +15,6 @@ const Container = glamorous.section({
 });
 
 const InfoCard = glamorous.div({
-  margin: `0 0 0 ${Step(7)}`,
   textAlign: 'center',
   display: 'inline-block',
   boxSizing: 'border-box',
@@ -22,7 +22,11 @@ const InfoCard = glamorous.div({
   borderRadius: Step(2),
   padding: Step(5),
   maxWidth: 260,
-  boxShadow: shadows.card
+  boxShadow: shadows.card,
+  margin: '0 auto',
+  [breakpoints.ns]: {
+    margin: `0 0 0 ${Step(7)}`
+  }
 });
 
 const CardTitle = glamorous.h4({

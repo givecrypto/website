@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Step } from '../utils/Scale';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import glamorous from 'glamorous';
 import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
@@ -15,8 +15,11 @@ import Faq from '../components/Faq';
 import '../utils/rehydrate';
 
 const Title = glamorous.h2({
-  fontSize: Step(6),
-  color: colors.black
+  color: colors.black,
+  fontSize: Step(5.35),
+  [breakpoints.ns]: {
+    fontSize: Step(6)
+  }
 });
 
 const Meta = glamorous.h2({
@@ -33,10 +36,13 @@ const IconContainer = glamorous.div({
 });
 
 const Subtitle = glamorous.h1({
-  fontSize: Step(5),
   paddingBottom: Step(5),
   color: colors.grey,
-  fontWeight: 500
+  fontWeight: 500,
+  fontSize: Step(4.5),
+  [breakpoints.ns]: {
+    fontSize: Step(5)
+  }
 });
 
 const ButtonGroup = glamorous.div({
@@ -69,7 +75,7 @@ export default class App extends React.Component<AppProps, AppState> {
           path="/donate"
           title="Give the gift of crypto to help people in need around the world."
         />
-        <Wrapper className="center tc">
+        <Wrapper className="center tc ph3 ph0-l">
           <Title>{message}</Title>
           <Subtitle className="measure-narrow center lh-copy">
             Give the gift of crypto to help people in need around the world.
@@ -99,7 +105,11 @@ export default class App extends React.Component<AppProps, AppState> {
             <HappyIcon />
           </IconContainer>
         </Wrapper>
-        <Wrapper background={colors.white} padding={'4rem 0'}>
+        <Wrapper
+          className="ph3 ph0-l"
+          background={colors.white}
+          padding={'4rem 0'}
+        >
           <Faq
             donate={true}
             theme="light"
