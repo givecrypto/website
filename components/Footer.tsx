@@ -24,14 +24,14 @@ export default class Footer extends React.Component<FooterProps, any> {
       <Section flexShrink={0} role="footer">
         <Div
           padding={Step(5)}
-          className="h4 flex flex-wrap justify-between items-center"
+          className="h4 flex flex-wrap justify-between items-center items-top-ns"
         >
           <Div className="order-0">
             <Link href="/">
               <Logo />
             </Link>
           </Div>
-          <Div className="o-30 o-100-ns order-2 order-1-ns">
+          <Div className="o-30 order-2 order-1-ns">
             <Legal>&copy; 2018 GiveCrypto. All rights reserved.</Legal>
           </Div>
           <Div className="order-1 order-2-ns tc">
