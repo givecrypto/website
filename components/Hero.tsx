@@ -7,7 +7,7 @@ import SceneLarge from '../svgs/givecrypto-scene-05.svg';
 import SceneSmall from '../svgs/givecrypto-scene-06.svg';
 import Share from './Share';
 import SubscriptionForm from './SubscriptionForm';
-import { breakpoints } from '../design-system/breakpoints';
+import { breakpoints } from '../design-system';
 
 export interface HeroProps {
   page: string;
@@ -21,8 +21,8 @@ const Details = glamorous.div({
   }
 });
 const Title = glamorous.h1({
-  fontSize: Step(5.25),
   color: colors.black,
+  fontSize: Step(5.35),
   [breakpoints.ns]: {
     fontSize: Step(6)
   }

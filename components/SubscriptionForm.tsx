@@ -15,7 +15,8 @@ const InputGroup = glamorous.div({});
 const FormInput = glamorous.input({
   fontFamily: 'Apercu',
   padding: Step(4),
-  minWidth: 'auto',
+  boxShadow: 'none',
+  outline: 'none',
   [breakpoints.ns]: {
     minWidth: 260
   },
@@ -146,9 +147,14 @@ export default class SubscriptionForm extends React.Component<any, any> {
             {!loading && (
               <>
                 <MediaQuery minWidth={breakpoints.m}>
-                  Subscribe To Our Blog
+                  {matches => {
+                    if (matches) {
+                      return <>Subscribe To Our Blog</>;
+                    } else {
+                      return <>Subscribe</>;
+                    }
+                  }}
                 </MediaQuery>
-                <MediaQuery maxWidth={breakpoints.m}>Subscribe</MediaQuery>
               </>
             )}
           </Button>
