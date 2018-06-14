@@ -16,7 +16,8 @@ import ReactMarkdown from 'react-markdown';
 
 const SubHeading = glamorous.h2({
   fontSize: Step(5),
-  fontWeight: 500
+  fontWeight: 500,
+  paddingRight: Step(4.5)
 });
 
 const Faqs: any = props => {

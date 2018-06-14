@@ -49,9 +49,6 @@ const Description = glamorous.div({
     listStyle: 'none',
     fontWeight: 400,
     paddingLeft: 0,
-    [breakpoints.l]: {
-      paddingLeft: Step(3)
-    },
     '& li': {
       fontSize: Step(4.75),
       marginBottom: '1rem',

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 import Modal from 'react-responsive-modal';
@@ -29,9 +29,7 @@ const linkStyles = {
     border: `1px solid ${colors.green}`,
     background: colors.green,
     textDecoration: 'none',
-    padding: Step(4),
     borderRadius: Step(2),
-    fontSize: Step(3.75),
     height: 'inherit !important',
     boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
     display: 'inline-block',
@@ -41,7 +39,7 @@ const linkStyles = {
       fontFamily: 'Apercu',
       fontWeight: 200,
       textTransform: 'uppercase',
-      letterSpacing: `0.1rem`,
+      letterSpacing: `0.05rem`,
       cursor: 'pointer',
       textShadow: 'none',
       padding: 0
@@ -82,6 +80,15 @@ const linkStyles = {
     '&.theme-full': {
       display: 'block',
       width: '100%'
+    },
+    fontSize: Step(3.45),
+    padding: `${Step(4)} ${Step(3.75)}`,
+    [breakpoints.ns]: {
+      '> span': {
+        letterSpacing: `0.1rem`
+      },
+      padding: Step(4),
+      fontSize: Step(3.75)
     }
   }
 };
