@@ -23,13 +23,14 @@ const Details = glamorous.div({
 const Title = glamorous.h1({
   color: colors.black,
   fontSize: Step(5.35),
+  fontWeight: 900,
   [breakpoints.ns]: {
     fontSize: Step(6)
   }
 });
 const Subtitle = glamorous.h1({
   fontSize: Step(4.5),
-  fontWeight: 400,
+  fontWeight: 500,
   [breakpoints.ns]: {
     fontSize: Step(5)
   },

@@ -18,7 +18,7 @@ const Title = glamorous.h1({
 const SubTitle = glamorous.h1({
   marginBottom: Step(7),
   color: colors.greyLight,
-  fontWeight: 400,
+  fontWeight: 500,
   fontSize: Step(4.125),
   [breakpoints.ns]: {
     fontSize: Step(5)

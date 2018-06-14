@@ -40,7 +40,7 @@ const Description = glamorous.div({
   order: 1,
 
   '& p': {
-    fontWeight: 400,
+    fontWeight: 500,
     fontSize: Step(4.5),
     [breakpoints.ns]: {
       fontSize: Step(5)
