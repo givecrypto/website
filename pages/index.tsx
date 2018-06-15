@@ -16,6 +16,7 @@ import Mission from '../components/MissionSection';
 import VideoSection from '../components/VideoSection';
 import TeamSection from '../components/TeamSection';
 import { breakpoints } from '../design-system';
+import seo from '../content/home/seo';
 
 const { div } = glamorous;
 
@@ -57,12 +58,9 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <>
         <Head>
-          <title key="head-title">
-            GiveCrypto | Empowering, educating and elevating communities into
-            the open financial system.
-          </title>
+          <title key="head-title">{seo.title}</title>
         </Head>
-        <HeadMeta path="/home" />
+        <HeadMeta path="/home" description={seo.description} />
         <Container>
           <Wrapper wide>
             <Hero page="home" />
