@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 import { Step } from '../utils/Scale';
 import { colors, breakpoints } from '../design-system';
 import glamorous from 'glamorous';
@@ -8,6 +9,7 @@ import Wrapper from '../components/Wrapper';
 import DonorsIcon from '../svgs/givecrypto-scene-04.svg';
 import PersonCard from '../components/PersonCard';
 import donors from '../content/donors/donors-list';
+import seo from '../content/donors/seo';
 import '../utils/rehydrate';
 
 const Title = glamorous.h2({
@@ -121,7 +123,14 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <>
-        <HeadMeta path="/donors" title="Meet our generous donors." />
+        <Head>
+          <title key="head-title">{seo.title}</title>
+        </Head>
+        <HeadMeta
+          path="/donors"
+          title={seo.title}
+          description={seo.description}
+        />
         <Wrapper className="center tc ph3 ph0-l">
           <Title>Meet our generous donors</Title>
           <IconContainer className="responsive">

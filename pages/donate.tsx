@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Step } from '../utils/Scale';
 import { colors, breakpoints } from '../design-system';
 import glamorous from 'glamorous';
+import Head from 'next/head';
 import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
 import Wrapper from '../components/Wrapper';
@@ -13,6 +14,7 @@ import RippleIcon from '../svgs/crypto/xrp.svg';
 import HappyIcon from '../svgs/givecrypto-scene-03.svg';
 import Faq from '../components/Faq';
 import '../utils/rehydrate';
+import seo from '../content/donate/seo';
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -71,9 +73,13 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <>
+        <Head>
+          <title key="head-title">{seo.title}</title>
+        </Head>
         <HeadMeta
-          path="/donate"
-          title="Give the gift of crypto to help people in need around the world."
+          path="/donors"
+          title={seo.title}
+          description={seo.description}
         />
         <Wrapper className="center tc ph3 ph0-l">
           <Title>{message}</Title>
