@@ -17,11 +17,6 @@ const defaults = {
 };
 
 export default class HeadMeta extends React.Component<HeadMetaProps, any> {
-  static async getInitialProps({ renderPage }) {
-    const page = renderPage();
-    return { ...page };
-  }
-
   constructor(props) {
     super(props);
   }
