@@ -28,6 +28,7 @@ const Thanks = glamorous.h2({
 });
 
 const FormInput = glamorous.input({
+  appearance: 'none',
   fontFamily: 'Apercu',
   padding: Step(4),
   boxShadow: 'none',
