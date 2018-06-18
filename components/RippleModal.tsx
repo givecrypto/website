@@ -1,6 +1,6 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
-import { colors } from '../design-system';
+import { colors, breakpoints } from '../design-system';
 import RippleIcon from '../svgs/crypto/xrp.svg';
 import { Step } from '../utils/Scale';
 import copy from 'copy-to-clipboard';
@@ -51,7 +51,19 @@ const WalletInput = glamorous.div({
   '> div': {
     padding: Step(4),
     border: `1px solid ${colors.greyLight}`,
-    borderRadius: Step(1)
+    borderRadius: Step(1),
+    position: 'relative',
+    overflow: 'hidden',
+    '&::after': {
+      content: `''`,
+      position: 'absolute',
+      right: 0,
+      width: '60px',
+      height: '100%',
+      top: 0,
+      background:
+        'linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))'
+    }
   },
   '& h2': {
     fontWeight: 300,
@@ -73,8 +85,13 @@ const Notice = glamorous.span(
         background: colors.redWarning,
         color: colors.black,
         fontSize: Step(3.5),
-        padding: Step(5),
-        border: `1px solid ${colors.red}`
+        padding: Step(4),
+        marginTop: Step(4),
+        border: `1px solid ${colors.red}`,
+        [breakpoints.ns]: {
+          marginTop: 0,
+          padding: Step(5)
+        }
       };
     }
   }
@@ -94,7 +111,7 @@ export default class RippleModal extends React.Component<
     const { clipboardFull } = this.state;
 
     return (
-      <Container className="center tc">
+      <Container className="middle center tc">
         <Heading>Donate Ripple</Heading>
         <RippleIcon />
         <Title>Donate XRP to the address below</Title>
@@ -114,8 +131,8 @@ export default class RippleModal extends React.Component<
               </IconContainer>
             </div>
           </WalletInput>
-          <div className="flex justify-between items-center">
-            <QR>
+          <div className="flex flex-wrap tc tl-ns justify-between items-center">
+            <QR className="center ml0-ns">
               <source
                 type="image/webp"
                 srcSet={`/static/images/ripple-qr-code.webp, /static/images/ripple-qr-code@2x.webp 2x`}
@@ -129,7 +146,7 @@ export default class RippleModal extends React.Component<
                 alt={`${name}'s Headshot`}
               />
             </QR>
-            <Notice type="warning">
+            <Notice className="lh-copy" type="warning">
               Send only Ripple (XRP) to this address.
             </Notice>
           </div>
