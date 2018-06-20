@@ -31,6 +31,38 @@ export default {
 };
 ```
 
+### Adding donors
+Adding donors to the list is pretty similar. Let's say we want to add a new donor to the `25K+` list. This list only requires a name. So we would add new names like this:
+
+##### content/donors/donors-list.tsx
+```
+[...]
+  '$100k+': ['Jayson Hobby', 'James Earl Jones'],
+[...]
+```
+
+Adding donors to the `1M+`, `10M+` and `100M+` requires a bit more work because we need to show their photo. First, we need to save 4 versions of their headshot: 
+
+| Filename           | w x h     | Format |
+|--------------------|-----------|--------|
+| first-last.jpg     | 392 x 348 | jpg    |
+| first-last@2x.jpg  | 784 x 696 | jpg    |
+| first-last.webp    | 392 x 348 | webp   |
+| first-last@2x.webp | 784 x 696 | webp   |
+
+##### content/donors/donors-list.tsx
+```
+[...]
+  '$1M+': [
+    {
+      name: 'First Last',
+      role: 'Role, Company Name',
+      filename: 'first-last'
+    }
+  ],
+[...]
+```
+
 ### Markdown 
 The faqs, and a few other content sections can accept Markdown as their input. That provides the ability to create links, format text, etc. Here's how we would add a link to an [FAQ](https://d.pr/i/Vuk32o) found on the `Donate` page:
 
