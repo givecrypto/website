@@ -3,7 +3,7 @@ This document will outline the build, how to make updates, and how deployment is
 
 
 ### Deployment
-Continuous deployments are setup for this build. That means every change to the `master` branch will run through some minimal testing and deploy to `www.givecrypto.org`. For that reason, I suggest [all updates be made on the staging branch first](https://www.useloom.com/share/3dc647ab8d0e4d5f8446e5c17e785fb7). Changes on 'staging' will also test and deploy to our stage at `staging.givecrypto.org`. Once you are happy with your changes, submit a pull request and merge the changes into master. This will again fire the test suite, and deploy the update to production.
+Continuous deployments are setup for this build. That means every change to the `master` branch will run through some minimal testing and deploy to `www.givecrypto.org`. For that reason, I suggest [all updates be made on the staging branch first](https://www.useloom.com/share/3dc647ab8d0e4d5f8446e5c17e785fb7). Changes on 'staging' will also test and deploy to our stage at `staging.givecrypto.org`. Once you are happy with your changes, [submit a pull request and merge the changes into master](https://www.useloom.com/share/da6d70a04b204e928bcb564aa731ad43). This will again fire the test suite, and deploy the update to production.
 
 ### Updates
 The build does not rely on a CMS. Instead, following the design spec as a strict guideline, copy updates can be made by simply updating each content section. For example, to update the [hero copy](https://d.pr/i/sxrJvg) on the home page, we would update the file `/content/home/hero.tsx`.
