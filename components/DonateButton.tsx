@@ -6,15 +6,10 @@ import chroma from 'chroma-js';
 import Modal from 'react-responsive-modal';
 import PaymentModal from './PaymentModal';
 import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
-import BitcoinIcon from '../svgs/crypto/btc.svg';
-import BitcoinCashIcon from '../svgs/crypto/bch.svg';
-import EtheriumIcon from '../svgs/crypto/eth.svg';
-import LitecoinIcon from '../svgs/crypto/ltc.svg';
 import _ from 'lodash';
 
 export interface DonateProps {
   type?: string;
-  icons?: boolean;
   onClick?: any;
   theme?: string;
 }
