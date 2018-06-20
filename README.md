@@ -17,6 +17,20 @@ export default {
 };
 ```
 
+##### content/home/video-section.tsx
+Updating the video section is easy too! Just grab the youtube id for the video and paste it into the `youtubeId` property.
+
+```
+export default {
+  title: `A video from our founder`,
+  youtubeId: '0_bx8bnCoiU',
+  subtitle: `“Given the enormous wealth creation from cryptocurrency, and the future potential upside, I believe there is a rare opportunity to create a large non-profit fund.”`,
+  meta: `- Brian Armstrong, Founder`,
+  link:
+    'https://medium.com/@barmstrong/charitable-giving-with-cryptocurrency-11e24923cd4a'
+};
+```
+
 ### Markdown 
 The faqs, and a few other content sections can accept Markdown as their input. That provides the ability to create links, format text, etc. Here's how we would add a link to an [FAQ](https://d.pr/i/Vuk32o) found on the `Donate` page:
 
