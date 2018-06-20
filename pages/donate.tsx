@@ -103,8 +103,8 @@ export default class App extends React.Component<AppProps, AppState> {
               </DonateButton>
             </div>
             <div className="center flex flex-wrap justify-between">
-              <DonateButton type="anonymous" theme="ghost" />
               <DonateButton type="ripple" theme="ghost" />
+              <DonateButton type="zcash" theme="ghost" />
             </div>
           </ButtonGroup>
           <IconContainer className="responsive">

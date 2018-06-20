@@ -4,7 +4,7 @@ import { colors, breakpoints } from '../design-system';
 import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
 import Modal from 'react-responsive-modal';
-import RippleModal from './RippleModal';
+import PaymentModal from './PaymentModal';
 import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
 import _ from 'lodash';
 
@@ -22,6 +22,7 @@ declare global {
 
 const linkStyles = {
   '&.donate-with-crypto': {
+    minWidth: `48%`,
     boxSizing: 'border-box',
     transition: 'all 200ms ease',
     cursor: 'pointer',
@@ -105,7 +106,7 @@ export default class Donate extends React.Component<DonateProps, any> {
     super(props);
     const uuid = _.uniqueId('coinbase-commerce--');
     this.state = {
-      rippleModalState: false,
+      paymentModalState: false,
       uuid
     };
   }
@@ -119,16 +120,16 @@ export default class Donate extends React.Component<DonateProps, any> {
   }
 
   onOpenModal = () => {
-    this.setState({ rippleModalState: true });
+    this.setState({ paymentModalState: true });
   };
 
   onCloseModal = () => {
-    this.setState({ rippleModalState: false });
+    this.setState({ paymentModalState: false });
   };
 
   render() {
     const { type = 'default', theme = 'default', children } = this.props;
-    const { rippleModalState } = this.state;
+    const { paymentModalState } = this.state;
 
     const buttonText = () => {
       switch (type) {
@@ -141,8 +142,11 @@ export default class Donate extends React.Component<DonateProps, any> {
         case 'ripple':
           return 'Donate Ripple';
 
+        case 'zcash':
+          return 'Donate ZCash';
+
         default:
-          break;
+          return `Donate ${type}`;
       }
     };
 
@@ -151,7 +155,9 @@ export default class Donate extends React.Component<DonateProps, any> {
         ? process.env.COMMERCE_ID_ANONYMOUS
         : process.env.COMMERCE_ID_DEFAULT;
 
-    if (type === 'ripple') {
+    if (type === 'ripple' || type === 'zcash') {
+
+      console.log(type);
       return (
         <>
           <Link
@@ -163,12 +169,12 @@ export default class Donate extends React.Component<DonateProps, any> {
             <span>{children || buttonText()}</span>
           </Link>
           <Modal
-            open={rippleModalState}
+            open={paymentModalState}
             onClose={this.onCloseModal}
             center
             classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
           >
-            <RippleModal />
+            <PaymentModal currency={type}/>
           </Modal>
         </>
       );
