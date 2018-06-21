@@ -5,11 +5,11 @@ import { Step } from '../utils/Scale';
 import ReactMarkdown from 'react-markdown';
 import content from '../content/home/about';
 /* Uncomment this when ready for deploying */
-// import Map from './Map';
+import Map from './Map';
 
 /* comment the background attrs when ready for deploying */
 const Container = glamorous.section({
-  background: 'url(/static/images/map@2x.png)',
+  // background: 'url(/static/images/map@2x.png)',
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   width: '100%',
@@ -38,9 +38,9 @@ const DonorsCTA: React.SFC<DonorsCTAProps> = () => {
     <>
       <Container className="flex items-center justify-center relative mb6-ns">
         {/* Uncomment this when ready for deploying */}
-        {/* <div className="z-1 absolute responsive w-100 h-100">
+        <div className="z-1 absolute responsive w-100 h-100">
           <Map />
-        </div> */}
+        </div>
         <div className="z-5">
           <Title className="lh-copy measure">
             <ReactMarkdown source={content.title} />

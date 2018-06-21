@@ -7,29 +7,48 @@ import { colors } from '../design-system';
 const cssShim: any = css;
 const fadeDot = cssShim.keyframes({
   '0%': { fill: colors.greyLightest },
-  '100%': { fill: colors.blue }
+  '20%': { fill: colors.blue },
+  '25%': { fill: colors.blue },
+  '30%': { fill: colors.greyLightest },
+  '100%': { fill: colors.greyLightest }
 });
 
 const dotStyles = {
   fill: colors.greyLightest,
-  '&:nth-child(420n+4)': {
-    animation: `3s infinite alternate ${fadeDot}`
+  '&:nth-child(600n+4)': {
+    animation: `12s infinite alternate ${fadeDot}`,
   },
-  '&:nth-child(5210n+4)': {
-    animation: `3s infinite alternate ${fadeDot}`,
-    animationDelay: '3s'
+  '&:nth-child(610n+4)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '4s'
   },
-  '&:nth-child(623n+4)': {
-    animation: `3s infinite alternate ${fadeDot}`,
+  '&:nth-child(630n+400)': {
+    animation: `12s infinite alternate ${fadeDot}`,
     animationDelay: '6s'
   },
-  '&:nth-child(748n)': {
-    animation: `3s infinite alternate ${fadeDot}`,
-    animationDelay: '9s'
+  '&:nth-child(548n+620)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '7s'
   },
-  '&:nth-child(91n)': {
-    animation: `3s infinite alternate ${fadeDot}`,
+  '&:nth-child(591n+300)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '8s'
+  },
+  '&:nth-child(391n+600)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '10s'
+  },
+  '&:nth-child(511n+40)': {
+    animation: `12s infinite alternate ${fadeDot}`,
     animationDelay: '12s'
+  },
+  '&:nth-child(311n+380)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '15s'
+  },
+  '&:nth-child(511n+580)': {
+    animation: `12s infinite alternate ${fadeDot}`,
+    animationDelay: '18s'
   }
 };
 
