@@ -29,5 +29,5 @@ export default {
    * @example: 'Brian Armstrong',
    */
   '$100k+': [],
-  '$25k+': []
+  '$25k+': ['Christopher Conway', 'Linda Xie', 'Roger Ver']
 };

@@ -36,10 +36,13 @@ const List = glamorous.ul(
 );
 
 const Item = glamorous.li({
-  width: `${100 / 5}%`,
+  width: `100%`,
   fontWeight: 700,
   fontSize: Step(4.25),
-  padding: `0 0 ${Step(5.5)} 0`
+  padding: `0 0 ${Step(5.5)} 0`,
+  [breakpoints.l]: {
+    width: `${100 / 5}%`
+  }
 });
 
 const SectionTitle = glamorous.h3({
