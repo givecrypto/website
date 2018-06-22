@@ -28,6 +28,6 @@ export default {
    * @param {name[]} string
    * @example: 'Brian Armstrong',
    */
-  '$100k+': [],
-  '$25k+': ['Christopher Conway', 'Linda Xie', 'Roger Ver']
+  '$100k+': ['Roger Ver'],
+  '$25k+': ['Christopher Conway', 'Linda Xie']
 };
