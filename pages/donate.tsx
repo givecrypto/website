@@ -7,6 +7,7 @@ import HeadMeta from '../components/HeadMeta';
 import DonateButton from '../components/DonateButton';
 import Wrapper from '../components/Wrapper';
 import BitcoinIcon from '../svgs/crypto/btc.svg';
+import ZCashIcon from '../svgs/crypto/zec.svg';
 import BitcoinCashIcon from '../svgs/crypto/bch.svg';
 import EtheriumIcon from '../svgs/crypto/eth.svg';
 import LitecoinIcon from '../svgs/crypto/ltc.svg';
@@ -94,6 +95,7 @@ export default class App extends React.Component<AppProps, AppState> {
               <EtheriumIcon />
               <LitecoinIcon />
               <RippleIcon />
+              <ZCashIcon />
             </div>
           </div>
           <ButtonGroup className="center">

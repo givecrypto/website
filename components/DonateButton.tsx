@@ -156,7 +156,6 @@ export default class Donate extends React.Component<DonateProps, any> {
         : process.env.COMMERCE_ID_DEFAULT;
 
     if (type === 'ripple' || type === 'zcash') {
-
       return (
         <>
           <Link
@@ -171,9 +170,13 @@ export default class Donate extends React.Component<DonateProps, any> {
             open={paymentModalState}
             onClose={this.onCloseModal}
             center
-            classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
+            classNames={{
+              overlay: 'custom-overlay',
+              modal: 'custom-modal',
+              closeButton: 'pointer'
+            }}
           >
-            <PaymentModal currency={type}/>
+            <PaymentModal currency={type} />
           </Modal>
         </>
       );

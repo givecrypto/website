@@ -21,7 +21,7 @@ const currencyDetails = {
     symbol: 'ZEC',
     icon: <ZCashIcon />,
     address: process.env.ZEC_WALLET_ID
-  } 
+  }
 };
 
 interface PaymentModalProps {
@@ -127,7 +127,7 @@ export default class PaymentModal extends React.Component<
   render() {
     const { clipboardFull } = this.state;
     const { currency = 'ripple' } = this.props;
-    const { title, symbol, icon, address } = currencyDetails[currency]
+    const { title, symbol, icon, address } = currencyDetails[currency];
 
     return (
       <Container className="middle center tc">
