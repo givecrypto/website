@@ -131,7 +131,7 @@ export default class PaymentModal extends React.Component<
 
     return (
       <Container className="middle center tc">
-        <Heading>Donate {title}</Heading>
+        <Heading>Donate {symbol}</Heading>
         {icon}
         <Title>Donate {symbol} to the address below</Title>
         <InnerContainer>
@@ -162,11 +162,11 @@ export default class PaymentModal extends React.Component<
               <img
                 src={`/static/images/${currency}-qr-code.jpg`}
                 srcSet={`/static/images/${currency}-qr-code.jpg, /static/images/${currency}-qr-code@2x.jpg 2x`}
-                alt={`${title} QR Code`}
+                alt={`${symbol} QR Code`}
               />
             </QR>
             <Notice className="lh-copy" type="warning">
-              Send only {title} ({symbol}) to this address.
+              Send only {symbol} to this address.
             </Notice>
           </div>
           <div className="flex flex-wrap justify-between items-center w-100 mt5">
