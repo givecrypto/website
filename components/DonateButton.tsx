@@ -140,10 +140,10 @@ export default class Donate extends React.Component<DonateProps, any> {
           return 'Donate Anonymously';
 
         case 'ripple':
-          return 'Donate Ripple';
+          return 'Donate XRP';
 
         case 'zcash':
-          return 'Donate ZCash';
+          return 'Donate ZEC';
 
         default:
           return `Donate ${type}`;
