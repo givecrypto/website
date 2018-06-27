@@ -2,7 +2,6 @@ import * as React from 'react';
 import glamorous from 'glamorous';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
-import Link from './Link';
 import VideoPlayer from './VideoPlayer';
 import Wrapper from './Wrapper';
 import ReactMarkdown from 'react-markdown';
@@ -13,6 +12,7 @@ interface VideoSectionProps {}
 const LinkContainer = glamorous.h2({
   '& a': {
     textTransform: 'uppercase',
+    textDecoration: 'none',
     fontSize: Step(3.5),
     color: colors.blue,
     fontWeight: 800,
@@ -58,7 +58,7 @@ const VideoSection: React.SFC<VideoSectionProps> = () => {
       </Subtitle>
       <Meta className="lh-title">{content.meta}</Meta>
       <LinkContainer>
-        <Link href={content.link}>Read the story -></Link>
+        <a href={content.link}>Read the story -></a>
       </LinkContainer>
     </div>
   );
