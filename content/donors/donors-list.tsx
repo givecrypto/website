@@ -59,11 +59,6 @@ export default {
       filename: 'matt-mochary'
     },
     {
-      name: 'Ribbit Capital',
-      role: '',
-      filename: 'nick-shalek'
-    },
-    {
       name: 'Bitmain',
       role: '',
       filename: 'bitmain'
@@ -76,6 +71,10 @@ export default {
     {
       name: 'Anonymous',
       filename: 'placeholder'
+    },
+    {
+      name: 'Ribbit Capital',
+      filename: 'ribbit-capital'
     },
     {
       name: 'Ron Conway',
@@ -96,7 +95,6 @@ export default {
     },
     {
       name: 'Fred Ehrsam',
-      role: 'Co-founder, Coinbase',
       filename: 'fred-ehrsam'
     },
     {
@@ -131,7 +129,6 @@ export default {
     },
     {
       name: 'Kathryn Haun',
-      role: 'General Partner, Andreesen Horowitz',
       filename: 'kathryn-haun'
     }
   ]
