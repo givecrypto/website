@@ -54,6 +54,11 @@ export default {
       filename: 'matt-mochary'
     },
     {
+      name: 'Nick Shalek',
+      role: 'Ribbit Capital',
+      filename: 'nick-shalek'
+    },
+    {
       name: 'Bitmain',
       role: '',
       filename: 'bitmain'
@@ -79,6 +84,11 @@ export default {
     }
   ],
   '$25k+': [
+    {
+      name: 'Arthur Hayes',
+      role: 'Co-founder & CEO, BitMEX',
+      filename: 'arthur-hayes'
+    },
     {
       name: 'Boris Wertz',
       role: 'General Partner, Version One Ventures',

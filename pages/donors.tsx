@@ -73,7 +73,6 @@ export default class App extends React.Component<AppProps, AppState> {
   cardList(list: any, key: string) {
     return list.map(({ name, role, filename }: any, index) => {
       const size = key === '$100M+' ? 'w-30' : 'w-100 w-50-m w-25-l';
-      console.log(key);
       return (
         <div
           className={`${size} pa3-m pa4-l`}
