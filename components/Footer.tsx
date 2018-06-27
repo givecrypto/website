@@ -1,7 +1,7 @@
 import * as React from 'react';
 import glamorous, { Section, Div } from 'glamorous';
 import { Step } from '../utils/Scale';
-import Logo from '../svgs/logotype.svg';
+import Logo from '../svgs/GiveCrypto.svg';
 import Link from '../components/Link';
 import Share from '../components/Share';
 
@@ -12,6 +12,10 @@ const Legal = glamorous.p({
   padding: 0,
   fontWeight: 400,
   fontSize: Step(3.75)
+});
+
+const LogoContainer = glamorous.div({
+  maxWidth: 180
 });
 
 export default class Footer extends React.Component<FooterProps, any> {
@@ -28,7 +32,9 @@ export default class Footer extends React.Component<FooterProps, any> {
         >
           <Div className="order-0">
             <Link href="/">
-              <Logo />
+              <LogoContainer className="responsive">
+                <Logo />
+              </LogoContainer>
             </Link>
           </Div>
           <Div className="o-30 order-2 order-1-ns">

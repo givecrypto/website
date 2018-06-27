@@ -4,9 +4,9 @@ import Link, { linkStyles } from '../../components/Link';
 import Links from './Links';
 import Headroom from 'react-headroom';
 import { colors, breakpoints } from '../../design-system';
-import Logo from '../../svgs/logotype.svg';
+import Logo from '../../svgs/GiveCrypto.svg';
 import { Step } from '../../utils/Scale';
-import glamorous, { Nav, Ul, Li, Div } from 'glamorous';
+import glamorous, { Ul, Li, Div } from 'glamorous';
 import { Link as ScrollLink } from 'react-scroll';
 import Button from '../../components/Button';
 import NProgress from 'nprogress';
@@ -17,6 +17,21 @@ import Modal from 'react-responsive-modal';
 export interface NavigationProps {
   theme?: string;
 }
+
+const Nav = glamorous.nav({
+  padding: `${Step(4)} ${Step(4)}`,
+  background: colors.white,
+  [breakpoints.ns]: {
+    padding: Step(5)
+  }
+});
+
+const LogoContainer = glamorous.div({
+  maxWidth: 190,
+  [breakpoints.ns]: {
+    maxWidth: 'none'
+  }
+});
 
 const AnimationContainer = glamorous.div({
   display: 'inline-block',
@@ -151,16 +166,12 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     return (
       <>
         <Headroom className={`relative z-999 open-${menuModalState}`}>
-          <Nav
-            padding={Step(5)}
-            background={colors.white}
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
+          <Nav className="flex items-center justify-between">
             <Div lineHeight="0">
               <Link href="/">
-                <Logo />
+                <LogoContainer className="responsive">
+                  <Logo />
+                </LogoContainer>
               </Link>
             </Div>
             <Div alignSelf="end" className="dn db-l">
