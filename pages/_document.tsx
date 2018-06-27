@@ -30,6 +30,7 @@ export default class GiveCryptoDocument extends Document {
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
+          <meta name="google-site-verification" content="wQT3gDXQgjJoQ2e8t1QpVrEM7nzhKs4FLv3a-16XgV4" />
         </Head>
         <ErrorBoundary>
           <Body
