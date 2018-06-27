@@ -28,8 +28,13 @@ export default {
     },
     {
       name: 'Chris Larsen',
-      role: 'Executive Chairman & co-founder, Ripple',
+      role: 'Executive Chairman, Ripple',
       filename: 'chris-larsen'
+    },
+    {
+      name: 'Zooko Wilcox',
+      role: 'CEO, the Zcash Company',
+      filename: 'zooko'
     }
   ],
 
@@ -71,11 +76,6 @@ export default {
       name: 'Ron Conway',
       role: 'Founder, SV Angel',
       filename: 'ron-conway'
-    },
-    {
-      name: 'Zooko Wilcox',
-      role: 'CEO, the Zcash Company',
-      filename: 'zooko'
     }
   ],
   '$25k+': [
