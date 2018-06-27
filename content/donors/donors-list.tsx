@@ -119,6 +119,11 @@ export default {
     }
   ],
   '$10k+': [
+    // {
+    //   name: 'Meltem Demirors',
+    //   role: 'Athena Capital',
+    //   filename: 'meltem-demirors'
+    // },
     {
       name: 'Ted Rogers',
       role: 'President, Xapo',
