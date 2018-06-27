@@ -117,6 +117,7 @@ export default {
     }
   ],
   '$10k+': [
+    // Make sure this is in the right spot
     // {
     //   name: 'Meltem Demirors',
     //   role: 'Athena Capital',
