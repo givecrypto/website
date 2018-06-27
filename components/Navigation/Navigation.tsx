@@ -27,9 +27,9 @@ const Nav = glamorous.nav({
 });
 
 const LogoContainer = glamorous.div({
-  maxWidth: 190,
+  maxWidth: 170,
   [breakpoints.ns]: {
-    maxWidth: 'none'
+    maxWidth: 170
   }
 });
 

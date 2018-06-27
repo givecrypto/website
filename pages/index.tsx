@@ -89,7 +89,7 @@ export default class App extends React.Component<AppProps, AppState> {
             id="faq"
             color={colors.white}
             background={colors.blueDark}
-            padding={'4rem 0'}
+            padding={'4rem 0 calc(6% + 2rem) 0'}
           >
             <Faq />
           </Wrapper>

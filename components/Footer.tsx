@@ -1,6 +1,7 @@
 import * as React from 'react';
 import glamorous, { Section, Div } from 'glamorous';
 import { Step } from '../utils/Scale';
+import { breakpoints } from '../design-system';
 import Logo from '../svgs/GiveCrypto.svg';
 import Link from '../components/Link';
 import Share from '../components/Share';
@@ -15,7 +16,10 @@ const Legal = glamorous.p({
 });
 
 const LogoContainer = glamorous.div({
-  maxWidth: 180
+  maxWidth: 150,
+  [breakpoints.ns]: {
+    maxWidth: 170
+  }
 });
 
 export default class Footer extends React.Component<FooterProps, any> {
