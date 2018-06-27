@@ -1,0 +1,116 @@
+{
+  "name": "givecrypto",
+  "version": "1.0.0",
+  "description":
+    "Empowering, educating and elevating communities into the open financial system.",
+  "main": "index.js",
+  "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "@zeit/next-typescript": "^1.0.0",
+    "chroma-js": "^1.3.7",
+    "copy-to-clipboard": "^3.0.8",
+    "cssnano": "^3.10.0",
+    "dotenv": "^5.0.1",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.0",
+    "is-touch-device": "^1.0.1",
+    "js-cookie": "^2.2.0",
+    "load-script": "^1.0.0",
+    "natural-scale": "^1.2.9",
+    "next": "^6.0.3",
+    "nprogress": "^0.2.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-nested": "^3.0.0",
+    "prettier": "^1.12.1",
+    "react": "^16.3.2",
+    "react-accessible-accordion": "^2.4.0",
+    "react-dom": "^16.3.2",
+    "react-headroom": "^2.2.2",
+    "react-lottie": "^1.1.0",
+    "react-markdown": "^3.3.2",
+    "react-responsive-modal": "^3.0.3",
+    "react-scroll": "^1.7.9",
+    "react-youtube": "^7.6.0",
+    "tachyons": "^4.9.1"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^1.3.4",
+    "@types/enzyme": "^3.1.8",
+    "@types/enzyme-adapter-react-16": "^1.0.1",
+    "@types/is-touch-device": "^1.0.0",
+    "@types/jest": "^22.2.3",
+    "@types/js-cookie": "^2.1.0",
+    "@types/lodash": "^4.14.108",
+    "@types/next": "^2.4.11",
+    "@types/node": "^10.1.2",
+    "@types/nprogress": "0.0.29",
+    "@types/react": "^16.3.14",
+    "@types/react-responsive": "^3.0.1",
+    "@types/react-scroll": "^1.5.3",
+    "@types/react-test-renderer": "^16.0.1",
+    "@zeit/next-bundle-analyzer": "^0.1.1",
+    "babel-jest": "^22.4.4",
+    "babel-plugin-inline-dotenv": "^1.1.2",
+    "babel-plugin-inline-react-svg": "^0.5.2",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
+    "install": "^0.11.0",
+    "jest": "^22.4.4",
+    "lint-staged": "^7.1.2",
+    "npm": "^6.1.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-responsive": "^4.1.0",
+    "react-test-renderer": "^16.3.2",
+    "tachyons-cli": "^1.3.0",
+    "ts-jest": "^22.4.6",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.8.3"
+  },
+  "now": {
+    "alias": ["www.givecrypto.org"],
+    "env": {
+      "COMMERCE_ID_DEFAULT": "@commerce_id_default",
+      "COMMERCE_ID_ANONYMOUS": "@commerce_id_anonymous",
+      "KLAVIYO_API_KEY": "@klaviyo_api_key",
+      "RIPPLE_WALLET_ID": "@ripple_wallet_id",
+      "RIPPLE_DESTINATION_TAG": "@ripple_destination_tag",
+      "ZEC_WALLET_ID": "@zec_wallet_id",
+      "PASSWORD": "@password"
+    }
+  },
+  "scripts": {
+    "dev": "npm run css && next",
+    "build": "next build",
+    "start": "next start",
+    "deploy":
+      "now --dotenv=.env.production && now alias staging.givecrypto.org",
+    "deploy:prod": "now --dotenv=.env.production && now alias",
+    "analyze": "BUNDLE_ANALYZE=both npm run build",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "precommit": "lint-staged",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "css": "tachyons styles/style.css > styles/index.css --minify"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/givecrypto/website.git"
+  },
+  "keywords": ["crypto"],
+  "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/givecrypto/website/issues"
+  },
+  "homepage": "https://github.com/givecrypto/website#readme"
+}

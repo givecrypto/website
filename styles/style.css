@@ -1,0 +1,10 @@
+@import 'tachyons';
+@import './_media.css';
+@import './_modal.css';
+@import './_nprogress.css';
+
+// Smooth those fonts
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

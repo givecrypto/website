@@ -1,0 +1,39 @@
+.custom-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+.green-overlay {
+  background: #00cd90;
+}
+.flat-modal {
+  background: transparent;
+  box-shadow: none;
+  color: #ffffff;
+}
+.custom-modal {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.headroom-wrapper {
+  .button-donate {
+    transition: all 200ms;
+    opacity: 1;
+  }
+  &.open-true {
+    z-index: 9999;
+    top: 0;
+    position: fixed;
+    width: 100%;
+
+    svg path {
+      fill: #fff;
+    }
+    nav {
+      background: transparent;
+    }
+    .button-donate {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+}
