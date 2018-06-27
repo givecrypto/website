@@ -59,8 +59,8 @@ export default {
       filename: 'matt-mochary'
     },
     {
-      name: 'Nick Shalek',
-      role: 'Ribbit Capital',
+      name: 'Ribbit Capital',
+      role: '',
       filename: 'nick-shalek'
     },
     {
