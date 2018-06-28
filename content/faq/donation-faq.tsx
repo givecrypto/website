@@ -8,12 +8,8 @@ export default [
     answer: `Yes. Donations through the site are tax deductible through our fiscal sponsor The Pledge Group Foundation. You will need to provide you name and email (and receive a receipt) for the donation to be tax deductible. You can also donate anonymously but the donation will not be tax deductible.`
   },
   {
-    question: `What happens if I donate anonymously?`,
-    answer: `Anonymous donations are NOT tax deductible, and name and contact information are not collected during the transaction. Give Crypto will still create a receipt for the donation which contains the date and time of the transaction, a transaction id and the crypto to fiat exchange rate.`
-  },
-  {
-    question: `What happens if I donate XRP?`,
-    answer: `If you would like to donate XRP, just click the “Donate Crypto” option on our site and select to Donate XRP. Right now anonymous XRP donations are the only option enabled. We hope to activate donation receipts for XRP donors in the near future.`
+    question: `Can I donate anonymously?`,
+    answer: `Yes. Simply fill out the form with the name "Anonymous" and a placeholder email. We cannot guarantee that anonymous donations are tax deductible since you will not receive a receipt from GiveCrypto.org.`
   },
   {
     question: `Do you accept non-crypto donations?`,
