@@ -81,9 +81,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
   }
 
   getErrorText(mood: 'sad' | 'angry' | 'cheeky') {
-    const response = {
-      sad: [`Email please?`, `Is it something we said?`]
-    };
+    const response = { sad: [`Email please?`] };
 
     return sample(response[mood]);
   }
