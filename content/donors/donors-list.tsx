@@ -103,6 +103,11 @@ export default {
       filename: 'linda-xie'
     },
     {
+      name: 'Meltem Demirors',
+      role: 'Athena Capital',
+      filename: 'meltem-demirors'
+    },
+    {
       name: 'Steve Jang',
       filename: 'steve-jang'
     },
@@ -117,12 +122,6 @@ export default {
     }
   ],
   '$10k+': [
-    // Make sure this is in the right spot
-    // {
-    //   name: 'Meltem Demirors',
-    //   role: 'Athena Capital',
-    //   filename: 'meltem-demirors'
-    // },
     {
       name: 'Ted Rogers',
       role: 'President, Xapo',
