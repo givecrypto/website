@@ -8,6 +8,25 @@ import ErrorBoundary from '../components/ErrorBoundary';
 // Force style update on the server
 import '../styles/style.css';
 
+const data = {
+  '@context': 'http://schema.org',
+  '@type': 'Organization',
+  url: 'https://www.givecrypto.org',
+  logo: 'https://www.givecrypto.org/static/images/givecrypto-share.png'
+};
+
+const GoogleMeta: React.SFC<any> = props => {
+  return (
+    <>
+      <meta
+        name="google-site-verification"
+        content="wQT3gDXQgjJoQ2e8t1QpVrEM7nzhKs4FLv3a-16XgV4"
+      />
+      <script type="application/ld+json">{JSON.stringify(props.data)}</script>
+    </>
+  );
+};
+
 export default class GiveCryptoDocument extends Document {
   static async getInitialProps({ renderPage }) {
     const page = renderPage();
@@ -30,7 +49,7 @@ export default class GiveCryptoDocument extends Document {
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
-          <meta name="google-site-verification" content="wQT3gDXQgjJoQ2e8t1QpVrEM7nzhKs4FLv3a-16XgV4" />
+          <GoogleMeta data={data} />
         </Head>
         <ErrorBoundary>
           <Body
