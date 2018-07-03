@@ -109,6 +109,7 @@ export default {
     },
     {
       name: 'Steve Jang',
+      role: 'Founder, Kindred Ventures',
       filename: 'steve-jang'
     },
     {
