@@ -76,8 +76,14 @@ export default class SubscriptionForm extends React.Component<any, any> {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
-    this.validate();
+    const { value } = event.target;
+    const errorState = ValidateEmail(value);
+
+    this.setState({
+      value: value,
+      error: errorState ? false : true,
+      placeholder: errorState ? 'Your Email' : this.getErrorText('sad')
+    });
   }
 
   getErrorText(mood: 'sad' | 'angry' | 'cheeky') {
@@ -111,15 +117,6 @@ export default class SubscriptionForm extends React.Component<any, any> {
           });
         });
     }
-  }
-
-  validate() {
-    const { value = '' } = this.state;
-    const errorState = ValidateEmail(value);
-    this.setState({
-      error: errorState ? false : true,
-      placeholder: errorState ? 'Your Email' : this.getErrorText('sad')
-    });
   }
 
   componentDidMount() {

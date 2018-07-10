@@ -13,6 +13,12 @@ describe('Validate Email :: Succeeds', () => {
     }).toBeTruthy();
   });
 
+  test('.io tld', () => {
+    expect(() => {
+      ValidateEmail('jakel@realthread.io');
+    }).toBeTruthy();
+  });
+
   test('.world tld', () => {
     expect(() => {
       ValidateEmail('jakel@realthread.world');
