@@ -7,8 +7,6 @@ import Wrapper from './Wrapper';
 import ReactMarkdown from 'react-markdown';
 import content from '../content/home/video-section';
 
-interface VideoSectionProps {}
-
 const LinkContainer = glamorous.h2({
   '& a': {
     textTransform: 'uppercase',
@@ -44,7 +42,7 @@ const Meta = glamorous.h4({
   color: colors.black,
 });
 
-const VideoSection: React.SFC<VideoSectionProps> = () => {
+const VideoSection: React.SFC = () => {
   const { title, promoId, youtubeId, subtitle, meta, link } = content;
   return (
     <div className="center tc">
