@@ -50,6 +50,7 @@ const CardWrapper = glamorous.div({
     right: -200
   }
 });
+
 const Card = glamorous.div({
   boxSizing: 'border-box',
   background: colors.white,
