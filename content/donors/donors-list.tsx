@@ -46,7 +46,7 @@ export default {
     },
     {
       name: "Brock Pierce",
-      role: "Entrepreneur, VC and Philanthropist, Bitcoin Foundation",
+      role: "Entrepreneur, Bitcoin Foundation",
       filename: "brock-pierce",
     },
     {
