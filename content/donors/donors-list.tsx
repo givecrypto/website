@@ -20,117 +20,122 @@ export default {
   /**
    * @param {person[]} Person
    */
-  '$1M+': [
+  "$1M+": [
     {
-      name: 'Brian Armstrong',
-      role: 'CEO, Coinbase',
-      filename: 'brian-armstrong'
+      name: "Brian Armstrong",
+      role: "CEO, Coinbase",
+      filename: "brian-armstrong",
     },
     {
-      name: 'Chris Larsen',
-      role: 'Executive Chairman, Ripple',
-      filename: 'chris-larsen'
+      name: "Chris Larsen",
+      role: "Executive Chairman, Ripple",
+      filename: "chris-larsen",
     },
     {
-      name: 'Zooko Wilcox',
-      role: 'CEO, the Zcash Company',
-      filename: 'zooko'
-    }
+      name: "Zooko Wilcox",
+      role: "CEO, the Zcash Company",
+      filename: "zooko",
+    },
   ],
 
-  '$100k+': [
+  "$100k+": [
     {
-      name: 'Brad Garlinghouse',
-      role: 'CEO, Ripple',
-      filename: 'brad-garlinghouse'
+      name: "Brad Garlinghouse",
+      role: "CEO, Ripple",
+      filename: "brad-garlinghouse",
     },
     {
-      name: 'Joanne and Fred Wilson',
-      filename: 'fred-joanne'
+      name: "Brock Pierce",
+      role: "Entrepreneur, VC and Philanthropist, Bitcoin Foundation",
+      filename: "brock-pierce",
     },
     {
-      name: 'Matthew Roszak',
-      role: 'Co-Founder, Bloq',
-      filename: 'matthew-roszak'
+      name: "Joanne and Fred Wilson",
+      filename: "fred-joanne",
     },
     {
-      name: 'Matt Mochary',
-      role: 'CEO, The Mochary Group',
-      filename: 'matt-mochary'
+      name: "Matthew Roszak",
+      role: "Co-Founder, Bloq",
+      filename: "matthew-roszak",
     },
     {
-      name: 'Bitmain',
-      role: '',
-      filename: 'bitmain'
+      name: "Matt Mochary",
+      role: "CEO, The Mochary Group",
+      filename: "matt-mochary",
     },
     {
-      name: 'Roger Ver',
-      role: 'CEO, Bitcoin.com',
-      filename: 'roger-ver'
+      name: "Bitmain",
+      role: "",
+      filename: "bitmain",
     },
     {
-      name: 'Anonymous',
-      filename: 'placeholder'
+      name: "Roger Ver",
+      role: "CEO, Bitcoin.com",
+      filename: "roger-ver",
     },
     {
-      name: 'Ribbit Capital',
-      filename: 'ribbit-capital'
+      name: "Anonymous",
+      filename: "placeholder",
     },
     {
-      name: 'Ron Conway',
-      role: 'Founder, SV Angel',
-      filename: 'ron-conway'
-    }
+      name: "Ribbit Capital",
+      filename: "ribbit-capital",
+    },
+    {
+      name: "Ron Conway",
+      role: "Founder, SV Angel",
+      filename: "ron-conway",
+    },
   ],
-  '$25k+': [
+  "$25k+": [
     {
-      name: 'Arthur Hayes',
-      role: 'Co-founder & CEO, BitMEX',
-      filename: 'arthur-hayes'
+      name: "Arthur Hayes",
+      role: "Co-founder & CEO, BitMEX",
+      filename: "arthur-hayes",
     },
     {
-      name: 'Boris Wertz',
-      role: 'General Partner, Version One Ventures',
-      filename: 'boris-wertz'
+      name: "Boris Wertz",
+      role: "General Partner, Version One Ventures",
+      filename: "boris-wertz",
     },
     {
-      name: 'Fred Ehrsam',
-      filename: 'fred-ehrsam'
+      name: "Fred Ehrsam",
+      filename: "fred-ehrsam",
     },
     {
-      name: 'Linda Xie',
-      role: 'Co-founder, Scalar Capital',
-      filename: 'linda-xie'
+      name: "Linda Xie",
+      role: "Co-founder, Scalar Capital",
+      filename: "linda-xie",
     },
     {
-      name: 'Meltem Demirors',
-      role: 'Athena Capital',
-      filename: 'meltem-demirors'
+      name: "Meltem Demirors",
+      role: "Athena Capital",
+      filename: "meltem-demirors",
     },
     {
-      name: 'Steve Jang',
-      role: 'Founder, Kindred Ventures',
-      filename: 'steve-jang'
+      name: "Steve Jang",
+      role: "Founder, Kindred Ventures",
+      filename: "steve-jang",
     },
     {
-      name: 'Topher Conway',
-      role: 'Partner, SV Angel',
-      filename: 'topher-conway'
+      name: "Topher Conway",
+      role: "Partner, SV Angel",
+      filename: "topher-conway",
     },
     {
-      name: 'Anonymous',
-      filename: 'placeholder'
-    }
+      name: "Anonymous",
+      filename: "placeholder",
+    },
   ],
-  '$10k+': [
+  "$10k+": [
     {
-      name: 'Ted Rogers',
-      role: 'President, Xapo',
-      filename: 'ted-rogers'
+      name: "Ted Rogers",
+      role: "President, Xapo",
+      filename: "ted-rogers",
     },
     {
-      name: 'Kathryn Haun',
-      filename: 'kathryn-haun'
-    }
-  ]
+      name: "Kathryn Haun",
+      filename: "kathryn-haun",
+    },
+  ],
 };
