@@ -66,7 +66,7 @@ const DonorsHero: React.SFC<DonorsHeroProps> = () => {
     <Container className="flex items-center">
       <InfoCard>
         <CardTitle>Our first milestone</CardTitle>
-        <CardMetric>$1M</CardMetric>
+        <CardMetric>$4M</CardMetric>
         <CardDetails>Raised to date</CardDetails>
         <CardLink>
           <Link href="/donors">MEET OUR DONORS -></Link>
