@@ -9,7 +9,7 @@ export default {
     {
       name: `Rose Broome`,
       role: `Founder, HandUp.org`,
-      bio: `After working on poverty programs and wanting to see more transformative solutions, Rose joined forces with Brian to help launch GiveCrypto. She believes we need to think as big about new solutions to poverty as we do about artificial intelligence and self-driving cars. Previously Rose was the co-founder & CEO of HandUp.org a platform for donating to people experiencing poverty in the US.`
+      bio: `After working with poverty programs and wanting to see more transformative solutions, Rose joined forces with Brian to help launch GiveCrypto. She believes we need to think as big about new solutions to poverty as we do about artificial intelligence and self-driving cars. Previously Rose was the co-founder & CEO of HandUp.org a platform for donating to people experiencing poverty in the US.`
     }
   ]
 };
