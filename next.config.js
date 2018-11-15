@@ -1,22 +1,22 @@
-const withCSS = require('@zeit/next-css');
-const withTypescript = require('@zeit/next-typescript');
-const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const withCSS = require("@zeit/next-css");
+const withTypescript = require("@zeit/next-typescript");
+const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const BundleAnalyzerOptions = {
-  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
   bundleAnalyzerConfig: {
     server: {
-      analyzerMode: 'static',
-      reportFilename: '../../bundles/server.html'
+      analyzerMode: "static",
+      reportFilename: "../../bundles/server.html",
     },
     browser: {
-      analyzerMode: 'static',
-      reportFilename: '../bundles/client.html'
-    }
-  }
+      analyzerMode: "static",
+      reportFilename: "../bundles/client.html",
+    },
+  },
 };
 
 module.exports = withCSS(
-  withTypescript(withBundleAnalyzer(BundleAnalyzerOptions))
+  withTypescript(withBundleAnalyzer(BundleAnalyzerOptions)),
 );
