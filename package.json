@@ -1,8 +1,7 @@
 {
   "name": "givecrypto",
   "version": "1.0.0",
-  "description":
-    "Empowering, educating and elevating communities into the open financial system",
+  "description": "Empowering, educating and elevating communities into the open financial system",
   "main": "index.js",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
@@ -18,6 +17,7 @@
     "load-script": "^1.0.0",
     "natural-scale": "^1.2.9",
     "next": "^6.0.3",
+    "now-env": "^3.1.0",
     "nprogress": "^0.2.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
@@ -73,8 +73,7 @@
     "dev": "npm run css && next",
     "build": "next build",
     "start": "next start",
-    "deploy":
-      "now --dotenv=.env.production && now alias staging.givecrypto.org",
+    "deploy": "now --dotenv=.env && now alias staging.givecrypto.org",
     "deploy:prod": "now --dotenv=.env.production && now alias",
     "analyze": "BUNDLE_ANALYZE=both npm run build",
     "test": "NODE_ENV=test jest",
@@ -94,7 +93,9 @@
     "type": "git",
     "url": "git+https://github.com/givecrypto/website.git"
   },
-  "keywords": ["crypto"],
+  "keywords": [
+    "crypto"
+  ],
   "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
   "license": "ISC",
   "bugs": {

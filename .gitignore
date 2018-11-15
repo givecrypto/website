@@ -13,6 +13,9 @@ coverage
 __test__/**/out
 .DS_Store
 
+# secrets
+now-secrets.json
+
 # production
 /build
 

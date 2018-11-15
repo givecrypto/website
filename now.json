@@ -1,6 +1,6 @@
 {
   "alias": ["www.givecrypto.org"],
-  "version": 2,
+  "version": 1,
   "env": {
     "COMMERCE_ID_DEFAULT": "@commerce_id_default",
     "COMMERCE_ID_ANONYMOUS": "@commerce_id_anonymous",
