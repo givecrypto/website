@@ -1,7 +1,8 @@
 {
   "name": "givecrypto",
   "version": "1.0.0",
-  "description": "Empowering, educating and elevating communities into the open financial system",
+  "description":
+    "Empowering, educating and elevating communities into the open financial system",
   "main": "index.js",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
@@ -17,7 +18,6 @@
     "load-script": "^1.0.0",
     "natural-scale": "^1.2.9",
     "next": "^6.0.3",
-    "now-env": "^3.1.0",
     "nprogress": "^0.2.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
@@ -69,6 +69,19 @@
     "tslint-config-prettier": "^1.13.0",
     "typescript": "^2.8.3"
   },
+  "now": {
+    "alias": ["www.givecrypto.org"],
+    "version": 1,
+    "env": {
+      "COMMERCE_ID_DEFAULT": "@commerce_id_default",
+      "COMMERCE_ID_ANONYMOUS": "@commerce_id_anonymous",
+      "KLAVIYO_API_KEY": "@klaviyo_api_key",
+      "RIPPLE_WALLET_ID": "@ripple_wallet_id",
+      "RIPPLE_DESTINATION_TAG": "@ripple_destination_tag",
+      "ZEC_WALLET_ID": "@zec_wallet_id",
+      "PASSWORD": "@password"
+    }
+  },
   "scripts": {
     "dev": "npm run css && next",
     "build": "next build",
@@ -93,9 +106,7 @@
     "type": "git",
     "url": "git+https://github.com/givecrypto/website.git"
   },
-  "keywords": [
-    "crypto"
-  ],
+  "keywords": ["crypto"],
   "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
   "license": "ISC",
   "bugs": {
