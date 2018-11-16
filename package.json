@@ -69,19 +69,6 @@
     "tslint-config-prettier": "^1.13.0",
     "typescript": "^2.8.3"
   },
-  "now": {
-    "alias": ["www.givecrypto.org"],
-    "version": 1,
-    "env": {
-      "COMMERCE_ID_DEFAULT": "@commerce_id_default",
-      "COMMERCE_ID_ANONYMOUS": "@commerce_id_anonymous",
-      "KLAVIYO_API_KEY": "@klaviyo_api_key",
-      "RIPPLE_WALLET_ID": "@ripple_wallet_id",
-      "RIPPLE_DESTINATION_TAG": "@ripple_destination_tag",
-      "ZEC_WALLET_ID": "@zec_wallet_id",
-      "PASSWORD": "@password"
-    }
-  },
   "scripts": {
     "dev": "npm run css && next",
     "build": "next build",
