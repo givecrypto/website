@@ -1,8 +1,7 @@
 {
   "name": "givecrypto",
   "version": "1.0.0",
-  "description":
-    "Empowering, educating and elevating communities into the open financial system",
+  "description": "Empowering, educating and elevating communities into the open financial system.",
   "main": "index.js",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
