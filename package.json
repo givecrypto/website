@@ -17,7 +17,6 @@
     "load-script": "^1.0.0",
     "natural-scale": "^1.2.9",
     "next": "^6.0.3",
-    "now-env": "^3.1.0",
     "nprogress": "^0.2.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
@@ -93,9 +92,7 @@
     "type": "git",
     "url": "git+https://github.com/givecrypto/website.git"
   },
-  "keywords": [
-    "crypto"
-  ],
+  "keywords": ["crypto"],
   "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
   "license": "ISC",
   "bugs": {
