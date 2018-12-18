@@ -103,6 +103,11 @@ export default {
       filename: "fred-ehrsam",
     },
     {
+      name: "Jessica Livingston",
+      role: "Founder, Partner - YCombinator",
+      filename: "jessica-livingston",
+    },
+    {
       name: "Linda Xie",
       role: "Co-founder, Scalar Capital",
       filename: "linda-xie",
