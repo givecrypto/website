@@ -18,23 +18,28 @@ export interface ActivityFeedProps {
 const Container = glamorous.section({
   zIndex: 99999,
   boxShadow: shadows.default,
+  overflow: "scroll",
   position: "fixed",
   right: Step(5),
   bottom: Step(5),
   maxWidth: 420,
+  height: 100,
   background: colors.white,
   textAlign: "center",
   border: `1px solid ${colors.black}`,
   borderRadius: "8px",
   borderColor: colors.grey,
   color: colors.blue,
-  padding: Step(4),
+  padding: `${Step(2)} ${Step(4)}`,
 });
 const EventContainer = glamorous.section({
   textAlign: "left",
   color: colors.grey,
   fontSize: Step(3),
   paddingBottom: Step(4),
+  "&:last-child": {
+    paddingBottom: 0,
+  },
 });
 
 // The Component
@@ -42,11 +47,23 @@ export default class ActivityFeed extends React.Component<
   ActivityFeedProps,
   any
 > {
+  handleScroll = e => {
+    let element = e.target;
+    // Let's translate the container in
+    console.log("Scrolling", element.scrollTop);
+
+    // Unelss we can actually scroll
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      // do something at end of scroll
+      console.log("Reached the end");
+    }
+  };
+
   render() {
     const { events } = this.props;
 
     return (
-      <Container>
+      <Container onScroll={this.handleScroll}>
         {events.map((event: Event) => {
           const timeAgo = moment(event.date).fromNow();
           return (
