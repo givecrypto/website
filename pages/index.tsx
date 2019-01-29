@@ -1,30 +1,32 @@
-import * as React from 'react';
-import { Step } from '../utils/Scale';
-import glamorous, { Div } from 'glamorous';
-import Head from 'next/head';
-import HeadMeta from '../components/HeadMeta';
-import { animateScroll } from 'react-scroll';
-import Faq from '../components/Faq';
-import '../utils/rehydrate';
-import { colors } from '../design-system';
-import Hero from '../components/Hero';
-import HowItWorks from '../components/HowItWorks';
-import Wrapper from '../components/Wrapper';
-import DonorsHero from '../components/DonorsHero';
-import DonateHero from '../components/DonateHero';
-import Mission from '../components/MissionSection';
-import VideoSection from '../components/VideoSection';
-import TeamSection from '../components/TeamSection';
-import { breakpoints } from '../design-system';
-import seo from '../content/home/seo';
+import * as React from "react";
+import { Step } from "../utils/Scale";
+import glamorous, { Div } from "glamorous";
+import Head from "next/head";
+import HeadMeta from "../components/HeadMeta";
+import { animateScroll } from "react-scroll";
+import Faq from "../components/Faq";
+import "../utils/rehydrate";
+import { colors } from "../design-system";
+import Hero from "../components/Hero";
+import HowItWorks from "../components/HowItWorks";
+import Wrapper from "../components/Wrapper";
+import DonorsHero from "../components/DonorsHero";
+import DonateHero from "../components/DonateHero";
+import Mission from "../components/MissionSection";
+import VideoSection from "../components/VideoSection";
+import TeamSection from "../components/TeamSection";
+import { breakpoints } from "../design-system";
+import seo from "../content/home/seo";
+import ActivityFeed from "../components/ActivityFeed";
+import events from "../content/activity-feed/events";
 
 const { div } = glamorous;
 
 const Container = div({
   padding: `${Step(5)} 0`,
   [breakpoints.l]: {
-    padding: Step(5)
-  }
+    padding: Step(5),
+  },
 });
 
 export interface AppProps {}
@@ -38,7 +40,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
   scrollToLocation() {
     if (
-      typeof document !== 'undefined' &&
+      typeof document !== "undefined" &&
       location.hash &&
       document.getElementById(location.hash.slice(1))
     ) {
@@ -62,6 +64,11 @@ export default class App extends React.Component<AppProps, AppState> {
         </Head>
         <HeadMeta path="/home" description={seo.description} />
         <Container>
+          {/* Move this */}
+          <Wrapper>
+            <ActivityFeed events={events} />
+          </Wrapper>
+
           <Wrapper wide>
             <Hero page="home" />
             <Div display="block" className="mb3 mb6-ns" />
@@ -77,7 +84,7 @@ export default class App extends React.Component<AppProps, AppState> {
             <Mission />
           </Wrapper>
 
-          <Wrapper padding={'3rem 0'}>
+          <Wrapper padding={"3rem 0"}>
             <VideoSection />
           </Wrapper>
 
@@ -89,7 +96,7 @@ export default class App extends React.Component<AppProps, AppState> {
             id="faq"
             color={colors.white}
             background={colors.blueDark}
-            padding={'4rem 0 calc(6% + 2rem) 0'}
+            padding={"4rem 0 calc(6% + 2rem) 0"}
           >
             <Faq />
           </Wrapper>
