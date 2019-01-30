@@ -13,13 +13,23 @@ import { Event } from "components/ActivityFeed";
 
 const events: Event[] = [
   {
-    message:
-      "Jake L. donated $1m to Living Hope International to fund 2019 events.",
+    message: "Joe W. donated $11m to August International for a new roof.",
     date: "01-21-2019",
   },
   {
-    message: "Joe W. donated $11m to August International for a new roof.",
+    message:
+      "Jake L. donated $1m to Living Hope International to fund 2019 donor events.",
     date: "01-19-2019",
+  },
+  {
+    message:
+      "Jake L. gave $12 (.0212 ETH) to Danny F. for Grassfed lLamb and Organic Kifer.",
+    date: "01-03-2019",
+  },
+  {
+    message:
+      "Danny O. gave $126 (.1212 ETH) to Juanita W. for a new roof after hurricain Debby damaged her home. ",
+    date: "12-09-2018",
   },
 ];
 
