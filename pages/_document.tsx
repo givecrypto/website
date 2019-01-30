@@ -1,18 +1,18 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import { renderStatic } from 'glamor/server';
-import 'glamor/reset';
-import { Body, Section } from 'glamorous';
-import Footer from '../components/Footer';
-import ErrorBoundary from '../components/ErrorBoundary';
+import Document, { Head, Main, NextScript } from "next/document";
+import { renderStatic } from "glamor/server";
+import "glamor/reset";
+import { Body, Section } from "glamorous";
+import Footer from "../components/Footer";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 // Force style update on the server
-import '../styles/style.css';
+import "../styles/style.css";
 
 const data = {
-  '@context': 'http://schema.org',
-  '@type': 'Organization',
-  url: 'https://www.givecrypto.org',
-  logo: 'https://www.givecrypto.org/static/images/givecrypto-share.png'
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  url: "https://www.givecrypto.org",
+  logo: "https://www.givecrypto.org/static/images/givecrypto-share.png",
 };
 
 const GoogleMeta: React.SFC<any> = props => {
