@@ -1,98 +1,64 @@
 import * as React from "react";
 import { Motion, spring } from "react-motion";
-import moment from "moment";
-import glamorous from "glamorous";
-import { Step } from "../../utils/Scale";
-import { colors, shadows } from "../../design-system";
+import ActivityFeedItem, { Event } from "./ActivityFeedItem";
+// Styled Components
+import { Container } from "./components";
+
+// Default Values
+const DEFAULT_Y_POSITION = 155;
 
 // Types
-export interface Event {
-  date: string;
-  message: string;
-}
 export interface ActivityFeedProps {
   events: Event[];
 }
+export interface ActivityFeedState {
+  shouldHide: Boolean;
+  focused: Boolean;
+}
 
-// Defaults
-const DEFAULT_Y_POSITION = 155;
-
-// Styles
-const Container = glamorous.section({
-  zIndex: 99999,
-  boxShadow: shadows.default,
-  overflowY: "scroll",
-  position: "fixed",
-  right: Step(5),
-  bottom: Step(5),
-  maxWidth: 420,
-  height: 200,
-  transform: `translateY(100px)`,
-  background: colors.white,
-  textAlign: "center",
-  border: `1px solid ${colors.greyLighter}`,
-  borderRadius: "8px",
-  color: colors.blue,
-  padding: `${Step(2)} ${Step(4)}`,
-});
-const EventContainer = glamorous.section({
-  textAlign: "left",
-  color: colors.grey,
-  fontSize: Step(3),
-  paddingBottom: Step(4),
-  "&:first-child": {
-    marginTop: Step(3),
-  },
-  "> h1": {
-    fontWeight: "600",
-    fontSize: Step(3.65, "rem"),
-    lineHeight: Step(4.45),
-    margin: 0,
-    padding: `${Step(2)} 0`,
-    color: colors.black,
-  },
-});
-const DateContainer = glamorous.section({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-});
-const Bar = glamorous.div({
-  height: 1,
-  flex: "50 0 50%",
-  marginRight: Step(3),
-  background: colors.greyLighter,
-});
-const DateItem = glamorous.div({
-  flex: "0 50 15%",
-  "> h4": {
-    color: colors.greyLight,
-    padding: 0,
-    margin: 0,
-  },
-});
-
-// The Component
 export default class ActivityFeed extends React.Component<
   ActivityFeedProps,
-  any
+  ActivityFeedState
 > {
-  // Default state
-  state = {
+  // Initial state
+  state: ActivityFeedState = {
+    shouldHide: true,
     focused: false,
   };
 
-  // The scroll handler: Should open when we begin to scroll,
-  // and close when we reach the top of the container.
-  handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
-    const element = e.currentTarget;
+  handleMouseLeave = () => {
+    const { focused, shouldHide } = this.state;
+
+    // Make sure this is necessary
+    if (focused && shouldHide) {
+      this.setState({ focused: false, shouldHide: true });
+    }
+  };
+
+  showCard = () => {
     const { focused } = this.state;
 
-    // Unelss we can actually scroll
-    if (element.scrollTop > 0 && !focused) {
+    // Make sure this is necessary
+    if (!focused) {
       this.setState({ focused: true });
-    } else if (element.scrollTop < 5 && focused) {
-      this.setState({ focused: false });
+    }
+  };
+
+  handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
+    const element = e.currentTarget;
+    const { shouldHide } = this.state;
+
+    // If we are scrolled past the top
+    if (element.scrollTop > 1) {
+      this.showCard();
+
+      // Update the state to make sure we _don't_ hide on MouseLeave
+      if (shouldHide) {
+        this.setState({ shouldHide: false });
+      }
+    } else {
+      // We must update the state to ensure we tuck the card away on MouseLeave
+      this.setState({ shouldHide: true });
     }
   };
 
@@ -100,6 +66,7 @@ export default class ActivityFeed extends React.Component<
     const { events } = this.props;
     const { focused } = this.state;
 
+    console.log("rendering");
     return (
       <Motion
         defaultStyle={{ y: DEFAULT_Y_POSITION }}
@@ -109,21 +76,9 @@ export default class ActivityFeed extends React.Component<
           <Container
             css={{ transform: `translateY(${value.y}px)` }}
             onScroll={this.handleScroll}
+            onMouseLeave={this.handleMouseLeave}
           >
-            {events.map((event: Event, i) => {
-              const timeAgo = moment(event.date).fromNow();
-              return (
-                <EventContainer key={i}>
-                  <h1>{event.message}</h1>
-                  <DateContainer>
-                    <Bar />
-                    <DateItem>
-                      <h4>{timeAgo}</h4>
-                    </DateItem>
-                  </DateContainer>
-                </EventContainer>
-              );
-            })}
+            {events.map((event: Event) => <ActivityFeedItem event={event} />)}
           </Container>
         )}
       </Motion>
