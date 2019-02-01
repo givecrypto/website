@@ -37,14 +37,12 @@ export default class App extends React.Component<{}, {}> {
   public preventScrolling = () => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "hidden";
-      document.querySelector("html").style.overflow = "hidden";
     }
   };
 
   public enableScrolling = () => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "auto";
-      document.querySelector("html").style.overflow = "auto";
     }
   };
 
@@ -73,6 +71,7 @@ export default class App extends React.Component<{}, {}> {
           <title key="head-title">{seo.title}</title>
         </Head>
         <HeadMeta path="/home" description={seo.description} />
+
         <Container>
           <Wrapper>
             <ActivityFeed

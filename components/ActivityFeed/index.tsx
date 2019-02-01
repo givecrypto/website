@@ -2,7 +2,7 @@ import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 import { toGlobalId } from "../../utils/globalId";
-import { DragBar } from "./components";
+import { DragBar, DragBarSpace } from "./components";
 import { breakpoints } from "../../design-system/breakpoints";
 import MediaQuery from "react-responsive";
 
@@ -42,6 +42,9 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+    // Prevent the page from scrolling
+    this.props.onDragStart();
+
     const { clientY } = e.touches[0];
     const { focused } = this.state;
 
@@ -53,9 +56,6 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
-    // Prevent the page from scrolling
-    this.props.onDragStart();
-
     const { clientY } = e.touches[0];
     const { touchStartPosition } = this.state;
 
@@ -157,11 +157,16 @@ export default class ActivityFeed extends React.Component<
               {matches => {
                 if (!matches) {
                   return (
-                    <DragBar
-                      onTouchStart={this.handleTouchStart}
-                      onTouchMove={this.handleTouchMove}
-                      onTouchEnd={this.handleTouchEnd}
-                    />
+                    <>
+                      <DragBar
+                        onTouchStart={this.handleTouchStart}
+                        onTouchMove={this.handleTouchMove}
+                        onTouchEnd={this.handleTouchEnd}
+                      >
+                        ...
+                      </DragBar>
+                      <DragBarSpace />
+                    </>
                   );
                 } else {
                   return null;

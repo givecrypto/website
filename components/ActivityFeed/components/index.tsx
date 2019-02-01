@@ -72,20 +72,22 @@ export const EventLink = styled.a`
 
 export const DragBar = styled.div`
   content: "....";
+  position: absolute;
   text-align: center;
   width: 100%;
   left: 0;
-  height: 18px;
+  height: 35px;
   margin: 0;
   padding: 0;
-  display: inline-block;
+  display: block;
   cursor: move;
   font-size: ${Step(5)};
-  transform: translateY(-12px);
   color: ${colors.greyLight};
-  &:after {
-    z-index: 99999;
-    text-align: center;
-    content: "....";
-  }
+  transform: translateY(-17px);
+`;
+
+export const DragBarSpace = styled.div`
+  display: block;
+  width: 100%;
+  height: 10px;
 `;
