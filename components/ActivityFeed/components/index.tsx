@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { Step } from "../../../utils/Scale";
 import { colors, shadows } from "../../../design-system";
 
-console.log(Step(7, null));
 export const Container = styled.section`
   z-index: 99999;
   box-shadow: ${shadows.default};
@@ -43,18 +42,20 @@ export const EventContainer = styled.section`
 export const DateContainer = styled.section`
   display: flex;
   flex-direction: row;
+  min-width: 0;
   align-items: center;
+  justify-content: stretch;
 `;
 
 export const Bar = styled.div`
   height: 1px;
+  min-width: 0;
   flex: 50 0 50%;
   margin-right: ${Step(3)};
   background: ${colors.greyLighter};
 `;
 
 export const DateItem = styled.h4`
-  flex: 0 50 15%;
   color: ${colors.greyLight};
   padding: 0;
   margin: 0;
@@ -62,4 +63,8 @@ export const DateItem = styled.h4`
 
 export const EventMessage = styled.h1`
   color: ${colors.black};
+`;
+export const EventLink = styled.a`
+  color: ${colors.black};
+  text-decoration: none;
 `;

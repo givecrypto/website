@@ -13,8 +13,9 @@ export interface ActivityFeedProps {
   events: Event[];
 }
 export interface ActivityFeedState {
-  shouldHide: Boolean;
-  focused: Boolean;
+  shouldHide: boolean;
+  focused: boolean;
+  timer?: NodeJS.Timer;
 }
 
 export default class ActivityFeed extends React.Component<
@@ -25,10 +26,14 @@ export default class ActivityFeed extends React.Component<
   state: ActivityFeedState = {
     shouldHide: true,
     focused: false,
+    timer: null,
   };
 
   handleMouseLeave = () => {
-    const { focused, shouldHide } = this.state;
+    const { focused, shouldHide, timer } = this.state;
+
+    // Clear the mouseover timer
+    clearTimeout(timer);
 
     // Make sure this is necessary
     if (focused && shouldHide) {
@@ -63,11 +68,17 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
+  handleMouseEnter = () => {
+    const timer = setTimeout(this.showCard, 1000);
+
+    // Stave the timer to clear it later
+    this.setState({ timer });
+  };
+
   render() {
     const { events } = this.props;
     const { focused } = this.state;
 
-    console.log("rendering");
     return (
       <Motion
         defaultStyle={{ y: DEFAULT_Y_POSITION }}
@@ -79,6 +90,7 @@ export default class ActivityFeed extends React.Component<
             style={{ transform: `translateY(${value.y}px)` }}
             onScroll={this.handleScroll}
             onMouseLeave={this.handleMouseLeave}
+            onMouseEnter={this.handleMouseEnter}
           >
             {events.map((event: Event) => {
               const key = toGlobalId({

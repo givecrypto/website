@@ -1,4 +1,7 @@
-import { Event } from "components/ActivityFeed";
+import {
+  Event,
+  TARGET_TYPE,
+} from "../../components/ActivityFeed/ActivityFeedItem";
 
 /**
  * @description Activity Feed Events
@@ -12,6 +15,13 @@ import { Event } from "components/ActivityFeed";
  */
 
 const events: Event[] = [
+  {
+    message: "Jake tweeted about something funny.",
+    date: "02-01-2019 10:00",
+    targetID: "pretend-to-care",
+    targetURL: "http://twitter.com/jakeleboeuf",
+    targetType: TARGET_TYPE.external,
+  },
   {
     message: "Joe W. donated $11m to August International for a new roof.",
     date: "01-21-2019",
