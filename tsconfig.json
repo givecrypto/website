@@ -6,7 +6,7 @@
     "jsx": "preserve",
     "allowJs": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": true,

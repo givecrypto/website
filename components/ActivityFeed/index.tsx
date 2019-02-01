@@ -95,7 +95,7 @@ export default class ActivityFeed extends React.Component<
             {events.map((event: Event) => {
               const key = toGlobalId({
                 type: "Event",
-                id: event.message.replace(" ", "-"),
+                id: event.message,
               });
 
               return <ActivityFeedItem key={key} event={event} />;

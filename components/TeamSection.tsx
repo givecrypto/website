@@ -4,6 +4,7 @@ import content from "../content/home/team";
 import { breakpoints, colors } from "../design-system";
 import { Step } from "../utils/Scale";
 import PersonCard from "./PersonCard";
+import { toGlobalId } from "../utils/globalId";
 
 const Container = glamorous.section({
   marginBottom: Step(5),
@@ -24,7 +25,10 @@ const TeamSection: React.SFC = () => (
     <Title>{content.title}</Title>
     <div className="flex flex-wrap items-top justify-between">
       {content.people.map(({ name, role, bio, filename }, index) => (
-        <div className={`w-100 w-${content.people.length === 2 ? 40 : 30}-ns`}>
+        <div
+          key={toGlobalId({ type: "TeamMember", id: name })}
+          className={`w-100 w-${content.people.length === 2 ? 40 : 30}-ns`}
+        >
           <PersonCard
             name={name}
             role={role}
