@@ -34,17 +34,19 @@ export default class App extends React.Component<{}, {}> {
     this.state = {};
   }
 
-  public preventScrolling() {
+  public preventScrolling = () => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "hidden";
+      document.querySelector("html").style.overflow = "hidden";
     }
-  }
+  };
 
-  public enableScrolling() {
+  public enableScrolling = () => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "auto";
+      document.querySelector("html").style.overflow = "auto";
     }
-  }
+  };
 
   public scrollToLocation() {
     if (
@@ -73,7 +75,11 @@ export default class App extends React.Component<{}, {}> {
         <HeadMeta path="/home" description={seo.description} />
         <Container>
           <Wrapper>
-            <ActivityFeed events={events} />
+            <ActivityFeed
+              events={events}
+              onDragStart={this.preventScrolling}
+              onDragEnd={this.enableScrolling}
+            />
           </Wrapper>
 
           <Wrapper wide>

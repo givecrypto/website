@@ -15,6 +15,8 @@ const DEFAULT_Y_POSITION = 155;
 // Types
 export interface ActivityFeedProps {
   events: Event[];
+  onDragStart: () => void | null;
+  onDragEnd: () => void | null;
 }
 export interface ActivityFeedState {
   touchStartPosition: number;
@@ -39,14 +41,8 @@ export default class ActivityFeed extends React.Component<
     dragY: DEFAULT_Y_POSITION,
   };
 
-  componentDidMount() {
-    window.addEventListener("touchmove", this.handleTouchMove, false);
-  }
-
-  // Touch methods
-  // ==================
-  handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
-    const { clientY } = event.touches[0];
+  handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+    const { clientY } = e.touches[0];
     const { focused } = this.state;
 
     // Update state
@@ -56,17 +52,21 @@ export default class ActivityFeed extends React.Component<
     });
   };
 
-  handleTouchMove = (event: TouchEvent) => {
+  handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
     // Prevent the page from scrolling
-    event.preventDefault();
+    this.props.onDragStart();
 
-    const { clientY } = event.touches[0];
+    const { clientY } = e.touches[0];
     const { touchStartPosition } = this.state;
 
     this.setState({ dragY: clientY - touchStartPosition });
   };
 
-  handleTouchEnd = () => {
+  handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
+    // Allow the page to scroll
+    this.props.onDragEnd();
+    e.currentTarget.blur();
+
     const { dragY } = this.state;
     const focused = dragY < 70 ? true : false;
 
@@ -159,6 +159,7 @@ export default class ActivityFeed extends React.Component<
                   return (
                     <DragBar
                       onTouchStart={this.handleTouchStart}
+                      onTouchMove={this.handleTouchMove}
                       onTouchEnd={this.handleTouchEnd}
                     />
                   );
