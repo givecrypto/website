@@ -55,7 +55,6 @@ export default class App extends React.Component {
         </Head>
         <HeadMeta path="/home" description={seo.description} />
         <Container>
-          {/* Move this */}
           <Wrapper>
             <ActivityFeed events={events} />
           </Wrapper>

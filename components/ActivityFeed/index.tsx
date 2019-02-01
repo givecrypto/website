@@ -2,6 +2,7 @@ import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 import { toGlobalId } from "../../utils/globalId";
+
 // Styled Components
 import { Container } from "./components";
 
@@ -13,9 +14,12 @@ export interface ActivityFeedProps {
   events: Event[];
 }
 export interface ActivityFeedState {
+  touchStartPosition: number;
   shouldHide: boolean;
   focused: boolean;
   timer?: NodeJS.Timer;
+  isPressed?: boolean;
+  dragY?: number;
 }
 
 export default class ActivityFeed extends React.Component<
@@ -24,11 +28,46 @@ export default class ActivityFeed extends React.Component<
 > {
   // Initial state
   state: ActivityFeedState = {
+    touchStartPosition: 0,
+    isPressed: false,
     shouldHide: true,
     focused: false,
     timer: null,
+    dragY: 0,
   };
 
+  // Touch methods
+  // ==================
+  handleTouchStart = e => {
+    const { screenY } = e.touches[0];
+
+    // Update state
+    this.setState({
+      touchStartPosition: screenY,
+      isPressed: true,
+    });
+  };
+
+  handleTouchMove = e => {
+    e.preventDefault();
+    const { screenY } = e.touches[0];
+
+    const { isPressed, touchStartPosition } = this.state;
+
+    if (isPressed) {
+      this.setState({ dragY: screenY - touchStartPosition });
+    }
+  };
+
+  handleTouchEnd = e => {
+    const { dragY } = this.state;
+    const focused = dragY < -10 ? true : false;
+
+    this.setState({ isPressed: false, focused });
+  };
+
+  // Mouse methods
+  // ==================
   handleMouseLeave = () => {
     const { focused, shouldHide, timer } = this.state;
 
@@ -77,18 +116,27 @@ export default class ActivityFeed extends React.Component<
 
   render() {
     const { events } = this.props;
-    const { focused } = this.state;
+    const { focused, dragY, isPressed } = this.state;
+
+    const style = isPressed
+      ? { y: spring(dragY) }
+      : {
+          y: spring(focused ? 0 : DEFAULT_Y_POSITION),
+        };
 
     return (
-      <Motion
-        defaultStyle={{ y: DEFAULT_Y_POSITION }}
-        style={{ y: spring(focused ? 0 : DEFAULT_Y_POSITION) }}
-      >
+      <Motion defaultStyle={{ y: DEFAULT_Y_POSITION }} style={style}>
         {(value: any) => (
           <Container
             key="contianer"
-            style={{ transform: `translateY(${value.y}px)` }}
+            style={{
+              transform: `translateY(${value.y}px)`,
+              overflowY: isPressed ? "hidden" : "scroll",
+            }}
             onScroll={this.handleScroll}
+            onTouchStart={this.handleTouchStart}
+            onTouchEnd={this.handleTouchEnd}
+            onTouchMove={this.handleTouchMove}
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseEnter}
           >
