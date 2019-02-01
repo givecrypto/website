@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
+import { toGlobalId } from "../../utils/globalId";
 // Styled Components
 import { Container } from "./components";
 
@@ -74,11 +75,19 @@ export default class ActivityFeed extends React.Component<
       >
         {(value: any) => (
           <Container
-            css={{ transform: `translateY(${value.y}px)` }}
+            key="contianer"
+            style={{ transform: `translateY(${value.y}px)` }}
             onScroll={this.handleScroll}
             onMouseLeave={this.handleMouseLeave}
           >
-            {events.map((event: Event) => <ActivityFeedItem event={event} />)}
+            {events.map((event: Event) => {
+              const key = toGlobalId({
+                type: "Event",
+                id: event.message.replace(" ", "-"),
+              });
+
+              return <ActivityFeedItem key={key} event={event} />;
+            })}
           </Container>
         )}
       </Motion>
