@@ -6,6 +6,7 @@ export const Container = styled.section`
   z-index: 99999;
   box-shadow: ${shadows.default};
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   position: fixed;
   right: ${Step(5)};
   bottom: ${Step(5)};
@@ -71,14 +72,20 @@ export const EventLink = styled.a`
 
 export const DragBar = styled.div`
   content: "....";
-  width: 100px;
-  height: 35px;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  height: 18px;
+  margin: 0;
+  padding: 0;
   display: inline-block;
   cursor: move;
   font-size: ${Step(5)};
-  transform: translateY(-13px);
+  transform: translateY(-12px);
   color: ${colors.greyLight};
   &:after {
+    z-index: 99999;
+    text-align: center;
     content: "....";
   }
 `;

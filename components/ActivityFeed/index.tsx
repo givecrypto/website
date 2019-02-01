@@ -15,8 +15,6 @@ const DEFAULT_Y_POSITION = 155;
 // Types
 export interface ActivityFeedProps {
   events: Event[];
-  onDragStart: () => void | null;
-  onDragEnd: () => void | null;
 }
 export interface ActivityFeedState {
   touchStartPosition: number;
@@ -41,19 +39,15 @@ export default class ActivityFeed extends React.Component<
     dragY: DEFAULT_Y_POSITION,
   };
 
-  // componentDidMount() {
-  //   window.addEventListener("touchmove", this.handleTouchMove);
-  // }
+  componentDidMount() {
+    window.addEventListener("touchmove", this.handleTouchMove, false);
+  }
 
   // Touch methods
   // ==================
   handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
-    console.log("start");
     const { clientY } = event.touches[0];
     const { focused } = this.state;
-
-    // Tell the parent to freeze on scroll
-    this.props.onDragStart();
 
     // Update state
     this.setState({
@@ -62,8 +56,10 @@ export default class ActivityFeed extends React.Component<
     });
   };
 
-  handleTouchMove = (event: React.TouchEvent<HTMLElement>) => {
-    console.log("drag");
+  handleTouchMove = (event: TouchEvent) => {
+    // Prevent the page from scrolling
+    event.preventDefault();
+
     const { clientY } = event.touches[0];
     const { touchStartPosition } = this.state;
 
@@ -72,11 +68,7 @@ export default class ActivityFeed extends React.Component<
 
   handleTouchEnd = () => {
     const { dragY } = this.state;
-    console.log(dragY);
     const focused = dragY < 70 ? true : false;
-
-    // Tell the parent to freeze on scroll
-    this.props.onDragEnd();
 
     this.setState({
       isPressed: false,
@@ -88,7 +80,6 @@ export default class ActivityFeed extends React.Component<
   // Mouse methods
   // ==================
   handleMouseLeave = () => {
-    console.log("leave");
     const { focused, shouldHide, timer } = this.state;
 
     // Clear the mouseover timer
@@ -110,7 +101,7 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
-    console.log("scroll");
+    e.preventDefault();
     const element = e.currentTarget;
     const { shouldHide } = this.state;
 
@@ -169,7 +160,6 @@ export default class ActivityFeed extends React.Component<
                     <DragBar
                       onTouchStart={this.handleTouchStart}
                       onTouchEnd={this.handleTouchEnd}
-                      onTouchMove={this.handleTouchMove}
                     />
                   );
                 } else {

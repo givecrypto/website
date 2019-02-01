@@ -73,11 +73,7 @@ export default class App extends React.Component<{}, {}> {
         <HeadMeta path="/home" description={seo.description} />
         <Container>
           <Wrapper>
-            <ActivityFeed
-              events={events}
-              onDragStart={this.preventScrolling}
-              onDragEnd={this.enableScrolling}
-            />
+            <ActivityFeed events={events} />
           </Wrapper>
 
           <Wrapper wide>
