@@ -28,7 +28,24 @@ const Container = div({
   },
 });
 
-export default class App extends React.Component {
+export default class App extends React.Component<{}, {}> {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  public preventScrolling() {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  public enableScrolling() {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "auto";
+    }
+  }
+
   public scrollToLocation() {
     if (
       typeof document !== "undefined" &&
@@ -56,7 +73,11 @@ export default class App extends React.Component {
         <HeadMeta path="/home" description={seo.description} />
         <Container>
           <Wrapper>
-            <ActivityFeed events={events} />
+            <ActivityFeed
+              events={events}
+              onDragStart={this.preventScrolling}
+              onDragEnd={this.enableScrolling}
+            />
           </Wrapper>
 
           <Wrapper wide>

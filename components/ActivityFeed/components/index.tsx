@@ -10,7 +10,7 @@ export const Container = styled.section`
   right: ${Step(5)};
   bottom: ${Step(5)};
   width: 420px;
-  max-width: calc(100% - 3.65rem);
+  max-width: calc(100% - (${Step(5)} * 2));
   height: 200px;
   transform: translateY(100px);
   background: ${colors.white};
@@ -34,7 +34,7 @@ export const EventContainer = styled.section`
     padding: ${Step(2)} 0;
     color: ${colors.black};
   }
-  &:first-child {
+  &:first-of-type {
     margin-top: ${Step(3)};
   }
 `;
@@ -67,4 +67,18 @@ export const EventMessage = styled.h1`
 export const EventLink = styled.a`
   color: ${colors.black};
   text-decoration: none;
+`;
+
+export const DragBar = styled.div`
+  content: "....";
+  width: 100px;
+  height: 35px;
+  display: inline-block;
+  cursor: move;
+  font-size: ${Step(5)};
+  transform: translateY(-13px);
+  color: ${colors.greyLight};
+  &:after {
+    content: "....";
+  }
 `;

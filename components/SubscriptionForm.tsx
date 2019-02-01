@@ -1,16 +1,16 @@
-import chroma from "chroma-js";
-import glamorous from "glamorous";
-import isTouchDevice from "is-touch-device";
-import { sample } from "lodash";
 import * as React from "react";
-import MediaQuery from "react-responsive";
-import { breakpoints, colors } from "../design-system";
-import { breakpoints as bp } from "../design-system/breakpoints";
-import { AddToList } from "../utils/klaviyo";
-import { Step } from "../utils/Scale";
 import ValidateEmail from "../validators/ValidateEmail";
+import { sample } from "lodash";
+import glamorous from "glamorous";
+import { breakpoints, colors } from "../design-system";
 import Button from "./Button";
+import { Step } from "../utils/Scale";
 import Loader from "./Loader";
+import { AddToList } from "../utils/klaviyo";
+import { breakpoints as bp } from "../design-system/breakpoints";
+import MediaQuery from "react-responsive";
+import chroma from "chroma-js";
+import isTouchDevice from "is-touch-device";
 
 const InputGroup = glamorous.div({});
 const Thanks = glamorous.h2({
@@ -166,7 +166,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
             {loading && <Loader />}
             {!loading && (
               <>
-                <MediaQuery minWidth={bp.m}>
+                <MediaQuery minWidth={bp.m} values={{ width: 1600 }}>
                   {matches => {
                     if (matches) {
                       return <>Subscribe To Our Blog</>;

@@ -2,6 +2,9 @@ import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 import { toGlobalId } from "../../utils/globalId";
+import { DragBar } from "./components";
+import { breakpoints } from "../../design-system/breakpoints";
+import MediaQuery from "react-responsive";
 
 // Styled Components
 import { Container } from "./components";
@@ -12,6 +15,8 @@ const DEFAULT_Y_POSITION = 155;
 // Types
 export interface ActivityFeedProps {
   events: Event[];
+  onDragStart: () => void | null;
+  onDragEnd: () => void | null;
 }
 export interface ActivityFeedState {
   touchStartPosition: number;
@@ -33,42 +38,57 @@ export default class ActivityFeed extends React.Component<
     shouldHide: true,
     focused: false,
     timer: null,
-    dragY: 0,
+    dragY: DEFAULT_Y_POSITION,
   };
+
+  // componentDidMount() {
+  //   window.addEventListener("touchmove", this.handleTouchMove);
+  // }
 
   // Touch methods
   // ==================
-  handleTouchStart = e => {
-    const { screenY } = e.touches[0];
+  handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    console.log("start");
+    const { clientY } = event.touches[0];
+    const { focused } = this.state;
+
+    // Tell the parent to freeze on scroll
+    this.props.onDragStart();
 
     // Update state
     this.setState({
-      touchStartPosition: screenY,
+      touchStartPosition: clientY - (focused ? 0 : DEFAULT_Y_POSITION),
       isPressed: true,
     });
   };
 
-  handleTouchMove = e => {
-    e.preventDefault();
-    const { screenY } = e.touches[0];
+  handleTouchMove = (event: React.TouchEvent<HTMLElement>) => {
+    console.log("drag");
+    const { clientY } = event.touches[0];
+    const { touchStartPosition } = this.state;
 
-    const { isPressed, touchStartPosition } = this.state;
-
-    if (isPressed) {
-      this.setState({ dragY: screenY - touchStartPosition });
-    }
+    this.setState({ dragY: clientY - touchStartPosition });
   };
 
-  handleTouchEnd = e => {
+  handleTouchEnd = () => {
     const { dragY } = this.state;
-    const focused = dragY < -10 ? true : false;
+    console.log(dragY);
+    const focused = dragY < 70 ? true : false;
 
-    this.setState({ isPressed: false, focused });
+    // Tell the parent to freeze on scroll
+    this.props.onDragEnd();
+
+    this.setState({
+      isPressed: false,
+      focused,
+      dragY: focused ? 0 : DEFAULT_Y_POSITION,
+    });
   };
 
   // Mouse methods
   // ==================
   handleMouseLeave = () => {
+    console.log("leave");
     const { focused, shouldHide, timer } = this.state;
 
     // Clear the mouseover timer
@@ -90,6 +110,7 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
+    console.log("scroll");
     const element = e.currentTarget;
     const { shouldHide } = this.state;
 
@@ -108,10 +129,14 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleMouseEnter = () => {
-    const timer = setTimeout(this.showCard, 1000);
+    const { isPressed } = this.state;
 
-    // Stave the timer to clear it later
-    this.setState({ timer });
+    if (!isPressed) {
+      const timer = setTimeout(this.showCard, 1000);
+
+      // Stave the timer to clear it later
+      this.setState({ timer });
+    }
   };
 
   render() {
@@ -121,11 +146,11 @@ export default class ActivityFeed extends React.Component<
     const style = isPressed
       ? { y: spring(dragY) }
       : {
-          y: spring(focused ? 0 : DEFAULT_Y_POSITION),
+          y: spring(focused ? 0 : dragY),
         };
 
     return (
-      <Motion defaultStyle={{ y: DEFAULT_Y_POSITION }} style={style}>
+      <Motion defaultStyle={{ y: dragY }} style={style}>
         {(value: any) => (
           <Container
             key="contianer"
@@ -134,12 +159,24 @@ export default class ActivityFeed extends React.Component<
               overflowY: isPressed ? "hidden" : "scroll",
             }}
             onScroll={this.handleScroll}
-            onTouchStart={this.handleTouchStart}
-            onTouchEnd={this.handleTouchEnd}
-            onTouchMove={this.handleTouchMove}
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseEnter}
           >
+            <MediaQuery minWidth={breakpoints.m} values={{ width: 1600 }}>
+              {matches => {
+                if (!matches) {
+                  return (
+                    <DragBar
+                      onTouchStart={this.handleTouchStart}
+                      onTouchEnd={this.handleTouchEnd}
+                      onTouchMove={this.handleTouchMove}
+                    />
+                  );
+                } else {
+                  return null;
+                }
+              }}
+            </MediaQuery>
             {events.map((event: Event) => {
               const key = toGlobalId({
                 type: "Event",
