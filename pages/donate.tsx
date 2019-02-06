@@ -1,41 +1,41 @@
-import * as React from 'react';
-import { Step } from '../utils/Scale';
-import { colors, breakpoints } from '../design-system';
-import glamorous from 'glamorous';
-import Head from 'next/head';
-import HeadMeta from '../components/HeadMeta';
-import DonateButton from '../components/DonateButton';
-import Wrapper from '../components/Wrapper';
-import BitcoinIcon from '../svgs/crypto/btc.svg';
-import ZCashIcon from '../svgs/crypto/zec.svg';
-import BitcoinCashIcon from '../svgs/crypto/bch.svg';
-import EtheriumIcon from '../svgs/crypto/eth.svg';
-import LitecoinIcon from '../svgs/crypto/ltc.svg';
-import RippleIcon from '../svgs/crypto/xrp.svg';
-import HappyIcon from '../svgs/givecrypto-scene-03.svg';
-import Faq from '../components/Faq';
-import '../utils/rehydrate';
-import seo from '../content/donate/seo';
+import glamorous from "glamorous";
+import Head from "next/head";
+import * as React from "react";
+import DonateButton from "../components/DonateButton";
+import Faq from "../components/Faq";
+import HeadMeta from "../components/HeadMeta";
+import Wrapper from "../components/Wrapper";
+import seo from "../content/donate/seo";
+import { breakpoints, colors } from "../design-system";
+import BitcoinCashIcon from "../svgs/crypto/bch.svg";
+import BitcoinIcon from "../svgs/crypto/btc.svg";
+import EtheriumIcon from "../svgs/crypto/eth.svg";
+import LitecoinIcon from "../svgs/crypto/ltc.svg";
+import RippleIcon from "../svgs/crypto/xrp.svg";
+import ZCashIcon from "../svgs/crypto/zec.svg";
+import HappyIcon from "../svgs/givecrypto-scene-03.svg";
+import "../utils/rehydrate";
+import { Step } from "../utils/Scale";
 
 const Title = glamorous.h2({
   color: colors.black,
   fontSize: Step(5.35),
   [breakpoints.ns]: {
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 
 const Meta = glamorous.h2({
-  textTransform: 'uppercase',
+  textTransform: "uppercase",
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
-  fontWeight: 800
+  fontWeight: 800,
 });
 
 const IconContainer = glamorous.div({
   maxWidth: 450,
-  margin: `${Step(5)} auto`
+  margin: `${Step(5)} auto`,
 });
 
 const Subtitle = glamorous.h1({
@@ -44,32 +44,28 @@ const Subtitle = glamorous.h1({
   fontWeight: 500,
   fontSize: Step(4.5),
   [breakpoints.ns]: {
-    fontSize: Step(5)
-  }
+    fontSize: Step(5),
+  },
 });
 
 const ButtonGroup = glamorous.div({
-  maxWidth: 400
+  maxWidth: 400,
 });
 
-export interface AppProps {}
 export interface AppState {
   message: string;
 }
 
-export default class App extends React.Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: 'Donate Today'
-    };
-  }
+export default class App extends React.Component<{}, AppState> {
+  public readonly state: Readonly<AppState> = {
+    message: "Donate Today",
+  };
 
-  componentDidMount() {
+  public componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  render() {
+  public render() {
     const { message } = this.state;
 
     return (
@@ -116,7 +112,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <Wrapper
           className="ph3 ph0-l"
           background={colors.white}
-          padding={'4rem 0'}
+          padding={"4rem 0"}
         >
           <Faq
             donate={true}

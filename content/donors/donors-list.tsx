@@ -10,13 +10,22 @@
  * }
  */
 
-/** ----------------------------
+/**
  * @description Person
  * @param {name[]} string
  * @example: 'Brian Armstrong',
  */
 
-export default {
+export interface Donor {
+  name: string;
+  role?: string;
+  filename: string;
+}
+export interface DonorSegment {
+  [key: string]: Donor[];
+}
+
+export const donors: DonorSegment = {
   /**
    * @param {person[]} Person
    */
@@ -144,3 +153,5 @@ export default {
     },
   ],
 };
+
+export default donors;

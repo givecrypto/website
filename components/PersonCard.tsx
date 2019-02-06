@@ -1,5 +1,5 @@
-import * as React from 'react';
 import glamorous from 'glamorous';
+import * as React from 'react';
 import { colors, shadows } from '../design-system';
 import { Step } from '../utils/Scale';
 

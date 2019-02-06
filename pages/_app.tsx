@@ -1,16 +1,16 @@
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import * as React from 'react';
-import '../utils/setupFonts';
-import '../styles/index.css';
 import Navigation from '../components/Navigation/Navigation';
+import '../styles/index.css';
 import { getCookie } from '../utils/session';
+import '../utils/setupFonts';
 
 // Set to true to require a password in production
 const authenticateProduction = false;
 
 export default class GiveCryptoApp extends App<any, any> {
-  static async getInitialProps({ Component, ctx }) {
+  public static async getInitialProps({ Component, ctx }) {
     let pageProps: any = {};
 
     // Force a password on staging, and respect production settings above
@@ -51,7 +51,7 @@ export default class GiveCryptoApp extends App<any, any> {
     return { pageProps };
   }
 
-  render() {
+  public render() {
     const { Component, pageProps, router } = this.props;
     let authenticationPath;
     let theme = 'default';

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import Head from 'next/head';
+import * as React from 'react';
 
 interface HeadMetaProps {
   path: string;
@@ -21,7 +21,7 @@ export default class HeadMeta extends React.Component<HeadMetaProps, any> {
     super(props);
   }
 
-  render() {
+  public render() {
     const {
       path,
       title = defaults.title,

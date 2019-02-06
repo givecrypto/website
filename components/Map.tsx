@@ -1,7 +1,7 @@
 // tslint:disable:max-line-length
-import * as React from 'react';
-import glamorous, { Svg } from 'glamorous';
 import { css } from 'glamor';
+import glamorous, { Svg } from 'glamorous';
+import * as React from 'react';
 import { colors } from '../design-system';
 
 const cssShim: any = css;

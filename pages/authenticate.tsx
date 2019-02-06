@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Wrapper from '../components/Wrapper';
 import glamorous from 'glamorous';
 import Router from 'next/router';
+import * as React from 'react';
+import Wrapper from '../components/Wrapper';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
 import { setCookie } from '../utils/session';
@@ -36,8 +36,8 @@ export default class Authenticate extends React.Component<any, any> {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    let password = event.target.value;
+  public handleChange(event) {
+    const password = event.target.value;
 
     if (password === `${process.env.PASSWORD}`) {
       localStorage.setItem('password', password);
@@ -47,7 +47,7 @@ export default class Authenticate extends React.Component<any, any> {
     }
   }
 
-  render() {
+  public render() {
     return (
       <Wrapper>
         <Container className="vh-75 dt w-100 tc center">

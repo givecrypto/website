@@ -1,9 +1,9 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import { renderStatic } from 'glamor/server';
 import 'glamor/reset';
+import { renderStatic } from 'glamor/server';
 import { Body, Section } from 'glamorous';
-import Footer from '../components/Footer';
+import Document, { Head, Main, NextScript } from 'next/document';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Footer from '../components/Footer';
 
 // Force style update on the server
 import '../styles/style.css';
@@ -28,7 +28,7 @@ const GoogleMeta: React.SFC<any> = props => {
 };
 
 export default class GiveCryptoDocument extends Document {
-  static async getInitialProps({ renderPage }) {
+  public static async getInitialProps({ renderPage }) {
     const page = renderPage();
     const styles = renderStatic(() => page.html || page.errorHtml);
     return { ...page, ...styles };
@@ -42,7 +42,7 @@ export default class GiveCryptoDocument extends Document {
     }
   }
 
-  render() {
+  public render() {
     return (
       <html>
         <Head>

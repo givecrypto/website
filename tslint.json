@@ -1,7 +1,16 @@
 {
-  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
-    // override tslint-react rules here
-    // "jsx-wrap-multiline": false
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev"],
+    "no-submodule-imports": [true, "next", "glamor"],
+    "ordered-imports": false
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false
+  },
+  "linterOptions": {
+    "exclude": ["./**/utils/SetupCoinbaseCommerce.jsx"]
   }
 }

@@ -1,7 +1,7 @@
-import Router from 'next/router';
 import glamorous from 'glamorous';
-import { colors } from '../design-system';
+import Router from 'next/router';
 import NextLink from '../components/NextLink';
+import { colors } from '../design-system';
 
 interface LinkProps {
   href: string;
