@@ -1,23 +1,23 @@
 export default [
   {
-    title: 'How It Works',
-    to: 'how-it-works'
+    title: "How It Works",
+    to: "how-it-works",
   },
   {
-    title: 'About',
-    to: 'about'
+    title: "About",
+    to: "about",
   },
   {
-    title: 'FAQ',
-    to: 'faq'
+    title: "FAQ",
+    to: "faq",
   },
   {
-    title: 'Donors',
-    href: '/donors',
-    activeClass: 'active active-style' // Leave this alone :)
+    title: "Donors",
+    href: "/donors",
+    activeClass: "active active-style", // Leave this alone :)
   },
   {
-    title: 'Blog',
-    href: 'https://medium.com/givecrypto'
-  }
+    title: "Blog",
+    href: "https://medium.com/givecrypto",
+  },
 ];

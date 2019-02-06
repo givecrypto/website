@@ -1,7 +1,7 @@
 export class CancelError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = 'CancelError';
+    this.name = "CancelError";
   }
 }
 
@@ -22,7 +22,7 @@ const createDelay = (willResolve: any) => (ms: number, value?: any) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
       timeoutId = null;
-      internalReject(new CancelError('Delay canceled'));
+      internalReject(new CancelError("Delay canceled"));
     }
   };
 

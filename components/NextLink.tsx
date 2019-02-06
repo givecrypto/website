@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { withRouter } from 'next/router';
-import React, { Children } from 'react';
+import Link from "next/link";
+import { withRouter } from "next/router";
+import React, { Children } from "react";
 
 const ActiveLink = ({ router, children, ...props }: any) => {
   const child = Children.only(children);
@@ -9,11 +9,11 @@ const ActiveLink = ({ router, children, ...props }: any) => {
   if (router) {
     if (router.pathname === props.href) {
       if (props.activeClassName) {
-        className = `${className !== null ? className : ''} ${
+        className = `${className !== null ? className : ""} ${
           props.activeClassName
         }`.trim();
       } else {
-        className = `${className !== null ? className : ''} active`.trim();
+        className = `${className !== null ? className : ""} active`.trim();
       }
     }
   }

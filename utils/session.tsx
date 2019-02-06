@@ -1,4 +1,4 @@
-import cookie from 'js-cookie';
+import cookie from "js-cookie";
 
 const processShim: any = process;
 const isBrowser = processShim.browser;
@@ -7,7 +7,7 @@ export const setCookie = (key, value) => {
   if (isBrowser) {
     cookie.set(key, value, {
       expires: 1,
-      path: '/'
+      path: "/",
     });
   }
 };
@@ -15,7 +15,7 @@ export const setCookie = (key, value) => {
 export const removeCookie = key => {
   if (isBrowser) {
     cookie.remove(key, {
-      expires: 1
+      expires: 1,
     });
   }
 };
@@ -33,10 +33,10 @@ const getCookieFromServer = (key, req) => {
     return undefined;
   }
   const rawCookie = req.headers.cookie
-    .split(';')
+    .split(";")
     .find(c => c.trim().startsWith(`${key}=`));
   if (!rawCookie) {
     return undefined;
   }
-  return rawCookie.split('=')[1];
+  return rawCookie.split("=")[1];
 };

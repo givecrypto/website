@@ -1,7 +1,7 @@
-import glamorous from 'glamorous';
-import Router from 'next/router';
-import NextLink from '../components/NextLink';
-import { colors } from '../design-system';
+import glamorous from "glamorous";
+import Router from "next/router";
+import NextLink from "../components/NextLink";
+import { colors } from "../design-system";
 
 interface LinkProps {
   href: string;
@@ -18,30 +18,30 @@ const onClickHandler = (href: string) => {
 };
 
 export const linkStyles = {
-  cursor: 'pointer',
+  cursor: "pointer",
   color: colors.greyDark,
-  textDecoration: 'none',
+  textDecoration: "none",
 
-  '> svg': {
-    transition: 'all 200ms',
-    fill: colors.grey
+  "> svg": {
+    transition: "all 200ms",
+    fill: colors.grey,
   },
 
-  '&:hover, &:active': {
+  "&:hover, &:active": {
     color: colors.grey,
-    '> svg': {
-      fill: colors.black
-    }
+    "> svg": {
+      fill: colors.black,
+    },
   },
 
-  '&.active': {
-    pointerEvents: 'none',
+  "&.active": {
+    pointerEvents: "none",
 
-    '&-style': {
+    "&-style": {
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
-    }
-  }
+      borderBottom: `1px solid ${colors.black}`,
+    },
+  },
 };
 
 const A = glamorous.a(linkStyles);
