@@ -87,7 +87,7 @@
     "css": "tachyons styles/style.css > styles/index.css --minify"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx,json}": ["prettier --write", "git add"]
+    "./**/*.{ts,tsx,js,jsx,json}": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
