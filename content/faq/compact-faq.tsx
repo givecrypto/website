@@ -1,10 +1,10 @@
 export default [
   {
-    question: 'How will the fund operate?',
+    question: "How will the fund operate?",
     answer: `GiveCrypto.org will be an evergreen fund (or endowment) that is designed to live and grow forever. It will grow in value based on new donations and if the value of cryptocurrency continues to grow.`
   },
   {
-    question: 'What types of currencies will you accept?',
+    question: "What types of currencies will you accept?",
     answer: `GiveCrypto.org is cryptocurrency agnostic. We currently accept the following currencies: BTC, BCH, ETH, LTC, XRP and ZEC.`
   },
   {

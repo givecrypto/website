@@ -33,125 +33,125 @@ export const donors: DonorSegment = {
     {
       name: "Brian Armstrong",
       role: "CEO, Coinbase",
-      filename: "brian-armstrong",
+      filename: "brian-armstrong"
     },
     {
       name: "Chris Larsen",
       role: "Executive Chairman, Ripple",
-      filename: "chris-larsen",
+      filename: "chris-larsen"
     },
     {
       name: "Zooko Wilcox",
       role: "CEO, the Zcash Company",
-      filename: "zooko",
-    },
+      filename: "zooko"
+    }
   ],
 
   "$100k+": [
     {
       name: "Brad Garlinghouse",
       role: "CEO, Ripple",
-      filename: "brad-garlinghouse",
+      filename: "brad-garlinghouse"
     },
     {
       name: "Brock Pierce",
       role: "Entrepreneur, Bitcoin Foundation",
-      filename: "brock-pierce",
+      filename: "brock-pierce"
     },
     {
       name: "Joanne and Fred Wilson",
-      filename: "fred-joanne",
+      filename: "fred-joanne"
     },
     {
       name: "Matthew Roszak",
       role: "Co-Founder, Bloq",
-      filename: "matthew-roszak",
+      filename: "matthew-roszak"
     },
     {
       name: "Matt Mochary",
       role: "CEO, The Mochary Group",
-      filename: "matt-mochary",
+      filename: "matt-mochary"
     },
     {
       name: "Bitmain",
       role: "",
-      filename: "bitmain",
+      filename: "bitmain"
     },
     {
       name: "Roger Ver",
       role: "CEO, Bitcoin.com",
-      filename: "roger-ver",
+      filename: "roger-ver"
     },
     {
       name: "Anonymous",
-      filename: "placeholder",
+      filename: "placeholder"
     },
     {
       name: "Ribbit Capital",
-      filename: "ribbit-capital",
+      filename: "ribbit-capital"
     },
     {
       name: "Ron Conway",
       role: "Founder, SV Angel",
-      filename: "ron-conway",
-    },
+      filename: "ron-conway"
+    }
   ],
   "$25k+": [
     {
       name: "Arthur Hayes",
       role: "Co-founder & CEO, BitMEX",
-      filename: "arthur-hayes",
+      filename: "arthur-hayes"
     },
     {
       name: "Boris Wertz",
       role: "General Partner, Version One Ventures",
-      filename: "boris-wertz",
+      filename: "boris-wertz"
     },
     {
       name: "Fred Ehrsam",
-      filename: "fred-ehrsam",
+      filename: "fred-ehrsam"
     },
     {
       name: "Jessica Livingston",
       role: "Founder, Partner - YCombinator",
-      filename: "jessica-livingston",
+      filename: "jessica-livingston"
     },
     {
       name: "Linda Xie",
       role: "Co-founder, Scalar Capital",
-      filename: "linda-xie",
+      filename: "linda-xie"
     },
     {
       name: "Meltem Demirors",
       role: "Athena Capital",
-      filename: "meltem-demirors",
+      filename: "meltem-demirors"
     },
     {
       name: "Steve Jang",
       role: "Founder, Kindred Ventures",
-      filename: "steve-jang",
+      filename: "steve-jang"
     },
     {
       name: "Topher Conway",
       role: "Partner, SV Angel",
-      filename: "topher-conway",
+      filename: "topher-conway"
     },
     {
       name: "Anonymous",
-      filename: "placeholder",
-    },
+      filename: "placeholder"
+    }
   ],
   "$10k+": [
     {
       name: "Ted Rogers",
       role: "President, Xapo",
-      filename: "ted-rogers",
+      filename: "ted-rogers"
     },
     {
       name: "Kathryn Haun",
-      filename: "kathryn-haun",
-    },
-  ],
+      filename: "kathryn-haun"
+    }
+  ]
 };
 
 export default donors;

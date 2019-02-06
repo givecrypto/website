@@ -6,7 +6,7 @@ interface State {
 
 export default class ErrorBoundary extends React.Component<{}, State> {
   public readonly state: Readonly<State> = {
-    hasError: false,
+    hasError: false
   };
 
   public componentDidCatch(error: Error, info: React.ErrorInfo) {

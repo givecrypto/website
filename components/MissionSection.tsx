@@ -11,7 +11,7 @@ import MissionHero from "./MissionHero";
 
 const DetailItem = glamorous.div({
   color: colors.greyLight,
-  margin: `${Step(6)} 0`,
+  margin: `${Step(6)} 0`
 });
 
 const IconContainer: any = glamorous.div(
@@ -19,17 +19,17 @@ const IconContainer: any = glamorous.div(
     padding: Step(6),
     [breakpoints.l]: {
       maxWidth: 450,
-      order: 1,
-    },
+      order: 1
+    }
   },
   (props: any) => {
     return {
       order: 0,
       [breakpoints.l]: {
-        order: props.left ? 0 : 2,
-      },
+        order: props.left ? 0 : 2
+      }
     };
-  },
+  }
 );
 
 const Description = glamorous.div({
@@ -40,8 +40,8 @@ const Description = glamorous.div({
     fontWeight: 500,
     fontSize: Step(4.5),
     [breakpoints.ns]: {
-      fontSize: Step(4.72),
-    },
+      fontSize: Step(4.72)
+    }
   },
 
   "& ul": {
@@ -51,17 +51,17 @@ const Description = glamorous.div({
     "& li": {
       fontSize: Step(4.5),
       [breakpoints.ns]: {
-        fontSize: Step(4.72),
+        fontSize: Step(4.72)
       },
       marginBottom: "1rem",
 
       "&:before": {
         color: colors.blue,
         content: "+",
-        marginRight: Step(3),
-      },
-    },
-  },
+        marginRight: Step(3)
+      }
+    }
+  }
 });
 
 interface DetailProps {

@@ -1,54 +1,54 @@
 // tslint:disable:max-line-length
-import { css } from 'glamor';
-import glamorous, { Svg } from 'glamorous';
-import * as React from 'react';
-import { colors } from '../design-system';
+import { css } from "glamor";
+import glamorous, { Svg } from "glamorous";
+import * as React from "react";
+import { colors } from "../design-system";
 
 const cssShim: any = css;
 const fadeDot = cssShim.keyframes({
-  '0%': { fill: colors.greyLightest },
-  '20%': { fill: colors.blue },
-  '25%': { fill: colors.blue },
-  '30%': { fill: colors.greyLightest },
-  '100%': { fill: colors.greyLightest }
+  "0%": { fill: colors.greyLightest },
+  "20%": { fill: colors.blue },
+  "25%": { fill: colors.blue },
+  "30%": { fill: colors.greyLightest },
+  "100%": { fill: colors.greyLightest }
 });
 
 const dotStyles = {
   fill: colors.greyLightest,
-  '&:nth-child(600n+4)': {
-    animation: `12s infinite alternate ${fadeDot}`,
+  "&:nth-child(600n+4)": {
+    animation: `12s infinite alternate ${fadeDot}`
   },
-  '&:nth-child(610n+4)': {
+  "&:nth-child(610n+4)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '4s'
+    animationDelay: "4s"
   },
-  '&:nth-child(630n+400)': {
+  "&:nth-child(630n+400)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '6s'
+    animationDelay: "6s"
   },
-  '&:nth-child(548n+620)': {
+  "&:nth-child(548n+620)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '7s'
+    animationDelay: "7s"
   },
-  '&:nth-child(591n+300)': {
+  "&:nth-child(591n+300)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '8s'
+    animationDelay: "8s"
   },
-  '&:nth-child(391n+600)': {
+  "&:nth-child(391n+600)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '10s'
+    animationDelay: "10s"
   },
-  '&:nth-child(511n+40)': {
+  "&:nth-child(511n+40)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '12s'
+    animationDelay: "12s"
   },
-  '&:nth-child(311n+380)': {
+  "&:nth-child(311n+380)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '15s'
+    animationDelay: "15s"
   },
-  '&:nth-child(511n+580)': {
+  "&:nth-child(511n+580)": {
     animation: `12s infinite alternate ${fadeDot}`,
-    animationDelay: '18s'
+    animationDelay: "18s"
   }
 };
 

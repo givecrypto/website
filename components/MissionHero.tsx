@@ -16,8 +16,8 @@ const Container = glamorous.section({
   marginTop: Step(7.5),
   height: "auto",
   [breakpoints.ns]: {
-    height: 475,
-  },
+    height: 475
+  }
 });
 
 const Title = glamorous.h2({
@@ -27,8 +27,8 @@ const Title = glamorous.h2({
   fontSize: Step(5),
   [breakpoints.ns]: {
     padding: `0 ${Step(6)}`,
-    fontSize: Step(5.65),
-  },
+    fontSize: Step(5.65)
+  }
 });
 
 const DonorsCTA: React.SFC = () => (

@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import * as React from 'react';
+import Head from "next/head";
+import * as React from "react";
 
 interface HeadMetaProps {
   path: string;
@@ -10,10 +10,10 @@ interface HeadMetaProps {
 }
 
 const defaults = {
-  title: 'GiveCrypto | Give cryptocurrency to people in need.',
+  title: "GiveCrypto | Give cryptocurrency to people in need.",
   description:
-    'Empowering, educating and elevating communities into the open financial system.',
-  image: 'https://www.givecrypto.org/static/images/givecrypto-share.png'
+    "Empowering, educating and elevating communities into the open financial system.",
+  image: "https://www.givecrypto.org/static/images/givecrypto-share.png"
 };
 
 export default class HeadMeta extends React.Component<HeadMetaProps, any> {

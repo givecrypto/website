@@ -1,4 +1,4 @@
-import { rehydrate } from 'glamor';
+import { rehydrate } from "glamor";
 
 declare global {
   interface Window {
@@ -9,8 +9,8 @@ declare global {
 }
 
 const loadStyles = () => {
-  if (typeof window !== 'undefined') {
-    window.__NEXT_DATA__ = window.__NEXT_DATA__ || { ids: ['test-element-id'] };
+  if (typeof window !== "undefined") {
+    window.__NEXT_DATA__ = window.__NEXT_DATA__ || { ids: ["test-element-id"] };
     rehydrate(window.__NEXT_DATA__.ids);
   }
 };

@@ -16,24 +16,24 @@ const Details = glamorous.div({
   width: "100%",
   maxWidth: 560,
   [breakpoints.ns]: {
-    width: "50%",
-  },
+    width: "50%"
+  }
 });
 const Title = glamorous.h1({
   color: colors.black,
   fontSize: Step(5.35),
   fontWeight: 900,
   [breakpoints.ns]: {
-    fontSize: Step(6),
-  },
+    fontSize: Step(6)
+  }
 });
 const Subtitle = glamorous.h1({
   fontSize: Step(4.5),
   fontWeight: 500,
   [breakpoints.ns]: {
-    fontSize: Step(5),
+    fontSize: Step(5)
   },
-  color: colors.grey,
+  color: colors.grey
 });
 const Illustration = glamorous.div({
   width: "100%",
@@ -42,8 +42,8 @@ const Illustration = glamorous.div({
   [breakpoints.ns]: {
     maxWidth: 560,
     width: "45%",
-    padding: 0,
-  },
+    padding: 0
+  }
 });
 
 export default class Hero extends React.Component<HeroProps, any> {

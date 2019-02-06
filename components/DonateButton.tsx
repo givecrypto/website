@@ -1,12 +1,12 @@
-import chroma from 'chroma-js';
-import glamorous from 'glamorous';
-import _ from 'lodash';
-import * as React from 'react';
-import Modal from 'react-responsive-modal';
-import { breakpoints, colors } from '../design-system';
-import { Step } from '../utils/Scale';
-import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
-import PaymentModal from './PaymentModal';
+import chroma from "chroma-js";
+import glamorous from "glamorous";
+import _ from "lodash";
+import * as React from "react";
+import Modal from "react-responsive-modal";
+import { breakpoints, colors } from "../design-system";
+import { Step } from "../utils/Scale";
+import SetupCoinbaseCommerce from "../utils/SetupCoinbaseCommerce";
+import PaymentModal from "./PaymentModal";
 
 export interface DonateProps {
   type?: string;
@@ -21,71 +21,71 @@ declare global {
 }
 
 const linkStyles = {
-  '&.donate-with-crypto': {
+  "&.donate-with-crypto": {
     minWidth: `48%`,
-    boxSizing: 'border-box',
-    transition: 'all 200ms ease',
-    cursor: 'pointer',
-    color: 'white',
+    boxSizing: "border-box",
+    transition: "all 200ms ease",
+    cursor: "pointer",
+    color: "white",
     border: `1px solid ${colors.green}`,
     background: colors.green,
-    textDecoration: 'none',
+    textDecoration: "none",
     borderRadius: Step(2),
-    height: 'inherit !important',
-    boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
-    display: 'inline-block',
-    '> span': {
-      display: 'inline',
-      fontSize: '1em',
-      fontFamily: 'Apercu',
+    height: "inherit !important",
+    boxShadow: "0 8px 16px rgba(0,0,0,0.075)",
+    display: "inline-block",
+    "> span": {
+      display: "inline",
+      fontSize: "1em",
+      fontFamily: "Apercu",
       fontWeight: 200,
-      textTransform: 'uppercase',
+      textTransform: "uppercase",
       letterSpacing: `0.05rem`,
-      cursor: 'pointer',
-      textShadow: 'none',
+      cursor: "pointer",
+      textShadow: "none",
       padding: 0
     },
-    '&:after': {
-      display: 'none'
+    "&:after": {
+      display: "none"
     },
-    '&:hover': {
+    "&:hover": {
       background: chroma(colors.green)
         .brighten(0.25)
         .css()
     },
-    '&:active': {
+    "&:active": {
       padding: `${Step(4)} !important`,
-      height: 'auto',
+      height: "auto",
       background: chroma(colors.green)
         .brighten(0.125)
         .css(),
-      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
     },
-    '&.theme-ghost': {
+    "&.theme-ghost": {
       color: colors.green,
-      background: 'transparent',
-      boxShadow: '0 8px 16px rgba(0,0,0,0.075)',
-      '> span': {
-        transition: 'color 200ms ease',
+      background: "transparent",
+      boxShadow: "0 8px 16px rgba(0,0,0,0.075)",
+      "> span": {
+        transition: "color 200ms ease",
         color: colors.green
       },
-      '&:hover': {
+      "&:hover": {
         background: chroma(colors.green)
           .brighten(0.25)
           .css(),
-        '> span': {
-          color: 'white'
+        "> span": {
+          color: "white"
         }
       }
     },
-    '&.theme-full': {
-      display: 'block',
-      width: '100%'
+    "&.theme-full": {
+      display: "block",
+      width: "100%"
     },
     fontSize: Step(3.45),
     padding: `${Step(4)} ${Step(3.75)}`,
     [breakpoints.ns]: {
-      '> span': {
+      "> span": {
         letterSpacing: `0.1rem`
       },
       padding: Step(4),
@@ -104,7 +104,7 @@ declare global {
 export default class Donate extends React.Component<DonateProps, any> {
   constructor(props) {
     super(props);
-    const uuid = _.uniqueId('coinbase-commerce--');
+    const uuid = _.uniqueId("coinbase-commerce--");
     this.state = {
       paymentModalState: false,
       uuid
@@ -113,8 +113,8 @@ export default class Donate extends React.Component<DonateProps, any> {
 
   public componentDidMount() {
     const { uuid } = this.state;
-    const { type = 'default' } = this.props;
-    if (type !== 'ripple') {
+    const { type = "default" } = this.props;
+    if (type !== "ripple") {
       SetupCoinbaseCommerce(window, document, uuid, type);
     }
   }
@@ -128,22 +128,22 @@ export default class Donate extends React.Component<DonateProps, any> {
   };
 
   public render() {
-    const { type = 'default', theme = 'default', children } = this.props;
+    const { type = "default", theme = "default", children } = this.props;
     const { paymentModalState } = this.state;
 
     const buttonText = () => {
       switch (type) {
-        case 'default':
-          return 'Donate Crypto';
+        case "default":
+          return "Donate Crypto";
 
-        case 'anonymous':
-          return 'Donate Anonymously';
+        case "anonymous":
+          return "Donate Anonymously";
 
-        case 'ripple':
-          return 'Donate XRP';
+        case "ripple":
+          return "Donate XRP";
 
-        case 'zcash':
-          return 'Donate ZEC';
+        case "zcash":
+          return "Donate ZEC";
 
         default:
           return `Donate ${type}`;
@@ -151,11 +151,11 @@ export default class Donate extends React.Component<DonateProps, any> {
     };
 
     const id =
-      type === 'anonymous'
+      type === "anonymous"
         ? process.env.COMMERCE_ID_ANONYMOUS
         : process.env.COMMERCE_ID_DEFAULT;
 
-    if (type === 'ripple' || type === 'zcash') {
+    if (type === "ripple" || type === "zcash") {
       return (
         <>
           <Link
@@ -171,9 +171,9 @@ export default class Donate extends React.Component<DonateProps, any> {
             onClose={this.onCloseModal}
             center={true}
             classNames={{
-              overlay: 'custom-overlay',
-              modal: 'custom-modal',
-              closeButton: 'pointer'
+              overlay: "custom-overlay",
+              modal: "custom-modal",
+              closeButton: "pointer"
             }}
           >
             <PaymentModal currency={type} />

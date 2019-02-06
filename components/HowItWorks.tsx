@@ -11,8 +11,8 @@ const Title = glamorous.h1({
   color: colors.black,
   fontSize: Step(5),
   [breakpoints.ns]: {
-    fontSize: Step(6),
-  },
+    fontSize: Step(6)
+  }
 });
 const SubTitle = glamorous.h1({
   marginBottom: Step(7),
@@ -20,8 +20,8 @@ const SubTitle = glamorous.h1({
   fontWeight: 500,
   fontSize: Step(4.125),
   [breakpoints.ns]: {
-    fontSize: Step(5),
-  },
+    fontSize: Step(5)
+  }
 });
 const CardWrapper = glamorous.div({
   position: "relative",
@@ -29,7 +29,7 @@ const CardWrapper = glamorous.div({
 
   "> *": {
     position: "relative",
-    zIndex: 1,
+    zIndex: 1
   },
 
   "&::after, &::before": {
@@ -42,12 +42,12 @@ const CardWrapper = glamorous.div({
     left: -200,
     width: 423,
     height: 263,
-    transform: "translateY(40px)",
+    transform: "translateY(40px)"
   },
   "&::after": {
     left: "auto",
-    right: -200,
-  },
+    right: -200
+  }
 });
 
 const Card = glamorous.div({
@@ -58,8 +58,8 @@ const Card = glamorous.div({
   boxShadow: shadows.card,
   maxWidth: "100%",
   [breakpoints.ns]: {
-    maxWidth: 280,
-  },
+    maxWidth: 280
+  }
 });
 const IconContainer = glamorous.div({
   display: "block",
@@ -69,21 +69,21 @@ const IconContainer = glamorous.div({
   padding: Step(4.5),
   borderRadius: "100%",
   background: colors.white,
-  boxShadow: shadows.card,
+  boxShadow: shadows.card
 });
 const CardNumber = glamorous.h4({
   textTransform: "uppercase",
   fontSize: Step(3.5),
-  color: colors.blue,
+  color: colors.blue
 });
 const CardTitle = glamorous.h2({
   fontSize: Step(5),
-  color: colors.greyDark,
+  color: colors.greyDark
 });
 const CardSubTitle = glamorous.p({
   fontSize: Step(4),
   color: colors.greyLight,
-  fontWeight: 400,
+  fontWeight: 400
 });
 
 const Cards: any = () => {

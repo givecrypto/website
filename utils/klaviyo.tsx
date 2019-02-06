@@ -3,11 +3,11 @@
 export const AddToList = (listId: string, email: any) => {
   return new Promise((resolve, reject) => {
     fetch(`https://a.klaviyo.com/api/v1/list/${listId}/members`, {
-      method: 'POST',
-      mode: 'no-cors',
+      method: "POST",
+      mode: "no-cors",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Access-Control-Allow-Origin": "*"
       },
       body: `api_key=${
         process.env.KLAVIYO_API_KEY

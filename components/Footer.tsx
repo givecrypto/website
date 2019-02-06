@@ -10,14 +10,14 @@ const Legal = glamorous.p({
   margin: 0,
   padding: 0,
   fontWeight: 400,
-  fontSize: Step(3.75),
+  fontSize: Step(3.75)
 });
 
 const LogoContainer = glamorous.div({
   maxWidth: 150,
   [breakpoints.ns]: {
-    maxWidth: 170,
-  },
+    maxWidth: 170
+  }
 });
 
 const Footer: React.SFC = () => (

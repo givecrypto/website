@@ -11,16 +11,16 @@ const Icons = glamorous.div({
     padding: `0 ${Step(4)}`,
     "> svg": {
       transition: "all 200ms",
-      fill: colors.grey,
+      fill: colors.grey
     },
 
     "&:hover, &:active": {
       color: colors.grey,
       "> svg": {
-        fill: colors.black,
-      },
-    },
-  },
+        fill: colors.black
+      }
+    }
+  }
 });
 
 const Share: React.SFC = () => (

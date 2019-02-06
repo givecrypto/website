@@ -16,21 +16,21 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 const faqs = [
   {
-    question: 'Answer with link',
+    question: "Answer with link",
     answer: `Learn more about us on the internet. [I'm an inline-style link](/)`
   },
   {
-    question: 'Styled example',
+    question: "Styled example",
     answer: exampleStyles
   },
   {
-    question: 'List example',
+    question: "List example",
     answer: exampleList
   },
   {
-    question: 'Is my donation tax deductable',
+    question: "Is my donation tax deductable",
     answer:
-      'Yes. Donations through the site are tax deductible through our fiscal sponsor the Pledge Group. However, anonymous donations are not tax deductible as name and contact information is needed to issue a tax deduction receipt.'
+      "Yes. Donations through the site are tax deductible through our fiscal sponsor the Pledge Group. However, anonymous donations are not tax deductible as name and contact information is needed to issue a tax deduction receipt."
   }
 ];
 

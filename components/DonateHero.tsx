@@ -1,8 +1,8 @@
-import glamorous from 'glamorous';
-import * as React from 'react';
-import { breakpoints } from '../design-system';
-import { Step } from '../utils/Scale';
-import Button from './Button';
+import glamorous from "glamorous";
+import * as React from "react";
+import { breakpoints } from "../design-system";
+import { Step } from "../utils/Scale";
+import Button from "./Button";
 
 interface DonateHeroProps {
   theme?: string;
@@ -19,15 +19,15 @@ const Title = glamorous.h2({
 });
 
 const DonateHero: React.SFC<DonateHeroProps> = (props: DonateHeroProps) => {
-  const { theme = 'default' } = props;
-  const donateTheme = theme === 'light' ? 'ghost' : 'default';
+  const { theme = "default" } = props;
+  const donateTheme = theme === "light" ? "ghost" : "default";
 
   return (
     <Container className="tc center">
       <Title className="lh-copy center">
         Ready to put your crypto to work for good?
       </Title>
-      <Button href={'/donate'} theme={donateTheme}>
+      <Button href={"/donate"} theme={donateTheme}>
         Donate Crypto
       </Button>
     </Container>

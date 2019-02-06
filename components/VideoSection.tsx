@@ -16,16 +16,16 @@ const LinkContainer = glamorous.h2({
     fontWeight: 800,
 
     "&:hover": {
-      color: colors.blueDark,
-    },
-  },
+      color: colors.blueDark
+    }
+  }
 });
 
 const Title = glamorous.h2({
   fontSize: Step(6),
   textAlign: "center",
   paddingBottom: Step(5),
-  color: colors.black,
+  color: colors.black
 });
 
 const Subtitle = glamorous.h3({
@@ -33,13 +33,13 @@ const Subtitle = glamorous.h3({
   fontSize: Step(5),
   fontStyle: "italic",
   fontWeight: 400,
-  color: colors.greyLight,
+  color: colors.greyLight
 });
 
 const Meta = glamorous.h4({
   fontSize: Step(5),
   fontWeight: 900,
-  color: colors.black,
+  color: colors.black
 });
 
 const VideoSection: React.SFC = () => {

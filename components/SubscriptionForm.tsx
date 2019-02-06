@@ -24,7 +24,7 @@ const Thanks = glamorous.h2({
   background: chroma(colors.green)
     .alpha(0.05)
     .css(),
-  padding: Step(4),
+  padding: Step(4)
 });
 
 const FormInput = glamorous.input({
@@ -34,7 +34,7 @@ const FormInput = glamorous.input({
   boxShadow: "none",
   outline: "none",
   [breakpoints.ns]: {
-    minWidth: 260,
+    minWidth: 260
   },
   fontSize: Step(3.75),
   border: `1px solid ${colors.greyLighter}`,
@@ -46,15 +46,15 @@ const FormInput = glamorous.input({
   letterSpacing: `0.075rem`,
   borderRadius: `${Step(2)} 0 0 ${Step(2)}`,
   "&::placeholder": {
-    color: colors.greyLight,
+    color: colors.greyLight
   },
   "&:focus": {
     borderColor: colors.grey,
-    outline: "none",
+    outline: "none"
   },
   "&.error": {
     // borderColor: colors.red
-  },
+  }
 });
 
 export default class SubscriptionForm extends React.Component<any, any> {
@@ -67,7 +67,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
       placeholder: "Your email",
       success: false,
       loading: false,
-      error: false,
+      error: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -81,7 +81,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
     this.setState({
       value,
       error: errorState ? false : true,
-      placeholder: errorState ? "Your Email" : this.getErrorText("sad"),
+      placeholder: errorState ? "Your Email" : this.getErrorText("sad")
     });
   }
 
@@ -96,7 +96,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
     const { error, value } = this.state;
     this.setState({
       success: false,
-      loading: true,
+      loading: true
     });
 
     if (!error && value) {
@@ -105,14 +105,14 @@ export default class SubscriptionForm extends React.Component<any, any> {
           this.setState({
             error: false,
             success: true,
-            loading: false,
+            loading: false
           });
         })
         .catch(() => {
           this.setState({
             error: true,
             success: false,
-            loading: false,
+            loading: false
           });
         });
     }
@@ -132,7 +132,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
       valid,
       placeholder,
       success,
-      loading,
+      loading
     } = this.state;
 
     if (success) {

@@ -1,24 +1,24 @@
-import copy from 'copy-to-clipboard';
-import glamorous from 'glamorous';
-import * as React from 'react';
-import { breakpoints, colors } from '../design-system';
-import Copy from '../svgs/copy.svg';
-import RippleIcon from '../svgs/crypto/xrp.svg';
-import ZCashIcon from '../svgs/crypto/zec.svg';
-import Logo from '../svgs/logotype.svg';
-import delay from '../utils/delay';
-import { Step } from '../utils/Scale';
+import copy from "copy-to-clipboard";
+import glamorous from "glamorous";
+import * as React from "react";
+import { breakpoints, colors } from "../design-system";
+import Copy from "../svgs/copy.svg";
+import RippleIcon from "../svgs/crypto/xrp.svg";
+import ZCashIcon from "../svgs/crypto/zec.svg";
+import Logo from "../svgs/logotype.svg";
+import delay from "../utils/delay";
+import { Step } from "../utils/Scale";
 
 const currencyDetails = {
   ripple: {
-    title: 'Ripple',
-    symbol: 'XRP',
+    title: "Ripple",
+    symbol: "XRP",
     icon: <RippleIcon />,
     address: process.env.RIPPLE_WALLET_ID
   },
   zcash: {
-    title: 'ZCash',
-    symbol: 'ZEC',
+    title: "ZCash",
+    symbol: "ZEC",
     icon: <ZCashIcon />,
     address: process.env.ZEC_WALLET_ID
   }
@@ -32,14 +32,14 @@ const Container = glamorous.div({
   padding: Step(5)
 });
 const InnerContainer = glamorous.div({
-  textAlign: 'left'
+  textAlign: "left"
 });
 const IconContainer = glamorous.div({
   width: 14,
   marginLeft: Step(5)
 });
 const QR = glamorous.picture({
-  display: 'block',
+  display: "block",
   width: 115,
   [breakpoints.ns]: {
     width: 203
@@ -47,7 +47,7 @@ const QR = glamorous.picture({
 });
 
 const Heading = glamorous.h2({
-  textTransform: 'uppercase',
+  textTransform: "uppercase",
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
@@ -56,7 +56,7 @@ const Heading = glamorous.h2({
 
 const Title = glamorous.h2({
   fontSize: Step(5),
-  textAlign: 'center',
+  textAlign: "center",
   paddingBottom: Step(5),
   color: colors.greyDark
 });
@@ -72,29 +72,29 @@ const DesinationTag = () => {
 };
 
 const WalletInput = glamorous.div({
-  cursor: 'pointer',
+  cursor: "pointer",
   marginBottom: Step(5),
-  '> div': {
+  "> div": {
     padding: Step(4),
     border: `1px solid ${colors.greyLight}`,
     borderRadius: Step(1),
-    position: 'relative',
-    overflow: 'hidden',
-    '&::after': {
+    position: "relative",
+    overflow: "hidden",
+    "&::after": {
       content: `''`,
-      position: 'absolute',
+      position: "absolute",
       right: 0,
-      width: '60px',
-      height: '100%',
+      width: "60px",
+      height: "100%",
       top: 0,
       background:
-        'linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))'
+        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))"
     }
   },
-  '& h2': {
+  "& h2": {
     fontWeight: 300,
     width: 500,
-    maxWidth: '100%',
+    maxWidth: "100%",
     fontSize: Step(4),
     padding: 0,
     margin: 0
@@ -104,10 +104,10 @@ const WalletInput = glamorous.div({
 const Notice = glamorous.span(
   {
     color: colors.green,
-    display: 'block'
+    display: "block"
   },
   ({ type }: any) => {
-    if (type === 'warning') {
+    if (type === "warning") {
       return {
         background: colors.redWarning,
         color: colors.black,
@@ -136,7 +136,7 @@ export default class PaymentModal extends React.Component<
 
   public render() {
     const { clipboardFull } = this.state;
-    const { currency = 'ripple' } = this.props;
+    const { currency = "ripple" } = this.props;
     const { symbol, icon, address } = currencyDetails[currency];
 
     return (
@@ -179,7 +179,7 @@ export default class PaymentModal extends React.Component<
               <Notice className="lh-copy" type="warning">
                 Send only {symbol} to this address.
               </Notice>
-              {symbol === 'XRP' && <DesinationTag />}
+              {symbol === "XRP" && <DesinationTag />}
             </div>
           </div>
           <div className="flex flex-wrap justify-between items-center w-100 mt5">
@@ -192,7 +192,7 @@ export default class PaymentModal extends React.Component<
   }
 
   public async copyToClipboard() {
-    const { currency = 'ripple' } = this.props;
+    const { currency = "ripple" } = this.props;
     const { address } = currencyDetails[currency];
     copy(address);
 

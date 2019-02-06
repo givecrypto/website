@@ -6,7 +6,7 @@ import * as animationData from "../animations/loader--blue.json";
 const AnimationContainer = glamorous.div({
   display: "inline-block",
   width: 44,
-  height: 44,
+  height: 44
 });
 
 const Loader: React.SFC = () => {
@@ -15,8 +15,8 @@ const Loader: React.SFC = () => {
     autoplay: true,
     animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+      preserveAspectRatio: "xMidYMid slice"
+    }
   };
 
   return (
