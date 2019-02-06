@@ -27,7 +27,6 @@ export interface ActivityFeedState {
   touchStartPosition: number;
   shouldHide: boolean;
   focused: boolean;
-  timer?: NodeJS.Timer;
   isPressed?: boolean;
   dragY?: number;
 }
@@ -42,19 +41,22 @@ export default class ActivityFeed extends React.Component<
     isPressed: false,
     shouldHide: true,
     focused: false,
-    timer: null,
-    dragY: DEFAULT_Y_POSITION,
+    dragY: 240,
   };
+
+  // A timer for opening the card
+  private timer: NodeJS.Timer = null;
 
   // I hate refs... but here we are...
   // We need to use a ref to preventDefault() on scroll
   private dragHandleRef = React.createRef<HTMLDivElement>();
-
   componentDidMount() {
-    const mql = window.matchMedia(`(max-width: ${breakpoints.m})`);
+    // get the screen size
+    const mql = window.matchMedia(`(max-width: ${breakpoints.ns})`);
+    // Creeate a listener
     mql.addListener(this.watchListeners);
 
-    // Guard against large screens
+    // Guard against large screens, and add a touch listener
     if (mql.matches) {
       this.dragHandleRef.current.addEventListener(
         "touchmove",
@@ -62,6 +64,9 @@ export default class ActivityFeed extends React.Component<
         false,
       );
     }
+
+    // Animate the card in
+    setTimeout(this.dockCard, 2000);
   }
 
   watchListeners = (e: MediaQueryListEvent) => {
@@ -99,7 +104,9 @@ export default class ActivityFeed extends React.Component<
 
   handleTouchMove = (e: TouchEvent) => {
     // Don't scroll any containers while dragging
-    e.preventDefault();
+    if (e.cancelable) {
+      e.preventDefault();
+    }
 
     const { clientY } = e.touches[0];
     const { touchStartPosition, isPressed } = this.state;
@@ -116,8 +123,9 @@ export default class ActivityFeed extends React.Component<
     // Allow the page resume scrolling
     onDragEnd();
 
-    // Did we drag above the threshold?
-    const focused = dragY < 70 ? true : false;
+    // Did we drag above the threshold? If so,
+    // we'll focus the card- otherwise, hide!
+    const focused = Boolean(dragY < 70);
 
     this.setState({
       isPressed: false,
@@ -129,15 +137,20 @@ export default class ActivityFeed extends React.Component<
   // Mouse methods
   // ==================
   handleMouseLeave = () => {
-    const { focused, shouldHide, timer } = this.state;
+    const { focused, shouldHide } = this.state;
 
     // Clear the mouseover timer
-    clearTimeout(timer);
+    clearTimeout(this.timer);
 
-    // Make sure this is necessary
+    // If we're in view, & should be hiding... hide
     if (focused && shouldHide) {
       this.setState({ focused: false, shouldHide: true });
     }
+  };
+
+  dockCard = () => {
+    // Make sure this is necessary
+    this.setState({ dragY: DEFAULT_Y_POSITION });
   };
 
   showCard = () => {
@@ -157,6 +170,7 @@ export default class ActivityFeed extends React.Component<
 
   handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
+
     const element = e.currentTarget;
     const { shouldHide } = this.state;
 
@@ -174,14 +188,12 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
+  // Show the card if the user hovers for 1 second
   handleMouseEnter = () => {
     const { isPressed } = this.state;
 
     if (!isPressed) {
-      const timer = setTimeout(this.showCard, 1000);
-
-      // Stave the timer to clear it later
-      this.setState({ timer });
+      this.timer = setTimeout(this.showCard, 1000);
     }
   };
 
@@ -207,7 +219,7 @@ export default class ActivityFeed extends React.Component<
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseEnter}
           >
-            <MediaQuery minWidth={breakpoints.m} values={{ width: 1600 }}>
+            <MediaQuery minWidth={breakpoints.ns} values={{ width: 1600 }}>
               {matches => {
                 if (!matches) {
                   return (
