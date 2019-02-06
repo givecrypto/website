@@ -1,7 +1,8 @@
 {
   "name": "givecrypto",
   "version": "1.0.0",
-  "description": "Empowering, educating and elevating communities into the open financial system.",
+  "description":
+    "Empowering, educating and elevating communities into the open financial system.",
   "main": "index.js",
   "dependencies": {
     "@emotion/core": "^10.0.6",
@@ -14,14 +15,14 @@
     "cssnano": "^3.10.0",
     "dotenv": "^5.0.1",
     "glamor": "^2.20.40",
-    "glamorous": "^4.13.0",
+    "glamorous": "^4.13.1",
     "is-touch-device": "^1.0.1",
     "js-cookie": "^2.2.0",
     "load-script": "^1.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "natural-scale": "^2.0.0",
-    "next": "^6.0.3",
+    "next": "^6.1.2",
     "nprogress": "^0.2.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
@@ -101,9 +102,7 @@
     "type": "git",
     "url": "git+https://github.com/givecrypto/website.git"
   },
-  "keywords": [
-    "crypto"
-  ],
+  "keywords": ["crypto"],
   "author": "Jake LeBoeuf <dev@jakeleboeuf.com>",
   "license": "ISC",
   "bugs": {
