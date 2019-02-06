@@ -2,12 +2,17 @@ import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 import { toGlobalId } from "../../utils/globalId";
-import { DragBar, DragBarSpace, DragBarContainer, List } from "./components";
 import { breakpoints } from "../../design-system/breakpoints";
 import MediaQuery from "react-responsive";
 
 // Styled Components
-import { Container } from "./components";
+import {
+  DragBar,
+  DragBarSpace,
+  DragBarContainer,
+  List,
+  Container,
+} from "./components";
 
 // Default Values
 const DEFAULT_Y_POSITION = 155;
@@ -44,9 +49,13 @@ export default class ActivityFeed extends React.Component<
   // I hate refs... but here we are...
   // We need to use a ref to preventDefault() on scroll
   private dragHandleRef = React.createRef<HTMLDivElement>();
+
   componentDidMount() {
+    const mql = window.matchMedia(`(max-width: ${breakpoints.m})`);
+    mql.addListener(this.watchListeners);
+
     // Guard against large screens
-    if (this.dragHandleRef.current) {
+    if (mql.matches) {
       this.dragHandleRef.current.addEventListener(
         "touchmove",
         this.handleTouchMove,
@@ -55,12 +64,31 @@ export default class ActivityFeed extends React.Component<
     }
   }
 
-  handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
-    // Prevent the page from scrolling
-    this.props.onDragStart();
+  watchListeners = (e: MediaQueryListEvent) => {
+    // Probably unneeded guard, but just to be safe
+    if (this.dragHandleRef.current) {
+      if (e.matches) {
+        this.dragHandleRef.current.addEventListener(
+          "touchmove",
+          this.handleTouchMove,
+          false,
+        );
+      } else {
+        this.dragHandleRef.current.removeEventListener(
+          "touchmove",
+          this.handleTouchMove,
+        );
+      }
+    }
+  };
 
+  handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
     const { clientY } = e.touches[0];
     const { focused } = this.state;
+    const { onDragStart } = this.props;
+
+    // Prevent the page from scrolling
+    onDragStart();
 
     // Update state
     this.setState({
@@ -70,7 +98,9 @@ export default class ActivityFeed extends React.Component<
   };
 
   handleTouchMove = (e: TouchEvent) => {
+    // Don't scroll any containers while dragging
     e.preventDefault();
+
     const { clientY } = e.touches[0];
     const { touchStartPosition, isPressed } = this.state;
 
@@ -79,12 +109,12 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
+  handleTouchEnd = () => {
     const { dragY } = this.state;
+    const { onDragEnd } = this.props;
 
-    // Allow the page to scroll
-    this.props.onDragEnd();
-    e.currentTarget.blur();
+    // Allow the page resume scrolling
+    onDragEnd();
 
     // Did we drag above the threshold?
     const focused = dragY < 70 ? true : false;
