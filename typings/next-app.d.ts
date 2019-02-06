@@ -1,1 +1,1 @@
-declare module 'next/app';
+declare module "next/app";
