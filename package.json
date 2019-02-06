@@ -89,7 +89,7 @@
   },
   "lint-staged": {
     "./**/*.{ts,tsx,js,jsx,json}": [
-      "prettier --single-quote false --write",
+      "prettier --single-quote false --trailing-comma --write",
       "git add"
     ]
   },
