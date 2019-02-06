@@ -1,14 +1,14 @@
-import * as React from "react";
 import * as moment from "moment";
+import * as React from "react";
 
 // Styled Components
 import {
-  EventContainer,
-  DateContainer,
   Bar,
+  DateContainer,
   DateItem,
-  EventMessage,
+  EventContainer,
   EventLink,
+  EventMessage,
 } from "./components";
 
 // Types

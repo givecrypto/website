@@ -5,7 +5,7 @@ import DonateHero from "../components/DonateHero";
 import HeadMeta from "../components/HeadMeta";
 import PersonCard from "../components/PersonCard";
 import Wrapper from "../components/Wrapper";
-import donors, { DonorSegment, Donor } from "../content/donors/donors-list";
+import donors, { Donor, DonorSegment } from "../content/donors/donors-list";
 import seo from "../content/donors/seo";
 import { breakpoints, colors } from "../design-system";
 import DonorsIcon from "../svgs/givecrypto-scene-04.svg";
@@ -21,19 +21,6 @@ const Title = glamorous.h2({
     fontSize: Step(6),
   },
 });
-
-const List = glamorous.ul(
-  {
-    height: 500,
-    listStyle: "none",
-    padding: 0,
-  },
-  ({ height }: any) => {
-    return {
-      height,
-    };
-  },
-);
 
 const Item = glamorous.li({
   width: `100%`,

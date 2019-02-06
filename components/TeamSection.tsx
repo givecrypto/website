@@ -2,9 +2,9 @@ import glamorous from "glamorous";
 import * as React from "react";
 import content from "../content/home/team";
 import { breakpoints, colors } from "../design-system";
+import { toGlobalId } from "../utils/globalId";
 import { Step } from "../utils/Scale";
 import PersonCard from "./PersonCard";
-import { toGlobalId } from "../utils/globalId";
 
 const Container = glamorous.section({
   marginBottom: Step(5),

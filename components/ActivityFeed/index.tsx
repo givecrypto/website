@@ -1,17 +1,17 @@
 import * as React from "react";
 import { Motion, spring } from "react-motion";
-import ActivityFeedItem, { Event } from "./ActivityFeedItem";
-import { toGlobalId } from "../../utils/globalId";
-import { breakpoints } from "../../design-system/breakpoints";
 import MediaQuery from "react-responsive";
+import { breakpoints } from "../../design-system/breakpoints";
+import { toGlobalId } from "../../utils/globalId";
+import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 
 // Styled Components
 import {
-  DragBar,
-  DragBarSpace,
-  DragBarContainer,
-  List,
   Container,
+  DragBar,
+  DragBarContainer,
+  DragBarSpace,
+  List,
 } from "./components";
 
 // Default Values
@@ -36,7 +36,7 @@ export default class ActivityFeed extends React.Component<
   ActivityFeedState
 > {
   // Initial state
-  state: ActivityFeedState = {
+  public state: ActivityFeedState = {
     touchStartPosition: 0,
     isPressed: false,
     shouldHide: true,
@@ -50,7 +50,7 @@ export default class ActivityFeed extends React.Component<
   // I hate refs... but here we are...
   // We need to use a ref to preventDefault() on scroll
   private dragHandleRef = React.createRef<HTMLDivElement>();
-  componentDidMount() {
+  public componentDidMount() {
     // get the screen size
     const mql = window.matchMedia(`(max-width: ${breakpoints.ns})`);
     // Creeate a listener
@@ -69,7 +69,7 @@ export default class ActivityFeed extends React.Component<
     setTimeout(this.dockCard, 2000);
   }
 
-  watchListeners = (e: MediaQueryListEvent) => {
+  public watchListeners = (e: MediaQueryListEvent) => {
     // Probably unneeded guard, but just to be safe
     if (this.dragHandleRef.current) {
       if (e.matches) {
@@ -87,7 +87,7 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+  public handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
     const { clientY } = e.touches[0];
     const { focused } = this.state;
     const { onDragStart } = this.props;
@@ -102,7 +102,7 @@ export default class ActivityFeed extends React.Component<
     });
   };
 
-  handleTouchMove = (e: TouchEvent) => {
+  public handleTouchMove = (e: TouchEvent) => {
     // Don't scroll any containers while dragging
     if (e.cancelable) {
       e.preventDefault();
@@ -116,7 +116,7 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  handleTouchEnd = () => {
+  public handleTouchEnd = () => {
     const { dragY } = this.state;
     const { onDragEnd } = this.props;
 
@@ -136,7 +136,7 @@ export default class ActivityFeed extends React.Component<
 
   // Mouse methods
   // ==================
-  handleMouseLeave = () => {
+  public handleMouseLeave = () => {
     const { focused, shouldHide } = this.state;
 
     // Clear the mouseover timer
@@ -148,12 +148,12 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  dockCard = () => {
+  public dockCard = () => {
     // Make sure this is necessary
     this.setState({ dragY: DEFAULT_Y_POSITION });
   };
 
-  showCard = () => {
+  public showCard = () => {
     const { focused } = this.state;
 
     // Make sure this is necessary
@@ -162,13 +162,13 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  toggleCard = () => {
+  public toggleCard = () => {
     const { focused } = this.state;
 
     this.setState({ focused: !focused });
   };
 
-  handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
+  public handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
 
     const element = e.currentTarget;
@@ -189,7 +189,7 @@ export default class ActivityFeed extends React.Component<
   };
 
   // Show the card if the user hovers for 1 second
-  handleMouseEnter = () => {
+  public handleMouseEnter = () => {
     const { isPressed } = this.state;
 
     if (!isPressed) {
@@ -197,7 +197,7 @@ export default class ActivityFeed extends React.Component<
     }
   };
 
-  render() {
+  public render() {
     const { events } = this.props;
     const { focused, dragY, isPressed } = this.state;
 

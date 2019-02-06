@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import { Step } from "../../../utils/Scale";
-import { colors, shadows } from "../../../design-system";
 import { css } from "@emotion/core";
+import styled from "@emotion/styled";
+import { colors, shadows } from "../../../design-system";
+import { Step } from "../../../utils/Scale";
 
 export const Container = styled.section`
   z-index: 99999;

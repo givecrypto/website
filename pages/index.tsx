@@ -1,23 +1,23 @@
-import * as React from "react";
-import { Step } from "../utils/Scale";
 import glamorous, { Div } from "glamorous";
 import Head from "next/head";
-import HeadMeta from "../components/HeadMeta";
+import * as React from "react";
 import { animateScroll } from "react-scroll";
+import ActivityFeed from "../components/ActivityFeed";
+import DonateHero from "../components/DonateHero";
+import DonorsHero from "../components/DonorsHero";
 import Faq from "../components/Faq";
-import "../utils/rehydrate";
-import { colors, breakpoints } from "../design-system";
+import HeadMeta from "../components/HeadMeta";
 import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
-import Wrapper from "../components/Wrapper";
-import DonorsHero from "../components/DonorsHero";
-import DonateHero from "../components/DonateHero";
 import Mission from "../components/MissionSection";
-import VideoSection from "../components/VideoSection";
 import TeamSection from "../components/TeamSection";
-import seo from "../content/home/seo";
-import ActivityFeed from "../components/ActivityFeed";
+import VideoSection from "../components/VideoSection";
+import Wrapper from "../components/Wrapper";
 import events from "../content/activity-feed/events";
+import seo from "../content/home/seo";
+import { breakpoints, colors } from "../design-system";
+import "../utils/rehydrate";
+import { Step } from "../utils/Scale";
 
 const { div } = glamorous;
 
@@ -81,7 +81,7 @@ export default class App extends React.Component<{}, {}> {
             />
           </Wrapper>
 
-          <Wrapper wide>
+          <Wrapper wide={true}>
             <Hero page="home" />
             <Div display="block" className="mb3 mb6-ns" />
           </Wrapper>

@@ -1,18 +1,18 @@
-import glamorous, { Div, Li, Ul } from 'glamorous';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import * as React from 'react';
-import Headroom from 'react-headroom';
-import Lottie from 'react-lottie';
-import Modal from 'react-responsive-modal';
-import { Link as ScrollLink } from 'react-scroll';
-import * as animationData from '../../animations/menu--grey-white.json';
-import Button from '../../components/Button';
-import Link, { linkStyles } from '../../components/Link';
-import { breakpoints, colors } from '../../design-system';
-import Logo from '../../svgs/GiveCrypto.svg';
-import { Step } from '../../utils/Scale';
-import Links from './Links';
+import glamorous, { Div, Li, Ul } from "glamorous";
+import Router from "next/router";
+import NProgress from "nprogress";
+import * as React from "react";
+import Headroom from "react-headroom";
+import Lottie from "react-lottie";
+import Modal from "react-responsive-modal";
+import { Link as ScrollLink } from "react-scroll";
+import * as animationData from "../../animations/menu--grey-white.json";
+import Button from "../../components/Button";
+import Link, { linkStyles } from "../../components/Link";
+import { breakpoints, colors } from "../../design-system";
+import Logo from "../../svgs/GiveCrypto.svg";
+import { Step } from "../../utils/Scale";
+import Links from "./Links";
 
 export interface NavigationProps {
   theme?: string;
@@ -22,26 +22,26 @@ const Nav = glamorous.nav({
   padding: `${Step(4)} ${Step(4)}`,
   background: colors.white,
   [breakpoints.ns]: {
-    padding: Step(5)
-  }
+    padding: Step(5),
+  },
 });
 
 const LogoContainer = glamorous.div({
   maxWidth: 170,
   [breakpoints.ns]: {
-    maxWidth: 170
-  }
+    maxWidth: 170,
+  },
 });
 
 const AnimationContainer = glamorous.div({
-  display: 'inline-block',
+  display: "inline-block",
   width: 24,
   height: 24,
-  '> *': {
-    '&:focus': {
-      outline: 'none'
-    }
-  }
+  "> *": {
+    "&:focus": {
+      outline: "none",
+    },
+  },
 });
 
 export default class Navigation extends React.Component<NavigationProps, any> {
@@ -50,9 +50,9 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
     this.state = {
       menuModalState: false,
-      currentRoute: '/',
+      currentRoute: "/",
       isStopped: false,
-      direction: -1
+      direction: -1,
     };
 
     Router.onRouteChangeStart = () => {
@@ -60,13 +60,13 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       this.setState({
         menuModalState: false,
         direction: -1,
-        isStopped: false
+        isStopped: false,
       });
     };
     Router.onRouteChangeComplete = () => {
       NProgress.done();
       this.setState({
-        currentRoute: Router.pathname
+        currentRoute: Router.pathname,
       });
     };
     Router.onRouteChangeError = () => NProgress.done();
@@ -74,7 +74,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
   public componentDidMount() {
     this.setState({
-      currentRoute: Router.pathname
+      currentRoute: Router.pathname,
     });
   }
 
@@ -92,7 +92,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       if (to) {
         const Span = glamorous.span(linkStyles);
 
-        if (currentRoute === '/') {
+        if (currentRoute === "/") {
           return (
             <NavItem key={title}>
               <ScrollLink
@@ -104,13 +104,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 offset={-50}
                 duration={550}
               >
-                <Span
-                  onClick={() => {
-                    this.closeMenu();
-                  }}
-                >
-                  {title}
-                </Span>
+                <Span onClick={this.closeMenu}>{title}</Span>
               </ScrollLink>
             </NavItem>
           );
@@ -123,7 +117,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     });
   }
 
-  public toggleMenu() {
+  public toggleMenu = () => {
     let { direction, menuModalState } = this.state;
     // Reverse things
     direction = direction * -1;
@@ -131,16 +125,16 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
     // Set things
     this.setState({ direction, isStopped: false, menuModalState });
-  }
+  };
 
-  public closeMenu() {
-    document.querySelector('html').removeAttribute('style');
+  public closeMenu = () => {
+    document.querySelector("html").removeAttribute("style");
     this.setState({
       direction: -1,
       isStopped: false,
-      menuModalState: false
+      menuModalState: false,
     });
-  }
+  };
 
   public onOpenModal = () => {
     this.setState({ menuModalState: true });
@@ -154,14 +148,14 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   public render() {
     const { theme } = this.props;
     const { menuModalState } = this.state;
-    const donateTheme = theme === 'light' ? 'ghost' : 'default';
+    const donateTheme = theme === "light" ? "ghost" : "default";
     const defaultOptions = {
       loop: false,
       autoplay: false,
       animationData,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
+        preserveAspectRatio: "xMidYMid slice",
+      },
     };
     return (
       <>
@@ -184,7 +178,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
               >
                 {this.mapLinks()}
                 <Li display="inline-block">
-                  <Button href={'/donate'} theme={donateTheme}>
+                  <Button href={"/donate"} theme={donateTheme}>
                     Donate Crypto
                   </Button>
                 </Li>
@@ -193,13 +187,13 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             <Div lineHeight="0" className="flex items-center dn-l">
               <Button
                 className="mr3 button-donate"
-                href={'/donate'}
+                href={"/donate"}
                 theme={donateTheme}
               >
                 Donate
               </Button>
               <AnimationContainer
-                onClick={() => this.toggleMenu()}
+                onClick={this.toggleMenu}
                 className="pointer responisive center"
               >
                 <Lottie
@@ -217,8 +211,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
           onClose={this.onCloseModal}
           center={true}
           classNames={{
-            overlay: 'green-overlay',
-            modal: 'flat-modal'
+            overlay: "green-overlay",
+            modal: "flat-modal",
           }}
         >
           <Ul
@@ -235,8 +229,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             <li>
               <Button
                 className="mt4 db button-donate"
-                href={'/donate'}
-                size={'big'}
+                href={"/donate"}
+                size={"big"}
                 theme="ghost"
               >
                 Donate
@@ -250,44 +244,44 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 }
 
 const NavItem = glamorous.li({
-  listStyle: 'none',
+  listStyle: "none",
   marginLeft: 0,
   paddingLeft: 0,
   marginBottom: Step(5),
   fontSize: Step(5),
   fontWeight: 500,
-  '& a, & span': {
+  "& a, & span": {
     color: colors.white,
-    '&:hover': {
-      color: colors.greyLighter
-    }
+    "&:hover": {
+      color: colors.greyLighter,
+    },
   },
-  '& .active': {
+  "& .active": {
     color: colors.greyLightest,
-    borderBottom: `1px solid ${colors.greyLightest}`
+    borderBottom: `1px solid ${colors.greyLightest}`,
   },
   [breakpoints.l]: {
-    display: 'inline-block',
+    display: "inline-block",
     marginRight: Step(6),
     fontSize: Step(4),
     fontWeight: 400,
     marginBottom: 0,
-    '& a, & span': {
+    "& a, & span": {
       color: colors.black,
-      '&:hover': {
-        color: colors.grey
-      }
+      "&:hover": {
+        color: colors.grey,
+      },
     },
-    '> .active > span': {
-      '& a, & span': {
-        color: colors.black
+    "> .active > span": {
+      "& a, & span": {
+        color: colors.black,
       },
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
+      borderBottom: `1px solid ${colors.black}`,
     },
-    '& .active': {
+    "& .active": {
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
-    }
-  }
+      borderBottom: `1px solid ${colors.black}`,
+    },
+  },
 });

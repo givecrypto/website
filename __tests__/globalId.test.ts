@@ -1,4 +1,4 @@
-import { toGlobalId, fromGlobalId } from "../utils/globalId";
+import { fromGlobalId, toGlobalId } from "../utils/globalId";
 
 describe("global ID", () => {
   test("to and from globalId undo each other", async () => {

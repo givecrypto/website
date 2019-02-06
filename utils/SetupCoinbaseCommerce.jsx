@@ -64,11 +64,12 @@ export default (t, i, el, buttonType) => {
             this.iframe ||
               ((this.iframe = (function(t, n, a) {
                 var r = {};
-                for (var s in a)
+                for (var s in a) {
                   'product' !== s &&
                     'checkout' !== s &&
                     a.hasOwnProperty(s) &&
                     (r[s] = a[s]);
+                }
                 r.origin = i.location.origin;
                 var l = i.createElement('iframe');
                 return (
@@ -82,13 +83,14 @@ export default (t, i, el, buttonType) => {
                     '?' +
                     (function(t) {
                       var i = [];
-                      for (var e in t)
+                      for (var e in t) {
                         t.hasOwnProperty(e) &&
                           i.push(
                             encodeURIComponent(e) +
                               '=' +
                               encodeURIComponent(t[e])
                           );
+                      }
                       return i.join('&');
                     })(r)),
                   (l.style = o),
@@ -99,7 +101,7 @@ export default (t, i, el, buttonType) => {
           }),
           (a.showModal = function(t) {
             if (t) {
-              if (t.button > 0 || t.ctrlKey || t.shiftKey || t.metaKey) return;
+              if (t.button > 0 || t.ctrlKey || t.shiftKey || t.metaKey) { return; }
               t.preventDefault && t.preventDefault();
             }
             (this.modalContainer &&
@@ -114,7 +116,7 @@ export default (t, i, el, buttonType) => {
           }),
           (a.handleMessage = function(t) {
             (function(t) {
-              if (!/^[a-zA-Z0-9:\/.-]+$/.test(t)) return;
+              if (!/^[a-zA-Z0-9:\/.-]+$/.test(t)) { return; }
               /^https?:\/\//i.test(t) || (t = 'https://' + t);
               /:\d+$/.test(t) || (t += /^https:/i.test(t) ? ':443' : ':80');
               return t.toLowerCase();
@@ -129,10 +131,10 @@ export default (t, i, el, buttonType) => {
               var i = /\/(?:products|checkout)\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i.exec(
                 t.href
               );
-              if (i) return i[1];
+              if (i) { return i[1]; }
               if (t.dataset) {
                 var n = t.dataset.checkout || t.dataset.product;
-                if (n) return (t.href = this.root + e + n), n;
+                if (n) { return (t.href = this.root + e + n), n; }
               }
             }
           }),
@@ -144,7 +146,7 @@ export default (t, i, el, buttonType) => {
                 a = t.firstChild;
               a;
               a = a.nextSibling
-            )
+            ) {
               if (
                 (3 !== a.nodeType && 8 !== a.nodeType && (o = !1),
                 1 === a.nodeType && 'SPAN' === a.tagName)
@@ -152,6 +154,7 @@ export default (t, i, el, buttonType) => {
                 e = a;
                 break;
               }
+            }
             if (!e) {
               e = i.createElement('span');
               var r = o && t.textContent.trim();
@@ -160,8 +163,9 @@ export default (t, i, el, buttonType) => {
                   e.textContent = r;
                 t.lastChild;
 
-              )
+              ) {
                 t.removeChild(t.lastChild);
+              }
               t.appendChild(e);
             }
             '' === t.rel &&
