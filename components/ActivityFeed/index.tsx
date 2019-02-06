@@ -2,7 +2,7 @@ import * as React from "react";
 import { Motion, spring } from "react-motion";
 import ActivityFeedItem, { Event } from "./ActivityFeedItem";
 import { toGlobalId } from "../../utils/globalId";
-import { DragBar, DragBarSpace } from "./components";
+import { DragBar, DragBarSpace, DragBarContainer, List } from "./components";
 import { breakpoints } from "../../design-system/breakpoints";
 import MediaQuery from "react-responsive";
 
@@ -15,8 +15,8 @@ const DEFAULT_Y_POSITION = 155;
 // Types
 export interface ActivityFeedProps {
   events: Event[];
-  onDragStart: () => void | null;
-  onDragEnd: () => void | null;
+  onDragStart: () => void;
+  onDragEnd: () => void;
 }
 export interface ActivityFeedState {
   touchStartPosition: number;
@@ -41,6 +41,20 @@ export default class ActivityFeed extends React.Component<
     dragY: DEFAULT_Y_POSITION,
   };
 
+  // I hate refs... but here we are...
+  // We need to use a ref to preventDefault() on scroll
+  private dragHandleRef = React.createRef<HTMLDivElement>();
+  componentDidMount() {
+    // Guard against large screens
+    if (this.dragHandleRef.current) {
+      this.dragHandleRef.current.addEventListener(
+        "touchmove",
+        this.handleTouchMove,
+        false,
+      );
+    }
+  }
+
   handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
     // Prevent the page from scrolling
     this.props.onDragStart();
@@ -55,19 +69,24 @@ export default class ActivityFeed extends React.Component<
     });
   };
 
-  handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
+  handleTouchMove = (e: TouchEvent) => {
+    e.preventDefault();
     const { clientY } = e.touches[0];
-    const { touchStartPosition } = this.state;
+    const { touchStartPosition, isPressed } = this.state;
 
-    this.setState({ dragY: clientY - touchStartPosition });
+    if (isPressed) {
+      this.setState({ dragY: clientY - touchStartPosition });
+    }
   };
 
   handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
+    const { dragY } = this.state;
+
     // Allow the page to scroll
     this.props.onDragEnd();
     e.currentTarget.blur();
 
-    const { dragY } = this.state;
+    // Did we drag above the threshold?
     const focused = dragY < 70 ? true : false;
 
     this.setState({
@@ -98,6 +117,12 @@ export default class ActivityFeed extends React.Component<
     if (!focused) {
       this.setState({ focused: true });
     }
+  };
+
+  toggleCard = () => {
+    const { focused } = this.state;
+
+    this.setState({ focused: !focused });
   };
 
   handleScroll = (e: React.SyntheticEvent<HTMLElement>) => {
@@ -149,7 +174,6 @@ export default class ActivityFeed extends React.Component<
               transform: `translateY(${value.y}px)`,
               overflowY: isPressed ? "hidden" : "scroll",
             }}
-            onScroll={this.handleScroll}
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseEnter}
           >
@@ -157,30 +181,31 @@ export default class ActivityFeed extends React.Component<
               {matches => {
                 if (!matches) {
                   return (
-                    <>
-                      <DragBar
-                        onTouchStart={this.handleTouchStart}
-                        onTouchMove={this.handleTouchMove}
-                        onTouchEnd={this.handleTouchEnd}
-                      >
-                        ...
-                      </DragBar>
+                    <DragBarContainer
+                      ref={this.dragHandleRef}
+                      onClick={this.toggleCard}
+                      onTouchStart={this.handleTouchStart}
+                      onTouchEnd={this.handleTouchEnd}
+                    >
+                      <DragBar />
                       <DragBarSpace />
-                    </>
+                    </DragBarContainer>
                   );
                 } else {
                   return null;
                 }
               }}
             </MediaQuery>
-            {events.map((event: Event) => {
-              const key = toGlobalId({
-                type: "Event",
-                id: event.message,
-              });
+            <List onScroll={this.handleScroll}>
+              {events.map((event: Event) => {
+                const key = toGlobalId({
+                  type: "Event",
+                  id: event.message,
+                });
 
-              return <ActivityFeedItem key={key} event={event} />;
-            })}
+                return <ActivityFeedItem key={key} event={event} />;
+              })}
+            </List>
           </Container>
         )}
       </Motion>

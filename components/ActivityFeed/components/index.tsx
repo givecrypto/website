@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { Step } from "../../../utils/Scale";
 import { colors, shadows } from "../../../design-system";
+import { css } from "@emotion/core";
 
 export const Container = styled.section`
   z-index: 99999;
   box-shadow: ${shadows.default};
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   position: fixed;
+  overflow: hidden;
   right: ${Step(5)};
   bottom: ${Step(5)};
   width: 420px;
@@ -19,7 +19,12 @@ export const Container = styled.section`
   border: 1px solid ${colors.greyLighter};
   border-radius: 8px;
   color: ${colors.blue};
+`;
+export const List = styled.section`
+  overflow-y: scroll;
+  height: 198px;
   padding: ${Step(2)} ${Step(4)};
+  -webkit-overflow-scrolling: touch;
 `;
 
 export const EventContainer = styled.section`
@@ -70,20 +75,51 @@ export const EventLink = styled.a`
   text-decoration: none;
 `;
 
-export const DragBar = styled.div`
-  content: "....";
+const dot = css`
   position: absolute;
+  content: "";
+  left: 4px;
+  margin: 0 3px;
+  display: inline-block;
+  background: ${colors.greyLight};
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+`;
+export const DragBarContainer = styled.div`
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  left: calc(50% - 25px);
+  margin: 0 auto;
+  width: 50px;
+  height: 20px;
+  background: ${colors.greyLighter};
+  border-radius: 0 0 8px 8px;
+  transform: translateY(-6px);
+`;
+export const DragBar = styled.div`
   text-align: center;
-  width: 100%;
-  left: 0;
-  height: 35px;
+  position: relative;
   margin: 0;
   padding: 0;
-  display: block;
+  display: inline-block;
   cursor: move;
   font-size: ${Step(5)};
   color: ${colors.greyLight};
-  transform: translateY(-17px);
+  background: ${colors.greyLight};
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+
+  &:before {
+    ${dot};
+  }
+  &:after {
+    ${dot};
+    left: auto;
+    right: 4px;
+  }
 `;
 
 export const DragBarSpace = styled.div`
