@@ -1,8 +1,8 @@
-import * as React from 'react';
+import chroma from 'chroma-js';
 import glamorous, { CSSProperties } from 'glamorous';
+import * as React from 'react';
 import { colors } from '../design-system';
 import { Step } from '../utils/Scale';
-import chroma from 'chroma-js';
 import BrowserLink from './Link';
 
 export interface ButtonProps {
@@ -94,7 +94,7 @@ const buttonStyles: CSSProperties = {
 };
 
 export default class Button extends React.Component<any, any> {
-  render() {
+  public render() {
     const {
       tabindex,
       href,

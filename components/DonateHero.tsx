@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Button from './Button';
 import glamorous from 'glamorous';
-import { Step } from '../utils/Scale';
+import * as React from 'react';
 import { breakpoints } from '../design-system';
+import { Step } from '../utils/Scale';
+import Button from './Button';
 
 interface DonateHeroProps {
   theme?: string;

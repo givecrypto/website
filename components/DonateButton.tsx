@@ -1,12 +1,12 @@
-import * as React from 'react';
-import glamorous from 'glamorous';
-import { colors, breakpoints } from '../design-system';
-import { Step } from '../utils/Scale';
 import chroma from 'chroma-js';
-import Modal from 'react-responsive-modal';
-import PaymentModal from './PaymentModal';
-import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
+import glamorous from 'glamorous';
 import _ from 'lodash';
+import * as React from 'react';
+import Modal from 'react-responsive-modal';
+import { breakpoints, colors } from '../design-system';
+import { Step } from '../utils/Scale';
+import SetupCoinbaseCommerce from '../utils/SetupCoinbaseCommerce';
+import PaymentModal from './PaymentModal';
 
 export interface DonateProps {
   type?: string;
@@ -111,7 +111,7 @@ export default class Donate extends React.Component<DonateProps, any> {
     };
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     const { uuid } = this.state;
     const { type = 'default' } = this.props;
     if (type !== 'ripple') {
@@ -119,15 +119,15 @@ export default class Donate extends React.Component<DonateProps, any> {
     }
   }
 
-  onOpenModal = () => {
+  public onOpenModal = () => {
     this.setState({ paymentModalState: true });
   };
 
-  onCloseModal = () => {
+  public onCloseModal = () => {
     this.setState({ paymentModalState: false });
   };
 
-  render() {
+  public render() {
     const { type = 'default', theme = 'default', children } = this.props;
     const { paymentModalState } = this.state;
 
@@ -150,7 +150,7 @@ export default class Donate extends React.Component<DonateProps, any> {
       }
     };
 
-    let id =
+    const id =
       type === 'anonymous'
         ? process.env.COMMERCE_ID_ANONYMOUS
         : process.env.COMMERCE_ID_DEFAULT;
@@ -169,7 +169,7 @@ export default class Donate extends React.Component<DonateProps, any> {
           <Modal
             open={paymentModalState}
             onClose={this.onCloseModal}
-            center
+            center={true}
             classNames={{
               overlay: 'custom-overlay',
               modal: 'custom-modal',

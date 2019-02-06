@@ -1,18 +1,18 @@
-import * as React from 'react';
+import glamorous, { Div, Li, Ul } from 'glamorous';
 import Router from 'next/router';
-import Link, { linkStyles } from '../../components/Link';
-import Links from './Links';
+import NProgress from 'nprogress';
+import * as React from 'react';
 import Headroom from 'react-headroom';
-import { colors, breakpoints } from '../../design-system';
+import Lottie from 'react-lottie';
+import Modal from 'react-responsive-modal';
+import { Link as ScrollLink } from 'react-scroll';
+import * as animationData from '../../animations/menu--grey-white.json';
+import Button from '../../components/Button';
+import Link, { linkStyles } from '../../components/Link';
+import { breakpoints, colors } from '../../design-system';
 import Logo from '../../svgs/GiveCrypto.svg';
 import { Step } from '../../utils/Scale';
-import glamorous, { Ul, Li, Div } from 'glamorous';
-import { Link as ScrollLink } from 'react-scroll';
-import Button from '../../components/Button';
-import NProgress from 'nprogress';
-import Lottie from 'react-lottie';
-import * as animationData from '../../animations/menu--grey-white.json';
-import Modal from 'react-responsive-modal';
+import Links from './Links';
 
 export interface NavigationProps {
   theme?: string;
@@ -72,13 +72,13 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     Router.onRouteChangeError = () => NProgress.done();
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.setState({
       currentRoute: Router.pathname
     });
   }
 
-  mapLinks() {
+  public mapLinks() {
     const { currentRoute } = this.state;
     return Links.map(({ href, title, to, activeClass }: any) => {
       const defaultLink = (url = href): any => (
@@ -123,7 +123,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     });
   }
 
-  toggleMenu() {
+  public toggleMenu() {
     let { direction, menuModalState } = this.state;
     // Reverse things
     direction = direction * -1;
@@ -133,7 +133,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     this.setState({ direction, isStopped: false, menuModalState });
   }
 
-  closeMenu() {
+  public closeMenu() {
     document.querySelector('html').removeAttribute('style');
     this.setState({
       direction: -1,
@@ -142,23 +142,23 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     });
   }
 
-  onOpenModal = () => {
+  public onOpenModal = () => {
     this.setState({ menuModalState: true });
   };
 
-  onCloseModal = () => {
+  public onCloseModal = () => {
     this.toggleMenu();
     this.setState({ menuModalState: false });
   };
 
-  render() {
+  public render() {
     const { theme } = this.props;
     const { menuModalState } = this.state;
     const donateTheme = theme === 'light' ? 'ghost' : 'default';
     const defaultOptions = {
       loop: false,
       autoplay: false,
-      animationData: animationData,
+      animationData,
       rendererSettings: {
         preserveAspectRatio: 'xMidYMid slice'
       }
@@ -215,7 +215,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
           open={menuModalState}
           showCloseIcon={false}
           onClose={this.onCloseModal}
-          center
+          center={true}
           classNames={{
             overlay: 'green-overlay',
             modal: 'flat-modal'

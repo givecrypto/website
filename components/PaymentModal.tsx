@@ -1,13 +1,13 @@
-import * as React from 'react';
+import copy from 'copy-to-clipboard';
 import glamorous from 'glamorous';
-import { colors, breakpoints } from '../design-system';
+import * as React from 'react';
+import { breakpoints, colors } from '../design-system';
+import Copy from '../svgs/copy.svg';
 import RippleIcon from '../svgs/crypto/xrp.svg';
 import ZCashIcon from '../svgs/crypto/zec.svg';
-import { Step } from '../utils/Scale';
-import copy from 'copy-to-clipboard';
 import Logo from '../svgs/logotype.svg';
-import Copy from '../svgs/copy.svg';
 import delay from '../utils/delay';
+import { Step } from '../utils/Scale';
 
 const currencyDetails = {
   ripple: {
@@ -134,7 +134,7 @@ export default class PaymentModal extends React.Component<
     this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
-  render() {
+  public render() {
     const { clipboardFull } = this.state;
     const { currency = 'ripple' } = this.props;
     const { symbol, icon, address } = currencyDetails[currency];
@@ -191,7 +191,7 @@ export default class PaymentModal extends React.Component<
     );
   }
 
-  async copyToClipboard() {
+  public async copyToClipboard() {
     const { currency = 'ripple' } = this.props;
     const { address } = currencyDetails[currency];
     copy(address);

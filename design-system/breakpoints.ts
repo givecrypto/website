@@ -1,6 +1,6 @@
 export const breakpoints = {
-  ns: '30em',
-  m: '60em'
+  ns: "30em",
+  m: "60em"
 };
 
 export const mediaQueries = {

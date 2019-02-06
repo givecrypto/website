@@ -1,86 +1,84 @@
-import * as React from 'react';
-import glamorous from 'glamorous';
-import { colors, breakpoints } from '../design-system';
-import RippleIcon from '../svgs/crypto/xrp.svg';
-import { Step } from '../utils/Scale';
-import copy from 'copy-to-clipboard';
-import Logo from '../svgs/logotype.svg';
-import Copy from '../svgs/copy.svg';
-import delay from '../utils/delay';
+import copy from "copy-to-clipboard";
+import glamorous from "glamorous";
+import * as React from "react";
+import { breakpoints, colors } from "../design-system";
+import Copy from "../svgs/copy.svg";
+import RippleIcon from "../svgs/crypto/xrp.svg";
+import Logo from "../svgs/logotype.svg";
+import delay from "../utils/delay";
+import { Step } from "../utils/Scale";
 const address = process.env.RIPPLE_WALLET_ID;
 
-interface RippleModalProps {}
-
 const Container = glamorous.div({
-  padding: Step(5)
+  padding: Step(5),
 });
 const InnerContainer = glamorous.div({
-  textAlign: 'left'
+  textAlign: "left",
 });
 const IconContainer = glamorous.div({
   width: 14,
-  marginLeft: Step(5)
+  marginLeft: Step(5),
 });
 const QR = glamorous.picture({
-  display: 'block',
-  width: 203
+  display: "block",
+  width: 203,
 });
 
 const Heading = glamorous.h2({
-  textTransform: 'uppercase',
+  textTransform: "uppercase",
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
-  fontWeight: 800
+  fontWeight: 800,
 });
 
 const Title = glamorous.h2({
   fontSize: Step(5),
-  textAlign: 'center',
+  textAlign: "center",
   paddingBottom: Step(5),
-  color: colors.greyDark
+  color: colors.greyDark,
 });
 
 const Subtitle = glamorous.p({
-  fontSize: Step(3.5)
+  fontSize: Step(3.5),
 });
 
 const WalletInput = glamorous.div({
-  cursor: 'pointer',
+  cursor: "pointer",
   marginBottom: Step(5),
-  '> div': {
+  "> div": {
     padding: Step(4),
     border: `1px solid ${colors.greyLight}`,
     borderRadius: Step(1),
-    position: 'relative',
-    overflow: 'hidden',
-    '&::after': {
+    position: "relative",
+    overflow: "hidden",
+    "&::after": {
       content: `''`,
-      position: 'absolute',
+      position: "absolute",
       right: 0,
-      width: '60px',
-      height: '100%',
+      width: "60px",
+      height: "100%",
       top: 0,
       background:
-        'linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))'
-    }
+        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
+    },
   },
-  '& h2': {
+  "& h2": {
     fontWeight: 300,
     width: 500,
-    maxWidth: '100%',
+    maxWidth: "100%",
     fontSize: Step(4),
     padding: 0,
-    margin: 0
-  }
+    margin: 0,
+  },
 });
 
 const Notice = glamorous.span(
   {
-    color: colors.green
+    color: colors.green,
   },
   ({ type }: any) => {
-    if (type === 'warning') {
+    if (type === "warning") {
       return {
         background: colors.redWarning,
         color: colors.black,
@@ -90,24 +88,21 @@ const Notice = glamorous.span(
         border: `1px solid ${colors.red}`,
         [breakpoints.ns]: {
           marginTop: 0,
-          padding: Step(5)
-        }
+          padding: Step(5),
+        },
       };
     }
-  }
+  },
 );
 
-export default class RippleModal extends React.Component<
-  RippleModalProps,
-  any
-> {
+export default class RippleModal extends React.Component<{}, any> {
   constructor(props: any) {
     super(props);
     this.state = { clipboardFull: false };
     this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
-  render() {
+  public render() {
     const { clipboardFull } = this.state;
 
     return (
@@ -159,16 +154,16 @@ export default class RippleModal extends React.Component<
     );
   }
 
-  async copyToClipboard() {
+  public async copyToClipboard() {
     copy(address);
 
     this.setState({
-      clipboardFull: true
+      clipboardFull: true,
     });
 
     await delay(3000);
     this.setState({
-      clipboardFull: false
+      clipboardFull: false,
     });
   }
 }

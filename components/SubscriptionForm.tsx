@@ -1,21 +1,20 @@
-import * as React from 'react';
-import ValidateEmail from '../validators/ValidateEmail';
-import { sample } from 'lodash';
-import glamorous from 'glamorous';
-import { colors } from '../design-system';
-import Button from './Button';
-import { Step } from '../utils/Scale';
-import Loader from './Loader';
-import { AddToList } from '../utils/klaviyo';
-import { breakpoints } from '../design-system';
-import { breakpoints as bp } from '../design-system/breakpoints';
-import MediaQuery from 'react-responsive';
-import chroma from 'chroma-js';
-import isTouchDevice from 'is-touch-device';
+import chroma from "chroma-js";
+import glamorous from "glamorous";
+import isTouchDevice from "is-touch-device";
+import { sample } from "lodash";
+import * as React from "react";
+import MediaQuery from "react-responsive";
+import { breakpoints, colors } from "../design-system";
+import { breakpoints as bp } from "../design-system/breakpoints";
+import { AddToList } from "../utils/klaviyo";
+import { Step } from "../utils/Scale";
+import ValidateEmail from "../validators/ValidateEmail";
+import Button from "./Button";
+import Loader from "./Loader";
 
 const InputGroup = glamorous.div({});
 const Thanks = glamorous.h2({
-  display: 'inline-block',
+  display: "inline-block",
   border: `1px solid ${colors.green}`,
   fontSize: Step(3.75),
   fontWeight: 400,
@@ -25,37 +24,37 @@ const Thanks = glamorous.h2({
   background: chroma(colors.green)
     .alpha(0.05)
     .css(),
-  padding: Step(4)
+  padding: Step(4),
 });
 
 const FormInput = glamorous.input({
-  appearance: 'none',
-  fontFamily: 'Apercu',
+  appearance: "none",
+  fontFamily: "Apercu",
   padding: Step(4),
-  boxShadow: 'none',
-  outline: 'none',
+  boxShadow: "none",
+  outline: "none",
   [breakpoints.ns]: {
-    minWidth: 260
+    minWidth: 260,
   },
   fontSize: Step(3.75),
   border: `1px solid ${colors.greyLighter}`,
-  borderRight: 'none',
+  borderRight: "none",
   color: colors.black,
   background: colors.white,
-  textTransform: 'none',
+  textTransform: "none",
   fontWeight: 400,
   letterSpacing: `0.075rem`,
   borderRadius: `${Step(2)} 0 0 ${Step(2)}`,
-  '&::placeholder': {
-    color: colors.greyLight
+  "&::placeholder": {
+    color: colors.greyLight,
   },
-  '&:focus': {
+  "&:focus": {
     borderColor: colors.grey,
-    outline: 'none'
+    outline: "none",
   },
-  '&.error': {
+  "&.error": {
     // borderColor: colors.red
-  }
+  },
 });
 
 export default class SubscriptionForm extends React.Component<any, any> {
@@ -64,68 +63,68 @@ export default class SubscriptionForm extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
-      placeholder: 'Your email',
+      value: "",
+      placeholder: "Your email",
       success: false,
       loading: false,
-      error: false
+      error: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  public handleChange(event) {
     const { value } = event.target;
     const errorState = ValidateEmail(value);
 
     this.setState({
-      value: value,
+      value,
       error: errorState ? false : true,
-      placeholder: errorState ? 'Your Email' : this.getErrorText('sad')
+      placeholder: errorState ? "Your Email" : this.getErrorText("sad"),
     });
   }
 
-  getErrorText(mood: 'sad' | 'angry' | 'cheeky') {
+  public getErrorText(mood: "sad" | "angry" | "cheeky") {
     const response = { sad: [`Email please?`] };
 
     return sample(response[mood]);
   }
 
-  handleSubmit(event) {
+  public handleSubmit(event) {
     event.preventDefault();
     const { error, value } = this.state;
     this.setState({
       success: false,
-      loading: true
+      loading: true,
     });
 
     if (!error && value) {
-      AddToList('LZehJe', value)
+      AddToList("LZehJe", value)
         .then(() => {
           this.setState({
             error: false,
             success: true,
-            loading: false
+            loading: false,
           });
         })
         .catch(() => {
           this.setState({
             error: true,
             success: false,
-            loading: false
+            loading: false,
           });
         });
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     if (!isTouchDevice()) {
       this.inputName.focus();
     }
   }
 
-  render() {
+  public render() {
     const {
       value,
       dirty,
@@ -133,7 +132,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
       valid,
       placeholder,
       success,
-      loading
+      loading,
     } = this.state;
 
     if (success) {
@@ -141,16 +140,16 @@ export default class SubscriptionForm extends React.Component<any, any> {
     }
 
     return (
-      <form onSubmit={this.handleSubmit} noValidate>
+      <form onSubmit={this.handleSubmit} noValidate={true}>
         <h1>{this.state.errorState}</h1>
         <InputGroup className="flex items-center">
           <label>
             <FormInput
               innerRef={(innerRef: any) => (this.inputName = innerRef)}
               className={`email-input
-              ${dirty ? 'dirty' : 'pristine'}
-              ${error ? 'error' : ''}
-              ${valid ? 'valid' : ''}
+              ${dirty ? "dirty" : "pristine"}
+              ${error ? "error" : ""}
+              ${valid ? "valid" : ""}
             `}
               name="email"
               type="email"

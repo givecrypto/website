@@ -1,6 +1,6 @@
+import glamorous from 'glamorous';
 import * as React from 'react';
 import YouTube from 'react-youtube';
-import glamorous from 'glamorous';
 import { shadows } from '../design-system';
 
 export interface VideoPlayerProps {
@@ -29,7 +29,7 @@ export default class VideoPlayer extends React.Component<
   VideoPlayerProps,
   any
 > {
-  render() {
+  public render() {
     const opts = {
       height: '390',
       width: '640',

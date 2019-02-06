@@ -1,18 +1,18 @@
+import glamorous from 'glamorous';
 import * as React from 'react';
 import {
   Accordion,
   AccordionItem,
-  AccordionItemTitle,
   AccordionItemBody,
+  AccordionItemTitle,
   resetNextUuid
 } from 'react-accessible-accordion';
-import '../styles/accordion.css';
+import ReactMarkdown from 'react-markdown';
 import compactFaq from '../content/faq/compact-faq';
 import donationFaq from '../content/faq/donation-faq';
-import glamorous from 'glamorous';
-import { Step } from '../utils/Scale';
 import { colors } from '../design-system';
-import ReactMarkdown from 'react-markdown';
+import '../styles/accordion.css';
+import { Step } from '../utils/Scale';
 
 const SubHeading = glamorous.h2({
   fontSize: Step(5),
@@ -100,7 +100,7 @@ export interface FaqProps {
 }
 
 export default class Faq extends React.Component<FaqProps, any> {
-  render() {
+  public render() {
     const { title = 'FAQs', theme = 'dark', donate } = this.props;
     const qa = donate ? donationFaq : compactFaq;
 

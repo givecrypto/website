@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Head from 'next/head';
-import { Step } from '../utils/Scale';
-import { colors, breakpoints } from '../design-system';
-import glamorous from 'glamorous';
-import HeadMeta from '../components/HeadMeta';
-import DonateHero from '../components/DonateHero';
-import Wrapper from '../components/Wrapper';
-import DonorsIcon from '../svgs/givecrypto-scene-04.svg';
-import PersonCard from '../components/PersonCard';
-import donors from '../content/donors/donors-list';
-import seo from '../content/donors/seo';
-import '../utils/rehydrate';
+import glamorous from "glamorous";
+import Head from "next/head";
+import * as React from "react";
+import DonateHero from "../components/DonateHero";
+import HeadMeta from "../components/HeadMeta";
+import PersonCard from "../components/PersonCard";
+import Wrapper from "../components/Wrapper";
+import donors, { DonorSegment, Donor } from "../content/donors/donors-list";
+import seo from "../content/donors/seo";
+import { breakpoints, colors } from "../design-system";
+import DonorsIcon from "../svgs/givecrypto-scene-04.svg";
+import "../utils/rehydrate";
+import { Step } from "../utils/Scale";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -18,21 +18,21 @@ const Title = glamorous.h2({
   padding: `0 ${Step(5)}`,
   [breakpoints.ns]: {
     padding: 0,
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 
 const List = glamorous.ul(
   {
     height: 500,
-    listStyle: 'none',
-    padding: 0
+    listStyle: "none",
+    padding: 0,
   },
   ({ height }: any) => {
     return {
-      height
+      height,
     };
-  }
+  },
 );
 
 const Item = glamorous.li({
@@ -41,8 +41,8 @@ const Item = glamorous.li({
   fontSize: Step(4.25),
   padding: `0 0 ${Step(5.5)} 0`,
   [breakpoints.l]: {
-    width: `${100 / 5}%`
-  }
+    width: `${100 / 5}%`,
+  },
 });
 
 const SectionTitle = glamorous.h3({
@@ -50,29 +50,23 @@ const SectionTitle = glamorous.h3({
   fontSize: Step(4.75),
   color: colors.black,
   paddingBottom: Step(4),
-  borderBottom: `1px solid ${colors.black}`
+  borderBottom: `1px solid ${colors.black}`,
 });
 
 const IconContainer = glamorous.div({
   maxWidth: 450,
-  margin: `${Step(5)} auto`
+  margin: `${Step(5)} auto`,
 });
 
-export interface AppProps {}
-export interface AppState {}
-
-export default class App extends React.Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
+export default class App extends React.Component {
+  public componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  cardList(list: any, key: string) {
+  public cardList(list: any, key: string) {
     return list.map(({ name, role, filename }: any, index) => {
-      const size = key === '$100M+' ? 'w-30' : 'w-100 w-50-m w-25-l';
+      const size = key === "$100M+" ? "w-30" : "w-100 w-50-m w-25-l";
+
       return (
         <div
           className={`${size} pa3-m pa4-l`}
@@ -84,18 +78,17 @@ export default class App extends React.Component<AppProps, AppState> {
     });
   }
 
-  list(list: string[]) {
+  public list(list: Donor[]) {
     return list.map((name, index) => {
       return <Item key={`list${name}-${index}`}>{name}</Item>;
     });
   }
 
-  listSections(list: any) {
-    let results = [];
-    for (var key in list) {
-      const person = list[key];
-      const showCard = typeof person[0] === 'object';
+  public listSections(list: DonorSegment) {
+    const results = [];
 
+    // Iterate over the list sections
+    Object.entries(list).forEach(([key, person]) => {
       results.push(
         <Wrapper
           className="ph3 ph0-l"
@@ -105,29 +98,15 @@ export default class App extends React.Component<AppProps, AppState> {
           <div className="ph3-m ph4-l">
             <SectionTitle>{key}</SectionTitle>
           </div>
-          {showCard && (
-            <div className="flex flex-wrap">{this.cardList(person, key)}</div>
-          )}
-          {!showCard && (
-            <List
-              height={this.listHeight(list)}
-              className="flex flex-wrap flex-column"
-            >
-              {this.list(person)}
-            </List>
-          )}
-        </Wrapper>
+          <div className="flex flex-wrap">{this.cardList(person, key)}</div>
+        </Wrapper>,
       );
-    }
+    });
 
     return results;
   }
 
-  listHeight(list: string[]) {
-    return list.length / 5 * 90;
-  }
-
-  render() {
+  public render() {
     return (
       <>
         <Head>

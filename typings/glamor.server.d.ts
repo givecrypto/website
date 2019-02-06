@@ -1,1 +1,1 @@
-declare module 'glamor/server';
+declare module "glamor/server";
