@@ -1,6 +1,6 @@
 export const breakpoints = {
   ns: "30em",
-  m: "60em"
+  m: "60em",
 };
 
 export const mediaQueries = {
@@ -9,7 +9,7 @@ export const mediaQueries = {
   m: `@media only screen and (min-width: 30em) and (max-width: ${
     breakpoints.m
   })`,
-  l: `@media only screen and (min-width: ${breakpoints.m})`
+  l: `@media only screen and (min-width: ${breakpoints.m})`,
 };
 
 export default mediaQueries;

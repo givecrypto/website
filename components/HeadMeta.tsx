@@ -13,7 +13,7 @@ const defaults = {
   title: "GiveCrypto | Give cryptocurrency to people in need.",
   description:
     "Empowering, educating and elevating communities into the open financial system.",
-  image: "https://www.givecrypto.org/static/images/givecrypto-share.png"
+  image: "https://www.givecrypto.org/static/images/givecrypto-share.png",
 };
 
 export default class HeadMeta extends React.Component<HeadMetaProps, any> {
@@ -26,7 +26,7 @@ export default class HeadMeta extends React.Component<HeadMetaProps, any> {
       path,
       title = defaults.title,
       description = defaults.description,
-      image = defaults.image
+      image = defaults.image,
     } = this.props;
     return (
       <Head>

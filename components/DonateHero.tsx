@@ -8,14 +8,14 @@ interface DonateHeroProps {
   theme?: string;
 }
 const Container = glamorous.section({
-  padding: `${Step(8)} 0`
+  padding: `${Step(8)} 0`,
 });
 const Title = glamorous.h2({
   maxWidth: 600,
   fontSize: Step(5.5),
   [breakpoints.ns]: {
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 
 const DonateHero: React.SFC<DonateHeroProps> = (props: DonateHeroProps) => {

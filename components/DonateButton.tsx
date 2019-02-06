@@ -43,15 +43,15 @@ const linkStyles = {
       letterSpacing: `0.05rem`,
       cursor: "pointer",
       textShadow: "none",
-      padding: 0
+      padding: 0,
     },
     "&:after": {
-      display: "none"
+      display: "none",
     },
     "&:hover": {
       background: chroma(colors.green)
         .brighten(0.25)
-        .css()
+        .css(),
     },
     "&:active": {
       padding: `${Step(4)} !important`,
@@ -59,7 +59,7 @@ const linkStyles = {
       background: chroma(colors.green)
         .brighten(0.125)
         .css(),
-      boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
     },
     "&.theme-ghost": {
       color: colors.green,
@@ -67,31 +67,31 @@ const linkStyles = {
       boxShadow: "0 8px 16px rgba(0,0,0,0.075)",
       "> span": {
         transition: "color 200ms ease",
-        color: colors.green
+        color: colors.green,
       },
       "&:hover": {
         background: chroma(colors.green)
           .brighten(0.25)
           .css(),
         "> span": {
-          color: "white"
-        }
-      }
+          color: "white",
+        },
+      },
     },
     "&.theme-full": {
       display: "block",
-      width: "100%"
+      width: "100%",
     },
     fontSize: Step(3.45),
     padding: `${Step(4)} ${Step(3.75)}`,
     [breakpoints.ns]: {
       "> span": {
-        letterSpacing: `0.1rem`
+        letterSpacing: `0.1rem`,
       },
       padding: Step(4),
-      fontSize: Step(3.75)
-    }
-  }
+      fontSize: Step(3.75),
+    },
+  },
 };
 const Link = glamorous.a(linkStyles);
 
@@ -107,7 +107,7 @@ export default class Donate extends React.Component<DonateProps, any> {
     const uuid = _.uniqueId("coinbase-commerce--");
     this.state = {
       paymentModalState: false,
-      uuid
+      uuid,
     };
   }
 
@@ -173,7 +173,7 @@ export default class Donate extends React.Component<DonateProps, any> {
             classNames={{
               overlay: "custom-overlay",
               modal: "custom-modal",
-              closeButton: "pointer"
+              closeButton: "pointer",
             }}
           >
             <PaymentModal currency={type} />

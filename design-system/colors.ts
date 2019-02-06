@@ -12,7 +12,7 @@ export const colors: any = {
   black: "#323232",
   white: "#ffffff",
   yellow: "#fbd281",
-  yellowLight: "#fbe2bb"
+  yellowLight: "#fbe2bb",
 };
 
 export default colors;

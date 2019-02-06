@@ -28,8 +28,8 @@ const ImageCard = glamorous.div(
       display: "block",
       width: "100%",
       margin: 0,
-      padding: 0
-    }
+      padding: 0,
+    },
   },
   ({ pattern }: any) => {
     if (pattern === "right") {
@@ -46,8 +46,8 @@ const ImageCard = glamorous.div(
           right: -272,
           width: 423,
           height: 263,
-          transform: "translateY(40px)"
-        }
+          transform: "translateY(40px)",
+        },
       };
     }
     if (pattern === "left") {
@@ -63,21 +63,21 @@ const ImageCard = glamorous.div(
           left: -272,
           width: 423,
           height: 263,
-          transform: "translateY(40px)"
-        }
+          transform: "translateY(40px)",
+        },
       };
     }
   }
 );
 
 const Meta = glamorous.div({
-  padding: `${Step(4)} 0`
+  padding: `${Step(4)} 0`,
 });
 
 const Name = glamorous.h3({
   padding: `2rem 0 ${Step(3)} 0`,
   margin: 0,
-  color: colors.black
+  color: colors.black,
 });
 
 const Role = glamorous.h3({
@@ -85,7 +85,7 @@ const Role = glamorous.h3({
   margin: 0,
   paddingBottom: Step(3),
   fontWeight: 300,
-  color: colors.black
+  color: colors.black,
 });
 
 const PersonCard: React.SFC<PersonCardProps> = ({
@@ -93,7 +93,7 @@ const PersonCard: React.SFC<PersonCardProps> = ({
   name,
   role,
   bio,
-  pattern
+  pattern,
 }) => {
   return (
     <>

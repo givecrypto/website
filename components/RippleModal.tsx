@@ -10,18 +10,18 @@ import { Step } from "../utils/Scale";
 const address = process.env.RIPPLE_WALLET_ID;
 
 const Container = glamorous.div({
-  padding: Step(5)
+  padding: Step(5),
 });
 const InnerContainer = glamorous.div({
-  textAlign: "left"
+  textAlign: "left",
 });
 const IconContainer = glamorous.div({
   width: 14,
-  marginLeft: Step(5)
+  marginLeft: Step(5),
 });
 const QR = glamorous.picture({
   display: "block",
-  width: 203
+  width: 203,
 });
 
 const Heading = glamorous.h2({
@@ -29,18 +29,18 @@ const Heading = glamorous.h2({
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
-  fontWeight: 800
+  fontWeight: 800,
 });
 
 const Title = glamorous.h2({
   fontSize: Step(5),
   textAlign: "center",
   paddingBottom: Step(5),
-  color: colors.greyDark
+  color: colors.greyDark,
 });
 
 const Subtitle = glamorous.p({
-  fontSize: Step(3.5)
+  fontSize: Step(3.5),
 });
 
 const WalletInput = glamorous.div({
@@ -60,8 +60,8 @@ const WalletInput = glamorous.div({
       height: "100%",
       top: 0,
       background:
-        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))"
-    }
+        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
+    },
   },
   "& h2": {
     fontWeight: 300,
@@ -69,13 +69,13 @@ const WalletInput = glamorous.div({
     maxWidth: "100%",
     fontSize: Step(4),
     padding: 0,
-    margin: 0
-  }
+    margin: 0,
+  },
 });
 
 const Notice = glamorous.span(
   {
-    color: colors.green
+    color: colors.green,
   },
   ({ type }: any) => {
     if (type === "warning") {
@@ -88,8 +88,8 @@ const Notice = glamorous.span(
         border: `1px solid ${colors.red}`,
         [breakpoints.ns]: {
           marginTop: 0,
-          padding: Step(5)
-        }
+          padding: Step(5),
+        },
       };
     }
   }
@@ -158,12 +158,12 @@ export default class RippleModal extends React.Component<{}, any> {
     copy(address);
 
     this.setState({
-      clipboardFull: true
+      clipboardFull: true,
     });
 
     await delay(3000);
     this.setState({
-      clipboardFull: false
+      clipboardFull: false,
     });
   }
 }

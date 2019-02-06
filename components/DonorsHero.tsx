@@ -11,7 +11,7 @@ const Container = glamorous.section({
   width: "100%",
   height: 575,
   marginTop: Step(7.5),
-  boxShadow: shadows.default
+  boxShadow: shadows.default,
 });
 
 const InfoCard = glamorous.div({
@@ -25,26 +25,26 @@ const InfoCard = glamorous.div({
   boxShadow: shadows.card,
   margin: "0 auto",
   [breakpoints.ns]: {
-    margin: `0 0 0 ${Step(7)}`
-  }
+    margin: `0 0 0 ${Step(7)}`,
+  },
 });
 
 const CardTitle = glamorous.h4({
   textTransform: "uppercase",
   fontWeight: 800,
   fontSize: Step(3.5),
-  color: colors.blue
+  color: colors.blue,
 });
 const CardMetric = glamorous.h2({
   margin: 0,
   padding: 0,
   textTransform: "uppercase",
   fontSize: Step(6.5),
-  color: colors.greyDark
+  color: colors.greyDark,
 });
 const CardDetails = glamorous.h2({
   fontSize: Step(5),
-  color: colors.greyDark
+  color: colors.greyDark,
 });
 const CardLink = glamorous.h2({
   "& a": {
@@ -54,9 +54,9 @@ const CardLink = glamorous.h2({
     color: colors.blue,
 
     "&:hover": {
-      color: colors.blueDark
-    }
-  }
+      color: colors.blueDark,
+    },
+  },
 });
 
 const DonorsHero: React.SFC = () => {

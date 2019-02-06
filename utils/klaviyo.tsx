@@ -7,11 +7,11 @@ export const AddToList = (listId: string, email: any) => {
       mode: "no-cors",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
       },
       body: `api_key=${
         process.env.KLAVIYO_API_KEY
-      }&email=${email}&confirm_optin=true&$consent:web`
+      }&email=${email}&confirm_optin=true&$consent:web`,
     })
       .then(response => {
         resolve(response);

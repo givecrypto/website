@@ -22,8 +22,8 @@ const { div } = glamorous;
 const Container = div({
   padding: `${Step(5)} 0`,
   [breakpoints.l]: {
-    padding: Step(5)
-  }
+    padding: Step(5),
+  },
 });
 
 export default class App extends React.Component {

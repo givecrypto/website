@@ -7,7 +7,7 @@ export const setCookie = (key, value) => {
   if (isBrowser) {
     cookie.set(key, value, {
       expires: 1,
-      path: "/"
+      path: "/",
     });
   }
 };
@@ -15,7 +15,7 @@ export const setCookie = (key, value) => {
 export const removeCookie = key => {
   if (isBrowser) {
     cookie.remove(key, {
-      expires: 1
+      expires: 1,
     });
   }
 };

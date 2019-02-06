@@ -5,7 +5,7 @@ export default class extends React.Component {
   public static async getInitialProps({ res }) {
     if (res) {
       res.writeHead(302, {
-        Location: "/authenticate"
+        Location: "/authenticate",
       });
       res.end();
       res.finished = true;

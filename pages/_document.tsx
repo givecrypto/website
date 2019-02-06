@@ -12,7 +12,7 @@ const data = {
   "@context": "http://schema.org",
   "@type": "Organization",
   url: "https://www.givecrypto.org",
-  logo: "https://www.givecrypto.org/static/images/givecrypto-share.png"
+  logo: "https://www.givecrypto.org/static/images/givecrypto-share.png",
 };
 
 const GoogleMeta: React.SFC<any> = props => {

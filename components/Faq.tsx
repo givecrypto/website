@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionItemBody,
   AccordionItemTitle,
-  resetNextUuid
+  resetNextUuid,
 } from "react-accessible-accordion";
 import ReactMarkdown from "react-markdown";
 import compactFaq from "../content/faq/compact-faq";
@@ -17,7 +17,7 @@ import { Step } from "../utils/Scale";
 const SubHeading = glamorous.h2({
   fontSize: Step(5),
   fontWeight: 500,
-  paddingRight: Step(4.5)
+  paddingRight: Step(4.5),
 });
 
 const Faqs: any = props => {
@@ -31,8 +31,8 @@ const Faqs: any = props => {
         "& a": {
           color: colors.green,
           "&:hover": {
-            color: colors.white
-          }
+            color: colors.white,
+          },
         },
         "> h2": {
           color: props.theme === "light" ? colors.black : colors.white,
@@ -53,18 +53,18 @@ const Faqs: any = props => {
             display: "block",
             position: "absolute",
             right: 0,
-            top: `0.85rem`
-          }
+            top: `0.85rem`,
+          },
         },
         "& p, & li": {
           fontSize: Step(5),
           lineHeight: Step(4.95, "none"),
-          color: colors.greyLight
+          color: colors.greyLight,
         },
         "&:focus": {
           "& h2": {
-            color: colors.greyLight
-          }
+            color: colors.greyLight,
+          },
         },
         "&[aria-expanded=true]": {
           "& h2": {
@@ -72,11 +72,11 @@ const Faqs: any = props => {
             // textShadow: '0 0 10px rgba(255,255,255,0.25)',
             "&:after": {
               color: colors.red,
-              transform: `rotate(45deg)`
-            }
-          }
-        }
-      }
+              transform: `rotate(45deg)`,
+            },
+          },
+        },
+      },
     });
     return (
       <AccordionItem key={`key-${item.question}`}>
@@ -107,7 +107,7 @@ export default class Faq extends React.Component<FaqProps, any> {
     const Heading = glamorous.h2({
       color: theme === "light" ? colors.black : colors.white,
       lor: colors.white,
-      fontSize: Step(6)
+      fontSize: Step(6),
     });
 
     // Reset uuid

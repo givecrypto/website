@@ -33,7 +33,7 @@ const buttonStyles: CSSProperties = {
   "&:hover": {
     background: chroma(colors.green)
       .brighten(0.25)
-      .css()
+      .css(),
   },
   "&:active": {
     padding: `${Step(4)} !important`,
@@ -41,7 +41,7 @@ const buttonStyles: CSSProperties = {
     background: chroma(colors.green)
       .brighten(0.125)
       .css(),
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
   },
   "&.theme-ghost": {
     color: colors.green,
@@ -52,8 +52,8 @@ const buttonStyles: CSSProperties = {
       color: "white",
       background: chroma(colors.green)
         .brighten(0.25)
-        .css()
-    }
+        .css(),
+    },
   },
   "&.theme-submit": {
     transition: "all 300ms",
@@ -71,26 +71,26 @@ const buttonStyles: CSSProperties = {
       color: colors.white,
       background: chroma(colors.green)
         .brighten(0.25)
-        .css()
+        .css(),
     },
     "&.disable-true, &[disabled]": {
       pointerEvents: "none",
       color: colors.black,
-      background: colors.white
+      background: colors.white,
     },
     "&.loading-true": {
       padding: `0 ${Step(4)}`,
       backgroundColor: `${colors.yellowLight} !important`,
-      borderColor: colors.yellow
-    }
+      borderColor: colors.yellow,
+    },
   },
   padding: Step(4),
   "&.size-big": {
     fontSize: Step(5),
     fontWeight: 500,
     textTransform: "none",
-    padding: `${Step(4)} ${Step(5)}`
-  }
+    padding: `${Step(4)} ${Step(5)}`,
+  },
 };
 
 export default class Button extends React.Component<any, any> {

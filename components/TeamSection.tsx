@@ -8,15 +8,15 @@ import PersonCard from "./PersonCard";
 const Container = glamorous.section({
   marginBottom: Step(5),
   [breakpoints.ns]: {
-    marginBottom: Step(8)
-  }
+    marginBottom: Step(8),
+  },
 });
 
 const Title = glamorous.h2({
   fontSize: Step(6),
   textAlign: "center",
   paddingBottom: Step(5),
-  color: colors.black
+  color: colors.black,
 });
 
 const TeamSection: React.SFC = () => (

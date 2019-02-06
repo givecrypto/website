@@ -21,8 +21,8 @@ const VideoContainer = glamorous.div({
     left: 0,
     position: "absolute",
     top: 0,
-    width: "100%"
-  }
+    width: "100%",
+  },
 });
 
 export default class VideoPlayer extends React.Component<
@@ -37,8 +37,8 @@ export default class VideoPlayer extends React.Component<
       playerVars: {
         autoplay: 0,
         modestbranding: 1,
-        rel: 0
-      }
+        rel: 0,
+      },
     };
     return (
       <VideoContainer>

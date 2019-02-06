@@ -21,8 +21,8 @@ const Title = glamorous.h2({
   color: colors.black,
   fontSize: Step(5.35),
   [breakpoints.ns]: {
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 
 const Meta = glamorous.h2({
@@ -30,12 +30,12 @@ const Meta = glamorous.h2({
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
-  fontWeight: 800
+  fontWeight: 800,
 });
 
 const IconContainer = glamorous.div({
   maxWidth: 450,
-  margin: `${Step(5)} auto`
+  margin: `${Step(5)} auto`,
 });
 
 const Subtitle = glamorous.h1({
@@ -44,12 +44,12 @@ const Subtitle = glamorous.h1({
   fontWeight: 500,
   fontSize: Step(4.5),
   [breakpoints.ns]: {
-    fontSize: Step(5)
-  }
+    fontSize: Step(5),
+  },
 });
 
 const ButtonGroup = glamorous.div({
-  maxWidth: 400
+  maxWidth: 400,
 });
 
 export interface AppState {
@@ -58,7 +58,7 @@ export interface AppState {
 
 export default class App extends React.Component<{}, AppState> {
   public readonly state: Readonly<AppState> = {
-    message: "Donate Today"
+    message: "Donate Today",
   };
 
   public componentDidMount() {

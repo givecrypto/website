@@ -18,19 +18,19 @@ const Title = glamorous.h2({
   padding: `0 ${Step(5)}`,
   [breakpoints.ns]: {
     padding: 0,
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 
 const List = glamorous.ul(
   {
     height: 500,
     listStyle: "none",
-    padding: 0
+    padding: 0,
   },
   ({ height }: any) => {
     return {
-      height
+      height,
     };
   }
 );
@@ -41,8 +41,8 @@ const Item = glamorous.li({
   fontSize: Step(4.25),
   padding: `0 0 ${Step(5.5)} 0`,
   [breakpoints.l]: {
-    width: `${100 / 5}%`
-  }
+    width: `${100 / 5}%`,
+  },
 });
 
 const SectionTitle = glamorous.h3({
@@ -50,12 +50,12 @@ const SectionTitle = glamorous.h3({
   fontSize: Step(4.75),
   color: colors.black,
   paddingBottom: Step(4),
-  borderBottom: `1px solid ${colors.black}`
+  borderBottom: `1px solid ${colors.black}`,
 });
 
 const IconContainer = glamorous.div({
   maxWidth: 450,
-  margin: `${Step(5)} auto`
+  margin: `${Step(5)} auto`,
 });
 
 export default class App extends React.Component {

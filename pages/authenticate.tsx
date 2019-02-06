@@ -18,16 +18,16 @@ const Input = glamorous.input({
     opacity: 1,
     transition: "all 200ms",
     transform: "scale(1)",
-    fontWeight: 100
+    fontWeight: 100,
   },
   "&:focus": {
     outline: "none",
     borderBottom: `1px solid ${colors.black}`,
     "&::placeholder": {
       opacity: 0,
-      transform: "scale(0.9)"
-    }
-  }
+      transform: "scale(0.9)",
+    },
+  },
 });
 
 export default class Authenticate extends React.Component<any, any> {

@@ -18,15 +18,15 @@ const Wrapper: React.SFC<any> = props => {
   const Container = glamorous.div(
     {
       width: "100%",
-      background
+      background,
     },
     (styleProps: any) => {
       if (!styleProps.flush) {
         return {
           padding: `0 ${Step(4)}`,
           [breakpoints.l]: {
-            padding: 0
-          }
+            padding: 0,
+          },
         };
       }
 
@@ -37,7 +37,7 @@ const Wrapper: React.SFC<any> = props => {
 
           "> *": {
             position: "relative",
-            zIndex: 1
+            zIndex: 1,
           },
 
           background: background || "#ffffff",
@@ -51,12 +51,12 @@ const Wrapper: React.SFC<any> = props => {
             left: -200,
             width: 423,
             height: 263,
-            transform: "translateY(40px)"
+            transform: "translateY(40px)",
           },
           "&::after": {
             left: "auto",
-            right: -200
-          }
+            right: -200,
+          },
         };
       }
     }
@@ -67,7 +67,7 @@ const Wrapper: React.SFC<any> = props => {
   const WrapperInner = glamorous.section({
     maxWidth: narrow ? narrowWidth : defaultWidth,
     margin: "0 auto",
-    ...rest
+    ...rest,
   });
 
   return (

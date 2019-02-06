@@ -24,14 +24,14 @@ export const linkStyles = {
 
   "> svg": {
     transition: "all 200ms",
-    fill: colors.grey
+    fill: colors.grey,
   },
 
   "&:hover, &:active": {
     color: colors.grey,
     "> svg": {
-      fill: colors.black
-    }
+      fill: colors.black,
+    },
   },
 
   "&.active": {
@@ -39,9 +39,9 @@ export const linkStyles = {
 
     "&-style": {
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
-    }
-  }
+      borderBottom: `1px solid ${colors.black}`,
+    },
+  },
 };
 
 const A = glamorous.a(linkStyles);

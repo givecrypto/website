@@ -14,14 +14,14 @@ const currencyDetails = {
     title: "Ripple",
     symbol: "XRP",
     icon: <RippleIcon />,
-    address: process.env.RIPPLE_WALLET_ID
+    address: process.env.RIPPLE_WALLET_ID,
   },
   zcash: {
     title: "ZCash",
     symbol: "ZEC",
     icon: <ZCashIcon />,
-    address: process.env.ZEC_WALLET_ID
-  }
+    address: process.env.ZEC_WALLET_ID,
+  },
 };
 
 interface PaymentModalProps {
@@ -29,21 +29,21 @@ interface PaymentModalProps {
 }
 
 const Container = glamorous.div({
-  padding: Step(5)
+  padding: Step(5),
 });
 const InnerContainer = glamorous.div({
-  textAlign: "left"
+  textAlign: "left",
 });
 const IconContainer = glamorous.div({
   width: 14,
-  marginLeft: Step(5)
+  marginLeft: Step(5),
 });
 const QR = glamorous.picture({
   display: "block",
   width: 115,
   [breakpoints.ns]: {
-    width: 203
-  }
+    width: 203,
+  },
 });
 
 const Heading = glamorous.h2({
@@ -51,18 +51,18 @@ const Heading = glamorous.h2({
   marginBottom: Step(5),
   fontSize: Step(3.5),
   color: colors.blue,
-  fontWeight: 800
+  fontWeight: 800,
 });
 
 const Title = glamorous.h2({
   fontSize: Step(5),
   textAlign: "center",
   paddingBottom: Step(5),
-  color: colors.greyDark
+  color: colors.greyDark,
 });
 
 const Subtitle = glamorous.p({
-  fontSize: Step(3.5)
+  fontSize: Step(3.5),
 });
 
 const DesinationTag = () => {
@@ -88,8 +88,8 @@ const WalletInput = glamorous.div({
       height: "100%",
       top: 0,
       background:
-        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))"
-    }
+        "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
+    },
   },
   "& h2": {
     fontWeight: 300,
@@ -97,14 +97,14 @@ const WalletInput = glamorous.div({
     maxWidth: "100%",
     fontSize: Step(4),
     padding: 0,
-    margin: 0
-  }
+    margin: 0,
+  },
 });
 
 const Notice = glamorous.span(
   {
     color: colors.green,
-    display: "block"
+    display: "block",
   },
   ({ type }: any) => {
     if (type === "warning") {
@@ -117,8 +117,8 @@ const Notice = glamorous.span(
         border: `1px solid ${colors.red}`,
         [breakpoints.ns]: {
           marginTop: 0,
-          padding: Step(5)
-        }
+          padding: Step(5),
+        },
       };
     }
   }
@@ -197,12 +197,12 @@ export default class PaymentModal extends React.Component<
     copy(address);
 
     this.setState({
-      clipboardFull: true
+      clipboardFull: true,
     });
 
     await delay(3000);
     this.setState({
-      clipboardFull: false
+      clipboardFull: false,
     });
   }
 }

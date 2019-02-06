@@ -22,15 +22,15 @@ const Nav = glamorous.nav({
   padding: `${Step(4)} ${Step(4)}`,
   background: colors.white,
   [breakpoints.ns]: {
-    padding: Step(5)
-  }
+    padding: Step(5),
+  },
 });
 
 const LogoContainer = glamorous.div({
   maxWidth: 170,
   [breakpoints.ns]: {
-    maxWidth: 170
-  }
+    maxWidth: 170,
+  },
 });
 
 const AnimationContainer = glamorous.div({
@@ -39,9 +39,9 @@ const AnimationContainer = glamorous.div({
   height: 24,
   "> *": {
     "&:focus": {
-      outline: "none"
-    }
-  }
+      outline: "none",
+    },
+  },
 });
 
 export default class Navigation extends React.Component<NavigationProps, any> {
@@ -52,7 +52,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       menuModalState: false,
       currentRoute: "/",
       isStopped: false,
-      direction: -1
+      direction: -1,
     };
 
     Router.onRouteChangeStart = () => {
@@ -60,13 +60,13 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       this.setState({
         menuModalState: false,
         direction: -1,
-        isStopped: false
+        isStopped: false,
       });
     };
     Router.onRouteChangeComplete = () => {
       NProgress.done();
       this.setState({
-        currentRoute: Router.pathname
+        currentRoute: Router.pathname,
       });
     };
     Router.onRouteChangeError = () => NProgress.done();
@@ -74,7 +74,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
   public componentDidMount() {
     this.setState({
-      currentRoute: Router.pathname
+      currentRoute: Router.pathname,
     });
   }
 
@@ -138,7 +138,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     this.setState({
       direction: -1,
       isStopped: false,
-      menuModalState: false
+      menuModalState: false,
     });
   }
 
@@ -160,8 +160,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       autoplay: false,
       animationData,
       rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
+        preserveAspectRatio: "xMidYMid slice",
+      },
     };
     return (
       <>
@@ -218,7 +218,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
           center={true}
           classNames={{
             overlay: "green-overlay",
-            modal: "flat-modal"
+            modal: "flat-modal",
           }}
         >
           <Ul
@@ -259,12 +259,12 @@ const NavItem = glamorous.li({
   "& a, & span": {
     color: colors.white,
     "&:hover": {
-      color: colors.greyLighter
-    }
+      color: colors.greyLighter,
+    },
   },
   "& .active": {
     color: colors.greyLightest,
-    borderBottom: `1px solid ${colors.greyLightest}`
+    borderBottom: `1px solid ${colors.greyLightest}`,
   },
   [breakpoints.l]: {
     display: "inline-block",
@@ -275,19 +275,19 @@ const NavItem = glamorous.li({
     "& a, & span": {
       color: colors.black,
       "&:hover": {
-        color: colors.grey
-      }
+        color: colors.grey,
+      },
     },
     "> .active > span": {
       "& a, & span": {
-        color: colors.black
+        color: colors.black,
       },
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
+      borderBottom: `1px solid ${colors.black}`,
     },
     "& .active": {
       color: colors.black,
-      borderBottom: `1px solid ${colors.black}`
-    }
-  }
+      borderBottom: `1px solid ${colors.black}`,
+    },
+  },
 });
