@@ -6,7 +6,7 @@ import Headroom from "react-headroom";
 import Lottie from "react-lottie";
 import Modal from "react-responsive-modal";
 import { Link as ScrollLink } from "react-scroll";
-import * as animationData from "../../animations/menu--grey-white.json";
+import animationData from "../../animations/menu--grey-white.json";
 import Button from "../../components/Button";
 import Link, { linkStyles } from "../../components/Link";
 import { breakpoints, colors } from "../../design-system";

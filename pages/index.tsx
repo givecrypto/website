@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as React from "react";
 import { animateScroll } from "react-scroll";
 import ActivityFeed from "../components/ActivityFeed";
+import Hooks from "../components/ActivityFeed/Hooks";
 import DonateHero from "../components/DonateHero";
 import DonorsHero from "../components/DonorsHero";
 import Faq from "../components/Faq";
@@ -74,6 +75,7 @@ export default class App extends React.Component<{}, {}> {
 
         <Container>
           <Wrapper>
+            <Hooks />
             <ActivityFeed
               events={events}
               onDragStart={this.preventScrolling}
