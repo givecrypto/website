@@ -2,8 +2,8 @@ import glamorous, { Div } from "glamorous";
 import Head from "next/head";
 import * as React from "react";
 import { animateScroll } from "react-scroll";
-import ActivityFeed from "../components/ActivityFeed";
-import Hooks from "../components/ActivityFeed/Hooks";
+// import ActivityFeed from "../components/ActivityFeed";
+// import Hooks from "../components/ActivityFeed/Hooks";
 import DonateHero from "../components/DonateHero";
 import DonorsHero from "../components/DonorsHero";
 import Faq from "../components/Faq";
@@ -14,7 +14,7 @@ import Mission from "../components/MissionSection";
 import TeamSection from "../components/TeamSection";
 import VideoSection from "../components/VideoSection";
 import Wrapper from "../components/Wrapper";
-import events from "../content/activity-feed/events";
+// import events from "../content/activity-feed/events";
 import seo from "../content/home/seo";
 import { breakpoints, colors } from "../design-system";
 import "../utils/rehydrate";
@@ -74,14 +74,14 @@ export default class App extends React.Component<{}, {}> {
         <HeadMeta path="/home" description={seo.description} />
 
         <Container>
-          <Wrapper>
+          {/* <Wrapper>
             <Hooks />
             <ActivityFeed
               events={events}
               onDragStart={this.preventScrolling}
               onDragEnd={this.enableScrolling}
             />
-          </Wrapper>
+          </Wrapper> */}
 
           <Wrapper wide={true}>
             <Hero page="home" />

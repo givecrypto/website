@@ -166,7 +166,7 @@ export default class SubscriptionForm extends React.Component<any, any> {
             {loading && <Loader />}
             {!loading && (
               <>
-                <MediaQuery minWidth={bp.m} values={{ width: 1600 }}>
+                <MediaQuery minWidth={bp.m}>
                   {matches => {
                     if (matches) {
                       return <>Subscribe To Our Blog</>;

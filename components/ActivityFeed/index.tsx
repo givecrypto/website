@@ -219,7 +219,7 @@ export default class ActivityFeed extends React.Component<
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseEnter}
           >
-            <MediaQuery minWidth={breakpoints.ns} values={{ width: 1600 }}>
+            <MediaQuery minWidth={breakpoints.ns}>
               {matches => {
                 if (!matches) {
                   return (

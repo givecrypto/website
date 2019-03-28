@@ -9,7 +9,6 @@ import {
 } from "react-accessible-accordion";
 import ReactMarkdown from "react-markdown";
 import compactFaq from "../content/faq/compact-faq";
-import donationFaq from "../content/faq/donation-faq";
 import { colors } from "../design-system";
 import "../styles/accordion.css";
 import { Step } from "../utils/Scale";
@@ -96,13 +95,12 @@ const Faqs: any = props => {
 export interface FaqProps {
   title?: string;
   theme?: string;
-  donate?: boolean;
+  list?: any;
 }
 
 export default class Faq extends React.Component<FaqProps, any> {
   public render() {
-    const { title = "FAQs", theme = "dark", donate } = this.props;
-    const qa = donate ? donationFaq : compactFaq;
+    const { title = "FAQs", theme = "dark", list = compactFaq } = this.props;
 
     const Heading = glamorous.h2({
       color: theme === "light" ? colors.black : colors.white,
@@ -117,7 +115,7 @@ export default class Faq extends React.Component<FaqProps, any> {
       <>
         <Heading>{title}</Heading>
         <Accordion accordion={false}>
-          <Faqs qa={qa} theme={theme} />
+          <Faqs qa={list} theme={theme} />
         </Accordion>
       </>
     );
