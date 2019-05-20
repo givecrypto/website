@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 
 // Force style update on the server
 import "../styles/style.css";
+import "../utils/setupFonts";
 
 const data = {
   "@context": "http://schema.org",
