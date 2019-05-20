@@ -1,7 +1,7 @@
 import glamorous from "glamorous";
 import * as React from "react";
 import Lottie from "react-lottie";
-import * as animationData from "../animations/loader--blue.json";
+import animationData from "../animations/loader.json";
 
 const AnimationContainer = glamorous.div({
   display: "inline-block",

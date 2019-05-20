@@ -1,3 +1,4 @@
+import * as React from "react";
 import glamorous from "glamorous";
 import Router from "next/router";
 import NextLink from "../components/NextLink";
