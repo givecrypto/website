@@ -6,7 +6,6 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import Footer from "../components/Footer";
 
 // Force style update on the server
-import "../styles/style.css";
 import "../utils/setupFonts";
 
 const data = {
@@ -49,7 +48,7 @@ export default class GiveCryptoDocument extends Document {
         <Head>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="/_next/static/style.css" />
+          {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
           <GoogleMeta data={data} />
         </Head>
         <ErrorBoundary>
