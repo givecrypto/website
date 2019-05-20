@@ -92,7 +92,8 @@
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "css": "tachyons styles/style.css > styles/index.css --minify"
+    "css": "tachyons styles/style.css > styles/index.css --minify",
+    "now-build": "next build && next export -o dist"
   },
   "lint-staged": {
     "./**/*.{ts,tsx,js,jsx,json}": [

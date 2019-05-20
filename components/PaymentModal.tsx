@@ -140,7 +140,7 @@ export default class PaymentModal extends React.Component<
     const { symbol, icon, address } = currencyDetails[currency];
 
     return (
-      <Container className="middle center tc">
+      <Container key={`${symbol}-modal`} className="middle center tc">
         <Heading>Donate {symbol}</Heading>
         {icon}
         <Title>Donate {symbol} to the address below</Title>
