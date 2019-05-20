@@ -1,11 +1,11 @@
-import glamorous from "glamorous";
-import * as React from "react";
-import ReactMarkdown from "react-markdown";
-import content from "../content/home/video-section";
-import { colors } from "../design-system";
-import { Step } from "../utils/Scale";
-import VideoPlayer from "./VideoPlayer";
-import Wrapper from "./Wrapper";
+import * as React from 'react';
+import glamorous from 'glamorous';
+import { colors } from '../design-system';
+import { Step } from '../utils/Scale';
+import VideoPlayer from './VideoPlayer';
+import Wrapper from './Wrapper';
+import ReactMarkdown from 'react-markdown';
+import content from '../content/home/video-section';
 
 const LinkContainer = glamorous.h2({
   "& a": {
