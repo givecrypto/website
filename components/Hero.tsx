@@ -1,57 +1,56 @@
-import * as React from 'react';
-import content from '../content/home/hero';
-import glamorous from 'glamorous';
-import { Step } from '../utils/Scale';
-import { colors } from '../design-system';
-import SceneLarge from '../svgs/givecrypto-scene-05.svg';
-import SceneSmall from '../svgs/givecrypto-scene-06.svg';
-import Share from './Share';
-import SubscriptionForm from './SubscriptionForm';
-import { breakpoints } from '../design-system';
+import glamorous from "glamorous";
+import * as React from "react";
+import content from "../content/home/hero";
+import { breakpoints, colors } from "../design-system";
+import SceneLarge from "../svgs/givecrypto-scene-05.svg";
+import SceneSmall from "../svgs/givecrypto-scene-06.svg";
+import { Step } from "../utils/Scale";
+import Share from "./Share";
+import SubscriptionForm from "./SubscriptionForm";
 
 export interface HeroProps {
   page: string;
 }
 
 const Details = glamorous.div({
-  width: '100%',
+  width: "100%",
   maxWidth: 560,
   [breakpoints.ns]: {
-    width: '50%'
-  }
+    width: "50%",
+  },
 });
 const Title = glamorous.h1({
   color: colors.black,
   fontSize: Step(5.35),
   fontWeight: 900,
   [breakpoints.ns]: {
-    fontSize: Step(6)
-  }
+    fontSize: Step(6),
+  },
 });
 const Subtitle = glamorous.h1({
   fontSize: Step(4.5),
   fontWeight: 500,
   [breakpoints.ns]: {
-    fontSize: Step(5)
+    fontSize: Step(5),
   },
-  color: colors.grey
+  color: colors.grey,
 });
 const Illustration = glamorous.div({
-  width: '100%',
+  width: "100%",
   maxWidth: 660,
   padding: `0 ${Step(3)}`,
   [breakpoints.ns]: {
     maxWidth: 560,
-    width: '45%',
-    padding: 0
-  }
+    width: "45%",
+    padding: 0,
+  },
 });
 
 export default class Hero extends React.Component<HeroProps, any> {
-  render() {
+  public render() {
     const { page } = this.props;
 
-    if (page == 'home') {
+    if (page === "home") {
       // Setup data
       const { title, subtitle } = content;
 

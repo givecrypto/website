@@ -1,18 +1,18 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import { renderStatic } from 'glamor/server';
-import 'glamor/reset';
-import { Body, Section } from 'glamorous';
-import Footer from '../components/Footer';
-import ErrorBoundary from '../components/ErrorBoundary';
+import "glamor/reset";
+import { renderStatic } from "glamor/server";
+import { Body, Section } from "glamorous";
+import Document, { Head, Main, NextScript } from "next/document";
+import ErrorBoundary from "../components/ErrorBoundary";
+import Footer from "../components/Footer";
 
 // Force style update on the server
-import '../styles/style.css';
+import "../utils/setupFonts";
 
 const data = {
-  '@context': 'http://schema.org',
-  '@type': 'Organization',
-  url: 'https://www.givecrypto.org',
-  logo: 'https://www.givecrypto.org/static/images/givecrypto-share.png'
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  url: "https://www.givecrypto.org",
+  logo: "https://www.givecrypto.org/static/images/givecrypto-share.png",
 };
 
 const GoogleMeta: React.SFC<any> = props => {
@@ -28,7 +28,7 @@ const GoogleMeta: React.SFC<any> = props => {
 };
 
 export default class GiveCryptoDocument extends Document {
-  static async getInitialProps({ renderPage }) {
+  public static async getInitialProps({ renderPage }) {
     const page = renderPage();
     const styles = renderStatic(() => page.html || page.errorHtml);
     return { ...page, ...styles };
@@ -42,13 +42,13 @@ export default class GiveCryptoDocument extends Document {
     }
   }
 
-  render() {
+  public render() {
     return (
       <html>
         <Head>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="/_next/static/style.css" />
+          {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
           <GoogleMeta data={data} />
         </Head>
         <ErrorBoundary>

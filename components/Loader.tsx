@@ -1,35 +1,29 @@
-import * as React from 'react';
-import Lottie from 'react-lottie';
-import * as animationData from '../animations/loader--blue.json';
-import glamorous from 'glamorous';
-
-export interface LoaderProps {}
+import glamorous from "glamorous";
+import * as React from "react";
+import Lottie from "react-lottie";
+import animationData from "../animations/loader.json";
 
 const AnimationContainer = glamorous.div({
-  display: 'inline-block',
+  display: "inline-block",
   width: 44,
-  height: 44
+  height: 44,
 });
 
-export default class Loader extends React.Component<LoaderProps, any> {
-  constructor(props) {
-    super(props);
-  }
+const Loader: React.SFC = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
-  render() {
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
-    };
+  return (
+    <AnimationContainer className="responisive center">
+      <Lottie options={defaultOptions} />
+    </AnimationContainer>
+  );
+};
 
-    return (
-      <AnimationContainer className="responisive center">
-        <Lottie options={defaultOptions} />
-      </AnimationContainer>
-    );
-  }
-}
+export default Loader;

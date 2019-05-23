@@ -1,9 +1,11 @@
-import * as React from 'react';
-import { shallow } from 'enzyme';
-import Donors from '../../pages/donors';
+import { shallow } from "enzyme";
+import * as React from "react";
+import Donors from "../../pages/donors";
 
-describe('Index page', () => {
-  it('renders without crashing', () => {
+describe("Index page", () => {
+  it("renders without crashing", () => {
+    window.scrollTo = jest.fn();
+
     shallow(<Donors />);
   });
 });

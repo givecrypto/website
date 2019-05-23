@@ -1,1 +1,1 @@
-declare module 'react-accessible-accordion';
+declare module "react-accessible-accordion";

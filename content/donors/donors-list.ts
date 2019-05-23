@@ -10,13 +10,22 @@
  * }
  */
 
-/** ----------------------------
+/**
  * @description Person
  * @param {name[]} string
  * @example: 'Brian Armstrong',
  */
 
-export default {
+export interface Donor {
+  name: string;
+  role?: string;
+  filename: string;
+}
+export interface DonorSegment {
+  [key: string]: Donor[];
+}
+
+export const donors: DonorSegment = {
   /**
    * @param {person[]} Person
    */
@@ -103,6 +112,11 @@ export default {
       filename: "fred-ehrsam",
     },
     {
+      name: "Jessica Livingston",
+      role: "Founder, Partner - YCombinator",
+      filename: "jessica-livingston",
+    },
+    {
       name: "Linda Xie",
       role: "Co-founder, Scalar Capital",
       filename: "linda-xie",
@@ -139,3 +153,5 @@ export default {
     },
   ],
 };
+
+export default donors;
