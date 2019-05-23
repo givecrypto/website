@@ -29,7 +29,7 @@ const IconContainer: any = glamorous.div(
         order: props.left ? 0 : 2,
       },
     };
-  }
+  },
 );
 
 const Description = glamorous.div({

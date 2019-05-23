@@ -15,6 +15,7 @@ import RippleIcon from "../svgs/crypto/xrp.svg";
 import ZCashIcon from "../svgs/crypto/zec.svg";
 import HappyIcon from "../svgs/givecrypto-scene-03.svg";
 import "../utils/rehydrate";
+import faqs from "../content/faq/donation-faq";
 import { Step } from "../utils/Scale";
 
 const Title = glamorous.h2({
@@ -115,7 +116,7 @@ export default class App extends React.Component<{}, AppState> {
           padding={"4rem 0"}
         >
           <Faq
-            donate={true}
+            list={faqs}
             theme="light"
             title="Understand more about your donation"
           />

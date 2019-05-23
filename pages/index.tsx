@@ -2,6 +2,8 @@ import glamorous, { Div } from "glamorous";
 import Head from "next/head";
 import * as React from "react";
 import { animateScroll } from "react-scroll";
+// import ActivityFeed from "../components/ActivityFeed";
+// import Hooks from "../components/ActivityFeed/Hooks";
 import DonateHero from "../components/DonateHero";
 import DonorsHero from "../components/DonorsHero";
 import Faq from "../components/Faq";
@@ -12,6 +14,7 @@ import Mission from "../components/MissionSection";
 import TeamSection from "../components/TeamSection";
 import VideoSection from "../components/VideoSection";
 import Wrapper from "../components/Wrapper";
+// import events from "../content/activity-feed/events";
 import seo from "../content/home/seo";
 import { breakpoints, colors } from "../design-system";
 import "../utils/rehydrate";
@@ -26,7 +29,24 @@ const Container = div({
   },
 });
 
-export default class App extends React.Component {
+export default class App extends React.Component<{}, {}> {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  public preventScrolling = () => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  public enableScrolling = () => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "auto";
+    }
+  };
+
   public scrollToLocation() {
     if (
       typeof document !== "undefined" &&
@@ -52,7 +72,17 @@ export default class App extends React.Component {
           <title key="head-title">{seo.title}</title>
         </Head>
         <HeadMeta path="/home" description={seo.description} />
+
         <Container>
+          {/* <Wrapper>
+            <Hooks />
+            <ActivityFeed
+              events={events}
+              onDragStart={this.preventScrolling}
+              onDragEnd={this.enableScrolling}
+            />
+          </Wrapper> */}
+
           <Wrapper wide={true}>
             <Hero page="home" />
             <Div display="block" className="mb3 mb6-ns" />

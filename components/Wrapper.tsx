@@ -59,7 +59,7 @@ const Wrapper: React.SFC<any> = props => {
           },
         };
       }
-    }
+    },
   );
 
   const narrowWidth = narrow ? 890 : 1100;

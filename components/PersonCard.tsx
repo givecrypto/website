@@ -67,7 +67,7 @@ const ImageCard = glamorous.div(
         },
       };
     }
-  }
+  },
 );
 
 const Meta = glamorous.div({

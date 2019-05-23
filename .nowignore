@@ -1,0 +1,4 @@
+!.env.build
+**/__tests__/
+**/*.test.ts
+**/*.test.tsx

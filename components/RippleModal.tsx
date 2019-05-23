@@ -92,7 +92,7 @@ const Notice = glamorous.span(
         },
       };
     }
-  }
+  },
 );
 
 export default class RippleModal extends React.Component<{}, any> {

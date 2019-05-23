@@ -6,7 +6,7 @@ import Headroom from "react-headroom";
 import Lottie from "react-lottie";
 import Modal from "react-responsive-modal";
 import { Link as ScrollLink } from "react-scroll";
-import * as animationData from "../../animations/menu--grey-white.json";
+import animationData from "../../animations/menu--grey-white.json";
 import Button from "../../components/Button";
 import Link, { linkStyles } from "../../components/Link";
 import { breakpoints, colors } from "../../design-system";
@@ -104,13 +104,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 offset={-50}
                 duration={550}
               >
-                <Span
-                  onClick={() => {
-                    this.closeMenu();
-                  }}
-                >
-                  {title}
-                </Span>
+                <Span onClick={this.closeMenu}>{title}</Span>
               </ScrollLink>
             </NavItem>
           );
@@ -123,7 +117,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     });
   }
 
-  public toggleMenu() {
+  public toggleMenu = () => {
     let { direction, menuModalState } = this.state;
     // Reverse things
     direction = direction * -1;
@@ -131,16 +125,16 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
     // Set things
     this.setState({ direction, isStopped: false, menuModalState });
-  }
+  };
 
-  public closeMenu() {
+  public closeMenu = () => {
     document.querySelector("html").removeAttribute("style");
     this.setState({
       direction: -1,
       isStopped: false,
       menuModalState: false,
     });
-  }
+  };
 
   public onOpenModal = () => {
     this.setState({ menuModalState: true });
@@ -199,7 +193,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 Donate
               </Button>
               <AnimationContainer
-                onClick={() => this.toggleMenu()}
+                onClick={this.toggleMenu}
                 className="pointer responisive center"
               >
                 <Lottie

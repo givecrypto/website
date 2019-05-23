@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
-import React, { Children } from "react";
+import * as React from "react";
 
 const ActiveLink = ({ router, children, ...props }: any) => {
-  const child = Children.only(children);
+  const child = React.Children.only(children);
 
   let className = child.props.className || null;
   if (router) {
