@@ -29,7 +29,7 @@ export default [
   },
   {
     question: "Why is crypto better than fiat?",
-    answer: `While cryptocurrency is somewhat difficult to use (for now) and isn’t accepted by many vendors (yet), it does have some benefits compared to fiat currencies. These revolve around its relative easy and low cost transfer (especially across international borders) as well as the visibility into downstream activity.`,
+    answer: `While cryptocurrency is somewhat difficult to use (for now) and isn’t accepted by many vendors (yet), it does have some benefits compared to fiat currencies. The benefits revolve fast, easy and low cost transfers (especially across international borders) as well as the visibility into downstream activity.`,
   },
   {
     question: "Can donors determine who gets the funds?",
