@@ -83,16 +83,14 @@ const Faqs: any = (props: {
   return props.qa.map((item: any) => {
     return (
       <AccordionItem key={`key-${item.question}`}>
-        <div>
-          <Wrapper theme={props.theme}>
-            <AccordionItemTitle>
-              <SubHeading className="lh-title">{item.question}</SubHeading>
-            </AccordionItemTitle>
-            <AccordionItemBody>
-              <ReactMarkdown source={item.answer} />
-            </AccordionItemBody>
-          </Wrapper>
-        </div>
+        <Wrapper theme={props.theme}>
+          <AccordionItemTitle>
+            <SubHeading className="lh-title">{item.question}</SubHeading>
+          </AccordionItemTitle>
+          <AccordionItemBody>
+            <ReactMarkdown source={item.answer} />
+          </AccordionItemBody>
+        </Wrapper>
       </AccordionItem>
     );
   });
