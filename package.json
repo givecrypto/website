@@ -85,7 +85,7 @@
     "build": "next build",
     "start": "next start",
     "deploy": "now --dotenv=.env && now alias staging.givecrypto.org",
-    "deploy:prod": "now --dotenv=.env.production && now alias",
+    "deploy:prod": "now --target production",
     "analyze": "BUNDLE_ANALYZE=both npm run build",
     "test": "NODE_ENV=test jest",
     "test:watch": "jest --watch",
