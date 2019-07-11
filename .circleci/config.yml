@@ -121,7 +121,7 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                 export STAGE_URL="${NOW_STAGE_URL}"
             else
-                export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH}.now.sh"
+                export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH//\//-}.now.sh"
             fi
 
             # Update status 
