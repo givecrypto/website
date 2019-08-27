@@ -104,7 +104,7 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                 ./node_modules/.bin/now alias --scope=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --scope=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_STAGE_URL} 
             else
-                ./node_modules/.bin/now alias --scope=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --scope=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_TEAM}-${CIRCLE_BRANCH} 
+                ./node_modules/.bin/now alias --scope=${NOW_TEAM} --token=${NOW_TOKEN} $(./node_modules/.bin/now --no-clipboard --scope=${NOW_TEAM} --token=${NOW_TOKEN} --public) ${NOW_TEAM}-${CIRCLE_BRANCH//\//-} 
             fi
       # Purge un-aliased deployments
       - run:
@@ -121,7 +121,7 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                 export STAGE_URL="${NOW_STAGE_URL}"
             else
-                export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH}.now.sh"
+                export STAGE_URL="https://${NOW_TEAM}-${CIRCLE_BRANCH//\//-}.now.sh"
             fi
 
             # Update status 
