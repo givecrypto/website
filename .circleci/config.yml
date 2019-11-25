@@ -23,15 +23,15 @@ jobs:
       # Restore local dependencies from cache
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       # Install project dependencies
       - run:
           name: Install local dependencies
-          command: npm install
+          command: yarn
       # Cache local dependencies if they don't exist
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       # Install test deps
@@ -43,7 +43,7 @@ jobs:
       # Test the source code
       - run:
           name: Testing
-          command: npm run test
+          command: yarn test
       # Save coverage report
       # - run:
       #     name: Run Coverage Report
@@ -55,7 +55,7 @@ jobs:
       # Build project
       - run:
           name: Building
-          command: npm run build
+          command: yarn build
       # Cache the dist folder for the deploy job
       - save_cache:
           key: v1-project-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}

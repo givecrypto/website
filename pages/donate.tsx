@@ -5,6 +5,7 @@ import DonateButton from "../components/DonateButton";
 import Faq from "../components/Faq";
 import HeadMeta from "../components/HeadMeta";
 import Wrapper from "../components/Wrapper";
+import CoinbaseDisclaimer from "../components/CoinbaseDisclaimer";
 import seo from "../content/donate/seo";
 import { breakpoints, colors } from "../design-system";
 import BitcoinCashIcon from "../svgs/crypto/bch.svg";
@@ -106,6 +107,7 @@ export default class App extends React.Component<{}, AppState> {
               <DonateButton type="zcash" theme="ghost" />
             </div>
           </ButtonGroup>
+          <CoinbaseDisclaimer />
           <IconContainer className="responsive">
             <HappyIcon />
           </IconContainer>
