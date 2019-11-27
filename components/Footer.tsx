@@ -5,6 +5,7 @@ import Share from "../components/Share";
 import { breakpoints } from "../design-system";
 import Logo from "../svgs/GiveCrypto.svg";
 import { Step } from "../utils/Scale";
+import Copyright from "./Copyright";
 
 const Legal = glamorous.p({
   margin: 0,
@@ -34,7 +35,9 @@ const Footer: React.SFC = () => (
         </Link>
       </Div>
       <Div className="o-30 order-2 order-1-ns">
-        <Legal>&copy; 2018 GiveCrypto. All rights reserved.</Legal>
+        <Legal>
+          <Copyright />
+        </Legal>
       </Div>
       <Div className="order-1 order-2-ns tc">
         <Share />
