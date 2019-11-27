@@ -7,6 +7,7 @@ import RippleIcon from "../svgs/crypto/xrp.svg";
 import Logo from "../svgs/logotype.svg";
 import delay from "../utils/delay";
 import { Step } from "../utils/Scale";
+import Copyright from "./Copyright";
 const address = process.env.RIPPLE_WALLET_ID;
 
 const Container = glamorous.div({
@@ -147,7 +148,9 @@ export default class RippleModal extends React.Component<{}, any> {
           </div>
           <div className="flex flex-wrap justify-between items-center w-100 mt5">
             <Logo />
-            <Subtitle>&copy; 2018 GiveCrypto. All rights reserved.</Subtitle>
+            <Subtitle>
+              <Copyright />
+            </Subtitle>
           </div>
         </InnerContainer>
       </Container>
