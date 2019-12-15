@@ -11,6 +11,7 @@ import { breakpoints, colors } from "../design-system";
 import DonorsIcon from "../svgs/givecrypto-scene-04.svg";
 import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
+import Analytics from "../components/Analytics";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -95,7 +96,7 @@ export default class App extends React.Component {
 
   public render() {
     return (
-      <>
+      <Analytics>
         <Head>
           <title key="head-title">{seo.title}</title>
         </Head>
@@ -116,7 +117,7 @@ export default class App extends React.Component {
         <Wrapper className="ph3 ph0-l">
           <DonateHero />
         </Wrapper>
-      </>
+      </Analytics>
     );
   }
 }

@@ -19,6 +19,7 @@ import seo from "../content/home/seo";
 import { breakpoints, colors } from "../design-system";
 import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
+import Analytics from "../components/Analytics";
 
 const { div } = glamorous;
 
@@ -67,7 +68,7 @@ export default class App extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <>
+      <Analytics>
         <Head>
           <title key="head-title">{seo.title}</title>
         </Head>
@@ -119,7 +120,7 @@ export default class App extends React.Component<{}, {}> {
             <DonateHero />
           </Wrapper>
         </Container>
-      </>
+      </Analytics>
     );
   }
 }

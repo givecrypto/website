@@ -11,6 +11,7 @@ import HappyIcon from "../svgs/givecrypto-scene-03.svg";
 import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
 import ambassadorsFaq from "../content/faq/ambassadors-faq";
+import Analytics from "../components/Analytics";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -42,7 +43,7 @@ export default class App extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <>
+      <Analytics>
         <Head>
           <title key="head-title">{seo.title}</title>
         </Head>
@@ -67,7 +68,7 @@ export default class App extends React.Component<{}, {}> {
         >
           <Faq list={ambassadorsFaq} theme="light" />
         </Wrapper>
-      </>
+      </Analytics>
     );
   }
 }

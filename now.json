@@ -10,6 +10,7 @@
   "build": {
     "env": {
       "COMMERCE_ID_DEFAULT": "@commerce_id_default",
+      "GOOGLE_PROPERTY_ID": "@google_property_id",
       "COMMERCE_ID_ANONYMOUS": "@commerce_id_anonymous",
       "KLAVIYO_API_KEY": "@klaviyo_api_key",
       "RIPPLE_WALLET_ID": "@ripple_wallet_id",
