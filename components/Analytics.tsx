@@ -3,23 +3,29 @@ import ReactGA from "react-ga";
 const { GOOGLE_PROPERTY_ID } = process.env;
 
 export const initGA = () => {
-  ReactGA.initialize(GOOGLE_PROPERTY_ID);
+  if (GOOGLE_PROPERTY_ID) {
+    ReactGA.initialize(GOOGLE_PROPERTY_ID);
+  }
 };
 
 export const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
+  if (GOOGLE_PROPERTY_ID) {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }
 };
 
 class Analytics extends React.Component {
   public componentDidMount() {
-    // @ts-ignore
-    if (!window.GA_INITIALIZED) {
-      initGA();
+    if (GOOGLE_PROPERTY_ID) {
       // @ts-ignore
-      window.GA_INITIALIZED = true;
+      if (!window.GA_INITIALIZED) {
+        initGA();
+        // @ts-ignore
+        window.GA_INITIALIZED = true;
+      }
+      logPageView();
     }
-    logPageView();
   }
 
   public render() {
