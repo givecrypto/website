@@ -1,8 +1,9 @@
 import * as React from "react";
 import ReactGA from "react-ga";
+const { GOOGLE_PROPERTY_ID } = process.env;
 
 export const initGA = () => {
-  ReactGA.initialize("UA-136549352-1");
+  ReactGA.initialize(GOOGLE_PROPERTY_ID);
 };
 
 export const logPageView = () => {
