@@ -18,6 +18,7 @@ import HappyIcon from "../svgs/givecrypto-scene-03.svg";
 import "../utils/rehydrate";
 import faqs from "../content/faq/donation-faq";
 import { Step } from "../utils/Scale";
+import Analytics from "../components/Analytics";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -71,7 +72,7 @@ export default class App extends React.Component<{}, AppState> {
     const { message } = this.state;
 
     return (
-      <>
+      <Analytics>
         <Head>
           <title key="head-title">{seo.title}</title>
         </Head>
@@ -123,7 +124,7 @@ export default class App extends React.Component<{}, AppState> {
             title="Understand more about your donation"
           />
         </Wrapper>
-      </>
+      </Analytics>
     );
   }
 }

@@ -5,6 +5,7 @@ import Wrapper from "../components/Wrapper";
 import { colors } from "../design-system";
 import { Step } from "../utils/Scale";
 import { setCookie } from "../utils/session";
+import Analytics from "../components/Analytics";
 
 const Container = glamorous.div({});
 const Input = glamorous.input({
@@ -49,17 +50,19 @@ export default class Authenticate extends React.Component<any, any> {
 
   public render() {
     return (
-      <Wrapper>
-        <Container className="vh-75 dt w-100 tc center">
-          <div className="v-mid dtc">
-            <Input
-              type="password"
-              placeholder="What's the password?"
-              onChange={this.handleChange}
-            />
-          </div>
-        </Container>
-      </Wrapper>
+      <Analytics>
+        <Wrapper>
+          <Container className="vh-75 dt w-100 tc center">
+            <div className="v-mid dtc">
+              <Input
+                type="password"
+                placeholder="What's the password?"
+                onChange={this.handleChange}
+              />
+            </div>
+          </Container>
+        </Wrapper>
+      </Analytics>
     );
   }
 }
