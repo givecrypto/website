@@ -7,6 +7,7 @@ import { breakpoints, colors } from "../design-system";
 import { Step } from "../utils/Scale";
 import SetupCoinbaseCommerce from "../utils/SetupCoinbaseCommerce";
 import PaymentModal from "./PaymentModal";
+import ReactGA from "react-ga";
 
 export interface DonateProps {
   type?: string;
@@ -114,13 +115,25 @@ export default class Donate extends React.Component<DonateProps, any> {
   public componentDidMount() {
     const { uuid } = this.state;
     const { type = "default" } = this.props;
+
     if (type !== "ripple") {
       SetupCoinbaseCommerce(window, document, uuid, type);
     }
   }
 
+  public trackOpen = (action: string) => {
+    ReactGA.event({
+      action,
+      category: "Donate",
+      label: "Open the Donate Modal",
+    });
+  };
+
   public onOpenModal = () => {
+    const { type = "default" } = this.props;
+
     this.setState({ paymentModalState: true });
+    this.trackOpen(type);
   };
 
   public onCloseModal = () => {
@@ -182,7 +195,7 @@ export default class Donate extends React.Component<DonateProps, any> {
       );
     }
     return (
-      <>
+      <div onClick={() => this.trackOpen("Coinbase Commerce")}>
         <Link
           id={`button-${type}`}
           className={`donate-with-crypto theme-${theme}`}
@@ -192,7 +205,7 @@ export default class Donate extends React.Component<DonateProps, any> {
         >
           <span>{children || buttonText()}</span>
         </Link>
-      </>
+      </div>
     );
   }
 }
