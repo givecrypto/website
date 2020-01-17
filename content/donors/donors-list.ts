@@ -47,6 +47,14 @@ export const donors: DonorSegment = {
     },
   ],
 
+  "$250k+": [
+    {
+      name: "Ben Delo",
+      role: "Co-founder, BitMEX",
+      filename: "ben-delo",
+    },
+  ],
+
   "$100k+": [
     {
       name: "Brad Garlinghouse",
