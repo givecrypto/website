@@ -12,7 +12,6 @@ import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
 import Analytics from "../components/Analytics";
 import Legal from "../content/terms/legal.mdx";
-import { resetNextUuid } from "react-accessible-accordion";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -43,9 +42,6 @@ export default class App extends React.Component<{}, {}> {
   }
 
   public render() {
-    // Reset uuid
-    resetNextUuid();
-
     return (
       <Analytics>
         <Head>
