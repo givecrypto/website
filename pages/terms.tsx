@@ -1,21 +1,22 @@
-import * as React from "react";
 import glamorous from "glamorous";
 import Head from "next/head";
-import Analytics from "../components/Analytics";
-import seo from "../content/donors/seo";
-import Wrapper from "../components/Wrapper";
-import { Step } from "../utils/Scale";
+import * as React from "react";
 import HeadMeta from "../components/HeadMeta";
+import Wrapper from "../components/Wrapper";
+import seo from "../content/terms/seo";
+import hero from "../content/terms/hero";
 import { breakpoints, colors } from "../design-system";
-import DonorsIcon from "../svgs/givecrypto-scene-04.svg";
+import HappyIcon from "../svgs/givecrypto-scene-03.svg";
+import "../utils/rehydrate";
+import { Step } from "../utils/Scale";
+import Analytics from "../components/Analytics";
 import Legal from "../content/terms/legal.mdx";
+import { resetNextUuid } from "react-accessible-accordion";
 
 const Title = glamorous.h2({
   color: colors.black,
   fontSize: Step(5.35),
-  padding: `0 ${Step(5)}`,
   [breakpoints.ns]: {
-    padding: 0,
     fontSize: Step(6),
   },
 });
@@ -25,32 +26,52 @@ const IconContainer = glamorous.div({
   margin: `${Step(5)} auto`,
 });
 
-const Terms = () => {
-  return (
-    <Analytics>
-      <Head>
-        <title key="head-title">{seo.title}</title>
-      </Head>
-      <HeadMeta
-        path="/donors"
-        title={seo.title}
-        description={seo.description}
-      />
-      <Wrapper className="center tc ph3 ph0-l">
-        <Title>
-          GiveCrypto's Sanctions
-          <br />
-          Compliance Program
-        </Title>
-        <IconContainer className="responsive">
-          <DonorsIcon />
-        </IconContainer>
-        <Wrapper className="tl ph3-m ph4-l mt3 mt6-l">
+const Subtitle = glamorous.h1({
+  paddingBottom: Step(5),
+  color: colors.grey,
+  fontWeight: 500,
+  fontSize: Step(4.5),
+  [breakpoints.ns]: {
+    fontSize: Step(5),
+  },
+});
+
+export default class App extends React.Component<{}, {}> {
+  public componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  public render() {
+    // Reset uuid
+    resetNextUuid();
+
+    return (
+      <Analytics>
+        <Head>
+          <title key="head-title">{seo.title}</title>
+        </Head>
+        <HeadMeta
+          path="/donors"
+          title={seo.title}
+          description={seo.description}
+        />
+        <Wrapper className="center tc ph3 ph0-l">
+          <Title className="ph0 ph6-l">{hero.title}</Title>
+          <Subtitle className="measure-narrow center lh-copy">
+            {hero.subtitle}
+          </Subtitle>
+          <IconContainer className="responsive">
+            <HappyIcon />
+          </IconContainer>
+        </Wrapper>
+        <Wrapper
+          className="ph3 ph0-l"
+          background={colors.white}
+          padding={"4rem 0"}
+        >
           <Legal />
         </Wrapper>
-      </Wrapper>
-    </Analytics>
-  );
-};
-
-export default Terms;
+      </Analytics>
+    );
+  }
+}

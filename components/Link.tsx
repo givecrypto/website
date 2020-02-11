@@ -1,6 +1,6 @@
 import * as React from "react";
 import glamorous from "glamorous";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import NextLink from "../components/NextLink";
 import { colors } from "../design-system";
 
@@ -12,9 +12,11 @@ interface LinkProps {
 }
 
 const onClickHandler = (href: string) => {
+  const router = useRouter();
+
   return e => {
     e.preventDefault();
-    Router.push(href).then(() => window.scrollTo(0, 0));
+    router.push(href).then(() => window.scrollTo(0, 0));
   };
 };
 
