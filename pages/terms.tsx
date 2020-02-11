@@ -1,5 +1,4 @@
 import * as React from "react";
-import ReactMarkdown from "react-markdown";
 import glamorous from "glamorous";
 import Head from "next/head";
 import Analytics from "../components/Analytics";
@@ -8,9 +7,8 @@ import Wrapper from "../components/Wrapper";
 import { Step } from "../utils/Scale";
 import HeadMeta from "../components/HeadMeta";
 import { breakpoints, colors } from "../design-system";
-import DonateHero from "../components/DonateHero";
-import legal from "../content/terms/legal";
 import DonorsIcon from "../svgs/givecrypto-scene-04.svg";
+import Legal from "../content/terms/legal.mdx";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -48,7 +46,7 @@ const Terms = () => {
           <DonorsIcon />
         </IconContainer>
         <Wrapper className="tl ph3-m ph4-l mt3 mt6-l">
-          <ReactMarkdown source={legal} />
+          <Legal />
         </Wrapper>
       </Wrapper>
     </Analytics>
