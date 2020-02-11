@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as React from "react";
 import HeadMeta from "../components/HeadMeta";
 import Wrapper from "../components/Wrapper";
+import DonateHero from "../components/DonateHero";
 import seo from "../content/terms/seo";
 import hero from "../content/terms/hero";
 import { breakpoints, colors } from "../design-system";
@@ -70,6 +71,9 @@ export default class App extends React.Component<{}, {}> {
           padding={"4rem 0"}
         >
           <Legal />
+        </Wrapper>
+        <Wrapper className="ph3 ph0-l">
+          <DonateHero />
         </Wrapper>
       </Analytics>
     );

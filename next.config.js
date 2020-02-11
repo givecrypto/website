@@ -19,5 +19,8 @@ const BundleAnalyzerOptions = {
 };
 
 module.exports = withMDX(
-  withCSS(withTypescript(withBundleAnalyzer(BundleAnalyzerOptions))),
+  withCSS({
+    distDir: "_next",
+    ...withTypescript(withBundleAnalyzer(BundleAnalyzerOptions)),
+  }),
 );
