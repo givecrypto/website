@@ -3,10 +3,10 @@ import { renderStatic } from "glamor/server";
 import { Body, Section } from "glamorous";
 import Document, { Head, Main, NextScript } from "next/document";
 import ErrorBoundary from "../components/ErrorBoundary";
-import Footer from "../components/Footer";
 
 // Force style update on the server
 import "../utils/setupFonts";
+import "../styles/index.css";
 
 const data = {
   "@context": "http://schema.org",
@@ -48,7 +48,7 @@ export default class GiveCryptoDocument extends Document {
         <Head>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
-          {/* <link rel="stylesheet" href="/_next/static/style.css" /> */}
+          <link rel="stylesheet" href="/_next/static/style.css" />
           <GoogleMeta data={data} />
         </Head>
         <ErrorBoundary>
@@ -62,7 +62,6 @@ export default class GiveCryptoDocument extends Document {
               <Main />
             </Section>
             <NextScript />
-            <Footer />
           </Body>
         </ErrorBoundary>
       </html>

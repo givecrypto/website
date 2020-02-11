@@ -6,6 +6,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
+    "@mdx-js/loader": "^1.5.5",
+    "@next/mdx": "^9.2.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-typescript": "1.1.1",
     "base-64": "^0.1.0",
@@ -86,7 +88,7 @@
     "dev": "npm run css && next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "now --dotenv=.env && now alias staging.givecrypto.org",
+    "deploy": "now && now alias staging.givecrypto.org",
     "deploy:prod": "now --target production",
     "analyze": "BUNDLE_ANALYZE=both npm run build",
     "test": "NODE_ENV=test jest",

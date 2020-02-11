@@ -8,6 +8,7 @@ import { Step } from "../utils/Scale";
 import Copyright from "./Copyright";
 
 const Legal = glamorous.p({
+  display: "flex",
   margin: 0,
   padding: 0,
   fontWeight: 400,
@@ -37,6 +38,8 @@ const Footer: React.SFC = () => (
       <Div className="o-30 order-2 order-1-ns">
         <Legal>
           <Copyright />
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <Link href="/terms">Terms</Link>
         </Legal>
       </Div>
       <Div className="order-1 order-2-ns tc">
