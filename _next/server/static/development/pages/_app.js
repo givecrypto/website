@@ -2732,6 +2732,7 @@ module.exports = /******/ (function(modules) {
           white: "#ffffff",
           yellow: "#fbd281",
           yellowLight: "#fbe2bb",
+          coldWater: "#064E72",
         };
         /* harmony default export */ __webpack_exports__["default"] = colors;
 

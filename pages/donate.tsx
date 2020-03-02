@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import glamorous from "glamorous";
 import Head from "next/head";
 import * as React from "react";
 import DonateButton from "../components/DonateButton";
@@ -20,7 +20,7 @@ import faqs from "../content/faq/donation-faq";
 import { Step } from "../utils/Scale";
 import Analytics from "../components/Analytics";
 
-const Title = styled.h2({
+const Title = glamorous.h2({
   color: colors.black,
   fontSize: Step(5.35),
   [breakpoints.ns]: {
@@ -28,7 +28,7 @@ const Title = styled.h2({
   },
 });
 
-const Meta = styled.h2({
+const Meta = glamorous.h2({
   textTransform: "uppercase",
   marginBottom: Step(5),
   fontSize: Step(3.5),
@@ -36,12 +36,12 @@ const Meta = styled.h2({
   fontWeight: 800,
 });
 
-const IconContainer = styled.div({
+const IconContainer = glamorous.div({
   maxWidth: 450,
   margin: `${Step(5)} auto`,
 });
 
-const Subtitle = styled.h1({
+const Subtitle = glamorous.h1({
   paddingBottom: Step(5),
   color: colors.grey,
   fontWeight: 500,
@@ -51,7 +51,7 @@ const Subtitle = styled.h1({
   },
 });
 
-const ButtonGroup = styled.div({
+const ButtonGroup = glamorous.div({
   maxWidth: 400,
 });
 

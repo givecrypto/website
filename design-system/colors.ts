@@ -13,6 +13,7 @@ interface Colors {
   white: string;
   yellow: string;
   yellowLight: string;
+  coldWater: string;
 }
 
 export const colors: Colors = {
@@ -30,6 +31,7 @@ export const colors: Colors = {
   white: "#ffffff",
   yellow: "#fbd281",
   yellowLight: "#fbe2bb",
+  coldWater: "#064E72",
 };
 
 export default colors;
