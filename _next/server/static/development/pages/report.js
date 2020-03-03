@@ -571,17 +571,40 @@ module.exports = /******/ (function(modules) {
         /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
           react__WEBPACK_IMPORTED_MODULE_0__,
         );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react-vis */ "react-vis",
+        );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react_vis__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+        /* harmony import */ var _utils_useMeasure__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! ../../../utils/useMeasure */ "./utils/useMeasure.ts",
+        );
         var _jsxFileName =
           "/Users/jklb/dev/givecrypto/website/components/Metrics/Age/index.tsx";
 
-        var Age = function Age(props) {
-          console.log(props);
+        var Age = function Age() {
+          var ref = react__WEBPACK_IMPORTED_MODULE_0__["useRef"]();
+
+          var _useMeasure = Object(
+              _utils_useMeasure__WEBPACK_IMPORTED_MODULE_4__["default"],
+            )(ref),
+            width = _useMeasure.width;
+
+          console.log(width);
           return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
             "div",
             {
+              ref: ref,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 9,
+                lineNumber: 21,
               },
               __self: this,
             },
@@ -590,11 +613,89 @@ module.exports = /******/ (function(modules) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 10,
+                  lineNumber: 22,
                 },
                 __self: this,
               },
               "Age Metrics",
+            ),
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+              react_vis__WEBPACK_IMPORTED_MODULE_1__["XYPlot"],
+              {
+                yType: "ordinal",
+                height: 275,
+                width: width - 100,
+                xDistance: 100,
+                style: {
+                  overflow: "visible",
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 23,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["VerticalGridLines"],
+                {
+                  animation: {
+                    damping: 15,
+                    stiffness: 110,
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 32,
+                  },
+                  __self: this,
+                },
+              ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["XAxis"],
+                {
+                  animation: {
+                    damping: 14,
+                    stiffness: 100,
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 33,
+                  },
+                  __self: this,
+                },
+              ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["YAxis"],
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 34,
+                  },
+                  __self: this,
+                },
+              ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["HorizontalBarSeries"],
+                {
+                  animation: {
+                    damping: 14,
+                    stiffness: 100,
+                  },
+                  barWidth: 0.6,
+                  data:
+                    _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_3__[
+                      "age"
+                    ],
+                  style: {},
+                  color:
+                    _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"]
+                      .yellow,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 35,
+                  },
+                  __self: this,
+                },
+              ),
             ),
           );
         };
@@ -665,17 +766,35 @@ module.exports = /******/ (function(modules) {
         /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
           react__WEBPACK_IMPORTED_MODULE_0__,
         );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react-vis */ "react-vis",
+        );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react_vis__WEBPACK_IMPORTED_MODULE_1__,
+        );
         var _jsxFileName =
           "/Users/jklb/dev/givecrypto/website/components/Metrics/Gender/index.tsx";
 
         var Gender = function Gender(props) {
-          console.log(props);
+          // Let there be props
+          console.log("props", props);
+          var data = [
+            {
+              angle: 1,
+            },
+            {
+              angle: 5,
+            },
+            {
+              angle: 2,
+            },
+          ];
           return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
             "div",
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 9,
+                lineNumber: 13,
               },
               __self: this,
             },
@@ -684,11 +803,26 @@ module.exports = /******/ (function(modules) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 10,
+                  lineNumber: 14,
                 },
                 __self: this,
               },
               "Gender Metrics",
+            ),
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+              react_vis__WEBPACK_IMPORTED_MODULE_1__["RadialChart"],
+              {
+                innerRadius: 90,
+                radius: 120,
+                data: data,
+                width: 300,
+                height: 300,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 15,
+                },
+                __self: this,
+              },
             ),
           );
         };
@@ -918,6 +1052,55 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./content/ambassadors-report/metrics.ts":
+      /*!***********************************************!*\
+  !*** ./content/ambassadors-report/metrics.ts ***!
+  \***********************************************/
+      /*! exports provided: age */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "age",
+          function() {
+            return age;
+          },
+        );
+        var age = [
+          {
+            x: 38,
+            y: "75+",
+          },
+          {
+            x: 61,
+            y: "65-74",
+          },
+          {
+            x: 146,
+            y: "55-64",
+          },
+          {
+            x: 212,
+            y: "45-54",
+          },
+          {
+            x: 233,
+            y: "35-44",
+          },
+          {
+            x: 184,
+            y: "25-34",
+          },
+          {
+            x: 110,
+            y: "18-24",
+          },
+        ];
+
+        /***/
+      },
+
     /***/ "./content/ambassadors-report/seo.ts":
       /*!*******************************************!*\
   !*** ./content/ambassadors-report/seo.ts ***!
@@ -1076,6 +1259,32 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
+      /*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js ***!
+  \***********************************************************************/
+      /*! no static exports found */
+      /***/ function(module, exports, __webpack_require__) {
+        module.exports = __webpack_require__(
+          /*! core-js/library/fn/array/is-array */ "core-js/library/fn/array/is-array",
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js":
+      /*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js ***!
+  \*********************************************************************/
+      /*! no static exports found */
+      /***/ function(module, exports, __webpack_require__) {
+        module.exports = __webpack_require__(
+          /*! core-js/library/fn/get-iterator */ "core-js/library/fn/get-iterator",
+        );
+
+        /***/
+      },
+
     /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
       /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
@@ -1202,6 +1411,38 @@ module.exports = /******/ (function(modules) {
         module.exports = __webpack_require__(
           /*! core-js/library/fn/symbol/iterator */ "core-js/library/fn/symbol/iterator",
         );
+
+        /***/
+      },
+
+    /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js":
+      /*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "default",
+          function() {
+            return _arrayWithHoles;
+          },
+        );
+        /* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! ../../core-js/array/is-array */ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js",
+        );
+        /* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+          _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__,
+        );
+
+        function _arrayWithHoles(arr) {
+          if (
+            _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)
+          )
+            return arr;
+        }
 
         /***/
       },
@@ -1490,6 +1731,88 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js":
+      /*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "default",
+          function() {
+            return _iterableToArrayLimit;
+          },
+        );
+        /* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! ../../core-js/get-iterator */ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js",
+        );
+        /* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+          _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__,
+        );
+
+        function _iterableToArrayLimit(arr, i) {
+          var _arr = [];
+          var _n = true;
+          var _d = false;
+          var _e = undefined;
+
+          try {
+            for (
+              var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(
+                  arr,
+                ),
+                _s;
+              !(_n = (_s = _i.next()).done);
+              _n = true
+            ) {
+              _arr.push(_s.value);
+
+              if (i && _arr.length === i) break;
+            }
+          } catch (err) {
+            _d = true;
+            _e = err;
+          } finally {
+            try {
+              if (!_n && _i["return"] != null) _i["return"]();
+            } finally {
+              if (_d) throw _e;
+            }
+          }
+
+          return _arr;
+        }
+
+        /***/
+      },
+
+    /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js":
+      /*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "default",
+          function() {
+            return _nonIterableRest;
+          },
+        );
+        function _nonIterableRest() {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance",
+          );
+        }
+
+        /***/
+      },
+
     /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js":
       /*!*************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js ***!
@@ -1736,6 +2059,46 @@ module.exports = /******/ (function(modules) {
             };
 
           return _setPrototypeOf(o, p);
+        }
+
+        /***/
+      },
+
+    /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
+      /*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "default",
+          function() {
+            return _slicedToArray;
+          },
+        );
+        /* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! ./arrayWithHoles */ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js",
+        );
+        /* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js",
+        );
+        /* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! ./nonIterableRest */ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js",
+        );
+
+        function _slicedToArray(arr, i) {
+          return (
+            Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(
+              arr,
+            ) ||
+            Object(
+              _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"],
+            )(arr, i) ||
+            Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])()
+          );
         }
 
         /***/
@@ -2242,6 +2605,95 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./utils/useMeasure.ts":
+      /*!*****************************!*\
+  !*** ./utils/useMeasure.ts ***!
+  \*****************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "default",
+          function() {
+            return useMeasure;
+          },
+        );
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! resize-observer-polyfill */ "resize-observer-polyfill",
+        );
+        /* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_2__,
+        );
+
+        function useMeasure(ref) {
+          var _useState = Object(
+              react__WEBPACK_IMPORTED_MODULE_1__["useState"],
+            )(
+              // DOMRectReadOnly.fromRect()
+              {
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0,
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+              },
+            ),
+            _useState2 = Object(
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )(_useState, 2),
+            bounds = _useState2[0],
+            setContentRect = _useState2[1];
+
+          Object(react__WEBPACK_IMPORTED_MODULE_1__["useLayoutEffect"])(
+            function() {
+              var animationFrameId = NaN;
+
+              var measure = function measure(_ref) {
+                var _ref2 = Object(
+                    _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[
+                      "default"
+                    ],
+                  )(_ref, 1),
+                  entry = _ref2[0];
+
+                animationFrameId = window.requestAnimationFrame(function() {
+                  setContentRect(entry.contentRect);
+                });
+              };
+
+              var ro = new resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_2___default.a(
+                measure,
+              );
+              ro.observe(ref.current);
+              return function() {
+                window.cancelAnimationFrame(animationFrameId);
+                ro.disconnect();
+              };
+            },
+            [],
+          );
+          return bounds;
+        }
+
+        /***/
+      },
+
     /***/ 3:
       /*!********************************!*\
   !*** multi ./pages/report.tsx ***!
@@ -2262,6 +2714,28 @@ module.exports = /******/ (function(modules) {
       /*! no static exports found */
       /***/ function(module, exports) {
         module.exports = require("@emotion/styled");
+
+        /***/
+      },
+
+    /***/ "core-js/library/fn/array/is-array":
+      /*!****************************************************!*\
+  !*** external "core-js/library/fn/array/is-array" ***!
+  \****************************************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("core-js/library/fn/array/is-array");
+
+        /***/
+      },
+
+    /***/ "core-js/library/fn/get-iterator":
+      /*!**************************************************!*\
+  !*** external "core-js/library/fn/get-iterator" ***!
+  \**************************************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("core-js/library/fn/get-iterator");
 
         /***/
       },
@@ -2438,6 +2912,28 @@ module.exports = /******/ (function(modules) {
       /*! no static exports found */
       /***/ function(module, exports) {
         module.exports = require("react-ga");
+
+        /***/
+      },
+
+    /***/ "react-vis":
+      /*!****************************!*\
+  !*** external "react-vis" ***!
+  \****************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("react-vis");
+
+        /***/
+      },
+
+    /***/ "resize-observer-polyfill":
+      /*!*******************************************!*\
+  !*** external "resize-observer-polyfill" ***!
+  \*******************************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("resize-observer-polyfill");
 
         /***/
       },

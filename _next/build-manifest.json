@@ -8,7 +8,6 @@
       "static/runtime/main.js"
     ],
     "/_error": ["static/runtime/webpack.js", "static/runtime/main.js"],
-    "/donors": ["static/runtime/webpack.js", "static/runtime/main.js"],
     "/report": ["static/runtime/webpack.js", "static/runtime/main.js"]
   }
 }
