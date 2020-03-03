@@ -557,6 +557,206 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./components/List.tsx":
+      /*!*****************************!*\
+  !*** ./components/List.tsx ***!
+  \*****************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_0__,
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! ../design-system */ "./design-system/index.ts",
+        );
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/List.tsx";
+
+        var Swatch = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div(
+          function(props) {
+            return {
+              width: 15,
+              height: 15,
+              margin: 0,
+              padding: 0,
+              borderRadius: 4,
+              backgroundColor: props.color,
+            };
+          },
+        );
+        var ListItemContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div(
+          {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderBottom: "1px solid ".concat(
+              _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"]
+                .greyLightest,
+            ),
+          },
+        );
+        var Left = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div({
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          "& p": {
+            marginLeft: 10,
+          },
+        });
+        var Right = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div({
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          minWidth: "40%",
+          "& p": {
+            marginLeft: 30,
+            minWidth: 45,
+          },
+          "&:last-child": {
+            textAlign: "right",
+          },
+        });
+
+        var ListItem = function ListItem(_ref) {
+          var item = _ref.item;
+          return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+            ListItemContainer,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 58,
+              },
+              __self: this,
+            },
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+              Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 59,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Swatch, {
+                theme: null,
+                color: item.color,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 60,
+                },
+                __self: this,
+              }),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 61,
+                  },
+                  __self: this,
+                },
+                item.category,
+              ),
+            ),
+            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+              Right,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 63,
+                },
+                __self: this,
+              },
+              item.highlight &&
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                  "p",
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 64,
+                    },
+                    __self: this,
+                  },
+                  "heiiiii",
+                ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 65,
+                  },
+                  __self: this,
+                },
+                item.label,
+              ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 66,
+                  },
+                  __self: this,
+                },
+                item.value,
+              ),
+            ),
+          );
+        };
+
+        var ListContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.section(
+          {
+            display: "flex",
+            flexDirection: "column",
+          },
+        );
+
+        var List = function List(_ref2) {
+          var items = _ref2.items;
+          return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+            ListContainer,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 82,
+              },
+              __self: this,
+            },
+            items.map(function(item) {
+              return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                ListItem,
+                {
+                  item: item,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 84,
+                  },
+                  __self: this,
+                },
+              );
+            }),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = List;
+
+        /***/
+      },
+
     /***/ "./components/Metrics/Age/index.tsx":
       /*!******************************************!*\
   !*** ./components/Metrics/Age/index.tsx ***!
@@ -638,10 +838,6 @@ module.exports = /******/ (function(modules) {
               react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
                 react_vis__WEBPACK_IMPORTED_MODULE_1__["VerticalGridLines"],
                 {
-                  animation: {
-                    damping: 15,
-                    stiffness: 110,
-                  },
                   __source: {
                     fileName: _jsxFileName,
                     lineNumber: 32,
@@ -652,10 +848,6 @@ module.exports = /******/ (function(modules) {
               react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
                 react_vis__WEBPACK_IMPORTED_MODULE_1__["XAxis"],
                 {
-                  animation: {
-                    damping: 14,
-                    stiffness: 100,
-                  },
                   __source: {
                     fileName: _jsxFileName,
                     lineNumber: 33,
@@ -760,69 +952,164 @@ module.exports = /******/ (function(modules) {
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
           /*! react */ "react",
         );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
-          react__WEBPACK_IMPORTED_MODULE_0__,
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
         );
-        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           /*! react-vis */ "react-vis",
         );
-        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
-          react_vis__WEBPACK_IMPORTED_MODULE_1__,
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          react_vis__WEBPACK_IMPORTED_MODULE_2__,
         );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! lodash */ "lodash",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
+          lodash__WEBPACK_IMPORTED_MODULE_4__,
+        );
+        /* harmony import */ var _components_Tip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! ../../../components/Tip */ "./components/Tip.tsx",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+
         var _jsxFileName =
           "/Users/jklb/dev/givecrypto/website/components/Metrics/Gender/index.tsx";
 
-        var Gender = function Gender(props) {
-          // Let there be props
-          console.log("props", props);
-          var data = [
-            {
-              angle: 1,
-            },
-            {
-              angle: 5,
-            },
-            {
-              angle: 2,
-            },
-          ];
-          return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+        var Gender = function Gender() {
+          var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](
+              {},
+            ),
+            _React$useState2 = Object(
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )(_React$useState, 2),
+            value = _React$useState2[0],
+            setValue = _React$useState2[1];
+
+          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
             "div",
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 13,
+                lineNumber: 16,
               },
               __self: this,
             },
-            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
               "p",
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 14,
+                  lineNumber: 17,
                 },
                 __self: this,
               },
               "Gender Metrics",
             ),
-            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-              react_vis__WEBPACK_IMPORTED_MODULE_1__["RadialChart"],
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              react_vis__WEBPACK_IMPORTED_MODULE_2__["RadialChart"],
               {
+                colorRange: [
+                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].black,
+                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].blue,
+                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].green,
+                ],
                 innerRadius: 90,
                 radius: 120,
-                data: data,
+                data:
+                  _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                    "gender"
+                  ],
                 width: 300,
                 height: 300,
+                showLabels: true,
+                labelsStyle: {
+                  fill:
+                    _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"]
+                      .coldWater,
+                },
+                onValueMouseOver: function onValueMouseOver(v) {
+                  setValue({
+                    data: v,
+                    title: _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                      "gender"
+                    ].find(function(item) {
+                      return item.label === v.label;
+                    }).label,
+                    metrics: [
+                      {
+                        label: "Total",
+                        value: Math.floor(
+                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                            "totalParticipants"
+                          ] *
+                            (_content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                              "gender"
+                            ].find(function(item) {
+                              return item.label === v.label;
+                            }).angle *
+                              0.01),
+                        ),
+                      },
+                      {
+                        label: "Percentage",
+                        value: "".concat(
+                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                            "gender"
+                          ].find(function(item) {
+                            return item.label === v.label;
+                          }).angle,
+                          "%",
+                        ),
+                      },
+                    ],
+                  });
+                },
+                onSeriesMouseOut: function onSeriesMouseOut() {
+                  return setValue({});
+                },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 15,
+                  lineNumber: 18,
                 },
                 __self: this,
               },
+              !Object(lodash__WEBPACK_IMPORTED_MODULE_4__["isEmpty"])(value) &&
+                react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                  react_vis__WEBPACK_IMPORTED_MODULE_2__["Hint"],
+                  {
+                    value: value.data,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 51,
+                    },
+                    __self: this,
+                  },
+                  react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                    _components_Tip__WEBPACK_IMPORTED_MODULE_5__["default"],
+                    {
+                      title: value.title,
+                      metrics: value.metrics,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 52,
+                      },
+                      __self: this,
+                    },
+                  ),
+                ),
             ),
           );
         };
@@ -840,41 +1127,349 @@ module.exports = /******/ (function(modules) {
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! chroma-js */ "chroma-js",
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          chroma_js__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! react-vis */ "react-vis",
+        );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+          react_vis__WEBPACK_IMPORTED_MODULE_3__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! lodash */ "lodash",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/ __webpack_require__.n(
+          lodash__WEBPACK_IMPORTED_MODULE_5__,
+        );
+        /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+          /*! ../../../components/List */ "./components/List.tsx",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+        /* harmony import */ var _components_Tip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+          /*! ../../../components/Tip */ "./components/Tip.tsx",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/Income/index.tsx";
+
+        // Brighten/darken every other item
+
+        var colorRange = _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+          "income"
+        ].map(function(_, i) {
+          return chroma_js__WEBPACK_IMPORTED_MODULE_2___default()(
+            _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].green,
+          )
+            [i % 2 == 0 ? "darken" : "brighten"](0.3 * i)
+            .css();
+        });
+
+        var listItems = function listItems(activeLabel) {
+          return _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+            "income"
+          ].map(function(item, i) {
+            return {
+              id: "".concat(i),
+              highlight: activeLabel === item.label,
+              color: colorRange[i],
+              category: item.label,
+              label: "Another ".concat(item.subLabel),
+              value: item.subLabel,
+            };
+          });
+        };
+
+        var Income = function Income() {
+          var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](
+              {},
+            ),
+            _React$useState2 = Object(
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )(_React$useState, 2),
+            value = _React$useState2[0],
+            setValue = _React$useState2[1];
+
+          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+            "div",
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34,
+              },
+              __self: this,
+            },
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              "p",
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 35,
+                },
+                __self: this,
+              },
+              "Income Metrics",
+            ),
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              "div",
+              {
+                className: "flex flex-wrap",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 36,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                "div",
+                {
+                  className: "w-50",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 37,
+                  },
+                  __self: this,
+                },
+                react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                  react_vis__WEBPACK_IMPORTED_MODULE_3__["RadialChart"],
+                  {
+                    colorRange: colorRange,
+                    data:
+                      _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                        "income"
+                      ],
+                    width: 300,
+                    height: 300,
+                    innerRadius: 90,
+                    radius: 120,
+                    showLabels: true,
+                    labelsStyle: {
+                      fill:
+                        _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"]
+                          .coldWater,
+                    },
+                    onValueMouseOver: function onValueMouseOver(v) {
+                      setValue({
+                        data: v,
+                        title: _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                          "income"
+                        ].find(function(item) {
+                          return item.label === v.label;
+                        }).label,
+                        metrics: [
+                          {
+                            label: "Total",
+                            value: Math.floor(
+                              _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                                "totalParticipants"
+                              ] *
+                                (_content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                                  "income"
+                                ].find(function(item) {
+                                  return item.label === v.label;
+                                }).angle *
+                                  0.01),
+                            ),
+                          },
+                          {
+                            label: "Percentage",
+                            value: "".concat(
+                              _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                                "income"
+                              ].find(function(item) {
+                                return item.label === v.label;
+                              }).angle,
+                              "%",
+                            ),
+                          },
+                        ],
+                      });
+                    },
+                    onSeriesMouseOut: function onSeriesMouseOut(v) {
+                      return setValue({});
+                    },
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 38,
+                    },
+                    __self: this,
+                  },
+                  !Object(lodash__WEBPACK_IMPORTED_MODULE_5__["isEmpty"])(
+                    value,
+                  ) &&
+                    react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                      react_vis__WEBPACK_IMPORTED_MODULE_3__["Hint"],
+                      {
+                        value: value.data,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 74,
+                        },
+                        __self: this,
+                      },
+                      react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                        _components_Tip__WEBPACK_IMPORTED_MODULE_8__["default"],
+                        {
+                          title: value.title,
+                          metrics: value.metrics,
+                          __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 75,
+                          },
+                          __self: this,
+                        },
+                      ),
+                    ),
+                ),
+              ),
+              react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                "div",
+                {
+                  className: "w-50",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 80,
+                  },
+                  __self: this,
+                },
+                react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                  _components_List__WEBPACK_IMPORTED_MODULE_6__["default"],
+                  {
+                    items: listItems(value.title),
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 81,
+                    },
+                    __self: this,
+                  },
+                ),
+              ),
+            ),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = Income;
+
+        /***/
+      },
+
+    /***/ "./components/Tip.tsx":
+      /*!****************************!*\
+  !*** ./components/Tip.tsx ***!
+  \****************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
         /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           /*! react */ "react",
         );
         /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
           react__WEBPACK_IMPORTED_MODULE_0__,
         );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! ../design-system */ "./design-system/index.ts",
+        );
         var _jsxFileName =
-          "/Users/jklb/dev/givecrypto/website/components/Metrics/Income/index.tsx";
+          "/Users/jklb/dev/givecrypto/website/components/Tip.tsx";
 
-        var Income = function Income(props) {
-          console.log(props);
+        var Container = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div(
+          {
+            borderRadius: 8,
+            backgroundColor:
+              _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].black,
+            padding: "1rem 1rem",
+            boxShadow:
+              _design_system__WEBPACK_IMPORTED_MODULE_2__["shadows"].card,
+            opacity: 0.92,
+          },
+        );
+        var Title = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.h2({
+          color: _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].white,
+          fontSize: "1rem",
+          padding: 0,
+          paddingBottom: "0.4rem",
+          margin: 0,
+        });
+        var ListItem = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.h4(
+          {
+            color: _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].white,
+            fontWeight: "normal",
+            fontSize: "0.75rem",
+            opacity: 0.9,
+            padding: 0,
+            paddingTop: "0.25rem",
+            margin: 0,
+          },
+        );
+
+        var Tip = function Tip(props) {
           return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-            "div",
+            Container,
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 9,
+                lineNumber: 39,
               },
               __self: this,
             },
             react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-              "p",
+              Title,
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 10,
+                  lineNumber: 40,
                 },
                 __self: this,
               },
-              "Income Metrics",
+              props.title,
             ),
+            props.metrics.map(function(_ref) {
+              var label = _ref.label,
+                value = _ref.value;
+              return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                ListItem,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 42,
+                  },
+                  __self: this,
+                },
+                label,
+                ": ",
+                value,
+              );
+            }),
           );
         };
 
-        /* harmony default export */ __webpack_exports__["default"] = Income;
+        /* harmony default export */ __webpack_exports__["default"] = Tip;
 
         /***/
       },
@@ -1056,7 +1651,7 @@ module.exports = /******/ (function(modules) {
       /*!***********************************************!*\
   !*** ./content/ambassadors-report/metrics.ts ***!
   \***********************************************/
-      /*! exports provided: age */
+      /*! exports provided: age, totalParticipants, gender, income */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -1065,6 +1660,27 @@ module.exports = /******/ (function(modules) {
           "age",
           function() {
             return age;
+          },
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "totalParticipants",
+          function() {
+            return totalParticipants;
+          },
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "gender",
+          function() {
+            return gender;
+          },
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "income",
+          function() {
+            return income;
           },
         );
         var age = [
@@ -1095,6 +1711,41 @@ module.exports = /******/ (function(modules) {
           {
             x: 110,
             y: "18-24",
+          },
+        ];
+        var totalParticipants = 1050;
+        var gender = [
+          {
+            label: "Female",
+            subLabel: "62.5%",
+            angle: 62.5,
+          },
+          {
+            label: "Male",
+            subLabel: "37.4%",
+            angle: 37.4,
+          },
+          {
+            label: "Other",
+            subLabel: "0.1%",
+            angle: 0.1,
+          },
+        ];
+        var income = [
+          {
+            label: "$0-$20",
+            subLabel: "12%",
+            angle: 62.5,
+          },
+          {
+            label: "$21-$50",
+            subLabel: "7.4%",
+            angle: 7.4,
+          },
+          {
+            label: "$51-$100",
+            subLabel: "19.1%",
+            angle: 19.1,
           },
         ];
 
@@ -2718,6 +3369,17 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "chroma-js":
+      /*!****************************!*\
+  !*** external "chroma-js" ***!
+  \****************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("chroma-js");
+
+        /***/
+      },
+
     /***/ "core-js/library/fn/array/is-array":
       /*!****************************************************!*\
   !*** external "core-js/library/fn/array/is-array" ***!
@@ -2868,6 +3530,17 @@ module.exports = /******/ (function(modules) {
       /*! no static exports found */
       /***/ function(module, exports) {
         module.exports = require("glamorous");
+
+        /***/
+      },
+
+    /***/ lodash:
+      /*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+      /*! no static exports found */
+      /***/ function(module, exports) {
+        module.exports = require("lodash");
 
         /***/
       },

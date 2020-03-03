@@ -29,8 +29,8 @@ const Age: React.FC<Props> = () => {
           overflow: "visible",
         }}
       >
-        <VerticalGridLines animation={{ damping: 15, stiffness: 110 }} />
-        <XAxis animation={{ damping: 14, stiffness: 100 }} />
+        <VerticalGridLines />
+        <XAxis />
         <YAxis />
         <HorizontalBarSeries
           animation={{ damping: 14, stiffness: 100 }}
