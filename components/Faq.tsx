@@ -19,7 +19,7 @@ const SubHeading = styled.h2({
   paddingRight: Step(4.5),
 });
 
-const Wrapper = styled.div(({ theme }) => ({
+const Wrapper = styled.div(({ scheme }: any) => ({
   padding: `${Step(5)} 0`,
   borderBottom: `2px solid ${colors.greyLightest}`,
   "> div": {
@@ -32,7 +32,7 @@ const Wrapper = styled.div(({ theme }) => ({
       },
     },
     "> h2": {
-      color: theme === "light" ? colors.black : colors.white,
+      color: scheme === "light" ? colors.black : colors.white,
       cursor: "pointer",
       position: "relative",
       display: "inline-block",
@@ -65,7 +65,7 @@ const Wrapper = styled.div(({ theme }) => ({
     },
     "&[aria-expanded=true]": {
       "& h2": {
-        color: theme === "light" ? colors.black : colors.white,
+        color: scheme === "light" ? colors.black : colors.white,
         // textShadow: '0 0 10px rgba(255,255,255,0.25)',
         "&:after": {
           color: colors.red,
@@ -78,12 +78,12 @@ const Wrapper = styled.div(({ theme }) => ({
 
 const Faqs: any = (props: {
   qa: { map: (arg0: (item: any) => JSX.Element) => void };
-  theme: string;
+  scheme: string;
 }) => {
   return props.qa.map((item: any) => {
     return (
       <AccordionItem key={`key-${item.question}`}>
-        <Wrapper theme={props.theme}>
+        <Wrapper scheme={props.scheme}>
           <AccordionItemTitle>
             <SubHeading className="lh-title">{item.question}</SubHeading>
           </AccordionItemTitle>
@@ -98,16 +98,16 @@ const Faqs: any = (props: {
 
 export interface FaqProps {
   title?: string;
-  theme?: string;
+  scheme?: string;
   list?: any;
 }
 
 export default class Faq extends React.Component<FaqProps, any> {
   public render() {
-    const { title = "FAQs", theme = "dark", list = compactFaq } = this.props;
+    const { title = "FAQs", scheme = "dark", list = compactFaq } = this.props;
 
     const Heading = styled.h2({
-      color: theme === "light" ? colors.black : colors.white,
+      color: scheme === "light" ? colors.black : colors.white,
       lor: colors.white,
       fontSize: Step(6),
     });
@@ -119,7 +119,7 @@ export default class Faq extends React.Component<FaqProps, any> {
       <>
         <Heading>{title}</Heading>
         <Accordion accordion={false}>
-          <Faqs qa={list} theme={theme} />
+          <Faqs qa={list} scheme={scheme} />
         </Accordion>
       </>
     );
