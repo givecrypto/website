@@ -37,8 +37,8 @@ export const gender = [
     subLabel: "62.5%",
     angle: 62.5,
   },
-  { label: "Male", subLabel: "37.4%", angle: 37.4 },
-  { label: "Other", subLabel: "0.1%", angle: 0.1 },
+  { label: "Male", subLabel: "36.4%", angle: 36.4 },
+  { label: "Other", subLabel: "1.1%", angle: 1.1 },
 ];
 
 export const income = [
@@ -48,4 +48,12 @@ export const income = [
   { label: "$101-$250", subLabel: "18%", angle: 18 },
   { label: "$251-$500", subLabel: "15%", angle: 15 },
   { label: "$501+", subLabel: "4%", angle: 4 },
+];
+
+export const education = [
+  { label: "No Education", angle: 6 },
+  { label: "Junior High", angle: 4 },
+  { label: "High School", angle: 37 },
+  { label: "College", angle: 23 },
+  { label: "Grad School", angle: 30 },
 ];

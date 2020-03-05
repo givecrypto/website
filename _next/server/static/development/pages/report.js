@@ -557,258 +557,6 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
-    /***/ "./components/List.tsx":
-      /*!*****************************!*\
-  !*** ./components/List.tsx ***!
-  \*****************************/
-      /*! exports provided: default */
-      /***/ function(module, __webpack_exports__, __webpack_require__) {
-        "use strict";
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-          /*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js",
-        );
-        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          /*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js",
-        );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-          /*! react */ "react",
-        );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
-          react__WEBPACK_IMPORTED_MODULE_2__,
-        );
-        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-          /*! @emotion/styled */ "@emotion/styled",
-        );
-        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
-          _emotion_styled__WEBPACK_IMPORTED_MODULE_3__,
-        );
-        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-          /*! ../design-system */ "./design-system/index.ts",
-        );
-
-        var _jsxFileName =
-          "/Users/jklb/dev/givecrypto/website/components/List.tsx";
-
-        var Swatch = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div(
-          function(_ref) {
-            var color = _ref.color;
-            return {
-              width: 15,
-              height: 15,
-              margin: 0,
-              padding: 0,
-              borderRadius: 4,
-              backgroundColor: color,
-              transition: "background 200ms ease",
-            };
-          },
-        );
-        var ListItemContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div(
-          function(_ref2) {
-            var fade = _ref2.fade;
-            return {
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "0 1.2rem",
-              transition: "all 200ms ease",
-              borderBottom: "1px solid ".concat(
-                _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"]
-                  .greyLightest,
-              ),
-              "&:last-child": {
-                borderBottom: "none",
-              },
-              "> *": {
-                transition: "all 200ms ease",
-                opacity: fade ? 0.4 : 1,
-              },
-            };
-          },
-        );
-        var Left = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div({
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-        });
-        var Right = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div({
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          minWidth: "40%",
-          "&:last-child": {
-            textAlign: "right",
-          },
-        });
-        var Category = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.h3(
-          {
-            fontWeight: 500,
-            fontSize: "0.9rem",
-            color:
-              _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].greyDark,
-            marginLeft: 10,
-          },
-        );
-        var Label = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.h4({
-          fontWeight: "normal",
-          fontSize: "0.9rem",
-          color: _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].grey,
-          marginLeft: 30,
-          padding: 0,
-          minWidth: 45,
-        });
-
-        var ListItem = function ListItem(_ref3) {
-          var item = _ref3.item,
-            highlightId = _ref3.highlightId,
-            rest = Object(
-              _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__[
-                "default"
-              ],
-            )(_ref3, ["item", "highlightId"]);
-
-          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-            ListItemContainer,
-            Object(
-              _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                "default"
-              ],
-            )(
-              {
-                fade: highlightId && highlightId !== item.category,
-              },
-              rest,
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 79,
-                },
-                __self: this,
-              },
-            ),
-            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-              Left,
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 83,
-                },
-                __self: this,
-              },
-              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](Swatch, {
-                color: item.color,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 84,
-                },
-                __self: this,
-              }),
-              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                Category,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 85,
-                  },
-                  __self: this,
-                },
-                item.category,
-              ),
-            ),
-            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-              Right,
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 87,
-                },
-                __self: this,
-              },
-              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                Label,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 88,
-                  },
-                  __self: this,
-                },
-                item.label,
-              ),
-              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                Label,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 89,
-                  },
-                  __self: this,
-                },
-                item.value,
-              ),
-            ),
-          );
-        };
-
-        var ListContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.section(
-          {
-            display: "flex",
-            flexDirection: "column",
-            border: "1px solid ".concat(
-              _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"]
-                .greyLightest,
-            ),
-            borderRadius: 8,
-            boxShadow:
-              _design_system__WEBPACK_IMPORTED_MODULE_4__["shadows"].card,
-          },
-        );
-
-        var List = function List(_ref4) {
-          var items = _ref4.items,
-            highlightId = _ref4.highlightId,
-            onHighlight = _ref4.onHighlight;
-          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-            ListContainer,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 110,
-              },
-              __self: this,
-            },
-            items.map(function(item) {
-              console.log(item);
-              return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                ListItem,
-                {
-                  item: item,
-                  highlightId: highlightId,
-                  onMouseOver: function onMouseOver() {
-                    return onHighlight(item.category);
-                  },
-                  onMouseOut: function onMouseOut() {
-                    return onHighlight();
-                  },
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 114,
-                  },
-                  __self: this,
-                },
-              );
-            }),
-          );
-        };
-
-        /* harmony default export */ __webpack_exports__["default"] = List;
-
-        /***/
-      },
-
     /***/ "./components/Metrics/Age/index.tsx":
       /*!******************************************!*\
   !*** ./components/Metrics/Age/index.tsx ***!
@@ -838,6 +586,9 @@ module.exports = /******/ (function(modules) {
         /* harmony import */ var _utils_useMeasure__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
           /*! ../../../utils/useMeasure */ "./utils/useMeasure.ts",
         );
+        /* harmony import */ var _components_Heading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! ../components/Heading */ "./components/Metrics/components/Heading.tsx",
+        );
         var _jsxFileName =
           "/Users/jklb/dev/givecrypto/website/components/Metrics/Age/index.tsx";
 
@@ -853,18 +604,19 @@ module.exports = /******/ (function(modules) {
             "div",
             {
               ref: ref,
+              className: "pv4",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 20,
+                lineNumber: 21,
               },
               __self: this,
             },
             react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-              "p",
+              _components_Heading__WEBPACK_IMPORTED_MODULE_5__["default"],
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 21,
+                  lineNumber: 22,
                 },
                 __self: this,
               },
@@ -882,22 +634,12 @@ module.exports = /******/ (function(modules) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 22,
+                  lineNumber: 23,
                 },
                 __self: this,
               },
               react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
                 react_vis__WEBPACK_IMPORTED_MODULE_1__["VerticalGridLines"],
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 31,
-                  },
-                  __self: this,
-                },
-              ),
-              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-                react_vis__WEBPACK_IMPORTED_MODULE_1__["XAxis"],
                 {
                   __source: {
                     fileName: _jsxFileName,
@@ -907,11 +649,21 @@ module.exports = /******/ (function(modules) {
                 },
               ),
               react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-                react_vis__WEBPACK_IMPORTED_MODULE_1__["YAxis"],
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["XAxis"],
                 {
                   __source: {
                     fileName: _jsxFileName,
                     lineNumber: 33,
+                  },
+                  __self: this,
+                },
+              ),
+              react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_1__["YAxis"],
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 34,
                   },
                   __self: this,
                 },
@@ -934,7 +686,7 @@ module.exports = /******/ (function(modules) {
                       .yellow,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 34,
+                    lineNumber: 35,
                   },
                   __self: this,
                 },
@@ -948,10 +700,353 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
+    /***/ "./components/Metrics/Education/BarLine.tsx":
+      /*!**************************************************!*\
+  !*** ./components/Metrics/Education/BarLine.tsx ***!
+  \**************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/Education/BarLine.tsx";
+
+        function numberWithCommas(x) {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        var Bar = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.div(
+          function(_ref) {
+            var color = _ref.color,
+              value = _ref.value,
+              fade = _ref.fade;
+            return {
+              height: "100%",
+              width: value,
+              background:
+                color ||
+                _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].blue,
+              opacity: fade ? 0.5 : 1,
+              transition: "opacity 200ms ease",
+            };
+          },
+        );
+        var BarContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.div(
+          {
+            height: 10,
+            overflow: "hidden",
+            borderRadius: 12,
+            marginBottom: "3rem",
+            background:
+              _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"]
+                .greyLightest,
+          },
+        );
+        var Title = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.h2({
+          fontSize: "3rem",
+          fontWeight: 500,
+          color:
+            _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].coldWater,
+          marginBottom: 12,
+        });
+        var Tiny = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.span({
+          fontSize: "1rem",
+          fontWeight: 400,
+        });
+
+        var BarLine = function BarLine(_ref2) {
+          var items = _ref2.items,
+            highlightId = _ref2.highlightId,
+            onHighlight = _ref2.onHighlight;
+          var item = items.find(function(i) {
+            return i.category === highlightId;
+          });
+          var title = highlightId
+            ? "of Recipients have completed ".concat(highlightId)
+            : "Recipients";
+          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+            react__WEBPACK_IMPORTED_MODULE_1__["Fragment"],
+            null,
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              Title,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 59,
+                },
+                __self: this,
+              },
+              item
+                ? item.value
+                : numberWithCommas(
+                    _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_4__[
+                      "totalParticipants"
+                    ],
+                  ),
+              " ",
+              react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                Tiny,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 61,
+                  },
+                  __self: this,
+                },
+                title,
+              ),
+            ),
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              BarContainer,
+              {
+                className: "flex",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 63,
+                },
+                __self: this,
+              },
+              items.map(function(item) {
+                return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                  Bar,
+                  Object(
+                    _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
+                      "default"
+                    ],
+                  )(
+                    {
+                      key: "bar-".concat(item.id),
+                      fade: highlightId && highlightId !== item.category,
+                      onMouseOver: function onMouseOver() {
+                        return onHighlight && onHighlight(item.category);
+                      },
+                      onMouseOut: function onMouseOut() {
+                        return onHighlight && onHighlight();
+                      },
+                    },
+                    item,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 65,
+                      },
+                      __self: this,
+                    },
+                  ),
+                );
+              }),
+            ),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = BarLine;
+
+        /***/
+      },
+
     /***/ "./components/Metrics/Education/index.tsx":
       /*!************************************************!*\
   !*** ./components/Metrics/Education/index.tsx ***!
   \************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js",
+        );
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var _components_Heading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../components/Heading */ "./components/Metrics/components/Heading.tsx",
+        );
+        /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! ../components/List */ "./components/Metrics/components/List.tsx",
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! chroma-js */ "chroma-js",
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/ __webpack_require__.n(
+          chroma_js__WEBPACK_IMPORTED_MODULE_5__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+        /* harmony import */ var _BarLine__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+          /*! ./BarLine */ "./components/Metrics/Education/BarLine.tsx",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/Education/index.tsx";
+
+        var Education = function Education() {
+          var _React$useState = react__WEBPACK_IMPORTED_MODULE_2__["useState"](
+              null,
+            ),
+            _React$useState2 = Object(
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[
+                "default"
+              ],
+            )(_React$useState, 2),
+            highlightId = _React$useState2[0],
+            setHighlightId = _React$useState2[1];
+
+          var dataWithColors = function dataWithColors(data) {
+            return react__WEBPACK_IMPORTED_MODULE_2__["useMemo"](
+              function() {
+                // Get the color for each item
+                var getColor = function getColor(index) {
+                  var colorScale = chroma_js__WEBPACK_IMPORTED_MODULE_5___default.a
+                    .scale([
+                      _design_system__WEBPACK_IMPORTED_MODULE_6__["colors"]
+                        .blue,
+                      _design_system__WEBPACK_IMPORTED_MODULE_6__["colors"]
+                        .blueDark,
+                    ])
+                    .mode("rgb")
+                    .colors(data.length);
+                  return colorScale[index];
+                }; // Return the item and inject the correct color
+
+                return data.slice().map(function(item, index) {
+                  return Object(
+                    _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__[
+                      "default"
+                    ],
+                  )({}, item, {
+                    color: getColor(index),
+                  });
+                });
+              },
+              [highlightId],
+            );
+          };
+
+          var listItems = react__WEBPACK_IMPORTED_MODULE_2__["useMemo"](
+            function() {
+              return dataWithColors(
+                _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                  "education"
+                ],
+              )
+                .slice()
+                .map(function(item, i) {
+                  return {
+                    id: "".concat(i),
+                    color: item.color,
+                    category: item.label,
+                    label: "".concat(
+                      Math.floor(
+                        (item.angle *
+                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                            "totalParticipants"
+                          ]) /
+                          100,
+                      ),
+                      " Recipients",
+                    ),
+                    value: "".concat(item.angle, "%"),
+                  };
+                });
+            },
+            [highlightId],
+          );
+
+          var handleHighlightChange = function handleHighlightChange(label) {
+            setHighlightId(label);
+          };
+
+          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+            "div",
+            {
+              className: "w-100 pl3",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 57,
+              },
+              __self: this,
+            },
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _components_Heading__WEBPACK_IMPORTED_MODULE_3__["default"],
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 58,
+                },
+                __self: this,
+              },
+              "Education",
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _BarLine__WEBPACK_IMPORTED_MODULE_8__["default"],
+              {
+                items: listItems,
+                highlightId: highlightId,
+                onHighlight: handleHighlightChange,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 59,
+                },
+                __self: this,
+              },
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _components_List__WEBPACK_IMPORTED_MODULE_4__["default"],
+              {
+                items: listItems,
+                highlightId: highlightId,
+                onHighlight: handleHighlightChange,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 64,
+                },
+                __self: this,
+              },
+            ),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = Education;
+
+        /***/
+      },
+
+    /***/ "./components/Metrics/Gender/Legend.tsx":
+      /*!**********************************************!*\
+  !*** ./components/Metrics/Gender/Legend.tsx ***!
+  \**********************************************/
       /*! exports provided: default */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
@@ -962,34 +1057,92 @@ module.exports = /******/ (function(modules) {
         /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
           react__WEBPACK_IMPORTED_MODULE_0__,
         );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _components_Swatch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../components/Swatch */ "./components/Metrics/components/Swatch.tsx",
+        );
         var _jsxFileName =
-          "/Users/jklb/dev/givecrypto/website/components/Metrics/Education/index.tsx";
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/Gender/Legend.tsx";
 
-        var Education = function Education() {
+        var H2 = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.h2({
+          fontSize: "0.9rem",
+          fontWeight: 400,
+          color: _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].grey,
+          padding: "0 0 0 0.5rem",
+          margin: 0,
+        });
+        var Pill = _emotion_styled__WEBPACK_IMPORTED_MODULE_1___default.a.div({
+          background:
+            _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].white,
+          border: "1px solid ".concat(
+            _design_system__WEBPACK_IMPORTED_MODULE_2__["colors"].greyLightest,
+          ),
+          borderRadius: 12,
+          padding: "0.5rem 0.5rem",
+          margin: "0 1rem 0 0",
+        });
+
+        var Legend = function Legend(_ref) {
+          var data = _ref.data;
           return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
             "div",
             {
+              className: "flex mb3",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 7,
+                lineNumber: 32,
               },
               __self: this,
             },
-            react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
-              "p",
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 8,
+            data.map(function(_ref2) {
+              var label = _ref2.label,
+                color = _ref2.color;
+              return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                Pill,
+                {
+                  className: "flex items-center mr3 br3",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 35,
+                  },
+                  __self: this,
                 },
-                __self: this,
-              },
-              "Education Metrics",
-            ),
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                  _components_Swatch__WEBPACK_IMPORTED_MODULE_3__["default"],
+                  {
+                    color: color,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 36,
+                    },
+                    __self: this,
+                  },
+                ),
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"](
+                  H2,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 37,
+                    },
+                    __self: this,
+                  },
+                  label,
+                ),
+              );
+            }),
           );
         };
 
-        /* harmony default export */ __webpack_exports__["default"] = Education;
+        /* harmony default export */ __webpack_exports__["default"] = Legend;
 
         /***/
       },
@@ -1002,34 +1155,49 @@ module.exports = /******/ (function(modules) {
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
-        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js",
+        );
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
           /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
         );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           /*! react */ "react",
         );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
-          react__WEBPACK_IMPORTED_MODULE_1__,
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_2__,
         );
-        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
           /*! react-vis */ "react-vis",
         );
-        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
-          react_vis__WEBPACK_IMPORTED_MODULE_2__,
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+          react_vis__WEBPACK_IMPORTED_MODULE_3__,
         );
-        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! chroma-js */ "chroma-js",
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
+          chroma_js__WEBPACK_IMPORTED_MODULE_4__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
           /*! ../../../design-system */ "./design-system/index.ts",
         );
-        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
           /*! lodash */ "lodash",
         );
-        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
-          lodash__WEBPACK_IMPORTED_MODULE_4__,
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/ __webpack_require__.n(
+          lodash__WEBPACK_IMPORTED_MODULE_6__,
         );
-        /* harmony import */ var _components_Tip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+        /* harmony import */ var _components_Tip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
           /*! ../../../components/Tip */ "./components/Tip.tsx",
         );
-        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+        /* harmony import */ var _components_Heading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+          /*! ../components/Heading */ "./components/Metrics/components/Heading.tsx",
+        );
+        /* harmony import */ var _Legend__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+          /*! ./Legend */ "./components/Metrics/Gender/Legend.tsx",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
           /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
         );
 
@@ -1037,129 +1205,176 @@ module.exports = /******/ (function(modules) {
           "/Users/jklb/dev/givecrypto/website/components/Metrics/Gender/index.tsx";
 
         var Gender = function Gender() {
-          var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](
+          var _React$useState = react__WEBPACK_IMPORTED_MODULE_2__["useState"](
               {},
             ),
             _React$useState2 = Object(
-              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[
                 "default"
               ],
             )(_React$useState, 2),
             value = _React$useState2[0],
             setValue = _React$useState2[1];
 
-          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+          var dataWithColors = function dataWithColors(data) {
+            return react__WEBPACK_IMPORTED_MODULE_2__["useMemo"](function() {
+              // Get the color for each item
+              var getColor = function getColor(index) {
+                var colorScale = chroma_js__WEBPACK_IMPORTED_MODULE_4___default.a
+                  .scale([
+                    _design_system__WEBPACK_IMPORTED_MODULE_5__["colors"]
+                      .coldWater,
+                    _design_system__WEBPACK_IMPORTED_MODULE_5__["colors"].green,
+                    _design_system__WEBPACK_IMPORTED_MODULE_5__["colors"]
+                      .yellow,
+                  ])
+                  .mode("rgb")
+                  .colors(data.length);
+                return colorScale[index];
+              }; // Return the item and inject the correct color
+
+              return data.slice().map(function(item, index) {
+                return Object(
+                  _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__[
+                    "default"
+                  ],
+                )({}, item, {
+                  color: getColor(index),
+                });
+              });
+            }, []);
+          };
+
+          var data = dataWithColors(
+            _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__[
+              "gender"
+            ],
+          );
+          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
             "div",
             {
+              className: "flex flex-column justify-between h-100",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 16,
+                lineNumber: 40,
               },
               __self: this,
             },
-            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
-              "p",
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _components_Heading__WEBPACK_IMPORTED_MODULE_8__["default"],
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 17,
+                  lineNumber: 41,
                 },
                 __self: this,
               },
-              "Gender Metrics",
+              "Gender",
             ),
-            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
-              react_vis__WEBPACK_IMPORTED_MODULE_2__["RadialChart"],
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              "div",
               {
-                colorRange: [
-                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].black,
-                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].blue,
-                  _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].green,
-                ],
-                innerRadius: 90,
-                radius: 120,
-                data:
-                  _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
-                    "gender"
-                  ],
-                width: 300,
-                height: 300,
-                showLabels: true,
-                labelsStyle: {
-                  fill:
-                    _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"]
-                      .coldWater,
+                className: "flex justify-center",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 42,
                 },
-                onValueMouseOver: function onValueMouseOver(v) {
-                  setValue({
-                    data: v,
-                    title: _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
-                      "gender"
-                    ].find(function(item) {
-                      return item.label === v.label;
-                    }).label,
-                    metrics: [
-                      {
-                        label: "Total",
-                        value: Math.floor(
-                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
-                            "totalParticipants"
-                          ] *
-                            (_content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                react_vis__WEBPACK_IMPORTED_MODULE_3__["RadialChart"],
+                {
+                  colorType: "literal",
+                  innerRadius: 85,
+                  radius: 120,
+                  data: data,
+                  width: 300,
+                  height: 300,
+                  onValueMouseOver: function onValueMouseOver(v) {
+                    setValue({
+                      data: v,
+                      title: _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__[
+                        "gender"
+                      ].find(function(item) {
+                        return item.label === v.label;
+                      }).label,
+                      metrics: [
+                        {
+                          label: "Total",
+                          value: Math.floor(
+                            _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__[
+                              "totalParticipants"
+                            ] *
+                              (_content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__[
+                                "gender"
+                              ].find(function(item) {
+                                return item.label === v.label;
+                              }).angle *
+                                0.01),
+                          ),
+                        },
+                        {
+                          label: "Percentage",
+                          value: "".concat(
+                            _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_10__[
                               "gender"
                             ].find(function(item) {
                               return item.label === v.label;
-                            }).angle *
-                              0.01),
-                        ),
-                      },
-                      {
-                        label: "Percentage",
-                        value: "".concat(
-                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_6__[
-                            "gender"
-                          ].find(function(item) {
-                            return item.label === v.label;
-                          }).angle,
-                          "%",
-                        ),
-                      },
-                    ],
-                  });
-                },
-                onSeriesMouseOut: function onSeriesMouseOut() {
-                  return setValue({});
-                },
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 18,
-                },
-                __self: this,
-              },
-              !Object(lodash__WEBPACK_IMPORTED_MODULE_4__["isEmpty"])(value) &&
-                react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
-                  react_vis__WEBPACK_IMPORTED_MODULE_2__["Hint"],
-                  {
-                    value: value.data,
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 51,
-                    },
-                    __self: this,
+                            }).angle,
+                            "%",
+                          ),
+                        },
+                      ],
+                    });
                   },
-                  react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
-                    _components_Tip__WEBPACK_IMPORTED_MODULE_5__["default"],
+                  onSeriesMouseOut: function onSeriesMouseOut() {
+                    return setValue({});
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 43,
+                  },
+                  __self: this,
+                },
+                !Object(lodash__WEBPACK_IMPORTED_MODULE_6__["isEmpty"])(
+                  value,
+                ) &&
+                  react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                    react_vis__WEBPACK_IMPORTED_MODULE_3__["Hint"],
                     {
-                      title: value.title,
-                      metrics: value.metrics,
+                      value: value.data,
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 52,
+                        lineNumber: 75,
                       },
                       __self: this,
                     },
+                    react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                      _components_Tip__WEBPACK_IMPORTED_MODULE_7__["default"],
+                      {
+                        title: value.title,
+                        metrics: value.metrics,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 76,
+                        },
+                        __self: this,
+                      },
+                    ),
                   ),
-                ),
+              ),
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _Legend__WEBPACK_IMPORTED_MODULE_9__["default"],
+              {
+                highlight: value.title,
+                data: data,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 81,
+                },
+                __self: this,
+              },
             ),
           );
         };
@@ -1205,7 +1420,7 @@ module.exports = /******/ (function(modules) {
           /*! ../../../design-system */ "./design-system/index.ts",
         );
         /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-          /*! ../../../components/List */ "./components/List.tsx",
+          /*! ../components/List */ "./components/Metrics/components/List.tsx",
         );
         /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
           /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
@@ -1215,6 +1430,9 @@ module.exports = /******/ (function(modules) {
         );
         /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/ __webpack_require__.n(
           lodash__WEBPACK_IMPORTED_MODULE_8__,
+        );
+        /* harmony import */ var _components_Heading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+          /*! ../components/Heading */ "./components/Metrics/components/Heading.tsx",
         );
 
         var _jsxFileName =
@@ -1323,7 +1541,7 @@ module.exports = /******/ (function(modules) {
           return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
             "div",
             {
-              className: "pv3",
+              className: "pv4",
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 64,
@@ -1331,7 +1549,7 @@ module.exports = /******/ (function(modules) {
               __self: this,
             },
             react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-              "p",
+              _components_Heading__WEBPACK_IMPORTED_MODULE_9__["default"],
               {
                 __source: {
                   fileName: _jsxFileName,
@@ -1364,7 +1582,7 @@ module.exports = /******/ (function(modules) {
                 react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
                   "div",
                   {
-                    className: "flex items-center justify-center",
+                    className: "flex items-center justify-between",
                     __source: {
                       fileName: _jsxFileName,
                       lineNumber: 68,
@@ -1440,6 +1658,367 @@ module.exports = /******/ (function(modules) {
         };
 
         /* harmony default export */ __webpack_exports__["default"] = Income;
+
+        /***/
+      },
+
+    /***/ "./components/Metrics/components/Heading.tsx":
+      /*!***************************************************!*\
+  !*** ./components/Metrics/components/Heading.tsx ***!
+  \***************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/components/Heading.tsx";
+
+        var H2 = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.h2({
+          fontSize: "1rem",
+          color:
+            _design_system__WEBPACK_IMPORTED_MODULE_3__["colors"].coldWater,
+        });
+
+        var Heading = function Heading(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+            H2,
+            Object(
+              _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )({}, props, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13,
+              },
+              __self: this,
+            }),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = Heading;
+
+        /***/
+      },
+
+    /***/ "./components/Metrics/components/List.tsx":
+      /*!************************************************!*\
+  !*** ./components/Metrics/components/List.tsx ***!
+  \************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js",
+        );
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_3__,
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _Swatch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! ./Swatch */ "./components/Metrics/components/Swatch.tsx",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/components/List.tsx";
+
+        var ListItemContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div(
+          function(_ref) {
+            var fade = _ref.fade;
+            return {
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              // padding: "0 1.2rem",
+              transition: "all 200ms ease",
+              borderBottom: "1px solid ".concat(
+                _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"]
+                  .greyLightest,
+              ),
+              "&:last-child": {
+                borderBottom: "none",
+              },
+              "> *": {
+                transition: "all 200ms ease",
+                opacity: fade ? 0.4 : 1,
+              },
+            };
+          },
+        );
+        var Left = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div({
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        });
+        var Right = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div({
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          minWidth: "40%",
+          "&:last-child": {
+            textAlign: "right",
+          },
+        });
+        var Category = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.h3(
+          {
+            fontWeight: 500,
+            fontSize: "0.9rem",
+            color:
+              _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].greyDark,
+            marginLeft: 10,
+          },
+        );
+        var Label = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.h4({
+          fontWeight: "normal",
+          fontSize: "0.9rem",
+          color: _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].grey,
+          marginLeft: 30,
+          padding: 0,
+          minWidth: 45,
+        });
+
+        var ListItem = function ListItem(_ref2) {
+          var item = _ref2.item,
+            highlightId = _ref2.highlightId,
+            rest = Object(
+              _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__[
+                "default"
+              ],
+            )(_ref2, ["item", "highlightId"]);
+
+          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+            ListItemContainer,
+            Object(
+              _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )(
+              {
+                fade: highlightId && highlightId !== item.category,
+              },
+              rest,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 70,
+                },
+                __self: this,
+              },
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 74,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                _Swatch__WEBPACK_IMPORTED_MODULE_5__["default"],
+                {
+                  color: item.color,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 75,
+                  },
+                  __self: this,
+                },
+              ),
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                Category,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 76,
+                  },
+                  __self: this,
+                },
+                item.category,
+              ),
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              Right,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 78,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                Label,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 79,
+                  },
+                  __self: this,
+                },
+                item.label,
+              ),
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                Label,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 80,
+                  },
+                  __self: this,
+                },
+                item.value,
+              ),
+            ),
+          );
+        };
+
+        var ListContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.section(
+          {
+            display: "flex",
+            flexDirection: "column", // border: `1px solid ${colors.greyLightest}`,
+            // borderRadius: 8,
+            // boxShadow: shadows.card,
+          },
+        );
+
+        var List = function List(_ref3) {
+          var items = _ref3.items,
+            highlightId = _ref3.highlightId,
+            onHighlight = _ref3.onHighlight;
+          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+            ListContainer,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 101,
+              },
+              __self: this,
+            },
+            items.map(function(item) {
+              console.log(item);
+              return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                ListItem,
+                {
+                  item: item,
+                  highlightId: highlightId,
+                  onMouseOver: function onMouseOver() {
+                    return onHighlight && onHighlight(item.category);
+                  },
+                  onMouseOut: function onMouseOut() {
+                    return onHighlight && onHighlight();
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 105,
+                  },
+                  __self: this,
+                },
+              );
+            }),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = List;
+
+        /***/
+      },
+
+    /***/ "./components/Metrics/components/Swatch.tsx":
+      /*!**************************************************!*\
+  !*** ./components/Metrics/components/Swatch.tsx ***!
+  \**************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! react */ "react",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_1__,
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! @emotion/styled */ "@emotion/styled",
+        );
+        /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          _emotion_styled__WEBPACK_IMPORTED_MODULE_2__,
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/components/Swatch.tsx";
+
+        var Div = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.div(
+          function(_ref) {
+            var color = _ref.color;
+            return {
+              width: 15,
+              height: 15,
+              margin: 0,
+              padding: 0,
+              borderRadius: 4,
+              backgroundColor: color,
+              transition: "background 200ms ease",
+            };
+          },
+        );
+
+        var Swatch = function Swatch(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+            Div,
+            Object(
+              _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ],
+            )({}, props, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 19,
+              },
+              __self: this,
+            }),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = Swatch;
 
         /***/
       },
@@ -1723,7 +2302,7 @@ module.exports = /******/ (function(modules) {
       /*!***********************************************!*\
   !*** ./content/ambassadors-report/metrics.ts ***!
   \***********************************************/
-      /*! exports provided: age, totalParticipants, gender, income */
+      /*! exports provided: age, totalParticipants, gender, income, education */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -1753,6 +2332,13 @@ module.exports = /******/ (function(modules) {
           "income",
           function() {
             return income;
+          },
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "education",
+          function() {
+            return education;
           },
         );
         var age = [
@@ -1794,13 +2380,13 @@ module.exports = /******/ (function(modules) {
           },
           {
             label: "Male",
-            subLabel: "37.4%",
-            angle: 37.4,
+            subLabel: "36.4%",
+            angle: 36.4,
           },
           {
             label: "Other",
-            subLabel: "0.1%",
-            angle: 0.1,
+            subLabel: "1.1%",
+            angle: 1.1,
           },
         ];
         var income = [
@@ -1833,6 +2419,28 @@ module.exports = /******/ (function(modules) {
             label: "$501+",
             subLabel: "4%",
             angle: 4,
+          },
+        ];
+        var education = [
+          {
+            label: "No Education",
+            angle: 6,
+          },
+          {
+            label: "Junior High",
+            angle: 4,
+          },
+          {
+            label: "High School",
+            angle: 37,
+          },
+          {
+            label: "College",
+            angle: 23,
+          },
+          {
+            label: "Grad School",
+            angle: 30,
           },
         ];
 
@@ -3183,7 +3791,7 @@ module.exports = /******/ (function(modules) {
                 react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
                   "div",
                   {
-                    className: "w-50 br b--light-gray",
+                    className: "w-50 br b--light-gray pt4",
                     __source: {
                       fileName: _jsxFileName,
                       lineNumber: 61,
@@ -3206,7 +3814,7 @@ module.exports = /******/ (function(modules) {
                 react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
                   "div",
                   {
-                    className: "w-50 pl3",
+                    className: "w-50 pl3 pt4",
                     __source: {
                       fileName: _jsxFileName,
                       lineNumber: 64,

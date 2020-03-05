@@ -9,6 +9,7 @@ import {
 import { colors } from "../../../design-system";
 import { age } from "../../../content/ambassadors-report/metrics";
 import useMeasure from "../../../utils/useMeasure";
+import Heading from "../components/Heading";
 
 interface Props {}
 
@@ -17,8 +18,8 @@ const Age: React.FC<Props> = () => {
   const { width } = useMeasure(ref);
 
   return (
-    <div ref={ref}>
-      <p>Age</p>
+    <div ref={ref} className="pv4">
+      <Heading>Age</Heading>
       <XYPlot
         yType="ordinal"
         height={275}

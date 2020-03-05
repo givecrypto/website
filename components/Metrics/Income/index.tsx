@@ -2,15 +2,15 @@ import * as React from "react";
 import chroma from "chroma-js";
 import { RadialChart } from "react-vis";
 import { colors, shadows } from "../../../design-system";
-import List from "../../../components/List";
+import List from "../components/List";
 import {
   income,
   totalParticipants,
 } from "../../../content/ambassadors-report/metrics";
 import { isNil } from "lodash";
+import Heading from "../components/Heading";
 
 interface Props {}
-
 const Income: React.FC<Props> = () => {
   const [highlightId, setHighlightId]: any = React.useState(null);
   // Hold on to any timers
@@ -61,11 +61,11 @@ const Income: React.FC<Props> = () => {
   };
 
   return (
-    <div className="pv3">
-      <p>Income</p>
+    <div className="pv4">
+      <Heading>Income</Heading>
       <div className="flex flex-wrap items-center mb4">
         <div className="w-40 pv4">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-between">
             <RadialChart
               colorType="literal"
               data={dataWithColors(income)}

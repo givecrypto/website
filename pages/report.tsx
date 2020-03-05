@@ -58,10 +58,10 @@ const Report: React.FC<Props> = () => {
       </Wrapper>
       <Wrapper className="ph3 ph0-l bb b--light-gray">
         <div className="flex">
-          <div className="w-50 br b--light-gray">
+          <div className="w-50 br b--light-gray pt4">
             <Gender />
           </div>
-          <div className="w-50 pl3">
+          <div className="w-50 pl3 pt4">
             <Education />
           </div>
         </div>
