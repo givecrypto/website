@@ -11,7 +11,7 @@ import { Step } from "../utils/Scale";
 import Gender from "../components/Metrics/Gender";
 import Education from "../components/Metrics/Education";
 import Age from "../components/Metrics/Age";
-import Income from "../components/Metrics/Income";
+import Household from "../components/Metrics/Household";
 
 // Refresh styles
 import "../utils/rehydrate";
@@ -70,7 +70,7 @@ const Report: React.FC<Props> = () => {
         <Age />
       </Wrapper>
       <Wrapper className="ph3 ph0-l bb b--light-gray">
-        <Income />
+        <Household />
       </Wrapper>
     </Analytics>
   );

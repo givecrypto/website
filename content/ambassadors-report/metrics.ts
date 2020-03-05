@@ -57,3 +57,17 @@ export const education = [
   { label: "College", angle: 23 },
   { label: "Grad School", angle: 30 },
 ];
+
+export const household = [
+  { label: "1", angle: 17 },
+  { label: "2", angle: 107 },
+  { label: "3", angle: 221 },
+  { label: "4", angle: 330 },
+  { label: "5", angle: 185 },
+  { label: "6", angle: 90 },
+  { label: "7", angle: 25 },
+  { label: "8", angle: 20 },
+  { label: "9", angle: 12 },
+  { label: "10", angle: 4 },
+  { label: "11+", angle: 8 },
+];

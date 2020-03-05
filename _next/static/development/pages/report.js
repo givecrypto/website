@@ -659,12 +659,13 @@
         var BarLine = function BarLine(_ref2) {
           var items = _ref2.items,
             highlightId = _ref2.highlightId,
-            onHighlight = _ref2.onHighlight;
+            onHighlight = _ref2.onHighlight,
+            description = _ref2.description;
           var item = items.find(function(i) {
             return i.category === highlightId;
           });
           var title = highlightId
-            ? "of Recipients have completed ".concat(highlightId)
+            ? "of Recipients ".concat(description, " ").concat(highlightId)
             : "Recipients";
           return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
             react__WEBPACK_IMPORTED_MODULE_1__["Fragment"],
@@ -674,7 +675,7 @@
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 59,
+                  lineNumber: 65,
                 },
                 __self: this,
               },
@@ -691,7 +692,7 @@
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 61,
+                    lineNumber: 67,
                   },
                   __self: this,
                 },
@@ -704,7 +705,7 @@
                 className: "flex",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 63,
+                  lineNumber: 69,
                 },
                 __self: this,
               },
@@ -730,7 +731,7 @@
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 65,
+                        lineNumber: 71,
                       },
                       __self: this,
                     },
@@ -892,6 +893,7 @@
             react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
               _BarLine__WEBPACK_IMPORTED_MODULE_8__["default"],
               {
+                description: "have completed",
                 items: listItems,
                 highlightId: highlightId,
                 onHighlight: handleHighlightChange,
@@ -910,7 +912,7 @@
                 onHighlight: handleHighlightChange,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 64,
+                  lineNumber: 65,
                 },
                 __self: this,
               },
@@ -1254,6 +1256,297 @@
         };
 
         /* harmony default export */ __webpack_exports__["default"] = Gender;
+
+        /***/
+      },
+
+    /***/ "./components/Metrics/Household/index.tsx":
+      /*!************************************************!*\
+  !*** ./components/Metrics/Household/index.tsx ***!
+  \************************************************/
+      /*! exports provided: default */
+      /***/ function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js",
+        );
+        /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /*! react */ "./node_modules/react/index.js",
+        );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+          react__WEBPACK_IMPORTED_MODULE_2__,
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /*! chroma-js */ "./node_modules/chroma-js/chroma.js",
+        );
+        /* harmony import */ var chroma_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+          chroma_js__WEBPACK_IMPORTED_MODULE_3__,
+        );
+        /* harmony import */ var react_vis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /*! react-vis */ "./node_modules/react-vis/es/index.js",
+        );
+        /* harmony import */ var _design_system__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /*! ../../../design-system */ "./design-system/index.ts",
+        );
+        /* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+          /*! ../components/List */ "./components/Metrics/components/List.tsx",
+        );
+        /* harmony import */ var _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+          /*! ../../../content/ambassadors-report/metrics */ "./content/ambassadors-report/metrics.ts",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+          /*! lodash */ "./node_modules/lodash/lodash.js",
+        );
+        /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/ __webpack_require__.n(
+          lodash__WEBPACK_IMPORTED_MODULE_8__,
+        );
+        /* harmony import */ var _Education_BarLine__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+          /*! ../Education/BarLine */ "./components/Metrics/Education/BarLine.tsx",
+        );
+        /* harmony import */ var _components_Heading__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+          /*! ../components/Heading */ "./components/Metrics/components/Heading.tsx",
+        );
+
+        var _jsxFileName =
+          "/Users/jklb/dev/givecrypto/website/components/Metrics/Household/index.tsx";
+
+        var Household = function Household() {
+          var _React$useState = react__WEBPACK_IMPORTED_MODULE_2__["useState"](
+              null,
+            ),
+            _React$useState2 = Object(
+              _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[
+                "default"
+              ],
+            )(_React$useState, 2),
+            highlightId = _React$useState2[0],
+            setHighlightId = _React$useState2[1]; // Hold on to any timers
+
+          var timers = [];
+
+          var dataWithColors = function dataWithColors(data) {
+            return react__WEBPACK_IMPORTED_MODULE_2__["useMemo"](
+              function() {
+                // Get the color for each item
+                var getColor = function getColor(index) {
+                  var colorScale = chroma_js__WEBPACK_IMPORTED_MODULE_3___default.a
+                    .scale([
+                      _design_system__WEBPACK_IMPORTED_MODULE_5__["colors"]
+                        .blueDark,
+                      _design_system__WEBPACK_IMPORTED_MODULE_5__["colors"].red,
+                    ])
+                    .mode("rgb")
+                    .colors(data.length);
+
+                  if (
+                    Object(lodash__WEBPACK_IMPORTED_MODULE_8__["isNil"])(
+                      highlightId,
+                    )
+                  ) {
+                    return colorScale[index];
+                  } else {
+                    return index ===
+                      data.findIndex(function(a) {
+                        return a.label === highlightId;
+                      })
+                      ? chroma_js__WEBPACK_IMPORTED_MODULE_3___default.a
+                          .mix(
+                            colorScale[index],
+                            _design_system__WEBPACK_IMPORTED_MODULE_5__[
+                              "colors"
+                            ].coldWater,
+                          )
+                          .css()
+                      : colorScale[index];
+                  }
+                }; // Return the item and inject the correct color
+
+                return data.slice().map(function(item, index) {
+                  return Object(
+                    _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__[
+                      "default"
+                    ],
+                  )({}, item, {
+                    color: getColor(index),
+                  });
+                });
+              },
+              [highlightId],
+            );
+          };
+
+          var listItems = dataWithColors(
+            _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+              "household"
+            ],
+          )
+            .slice()
+            .map(function(item, i) {
+              return {
+                id: "".concat(i),
+                color: item.color,
+                category: item.label,
+                label: "".concat(item.angle, " Recipients"),
+                value: "".concat(
+                  (
+                    (item.angle /
+                      _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                        "totalParticipants"
+                      ]) *
+                    100
+                  ).toFixed(2),
+                  "%",
+                ),
+              };
+            });
+
+          var handleHighlightChange = function handleHighlightChange(label) {
+            timers.map(clearTimeout);
+            timers.push(
+              setTimeout(function() {
+                setHighlightId(label);
+              }, 10),
+            );
+          };
+
+          return react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+            "div",
+            {
+              className: "pv4",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 65,
+              },
+              __self: this,
+            },
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              _components_Heading__WEBPACK_IMPORTED_MODULE_10__["default"],
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 66,
+                },
+                __self: this,
+              },
+              "Household Size",
+            ),
+            react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+              "div",
+              {
+                className: "flex flex-wrap items-center mb4",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 67,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                "div",
+                {
+                  className: "w-40 pv4",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 68,
+                  },
+                  __self: this,
+                },
+                react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                  "div",
+                  {
+                    className: "flex items-center justify-between",
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 69,
+                    },
+                    __self: this,
+                  },
+                  react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                    react_vis__WEBPACK_IMPORTED_MODULE_4__["RadialChart"],
+                    {
+                      colorType: "literal",
+                      data: dataWithColors(
+                        _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                          "household"
+                        ],
+                      ),
+                      width: 300,
+                      height: 300,
+                      innerRadius: 85,
+                      radius: 120,
+                      animation: true,
+                      style: {
+                        boxShadow:
+                          _design_system__WEBPACK_IMPORTED_MODULE_5__["shadows"]
+                            .card,
+                      },
+                      onValueMouseOver: function onValueMouseOver(v) {
+                        handleHighlightChange(
+                          _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                            "household"
+                          ].find(function(item) {
+                            return item.label === v.label;
+                          }).label,
+                        );
+                      },
+                      onSeriesMouseOut: function onSeriesMouseOut() {
+                        handleHighlightChange();
+                      },
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 70,
+                      },
+                      __self: this,
+                    },
+                  ),
+                ),
+              ),
+              react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                "div",
+                {
+                  className: "w-60",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 92,
+                  },
+                  __self: this,
+                },
+                react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                  _Education_BarLine__WEBPACK_IMPORTED_MODULE_9__["default"],
+                  {
+                    description: "have a housold size of",
+                    items: listItems,
+                    highlightId: highlightId,
+                    onHighlight: handleHighlightChange,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 93,
+                    },
+                    __self: this,
+                  },
+                ),
+                react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
+                  _components_List__WEBPACK_IMPORTED_MODULE_6__["default"],
+                  {
+                    items: listItems,
+                    highlightId: highlightId,
+                    onHighlight: handleHighlightChange,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 99,
+                    },
+                    __self: this,
+                  },
+                ),
+              ),
+            ),
+          );
+        };
+
+        /* harmony default export */ __webpack_exports__["default"] = Household;
 
         /***/
       },
@@ -2161,7 +2454,7 @@
       /*!***********************************************!*\
   !*** ./content/ambassadors-report/metrics.ts ***!
   \***********************************************/
-      /*! exports provided: age, totalParticipants, gender, income, education */
+      /*! exports provided: age, totalParticipants, gender, income, education, household */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -2198,6 +2491,13 @@
           "education",
           function() {
             return education;
+          },
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "household",
+          function() {
+            return household;
           },
         );
         var age = [
@@ -2300,6 +2600,52 @@
           {
             label: "Grad School",
             angle: 30,
+          },
+        ];
+        var household = [
+          {
+            label: "1",
+            angle: 17,
+          },
+          {
+            label: "2",
+            angle: 107,
+          },
+          {
+            label: "3",
+            angle: 221,
+          },
+          {
+            label: "4",
+            angle: 330,
+          },
+          {
+            label: "5",
+            angle: 185,
+          },
+          {
+            label: "6",
+            angle: 90,
+          },
+          {
+            label: "7",
+            angle: 25,
+          },
+          {
+            label: "8",
+            angle: 20,
+          },
+          {
+            label: "9",
+            angle: 12,
+          },
+          {
+            label: "10",
+            angle: 4,
+          },
+          {
+            label: "11+",
+            angle: 8,
           },
         ];
 
@@ -101039,7 +101385,10 @@ eslint
         /* harmony import */ var _components_Metrics_Income__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
           /*! ../components/Metrics/Income */ "./components/Metrics/Income/index.tsx",
         );
-        /* harmony import */ var _utils_rehydrate__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+        /* harmony import */ var _components_Metrics_Household__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+          /*! ../components/Metrics/Household */ "./components/Metrics/Household/index.tsx",
+        );
+        /* harmony import */ var _utils_rehydrate__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
           /*! ../utils/rehydrate */ "./utils/rehydrate.tsx",
         );
 
@@ -101110,7 +101459,7 @@ eslint
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 46,
+                lineNumber: 47,
               },
               __self: this,
             },
@@ -101119,7 +101468,7 @@ eslint
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 47,
+                  lineNumber: 48,
                 },
                 __self: this,
               },
@@ -101129,7 +101478,7 @@ eslint
                   key: "head-title",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 48,
+                    lineNumber: 49,
                   },
                   __self: this,
                 },
@@ -101152,7 +101501,7 @@ eslint
                   ].description,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 50,
+                  lineNumber: 51,
                 },
                 __self: this,
               },
@@ -101163,7 +101512,7 @@ eslint
                 className: "ph3 ph0-l bb b--light-gray",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55,
+                  lineNumber: 56,
                 },
                 __self: this,
               },
@@ -101172,7 +101521,7 @@ eslint
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 56,
+                    lineNumber: 57,
                   },
                   __self: this,
                 },
@@ -101186,7 +101535,7 @@ eslint
                   className: "lh-copy",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 57,
+                    lineNumber: 58,
                   },
                   __self: this,
                 },
@@ -101201,7 +101550,7 @@ eslint
                 className: "ph3 ph0-l bb b--light-gray",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 59,
+                  lineNumber: 60,
                 },
                 __self: this,
               },
@@ -101211,7 +101560,7 @@ eslint
                   className: "flex",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 60,
+                    lineNumber: 61,
                   },
                   __self: this,
                 },
@@ -101221,7 +101570,7 @@ eslint
                     className: "w-50 br b--light-gray pt4",
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 61,
+                      lineNumber: 62,
                     },
                     __self: this,
                   },
@@ -101232,7 +101581,7 @@ eslint
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 62,
+                        lineNumber: 63,
                       },
                       __self: this,
                     },
@@ -101244,7 +101593,7 @@ eslint
                     className: "w-50 pl3 pt4",
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 64,
+                      lineNumber: 65,
                     },
                     __self: this,
                   },
@@ -101255,7 +101604,7 @@ eslint
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 65,
+                        lineNumber: 66,
                       },
                       __self: this,
                     },
@@ -101269,7 +101618,7 @@ eslint
                 className: "ph3 ph0-l bb b--light-gray",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 69,
+                  lineNumber: 70,
                 },
                 __self: this,
               },
@@ -101280,7 +101629,7 @@ eslint
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 70,
+                    lineNumber: 71,
                   },
                   __self: this,
                 },
@@ -101292,7 +101641,7 @@ eslint
                 className: "ph3 ph0-l bb b--light-gray",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 72,
+                  lineNumber: 73,
                 },
                 __self: this,
               },
@@ -101303,7 +101652,30 @@ eslint
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 73,
+                    lineNumber: 74,
+                  },
+                  __self: this,
+                },
+              ),
+            ),
+            react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+              _components_Wrapper__WEBPACK_IMPORTED_MODULE_8__["default"],
+              {
+                className: "ph3 ph0-l bb b--light-gray",
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 76,
+                },
+                __self: this,
+              },
+              react__WEBPACK_IMPORTED_MODULE_1__["createElement"](
+                _components_Metrics_Household__WEBPACK_IMPORTED_MODULE_15__[
+                  "default"
+                ],
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 77,
                   },
                   __self: this,
                 },

@@ -13,6 +13,7 @@ interface Item {
 
 interface Props {
   items: Item[];
+  description: string;
   highlightId?: string;
   onHighlight?: (label?: string) => void | null;
 }
@@ -48,10 +49,15 @@ const Tiny = styled.span({
   fontWeight: 400,
 });
 
-const BarLine: React.FC<Props> = ({ items, highlightId, onHighlight }) => {
+const BarLine: React.FC<Props> = ({
+  items,
+  highlightId,
+  onHighlight,
+  description,
+}) => {
   const item = items.find(i => i.category === highlightId);
   const title = highlightId
-    ? `of Recipients have completed ${highlightId}`
+    ? `of Recipients ${description} ${highlightId}`
     : `Recipients`;
 
   return (

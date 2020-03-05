@@ -57,6 +57,7 @@ const Education: React.FC<Props> = () => {
     <div className="w-100 pl3">
       <Heading>Education</Heading>
       <BarLine
+        description="have completed"
         items={listItems}
         highlightId={highlightId}
         onHighlight={handleHighlightChange}
