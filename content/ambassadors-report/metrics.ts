@@ -42,11 +42,10 @@ export const gender = [
 ];
 
 export const income = [
-  {
-    label: "$0-$20",
-    subLabel: "12%",
-    angle: 62.5,
-  },
+  { label: "$0-$20", subLabel: "12%", angle: 12 },
   { label: "$21-$50", subLabel: "7.4%", angle: 7.4 },
-  { label: "$51-$100", subLabel: "19.1%", angle: 19.1 },
+  { label: "$51-$100", subLabel: "9.1%", angle: 9.1 },
+  { label: "$101-$250", subLabel: "18%", angle: 18 },
+  { label: "$251-$500", subLabel: "15%", angle: 15 },
+  { label: "$501+", subLabel: "4%", angle: 4 },
 ];

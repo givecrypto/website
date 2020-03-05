@@ -1,6 +1,6 @@
 import * as React from "react";
 import { RadialChart, Hint } from "react-vis";
-import { colors, shadows } from "../../../design-system";
+import { colors } from "../../../design-system";
 import { isEmpty } from "lodash";
 import Tip from "../../../components/Tip";
 import {

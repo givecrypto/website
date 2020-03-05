@@ -1,10 +1,9 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { colors } from "../design-system";
+import { colors, shadows } from "../design-system";
 
 interface Item {
   id: string;
-  highlight: boolean;
   color: string;
   category: string;
   label: string;
@@ -13,24 +12,37 @@ interface Item {
 
 interface ItemProps {
   item: Item;
+  highlightId: string;
+  onMouseOver: () => void | null;
+  onMouseOut: () => void | null;
 }
 
-const Swatch = styled.div(props => ({
+const Swatch = styled.div(({ color }: any) => ({
   width: 15,
   height: 15,
   margin: 0,
   padding: 0,
   borderRadius: 4,
-  backgroundColor: props.color,
+  backgroundColor: color,
+  transition: "background 200ms ease",
 }));
 
-const ListItemContainer = styled.div({
+const ListItemContainer = styled.div(({ fade }: any) => ({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
+  padding: "0 1.2rem",
+  transition: "all 200ms ease",
   borderBottom: `1px solid ${colors.greyLightest}`,
-});
+  "&:last-child": {
+    borderBottom: "none",
+  },
+  "> *": {
+    transition: "all 200ms ease",
+    opacity: fade ? 0.4 : 1,
+  },
+}));
 const Left = styled.div({
   display: "flex",
   flexDirection: "row",
@@ -53,15 +65,17 @@ const Right = styled.div({
     textAlign: "right",
   },
 });
-const ListItem: React.FC<ItemProps> = ({ item }) => {
+const ListItem: React.FC<ItemProps> = ({ item, highlightId, ...rest }) => {
   return (
-    <ListItemContainer>
+    <ListItemContainer
+      fade={highlightId && highlightId !== item.category}
+      {...rest}
+    >
       <Left>
-        <Swatch theme={null} color={item.color} />
+        <Swatch color={item.color} />
         <p>{item.category}</p>
       </Left>
       <Right>
-        {item.highlight && <p>heiiiii</p>}
         <p>{item.label}</p>
         <p>{item.value}</p>
       </Right>
@@ -72,16 +86,29 @@ const ListItem: React.FC<ItemProps> = ({ item }) => {
 const ListContainer = styled.section({
   display: "flex",
   flexDirection: "column",
+  border: `1px solid ${colors.greyLightest}`,
+  borderRadius: 8,
+  boxShadow: shadows.card,
 });
 
 interface Props {
   items: Item[];
+  highlightId: string;
+  onHighlight: (label?: string) => void | null;
 }
-const List: React.FC<Props> = ({ items }) => {
+const List: React.FC<Props> = ({ items, highlightId, onHighlight }) => {
   return (
     <ListContainer>
       {items.map(item => {
-        return <ListItem item={item} />;
+        console.log(item);
+        return (
+          <ListItem
+            item={item}
+            highlightId={highlightId}
+            onMouseOver={() => onHighlight(item.category)}
+            onMouseOut={() => onHighlight()}
+          />
+        );
       })}
     </ListContainer>
   );

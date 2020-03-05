@@ -2719,6 +2719,7 @@ module.exports = /******/ (function(modules) {
         );
         var colors = {
           green: "#00CD90",
+          greenDark: "#286D59",
           blue: "#5890FF",
           blueDark: "#374056",
           red: "#D9694B",
@@ -2733,6 +2734,19 @@ module.exports = /******/ (function(modules) {
           yellow: "#fbd281",
           yellowLight: "#fbe2bb",
           coldWater: "#064E72",
+          scale: {
+            green: [
+              "#00cd90",
+              "#11c089",
+              "#1ab482",
+              "#20a87b",
+              "#239c74",
+              "#26906d",
+              "#278466",
+              "#287860",
+              "#286d59",
+            ],
+          },
         };
         /* harmony default export */ __webpack_exports__["default"] = colors;
 
@@ -2795,6 +2809,7 @@ module.exports = /******/ (function(modules) {
           default: "0 8px 16px rgba(0,0,0,0.075)",
           light: "0 4px 12px rgba(0,0,0,0.1)",
           card: "0 18px 48px rgba(0,0,0,0.075)",
+          none: "0 18px 48px rgba(0,0,0,0)",
         };
 
         /***/

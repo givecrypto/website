@@ -16,14 +16,13 @@ const Age: React.FC<Props> = () => {
   const ref = React.useRef();
   const { width } = useMeasure(ref);
 
-  console.log(width);
   return (
     <div ref={ref}>
-      <p>Age Metrics</p>
+      <p>Age</p>
       <XYPlot
         yType="ordinal"
         height={275}
-        width={width - 100}
+        width={width}
         xDistance={100}
         style={{
           overflow: "visible",

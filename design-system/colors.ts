@@ -1,5 +1,6 @@
 interface Colors {
   green: string;
+  greenDark: string;
   blue: string;
   blueDark: string;
   red: string;
@@ -14,10 +15,14 @@ interface Colors {
   yellow: string;
   yellowLight: string;
   coldWater: string;
+  scale: {
+    green: string[];
+  };
 }
 
 export const colors: Colors = {
   green: "#00CD90",
+  greenDark: "#286D59",
   blue: "#5890FF",
   blueDark: "#374056",
   red: "#D9694B",
@@ -32,6 +37,19 @@ export const colors: Colors = {
   yellow: "#fbd281",
   yellowLight: "#fbe2bb",
   coldWater: "#064E72",
+  scale: {
+    green: [
+      "#00cd90",
+      "#11c089",
+      "#1ab482",
+      "#20a87b",
+      "#239c74",
+      "#26906d",
+      "#278466",
+      "#287860",
+      "#286d59",
+    ],
+  },
 };
 
 export default colors;
