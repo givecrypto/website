@@ -47,9 +47,6 @@ const Left = styled.div({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  "& p": {
-    marginLeft: 10,
-  },
 });
 const Right = styled.div({
   display: "flex",
@@ -57,14 +54,26 @@ const Right = styled.div({
   alignItems: "center",
   justifyContent: "space-between",
   minWidth: "40%",
-  "& p": {
-    marginLeft: 30,
-    minWidth: 45,
-  },
   "&:last-child": {
     textAlign: "right",
   },
 });
+
+const Category = styled.h3({
+  fontWeight: 500,
+  fontSize: "0.9rem",
+  color: colors.greyDark,
+  marginLeft: 10,
+});
+const Label = styled.h4({
+  fontWeight: "normal",
+  fontSize: "0.9rem",
+  color: colors.grey,
+  marginLeft: 30,
+  padding: 0,
+  minWidth: 45,
+});
+
 const ListItem: React.FC<ItemProps> = ({ item, highlightId, ...rest }) => {
   return (
     <ListItemContainer
@@ -73,11 +82,11 @@ const ListItem: React.FC<ItemProps> = ({ item, highlightId, ...rest }) => {
     >
       <Left>
         <Swatch color={item.color} />
-        <p>{item.category}</p>
+        <Category>{item.category}</Category>
       </Left>
       <Right>
-        <p>{item.label}</p>
-        <p>{item.value}</p>
+        <Label>{item.label}</Label>
+        <Label>{item.value}</Label>
       </Right>
     </ListItemContainer>
   );

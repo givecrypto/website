@@ -3,7 +3,10 @@ import chroma from "chroma-js";
 import { RadialChart } from "react-vis";
 import { colors, shadows } from "../../../design-system";
 import List from "../../../components/List";
-import { income } from "../../../content/ambassadors-report/metrics";
+import {
+  income,
+  totalParticipants,
+} from "../../../content/ambassadors-report/metrics";
 import { isNil } from "lodash";
 
 interface Props {}
@@ -44,7 +47,7 @@ const Income: React.FC<Props> = () => {
       id: `${i}`,
       color: item.color,
       category: item.label,
-      label: `Another ${item.subLabel}`,
+      label: `${Math.floor((item.angle * totalParticipants) / 100)} Recipients`,
       value: item.subLabel,
     }));
 

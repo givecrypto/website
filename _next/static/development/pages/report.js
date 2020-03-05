@@ -514,9 +514,6 @@
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          "& p": {
-            marginLeft: 10,
-          },
         });
         var Right = _emotion_styled__WEBPACK_IMPORTED_MODULE_3__["default"].div(
           {
@@ -525,15 +522,27 @@
             alignItems: "center",
             justifyContent: "space-between",
             minWidth: "40%",
-            "& p": {
-              marginLeft: 30,
-              minWidth: 45,
-            },
             "&:last-child": {
               textAlign: "right",
             },
           },
         );
+        var Category = _emotion_styled__WEBPACK_IMPORTED_MODULE_3__[
+          "default"
+        ].h3({
+          fontWeight: 500,
+          fontSize: "0.9rem",
+          color: _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].greyDark,
+          marginLeft: 10,
+        });
+        var Label = _emotion_styled__WEBPACK_IMPORTED_MODULE_3__["default"].h4({
+          fontWeight: "normal",
+          fontSize: "0.9rem",
+          color: _design_system__WEBPACK_IMPORTED_MODULE_4__["colors"].grey,
+          marginLeft: 30,
+          padding: 0,
+          minWidth: 45,
+        });
 
         var ListItem = function ListItem(_ref3) {
           var item = _ref3.item,
@@ -558,7 +567,7 @@
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 70,
+                  lineNumber: 79,
                 },
                 __self: this,
               },
@@ -568,7 +577,7 @@
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 74,
+                  lineNumber: 83,
                 },
                 __self: this,
               },
@@ -576,16 +585,16 @@
                 color: item.color,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 75,
+                  lineNumber: 84,
                 },
                 __self: this,
               }),
               react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                "p",
+                Category,
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 76,
+                    lineNumber: 85,
                   },
                   __self: this,
                 },
@@ -597,27 +606,27 @@
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 78,
+                  lineNumber: 87,
                 },
                 __self: this,
               },
               react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                "p",
+                Label,
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 79,
+                    lineNumber: 88,
                   },
                   __self: this,
                 },
                 item.label,
               ),
               react__WEBPACK_IMPORTED_MODULE_2__["createElement"](
-                "p",
+                Label,
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 80,
+                    lineNumber: 89,
                   },
                   __self: this,
                 },
@@ -649,7 +658,7 @@
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101,
+                lineNumber: 110,
               },
               __self: this,
             },
@@ -668,7 +677,7 @@
                   },
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 105,
+                    lineNumber: 114,
                   },
                   __self: this,
                 },
@@ -1161,7 +1170,16 @@
                 id: "".concat(i),
                 color: item.color,
                 category: item.label,
-                label: "Another ".concat(item.subLabel),
+                label: "".concat(
+                  Math.floor(
+                    (item.angle *
+                      _content_ambassadors_report_metrics__WEBPACK_IMPORTED_MODULE_7__[
+                        "totalParticipants"
+                      ]) /
+                      100,
+                  ),
+                  " Recipients",
+                ),
                 value: item.subLabel,
               };
             });
@@ -1181,7 +1199,7 @@
               className: "pv3",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 61,
+                lineNumber: 64,
               },
               __self: this,
             },
@@ -1190,7 +1208,7 @@
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 62,
+                  lineNumber: 65,
                 },
                 __self: this,
               },
@@ -1202,7 +1220,7 @@
                 className: "flex flex-wrap items-center mb4",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 63,
+                  lineNumber: 66,
                 },
                 __self: this,
               },
@@ -1212,7 +1230,7 @@
                   className: "w-40 pv4",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 64,
+                    lineNumber: 67,
                   },
                   __self: this,
                 },
@@ -1222,7 +1240,7 @@
                     className: "flex items-center justify-center",
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 65,
+                      lineNumber: 68,
                     },
                     __self: this,
                   },
@@ -1259,7 +1277,7 @@
                       },
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 66,
+                        lineNumber: 69,
                       },
                       __self: this,
                     },
@@ -1272,7 +1290,7 @@
                   className: "w-60",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 88,
+                    lineNumber: 91,
                   },
                   __self: this,
                 },
@@ -1284,7 +1302,7 @@
                     onHighlight: handleHighlightChange,
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 89,
+                      lineNumber: 92,
                     },
                     __self: this,
                   },
