@@ -2,7 +2,8 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import chroma from "chroma-js";
 import Button from "../../../components/Button";
-import { colors } from "../../../design-system";
+import { breakpoints, colors } from "../../../design-system";
+import { Step } from "../../../utils/Scale";
 import Wrapper from "../../../components/Wrapper";
 
 const Container = styled.section({
@@ -19,17 +20,23 @@ const Container = styled.section({
 });
 const Title = styled.h1({
   color: colors.white,
-  fontSize: "3.55rem",
+  fontSize: Step(5.35),
+  [breakpoints.ns]: {
+    fontSize: Step(6),
+  },
   lineHeight: 1.35,
 });
 const Subtitle = styled.h2({
   color: colors.greyLightest,
   fontWeight: 500,
   opacity: 0.6,
-  fontSize: "1.75rem",
   lineHeight: 1.5,
   maxWidth: 675,
   marginBottom: "4rem",
+  fontSize: Step(4.5),
+  [breakpoints.ns]: {
+    fontSize: Step(5),
+  },
 });
 
 interface Props {}
