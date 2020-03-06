@@ -70,3 +70,17 @@ export const household = [
   { label: "10", angle: 2 },
   { label: "11+", angle: 6 },
 ];
+
+export const householdBar = [
+  { y: 13, x: "1" },
+  { y: 106, x: "2" },
+  { y: 238, x: "3" },
+  { y: 348, x: "4" },
+  { y: 188, x: "5" },
+  { y: 89, x: "6" },
+  { y: 35, x: "7" },
+  { y: 19, x: "8" },
+  { y: 6, x: "9" },
+  { y: 2, x: "10" },
+  { y: 6, x: "11+" },
+];
