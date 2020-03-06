@@ -11,7 +11,6 @@ import { Step } from "../utils/Scale";
 import Gender from "../components/Metrics/Gender";
 import Education from "../components/Metrics/Education";
 import Age from "../components/Metrics/Age";
-import Household from "../components/Metrics/Household";
 import HouseholdBarChart from "../components/Metrics/Household/HouseholdBarChart";
 
 // Refresh styles
@@ -72,9 +71,6 @@ const Report: React.FC<Props> = () => {
       </Wrapper>
       <Wrapper className="ph3 ph0-l bb b--light-gray">
         <HouseholdBarChart />
-      </Wrapper>
-      <Wrapper className="ph3 ph0-l bb b--light-gray">
-        <Household />
       </Wrapper>
     </Analytics>
   );
