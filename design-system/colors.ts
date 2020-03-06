@@ -14,6 +14,7 @@ interface Colors {
   white: string;
   yellow: string;
   yellowLight: string;
+  yellowDark: string;
   coldWater: string;
   scale: {
     green: string[];
@@ -36,6 +37,7 @@ export const colors: Colors = {
   white: "#ffffff",
   yellow: "#fbd281",
   yellowLight: "#fbe2bb",
+  yellowDark: "#f8c069",
   coldWater: "#064E72",
   scale: {
     green: [

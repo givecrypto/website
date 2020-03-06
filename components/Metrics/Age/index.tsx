@@ -1,4 +1,5 @@
 import * as React from "react";
+import chroma from "chroma-js";
 import {
   YAxis,
   XAxis,
@@ -37,6 +38,32 @@ const Age: React.FC<Props> = () => {
         : `${((value.x / totalParticipants) * 100).toFixed(2)}%`,
     [value],
   );
+
+  const dataWithColors = (data: any) =>
+    React.useMemo(() => {
+      // Get the color for each item
+      const getColor = (index: number) => {
+        const colorScale = chroma
+          .scale([colors.yellow, colors.yellowDark])
+          .mode("rgb")
+          .colors(data.length);
+
+        if (isEmpty(value)) {
+          return colorScale[index];
+        } else {
+          return index === data.findIndex(a => a.y === value.y)
+            ? chroma.mix(colorScale[index], colors.yellowLight).css()
+            : colorScale[index];
+        }
+      };
+
+      // Return the item and inject the correct color
+      return data.slice().map((item: any, index: number) => ({
+        ...item,
+        color: getColor(index),
+      }));
+    }, [value]);
+
   const memoizedValue: any = React.useMemo(
     () =>
       isEmpty(value)
@@ -80,11 +107,11 @@ const Age: React.FC<Props> = () => {
         <XAxis />
         <YAxis />
         <HorizontalBarSeries
+          colorType="literal"
           animation={{ damping: 14, stiffness: 100 }}
           barWidth={0.6}
-          data={age}
+          data={dataWithColors(age)}
           style={{}}
-          color={colors.yellow}
           onValueMouseOver={(v: any) => {
             setValue(v);
           }}
