@@ -4,6 +4,8 @@ import { injectGlobal } from "emotion";
 injectGlobal`
   * {
     font-family: "Apercu";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   @font-face {
     font-family: "Apercu";
@@ -41,21 +43,21 @@ injectGlobal`
   }
   @font-face {
     font-family: "Apercu";
-    font-style: "italic";
+    font-style: italic;
     font-weight: 500;
     src: url('/static/fonts/Apercu-Italic.woff2') format('woff2'),
       url('/static/fonts/Apercu-Italic.woff') format('woff');
   }
   @font-face {
     font-family: "Apercu";
-    font-style: "italic";
+    font-style: italic;
     font-weight: 700;
     src: url('/static/fonts/Apercu-MediumItalic.woff2') format('woff2'),
       url('/static/fonts/Apercu-MediumItalic.woff') format('woff');
   }
   @font-face {
     font-family: "Apercu";
-    font-style: "italic";
+    font-style: italic;
     font-weight: 900;
     src: url('/static/fonts/Apercu-BoldItalic.woff2') format('woff2'),
       url('/static/fonts/Apercu-BoldItalic.woff') format('woff');
