@@ -48,7 +48,6 @@ export default class GiveCryptoDocument extends Document {
         <Head>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <link rel="icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="/_next/static/style.css" />
           <GoogleMeta data={data} />
         </Head>
         <ErrorBoundary>
