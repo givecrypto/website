@@ -30,7 +30,10 @@ const Household: React.FC<Props> = () => {
           return colorScale[index];
         } else {
           return index === data.findIndex(a => a.label === highlightId)
-            ? chroma.mix(colorScale[index], colors.coldWater).css()
+            ? chroma
+                .mix(colorScale[index], colors.coldWater)
+                .alpha(0.5)
+                .css()
             : colorScale[index];
         }
       };
@@ -75,16 +78,10 @@ const Household: React.FC<Props> = () => {
               innerRadius={85}
               radius={120}
               animation
-              style={{
-                boxShadow: shadows.card,
-              }}
               onValueMouseOver={(v: any) => {
                 handleHighlightChange(
                   household.find(item => item.label === v.label).label,
                 );
-              }}
-              onSeriesMouseOut={() => {
-                handleHighlightChange();
               }}
             />
           </div>

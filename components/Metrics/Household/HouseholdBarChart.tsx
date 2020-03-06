@@ -41,9 +41,11 @@ const HouseholdBarChart: React.FC<Props> = () => {
         if (isNil(highlightId)) {
           return colorScale[index];
         } else {
-          return index === data.findIndex(a => a.label === highlightId)
+          return index === data.findIndex(a => a.x === highlightId)
             ? chroma.mix(colorScale[index], colors.coldWater).css()
-            : colorScale[index];
+            : chroma(colorScale[index])
+                .alpha(0.75)
+                .css();
         }
       };
 
@@ -98,6 +100,9 @@ const HouseholdBarChart: React.FC<Props> = () => {
                 xDistance={100}
                 style={{
                   overflow: "visible",
+                }}
+                onMouseLeave={() => {
+                  handleHighlightChange();
                 }}
               >
                 <HorizontalGridLines />
