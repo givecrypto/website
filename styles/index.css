@@ -6,6 +6,7 @@
 @font-face { font-family: "Apercu"; font-style: italic; font-weight: 500; src: url( "/static/fonts/Apercu-Italic.woff2" ) format( "woff2" ), url( "/static/fonts/Apercu-Italic.woff" ) format( "woff" ); }
 @font-face { font-family: "Apercu"; font-style: italic; font-weight: 700; src: url( "/static/fonts/Apercu-MediumItalic.woff2" ) format( "woff2" ), url( "/static/fonts/Apercu-MediumItalic.woff" ) format( "woff" ); }
 @font-face { font-family: "Apercu"; font-style: italic; font-weight: 900; src: url( "/static/fonts/Apercu-BoldItalic.woff2" ) format( "woff2" ), url( "/static/fonts/Apercu-BoldItalic.woff" ) format( "woff" ); }
+* { font-family: "Apercu"; }
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
