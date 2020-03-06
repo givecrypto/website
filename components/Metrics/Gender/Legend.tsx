@@ -32,7 +32,7 @@ const Legend: React.FunctionComponent<Props> = ({ data }) => {
     <div className="flex mb3">
       {data.map(({ label, color }) => {
         return (
-          <Pill className="flex items-center mr3 br3">
+          <Pill key={`${label}--key`} className="flex items-center mr3 br3">
             <Swatch color={color} />
             <H2>{label}</H2>
           </Pill>

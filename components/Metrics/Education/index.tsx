@@ -14,24 +14,23 @@ interface Props {}
 const Education: React.FC<Props> = () => {
   const [highlightId, setHighlightId]: any = React.useState(null);
 
-  const dataWithColors = (data: any) =>
-    React.useMemo(() => {
-      // Get the color for each item
-      const getColor = (index: number) => {
-        const colorScale = chroma
-          .scale([colors.blue, colors.blueDark])
-          .mode("rgb")
-          .colors(data.length);
+  const dataWithColors = (data: any) => {
+    // Get the color for each item
+    const getColor = (index: number) => {
+      const colorScale = chroma
+        .scale([colors.blue, colors.blueDark])
+        .mode("rgb")
+        .colors(data.length);
 
-        return colorScale[index];
-      };
+      return colorScale[index];
+    };
 
-      // Return the item and inject the correct color
-      return data.slice().map((item: any, index: number) => ({
-        ...item,
-        color: getColor(index),
-      }));
-    }, [highlightId]);
+    // Return the item and inject the correct color
+    return data.slice().map((item: any, index: number) => ({
+      ...item,
+      color: getColor(index),
+    }));
+  };
 
   const listItems = React.useMemo(
     () =>
@@ -41,10 +40,8 @@ const Education: React.FC<Props> = () => {
           id: `${i}`,
           color: item.color,
           category: item.label,
-          label: `${Math.floor(
-            (item.angle * totalParticipants) / 100,
-          )} Recipients`,
-          value: `${item.angle}%`,
+          label: `${item.angle} Recipients`,
+          value: `${((item.angle / totalParticipants) * 100).toFixed(2)}%`,
         })),
     [highlightId],
   );

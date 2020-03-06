@@ -4,6 +4,8 @@
 # build
 dist
 .next
+_next
+.next
 
 # testing
 .nyc_output

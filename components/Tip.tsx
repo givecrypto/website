@@ -39,7 +39,7 @@ const Tip: React.FunctionComponent<Props> = props => {
     <Container>
       <Title>{props.title}</Title>
       {props.metrics.map(({ label, value }) => (
-        <ListItem>
+        <ListItem key={`legend-list-item--${label}`}>
           {label}: {value}
         </ListItem>
       ))}

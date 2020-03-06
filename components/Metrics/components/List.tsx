@@ -99,17 +99,15 @@ interface Props {
 const List: React.FC<Props> = ({ items, highlightId, onHighlight }) => {
   return (
     <ListContainer>
-      {items.map(item => {
-        console.log(item);
-        return (
-          <ListItem
-            item={item}
-            highlightId={highlightId}
-            onMouseOver={() => onHighlight && onHighlight(item.category)}
-            onMouseOut={() => onHighlight && onHighlight()}
-          />
-        );
-      })}
+      {items.map(item => (
+        <ListItem
+          key={`list-item--${item.id}`}
+          item={item}
+          highlightId={highlightId}
+          onMouseOver={() => onHighlight && onHighlight(item.category)}
+          onMouseOut={() => onHighlight && onHighlight()}
+        />
+      ))}
     </ListContainer>
   );
 };
