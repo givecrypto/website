@@ -19,17 +19,17 @@ const Container = styled.section({
 });
 const Title = styled.h1({
   color: colors.white,
-  fontSize: "2.5rem",
-  lineHeight: 1.5,
+  fontSize: "3.55rem",
+  lineHeight: 1.35,
 });
 const Subtitle = styled.h2({
   color: colors.greyLightest,
   fontWeight: 500,
   opacity: 0.6,
-  fontSize: "1.25rem",
+  fontSize: "1.75rem",
   lineHeight: 1.5,
-  maxWidth: 470,
-  marginBottom: "3rem",
+  maxWidth: 675,
+  marginBottom: "4rem",
 });
 
 interface Props {}
@@ -38,7 +38,9 @@ const ReportHero: React.FC<Props> = () => {
     <Container>
       <Wrapper className="pb5">
         <Title className="measure">
-          Venezuelan Ambassador Program - Real Time Data
+          Venezuelan Ambassador
+          <br />
+          Program Real Time Report
         </Title>
         <Subtitle className="measure">
           We are sharing the live results of our randomized controlled trial in
