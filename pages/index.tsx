@@ -19,6 +19,7 @@ import seo from "../content/home/seo";
 import { breakpoints, colors } from "../design-system";
 import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
+import ReportHero from "../components/Metrics/Hero";
 import Analytics from "../components/Analytics";
 
 const { div } = glamorous;
@@ -73,6 +74,8 @@ export default class App extends React.Component<{}, {}> {
           <title key="head-title">{seo.title}</title>
         </Head>
         <HeadMeta path="/home" description={seo.description} />
+
+        <ReportHero />
 
         <Container>
           {/* <Wrapper>

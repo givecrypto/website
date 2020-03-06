@@ -11,7 +11,7 @@ import { Step } from "../utils/Scale";
 import Gender from "../components/Metrics/Gender";
 import Education from "../components/Metrics/Education";
 import Age from "../components/Metrics/Age";
-import HouseholdBarChart from "../components/Metrics/Household/HouseholdBarChart";
+import HouseholdHorizontalBar from "../components/Metrics/Household/HouseholdHorizontalBar";
 
 // Refresh styles
 import "../utils/rehydrate";
@@ -56,9 +56,12 @@ const Report: React.FC<Props> = () => {
         <Title>{hero.title}</Title>
         <Subtitle className="lh-copy">{hero.subtitle}</Subtitle>
       </Wrapper>
+      <Wrapper className="ph3 ph0-l bb b--light-gray">
+        <Age />
+      </Wrapper>
       <Wrapper className="ph0 bb b--light-gray">
         <div className="flex flex-wrap">
-          <div className="ph3 ph0-l w-100 w-50-l pb4 pb0-l bb br-l b--light-gray pt4">
+          <div className="ph3 ph0-l w-100 w-50-l pb4 pb0-l bb bn-ns br-l b--light-gray pt4">
             <Gender />
           </div>
           <div className="ph3 ph0-l w-100 w-50-l pl0 pl3-l pt4">
@@ -67,10 +70,7 @@ const Report: React.FC<Props> = () => {
         </div>
       </Wrapper>
       <Wrapper className="ph3 ph0-l bb b--light-gray">
-        <Age />
-      </Wrapper>
-      <Wrapper className="ph3 ph0-l bb b--light-gray">
-        <HouseholdBarChart />
+        <HouseholdHorizontalBar />
       </Wrapper>
     </Analytics>
   );
