@@ -53,7 +53,11 @@ const Container = styled.div(({ currentRoute }: any) =>
           },
         },
       }
-    : {},
+    : {
+        "& .headroom--pinned.headroom--scrolled": {
+          background: colors.white,
+        },
+      },
 );
 
 const LogoContainer = glamorous.div(({ color }: any) => ({
