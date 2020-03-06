@@ -4,27 +4,27 @@ export const age = [
     y: "75+",
   },
   {
-    x: 61,
+    x: 70,
     y: "65-74",
   },
   {
-    x: 146,
+    x: 154,
     y: "55-64",
   },
   {
-    x: 212,
+    x: 228,
     y: "45-54",
   },
   {
-    x: 233,
+    x: 249,
     y: "35-44",
   },
   {
-    x: 184,
+    x: 193,
     y: "25-34",
   },
   {
-    x: 110,
+    x: 118,
     y: "18-24",
   },
 ];
@@ -34,40 +34,39 @@ export const totalParticipants = 1050;
 export const gender = [
   {
     label: "Female",
-    subLabel: "62.5%",
-    angle: 62.5,
+    angle: 656,
   },
-  { label: "Male", subLabel: "36.4%", angle: 36.4 },
-  { label: "Other", subLabel: "1.1%", angle: 1.1 },
+  { label: "Male", angle: 393 },
+  { label: "Other", angle: 1 },
 ];
 
 export const income = [
-  { label: "$0-$20", subLabel: "12%", angle: 12 },
-  { label: "$21-$50", subLabel: "7.4%", angle: 7.4 },
-  { label: "$51-$100", subLabel: "9.1%", angle: 9.1 },
-  { label: "$101-$250", subLabel: "18%", angle: 18 },
-  { label: "$251-$500", subLabel: "15%", angle: 15 },
-  { label: "$501+", subLabel: "4%", angle: 4 },
+  { label: "$0-$20", angle: 12 },
+  { label: "$21-$50", angle: 7.4 },
+  { label: "$51-$100", angle: 9.1 },
+  { label: "$101-$250", angle: 18 },
+  { label: "$251-$500", angle: 15 },
+  { label: "$501+", angle: 4 },
 ];
 
 export const education = [
-  { label: "No Education", angle: 6 },
-  { label: "Junior High", angle: 4 },
-  { label: "High School", angle: 37 },
-  { label: "College", angle: 23 },
-  { label: "Grad School", angle: 30 },
+  { label: "Primary", angle: 287 },
+  { label: "Secondary", angle: 501 },
+  { label: "Professional Degree", angle: 90 },
+  { label: "University", angle: 158 },
+  { label: "Post Graduate", angle: 14 },
 ];
 
 export const household = [
-  { label: "1", angle: 17 },
-  { label: "2", angle: 107 },
-  { label: "3", angle: 221 },
-  { label: "4", angle: 330 },
-  { label: "5", angle: 185 },
-  { label: "6", angle: 90 },
-  { label: "7", angle: 25 },
-  { label: "8", angle: 20 },
-  { label: "9", angle: 12 },
-  { label: "10", angle: 4 },
-  { label: "11+", angle: 8 },
+  { label: "1", angle: 13 },
+  { label: "2", angle: 106 },
+  { label: "3", angle: 238 },
+  { label: "4", angle: 348 },
+  { label: "5", angle: 188 },
+  { label: "6", angle: 89 },
+  { label: "7", angle: 35 },
+  { label: "8", angle: 19 },
+  { label: "9", angle: 6 },
+  { label: "10", angle: 2 },
+  { label: "11+", angle: 6 },
 ];
