@@ -6,10 +6,8 @@ injectGlobal`
     fontFamily: "Apercu",
     fontStyle: "normal",
     fontWeight: 200,
-    src: "url('/static/fonts/Apercu-Mono.woff2') format('woff2'), url('/static/fonts/Apercu-Mono.woff') format('woff')",
+    src: "url('/static/fonts/Apercu-Mono.woff2') format('woff2'), url('/static/fonts/Apercu-Mono.woff') format('woff')"
   }
-
-  // Normal
   @font-face {
     fontFamily: "Apercu",
     fontStyle: "normal",
@@ -34,8 +32,6 @@ injectGlobal`
     fontWeight: 900,
     src: "url('/static/fonts/Apercu-Bold.woff2') format('woff2'), url('/static/fonts/Apercu-Bold.woff') format('woff')",
   }
-
-  // Italic
   @font-face {
     fontFamily: "Apercu",
     fontStyle: "italic",
