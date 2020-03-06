@@ -65,8 +65,8 @@ const Household: React.FC<Props> = () => {
     <div className="pv4">
       <Heading>Household Size</Heading>
       <div className="flex flex-wrap items-center mb4">
-        <div className="w-40 pv4">
-          <div className="flex items-center justify-between">
+        <div className="w-100 w-40-l pv4">
+          <div className="flex items-center justify-center justify-between-l">
             <RadialChart
               colorType="literal"
               data={dataWithColors(household)}
@@ -89,7 +89,7 @@ const Household: React.FC<Props> = () => {
             />
           </div>
         </div>
-        <div className="w-60">
+        <div className="w-100 w-60-l">
           <BarLine
             description="have a housold size of"
             items={listItems}

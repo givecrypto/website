@@ -26,12 +26,13 @@ const Nav = glamorous.nav({
   },
 });
 
-const LogoContainer = glamorous.div({
+const LogoContainer = glamorous.div(({ color }: any) => ({
   maxWidth: 170,
   [breakpoints.ns]: {
     maxWidth: 170,
   },
-});
+  "& g, & path": { transition: "fill 200ms ease", fill: color },
+}));
 
 const AnimationContainer = glamorous.div({
   display: "inline-block",
@@ -147,7 +148,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
   public render() {
     const { theme } = this.props;
-    const { menuModalState } = this.state;
+    const { menuModalState, currentRoute } = this.state;
     const donateTheme = theme === "light" ? "ghost" : "default";
     const defaultOptions = {
       loop: false,
@@ -157,13 +158,19 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         preserveAspectRatio: "xMidYMid slice",
       },
     };
+
     return (
       <>
         <Headroom className={`relative z-999 open-${menuModalState}`}>
           <Nav className="flex items-center justify-between">
             <Div lineHeight="0">
               <Link href="/">
-                <LogoContainer className="responsive">
+                <LogoContainer
+                  className="responsive"
+                  color={
+                    currentRoute === "/report" ? colors.coldWater : colors.black
+                  }
+                >
                   <Logo />
                 </LogoContainer>
               </Link>

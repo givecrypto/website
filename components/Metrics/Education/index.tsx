@@ -51,7 +51,7 @@ const Education: React.FC<Props> = () => {
   };
 
   return (
-    <div className="w-100 pl3">
+    <div className="w-100 pl0 pl3-l">
       <Heading>Education</Heading>
       <BarLine
         description="have completed"

@@ -56,12 +56,12 @@ const Report: React.FC<Props> = () => {
         <Title>{hero.title}</Title>
         <Subtitle className="lh-copy">{hero.subtitle}</Subtitle>
       </Wrapper>
-      <Wrapper className="ph3 ph0-l bb b--light-gray">
-        <div className="flex">
-          <div className="w-50 br b--light-gray pt4">
+      <Wrapper className="ph0 bb b--light-gray">
+        <div className="flex flex-wrap">
+          <div className="ph3 ph0-l w-100 w-50-l pb4 pb0-l bb br-l b--light-gray pt4">
             <Gender />
           </div>
-          <div className="w-50 pl3 pt4">
+          <div className="ph3 ph0-l w-100 w-50-l pl0 pl3-l pt4">
             <Education />
           </div>
         </div>
