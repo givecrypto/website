@@ -54,17 +54,15 @@ const Gender: React.FC<Props> = () => {
               metrics: [
                 {
                   label: "Total",
-                  value: Math.floor(
-                    totalParticipants *
-                      (gender.find(item => item.label === v.label).angle *
-                        0.01),
-                  ),
+                  value: gender.find(item => item.label === v.label).angle,
                 },
                 {
                   label: "Percentage",
-                  value: `${
-                    gender.find(item => item.label === v.label).angle
-                  }%`,
+                  value: `${(
+                    (gender.find(item => item.label === v.label).angle /
+                      totalParticipants) *
+                    100
+                  ).toFixed(2)}%`,
                 },
               ],
             });
