@@ -1,20 +1,20 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import Head from "next/head";
-import Analytics from "../components/Analytics";
-import seo from "../content/ambassadors-report/seo";
-import hero from "../content/ambassadors-report/hero";
-import HeadMeta from "../components/HeadMeta";
-import Wrapper from "../components/Wrapper";
-import { breakpoints, colors } from "../design-system";
-import { Step } from "../utils/Scale";
-import Gender from "../components/Metrics/Gender";
-import Education from "../components/Metrics/Education";
-import Age from "../components/Metrics/Age";
-import HouseholdHorizontalBar from "../components/Metrics/Household/HouseholdHorizontalBar";
+import Analytics from "../../components/Analytics";
+import seo from "../../content/ambassadors-report/seo";
+import hero from "../../content/ambassadors-report/hero";
+import HeadMeta from "../../components/HeadMeta";
+import Wrapper from "../../components/Wrapper";
+import { breakpoints, colors } from "../../design-system";
+import { Step } from "../../utils/Scale";
+import Gender from "../../components/Metrics/Gender";
+import Education from "../../components/Metrics/Education";
+import Age from "../../components/Metrics/Age";
+import HouseholdHorizontalBar from "../../components/Metrics/Household/HouseholdHorizontalBar";
 
 // Refresh styles
-import "../utils/rehydrate";
+import "../../utils/rehydrate";
 
 // Styled Components
 const Title = styled.h2({

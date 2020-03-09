@@ -58,13 +58,13 @@ const ReportHero: React.FC<Props> = () => {
           css={{
             background: colors.blue,
             borderColor: colors.blue,
-            "&:hover": {
+            "&:hover, :active": {
               background: chroma(colors.blue)
                 .brighten(0.25)
                 .css(),
             },
           }}
-          href={"/report"}
+          href={"/reports/venezuelan-ambassador-program"}
           theme={"light"}
         >
           View Report
