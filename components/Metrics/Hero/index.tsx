@@ -65,7 +65,7 @@ const ReportHero: React.FC<Props> = () => {
             },
           }}
           href={"/reports/venezuelan-ambassador-program"}
-          theme={"light"}
+          scheme="light"
         >
           View Report
         </Button>

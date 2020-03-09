@@ -59,7 +59,9 @@ const Link = ({
   return (
     <span onClick={onClickHandler(href)} className={className}>
       <NextLink activeClassName={activeClass} href={href}>
-        <A {...rest}>{children}</A>
+        <A href={href} {...rest}>
+          {children}
+        </A>
       </NextLink>
     </span>
   );
