@@ -1,4 +1,4 @@
 export default {
-  title: "Real Time Report",
-  subtitle: "Venezuelan Ambassador Program",
+  title: "Venezuelan Ambassador Program",
+  subtitle: "Real Time Data",
 };

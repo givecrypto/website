@@ -45,13 +45,13 @@ const ReportHero: React.FC<Props> = () => {
     <Container>
       <Wrapper className="pb5">
         <Title className="measure">
-          Venezuelan Ambassador
+          Venezuelan Ambassador Program
           <br />
-          Program Real Time Report
+          Real Time Data
         </Title>
         <Subtitle className="measure">
-          We are sharing the live results of our randomized controlled trial in
-          Venezuela, that compares the benefits of giving cash and crypto.
+          We are sharing the live results of our randomized controlled trial
+          that compares the benefits of giving cash and crypto.
         </Subtitle>
         <Button
           className="mr3 button-donate"
@@ -67,7 +67,7 @@ const ReportHero: React.FC<Props> = () => {
           href={"/reports/venezuelan-ambassador-program"}
           scheme="light"
         >
-          View Report
+          View Data
         </Button>
       </Wrapper>
     </Container>
