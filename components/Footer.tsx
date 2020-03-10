@@ -39,7 +39,7 @@ const Footer: React.SFC = () => (
         <Legal>
           <Copyright />
           <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-          <Link href="/terms">Terms</Link>
+          <Link href="/compliance-program">Compliance Program</Link>
         </Legal>
       </Div>
       <Div className="order-1 order-2-ns tc">

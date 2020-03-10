@@ -4,14 +4,14 @@ import * as React from "react";
 import HeadMeta from "../components/HeadMeta";
 import Wrapper from "../components/Wrapper";
 import DonateHero from "../components/DonateHero";
-import seo from "../content/terms/seo";
-import hero from "../content/terms/hero";
+import seo from "../content/compliance-program/seo";
+import hero from "../content/compliance-program/hero";
 import { breakpoints, colors } from "../design-system";
 import HappyIcon from "../svgs/givecrypto-scene-03.svg";
 import "../utils/rehydrate";
 import { Step } from "../utils/Scale";
 import Analytics from "../components/Analytics";
-import Legal from "../content/terms/legal.mdx";
+import Legal from "../content/compliance-program/legal.mdx";
 
 const Title = glamorous.h2({
   color: colors.black,
@@ -36,7 +36,7 @@ const Subtitle = glamorous.h1({
   },
 });
 
-export default class App extends React.Component<{}, {}> {
+export default class ComplianceProgram extends React.Component<{}, {}> {
   public componentDidMount() {
     window.scrollTo(0, 0);
   }

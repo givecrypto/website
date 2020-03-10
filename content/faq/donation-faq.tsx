@@ -15,4 +15,8 @@ export default [
     question: `Do you accept non-crypto donations?`,
     answer: `No. Right now we only accept crypto. We plan to hold crypto currency as an organization.`,
   },
+  {
+    question: "Are you programs OFAC compliant?",
+    answer: `Yes. We have drafted a comprehensive [sanctions compliance policy](/compliance-program) screen all of our program participants against all relevant lists.`,
+  },
 ];
