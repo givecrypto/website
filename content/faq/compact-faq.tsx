@@ -61,4 +61,8 @@ export default [
     answer:
       "We recruit at least one vendor that accepts payment in cryptocurrency. Additionally, recipients hold the crypto and exchange it between themselves. In the future, we will offer cash-out options.",
   },
+  {
+    question: "Are you programs OFAC compliant?",
+    answer: `Yes. We have drafted a comprehensive [sanctions compliance policy](/terms) and screen all of our program participants against all relevant lists.`,
+  },
 ];
