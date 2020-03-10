@@ -14,7 +14,6 @@ import Heading from "../components/Heading";
 interface Props {}
 const Household: React.FC<Props> = () => {
   const [highlightId, setHighlightId]: any = React.useState(null);
-  // Hold on to any timers
   const timers = [];
 
   const dataWithColors = (data: any) =>

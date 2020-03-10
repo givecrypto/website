@@ -5,8 +5,11 @@ import Swatch from "../components/Swatch";
 
 interface Props {
   highlight: string | null;
+  onHighlight: (value: any) => void | null;
   data: Array<{
     label: string;
+    x: string;
+    y: string;
     color: string;
   }>;
 }
@@ -27,12 +30,18 @@ const Pill = styled.div({
   margin: "0 1rem 0 0",
 });
 
-const Legend: React.FunctionComponent<Props> = ({ data }) => {
+const Legend: React.FunctionComponent<Props> = ({ data, onHighlight }) => {
   return (
     <div className="flex mb3">
-      {data.map(({ label, color }) => {
+      {data.map(item => {
+        const { label, color } = item;
         return (
-          <Pill key={`${label}--key`} className="flex items-center mr3 br3">
+          <Pill
+            key={`${label}--key`}
+            className="flex items-center mr3 br3"
+            onMouseOver={() => onHighlight(item)}
+            onMouseLeave={() => onHighlight(null)}
+          >
             <Swatch color={color} />
             <H2>{label}</H2>
           </Pill>
