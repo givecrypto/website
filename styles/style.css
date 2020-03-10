@@ -1,9 +1,10 @@
-@import 'tachyons';
-@import './_media.css';
-@import './_modal.css';
-@import './_nprogress.css';
+@import "./_font-face.css";
+@import "tachyons";
+@import "./_media.css";
+@import "./_modal.css";
+@import "./_nprogress.css";
+@import "../node_modules/react-vis/dist/style";
 
-// Smooth those fonts
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

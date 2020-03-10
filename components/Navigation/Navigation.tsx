@@ -13,6 +13,7 @@ import { breakpoints, colors } from "../../design-system";
 import Logo from "../../svgs/GiveCrypto.svg";
 import { Step } from "../../utils/Scale";
 import Links from "./Links";
+import styled from "@emotion/styled";
 
 export interface NavigationProps {
   theme?: string;
@@ -20,18 +21,52 @@ export interface NavigationProps {
 
 const Nav = glamorous.nav({
   padding: `${Step(4)} ${Step(4)}`,
-  background: colors.white,
   [breakpoints.ns]: {
     padding: Step(5),
   },
 });
+const Container = styled.div(({ currentRoute }: any) =>
+  currentRoute === "/"
+    ? {
+        "& svg path": {
+          transition: "color none",
+          fill: colors.white,
+        },
+        "& a, span": {
+          color: colors.white,
+        },
+        "& .headroom": {
+          transition: "background 200ms ease",
+          background: "rgba(255, 255, 255 0)",
+        },
+        "& .headroom--pinned.headroom--scrolled": {
+          background: colors.white,
+          "& svg path": {
+            transition: "color none",
+            fill: colors.coldWater,
+          },
+          "& a, span": {
+            color: colors.coldWater,
+          },
+          "& span a span": {
+            color: colors.white,
+          },
+        },
+      }
+    : {
+        "& .headroom--pinned.headroom--scrolled": {
+          background: colors.white,
+        },
+      },
+);
 
-const LogoContainer = glamorous.div({
+const LogoContainer = glamorous.div(({ color }: any) => ({
   maxWidth: 170,
   [breakpoints.ns]: {
     maxWidth: 170,
   },
-});
+  "& path": { transition: "fill 200ms ease", fill: color },
+}));
 
 const AnimationContainer = glamorous.div({
   display: "inline-block",
@@ -147,7 +182,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
 
   public render() {
     const { theme } = this.props;
-    const { menuModalState } = this.state;
+    const { menuModalState, currentRoute } = this.state;
     const donateTheme = theme === "light" ? "ghost" : "default";
     const defaultOptions = {
       loop: false,
@@ -157,13 +192,19 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         preserveAspectRatio: "xMidYMid slice",
       },
     };
+
     return (
-      <>
+      <Container currentRoute={currentRoute}>
         <Headroom className={`relative z-999 open-${menuModalState}`}>
           <Nav className="flex items-center justify-between">
             <Div lineHeight="0">
               <Link href="/">
-                <LogoContainer className="responsive">
+                <LogoContainer
+                  className="responsive"
+                  color={
+                    currentRoute === "/report" ? colors.coldWater : colors.black
+                  }
+                >
                   <Logo />
                 </LogoContainer>
               </Link>
@@ -238,7 +279,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             </li>
           </Ul>
         </Modal>
-      </>
+      </Container>
     );
   }
 }

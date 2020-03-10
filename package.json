@@ -4,8 +4,8 @@
   "description": "Empowering, educating and elevating communities into the open financial system.",
   "main": "index.js",
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@mdx-js/loader": "^1.5.5",
     "@next/mdx": "^9.2.1",
     "@zeit/next-css": "^1.0.1",
@@ -13,8 +13,9 @@
     "base-64": "^0.1.0",
     "chroma-js": "^2.0.3",
     "copy-to-clipboard": "^3.0.8",
-    "cssnano": "^4.1.10",
+    "cssnano": "^4.0.0-rc.2",
     "dotenv": "^6.2.0",
+    "emotion": "^10.0.27",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
     "is-touch-device": "^1.0.1",
@@ -37,12 +38,15 @@
     "react-headroom": "^2.2.2",
     "react-lottie": "^1.2.3",
     "react-markdown": "^4.0.6",
+    "react-minimal-pie-chart": "^6.0.1",
     "react-motion": "^0.5.2",
     "react-responsive-modal": "^3.0.3",
     "react-scroll": "^1.7.9",
     "react-spring": "^8.0.7",
+    "react-vis": "^1.11.7",
     "react-with-gesture": "^4.0.4",
     "react-youtube": "^7.6.0",
+    "resize-observer-polyfill": "^1.5.1",
     "tachyons": "^4.9.1"
   },
   "devDependencies": {
@@ -96,7 +100,7 @@
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "css": "tachyons styles/style.css > styles/index.css --minify",
+    "css": "tachyons styles/style.css > styles/index.css",
     "now-build": "next build && next export -o dist"
   },
   "lint-staged": {

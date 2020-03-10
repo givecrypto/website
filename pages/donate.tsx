@@ -120,7 +120,7 @@ export default class App extends React.Component<{}, AppState> {
         >
           <Faq
             list={faqs}
-            theme="light"
+            scheme="light"
             title="Understand more about your donation"
           />
         </Wrapper>
