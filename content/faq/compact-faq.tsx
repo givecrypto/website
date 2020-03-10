@@ -63,6 +63,6 @@ export default [
   },
   {
     question: "Are you programs OFAC compliant?",
-    answer: `Yes. We have drafted a comprehensive [sanctions compliance policy](/terms) and screen all of our program participants against all relevant lists.`,
+    answer: `Yes. We have drafted a comprehensive [sanctions compliance policy](/compliance-program) and screen all of our program participants against all relevant lists.`,
   },
 ];
