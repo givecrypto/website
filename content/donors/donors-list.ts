@@ -104,6 +104,18 @@ export const donors: DonorSegment = {
       filename: "ron-conway",
     },
   ],
+  "$50k+": [
+    {
+      name: "Cameron Winklevoss",
+      role: "President, Gemini",
+      filename: "cameron-winklevoss",
+    },
+    {
+      name: "Tyler Winklevoss",
+      role: "CEO, Gemini",
+      filename: "tyler-winklevoss",
+    },
+  ],
   "$25k+": [
     {
       name: "Arthur Hayes",
