@@ -21,6 +21,27 @@ const BundleAnalyzerOptions = {
 module.exports = withMDX(
   withCSS({
     distDir: "_next",
-    ...withTypescript(withBundleAnalyzer(BundleAnalyzerOptions)),
+    ...withTypescript({
+      ...withBundleAnalyzer(BundleAnalyzerOptions),
+      webpack: (
+        config,
+        { buildId, dev, isServer, defaultLoaders, webpack },
+      ) => {
+        // Note: we provide webpack above so you should not `require` it
+        // Perform customizations to webpack config
+        // Important: return the modified config
+        config.module.rules.push({
+          test: /\.csv$/,
+          loader: "csv-loader",
+          options: {
+            dynamicTyping: true,
+            header: true,
+            skipEmptyLines: true,
+          },
+        });
+
+        return config;
+      },
+    }),
   }),
 );
