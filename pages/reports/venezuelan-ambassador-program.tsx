@@ -64,6 +64,7 @@ const TabBar = styled.div(({ width = 0, x = 0 }: any) => ({
 const Tab = styled.button(({ isActive }: any) => ({
   display: "block",
   webkitAppearance: "none",
+  background: "transparent",
   color: isActive ? colors.blue : colors.greyLight,
   cursor: "pointer",
   border: "none",

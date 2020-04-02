@@ -68,7 +68,7 @@ const Wrapper: React.SFC<any> = props => {
 
   return (
     <Container background={background} wide={wide} {...rest}>
-      <WrapperInner narrow={narrow} wide={wide} {...rest}>
+      <WrapperInner narrow={narrow} wide={wide}>
         {children}
       </WrapperInner>
     </Container>
