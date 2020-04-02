@@ -39,30 +39,29 @@ const Age: React.FC<Props> = () => {
     [value],
   );
 
-  const dataWithColors = (data: any) =>
-    React.useMemo(() => {
-      // Get the color for each item
-      const getColor = (index: number) => {
-        const colorScale = chroma
-          .scale([colors.yellow, colors.yellowDark])
-          .mode("rgb")
-          .colors(data.length);
+  const dataWithColors = React.useMemo(() => {
+    // Get the color for each item
+    const getColor = (index: number) => {
+      const colorScale = chroma
+        .scale([colors.yellow, colors.yellowDark])
+        .mode("rgb")
+        .colors(age.length);
 
-        if (isEmpty(value)) {
-          return colorScale[index];
-        } else {
-          return index === data.findIndex(a => a.y === value.y)
-            ? chroma.mix(colorScale[index], colors.yellowLight).css()
-            : colorScale[index];
-        }
-      };
+      if (isEmpty(value)) {
+        return colorScale[index];
+      } else {
+        return index === age.findIndex(a => a.y === value.y)
+          ? chroma.mix(colorScale[index], colors.yellowLight).css()
+          : colorScale[index];
+      }
+    };
 
-      // Return the item and inject the correct color
-      return data.slice().map((item: any, index: number) => ({
-        ...item,
-        color: getColor(index),
-      }));
-    }, [value]);
+    // Return the item and inject the correct color
+    return age.slice().map((item: any, index: number) => ({
+      ...item,
+      color: getColor(index),
+    }));
+  }, [value]);
 
   const memoizedValue: any = React.useMemo(
     () =>
@@ -110,7 +109,7 @@ const Age: React.FC<Props> = () => {
           colorType="literal"
           animation={{ damping: 14, stiffness: 100 }}
           barWidth={0.6}
-          data={dataWithColors(age)}
+          data={dataWithColors}
           style={{}}
           onValueMouseOver={(v: any) => {
             setValue(v);

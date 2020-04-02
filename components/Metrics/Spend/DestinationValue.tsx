@@ -11,12 +11,12 @@ interface Item {
   Destination: string;
   Amount: string;
 }
-const SpendValue: React.FC<Props> = ({ data }) => {
+const DestinationValue: React.FC<Props> = ({ data }) => {
   return (
     <ul>
       {data &&
         data.map((item: Item) => (
-          <li>
+          <li key={item.Destination}>
             {item.Destination}: {item.Amount}
           </li>
         ))}
@@ -24,4 +24,4 @@ const SpendValue: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default SpendValue;
+export default DestinationValue;

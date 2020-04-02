@@ -13,7 +13,7 @@ const SpendValue: React.FC<Props> = ({ data }) => {
     <ul>
       {data &&
         data.map((item: Item) => (
-          <li>
+          <li key={item.Amount}>
             {item.Date}: {item.Amount}
           </li>
         ))}
