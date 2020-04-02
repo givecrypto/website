@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import Head from "next/head";
+import { Motion, spring } from "react-motion";
 import Analytics from "../../components/Analytics";
 import seo from "../../content/ambassadors-report/seo";
 import hero from "../../content/ambassadors-report/hero";
@@ -40,9 +41,37 @@ const Subtitle = styled.h1({
   },
 });
 
-interface Props {}
+const Tabs = styled.div({
+  display: "flex",
+});
 
+const Tab = styled.button(({ isActive }: any) => ({
+  display: "flex",
+  webkitAppearance: "none",
+  color: isActive ? colors.blue : colors.greyLight,
+  cursor: "pointer",
+  border: "none",
+  padding: 0,
+  marginRight: "2rem",
+
+  "&:hover": {
+    color: colors.blue,
+  },
+
+  "&:last-child": {
+    marginRight: 0,
+  },
+}));
+
+enum ActivePage {
+  Demographics = "DEMOGRAPHICS",
+  Spend = "SPEND",
+}
+
+interface Props {}
 const Report: React.FC<Props> = () => {
+  const [page, setPage] = React.useState(ActivePage.Demographics);
+
   return (
     <Analytics>
       <Head>
@@ -56,9 +85,22 @@ const Report: React.FC<Props> = () => {
       <Wrapper className="ph3 bb b--light-gray">
         <Title>{hero.title}</Title>
         <Subtitle className="lh-copy">{hero.subtitle}</Subtitle>
+        <Tabs>
+          <Tab
+            isActive={page === ActivePage.Demographics}
+            onClick={() => setPage(ActivePage.Demographics)}
+          >
+            Demographics
+          </Tab>
+          <Tab
+            isActive={page === ActivePage.Spend}
+            onClick={() => setPage(ActivePage.Spend)}
+          >
+            Spend
+          </Tab>
+        </Tabs>
       </Wrapper>
       <Wrapper>
-        <h4>Transactions</h4>
         <Spend />
       </Wrapper>
       <>
