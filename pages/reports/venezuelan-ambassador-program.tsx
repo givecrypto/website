@@ -186,7 +186,7 @@ const Report: React.FC<Props> = () => {
         </Tabs>
       </Wrapper>
       {page === ActivePage.Spend ? (
-        <Wrapper>
+        <Wrapper className="ph3 bb b--light-gray">
           <Spend />
         </Wrapper>
       ) : (

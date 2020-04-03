@@ -1,4 +1,5 @@
 import * as React from "react";
+import Value from "./Value";
 
 interface Item {
   Date: string;
@@ -10,14 +11,17 @@ interface Props {
 
 const SpendValue: React.FC<Props> = ({ data }) => {
   return (
-    <ul>
-      {data &&
-        data.map((item: Item) => (
-          <li key={item.Amount}>
-            {item.Date}: {item.Amount}
-          </li>
-        ))}
-    </ul>
+    <>
+      <Value data={data} />
+      <ul>
+        {data &&
+          data.map((item: Item) => (
+            <li key={item.Amount}>
+              {item.Date}: {item.Amount}
+            </li>
+          ))}
+      </ul>
+    </>
   );
 };
 
