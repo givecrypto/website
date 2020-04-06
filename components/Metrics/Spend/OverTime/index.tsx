@@ -39,7 +39,12 @@ const OverTime = () => {
         ref={ref}
       >
         <div onMouseOut={() => setValue({})}>
-          <XYPlot xType="time" width={width} height={400}>
+          <XYPlot
+            xType="time"
+            width={width}
+            height={400}
+            margin={{ right: 20 }}
+          >
             <HorizontalGridLines />
             <VerticalGridLines />
             <XAxis title="Date" tickTotal={valueData.length} />
