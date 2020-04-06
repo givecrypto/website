@@ -11,45 +11,52 @@ export interface WrapperProps extends React.HTMLProps<any> {
   wide?: boolean;
 }
 const Container = styled.div(
-  ({ width = "100%", background, ...styleProps }: any) => {
-    if (!styleProps.flush) {
-      return {
-        padding: `0 ${Step(4)}`,
-        [breakpoints.l]: {
-          padding: 0,
-        },
-      };
-    }
+  ({ width = "100%", background, padding, ...rest }: any) => {
+    const flushStyles: any = !rest.flush
+      ? {
+          padding: padding || `0 ${Step(4)}`,
+          [breakpoints.l]: {
+            padding: padding || 0,
+          },
+        }
+      : {};
 
-    if (styleProps.pattern) {
-      return {
-        position: "relative",
-        zIndex: 1,
-
-        "> *": {
+    const patternStyles: any = rest.pattern
+      ? {
           position: "relative",
           zIndex: 1,
-        },
 
-        background: background || "#ffffff",
-        "&::after, &::before": {
-          zIndex: 0,
-          content: `''`,
-          display: "block",
-          background: "url(/static/images/pattern@2x.png)",
-          backgroundSize: "100%",
-          position: "absolute",
-          left: -200,
-          width: 423,
-          height: 263,
-          transform: "translateY(40px)",
-        },
-        "&::after": {
-          left: "auto",
-          right: -200,
-        },
-      };
-    }
+          "> *": {
+            position: "relative",
+            zIndex: 1,
+          },
+
+          background: background || "#ffffff",
+          "&::after, &::before": {
+            zIndex: 0,
+            content: `''`,
+            display: "block",
+            background: "url(/static/images/pattern@2x.png)",
+            backgroundSize: "100%",
+            position: "absolute",
+            left: -200,
+            width: 423,
+            height: 263,
+            transform: "translateY(40px)",
+          },
+          "&::after": {
+            left: "auto",
+            right: -200,
+          },
+        }
+      : {};
+
+    return {
+      width: "100%",
+      background,
+      ...patternStyles,
+      ...flushStyles,
+    };
   },
 );
 
