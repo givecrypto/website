@@ -14,7 +14,7 @@ const totalReducer = (acc: number, curr: number) => acc + curr;
 interface Props {}
 
 const colorScale = chroma
-  .scale([colors.red, chroma.mix(colors.red, colors.coldWater, 0.75).css()])
+  .scale(["#72664F", "#59503E", colors.yellowDark, "#AE8544"])
   .mode("rgb")
   .colors(destinationData.length);
 

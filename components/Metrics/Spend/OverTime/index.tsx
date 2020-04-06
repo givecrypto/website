@@ -1,15 +1,18 @@
 import * as React from "react";
 import Heading from "../../components/Heading";
 import useMeasure from "../../../../utils/useMeasure";
+import { format } from "date-fns";
 import {
   XYPlot,
   XAxis,
   YAxis,
   HorizontalGridLines,
+  Hint,
   VerticalGridLines,
   LineMarkSeries,
 } from "react-vis";
 import { colors } from "../../../../design-system";
+import { isEmpty } from "lodash";
 
 // Data Import
 import valueData from "../../../../content/ambassadors-report/data/crypto-spend-value.csv";
@@ -26,6 +29,7 @@ const asCurrency = (amount: number) => {
 const OverTime = () => {
   const ref = React.useRef();
   const { width = 1440 } = useMeasure(ref);
+  const [value, setValue] = React.useState({});
 
   return (
     <>
@@ -34,7 +38,7 @@ const OverTime = () => {
         className="flex items-center justify-center justify-between-l"
         ref={ref}
       >
-        <div>
+        <div onMouseOut={() => setValue({})}>
           <XYPlot xType="time" width={width} height={400}>
             <HorizontalGridLines />
             <VerticalGridLines />
@@ -47,6 +51,7 @@ const OverTime = () => {
               animation
               curve={"curveMonotoneX"}
               color={colors.blue}
+              onNearestXY={setValue}
               data={valueData.map(({ Date: date, Amount }) => {
                 return {
                   x: new Date(date),
@@ -54,6 +59,19 @@ const OverTime = () => {
                 };
               })}
             />
+            {!isEmpty(value) && (
+              <Hint
+                format={thing => [
+                  {
+                    title: (
+                      <span>{format(new Date(thing.x), "MMM dd, yyyy")}</span>
+                    ),
+                    value: <b>{asCurrency(thing.y)}</b>,
+                  },
+                ]}
+                value={value}
+              />
+            )}
           </XYPlot>
         </div>
       </div>
