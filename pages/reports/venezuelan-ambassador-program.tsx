@@ -186,7 +186,7 @@ const Report: React.FC<Props> = () => {
         </Tabs>
       </Wrapper>
       {page === ActivePage.Spend ? (
-        <Wrapper style={{ padding: 0 }} className="ph3 bw2 b--light-gray">
+        <Wrapper style={{ padding: 0 }} className="ph3 bb b--light-gray">
           <Spend />
         </Wrapper>
       ) : (
