@@ -104,8 +104,8 @@ const Report: React.FC<Props> = () => {
     if (showReport) {
       fetch("https://extreme-ip-lookup.com/json") // Get the IP data
         .then(res => res.json())
-        .then(ip => {
-          setIpData(ip);
+        .then(ipData => {
+          setIpData(ipData);
           setShowReport(false);
         });
     }
