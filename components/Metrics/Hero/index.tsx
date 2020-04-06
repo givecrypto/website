@@ -12,7 +12,7 @@ const Container = styled.section({
   backgroundPosition: "bottom",
   paddingTop: "7rem",
   paddingBottom: "7rem",
-  minHeight: 650,
+  minHeight: 450,
   transform: "translateY(-7rem)",
   display: "flex",
   justifyContent: "center",
@@ -20,9 +20,9 @@ const Container = styled.section({
 });
 const Title = styled.h1({
   color: colors.white,
-  fontSize: Step(5.35),
+  fontSize: Step(4.5),
   [breakpoints.ns]: {
-    fontSize: Step(6),
+    fontSize: Step(5.45),
   },
   lineHeight: 1.35,
 });
@@ -35,15 +35,30 @@ const Subtitle = styled.h2({
   marginBottom: "4rem",
   fontSize: Step(4.5),
   [breakpoints.ns]: {
-    fontSize: Step(5),
+    fontSize: Step(4.5),
   },
+});
+
+const Img = styled.img({
+  // mixBlendMode: "multiply",
+  zIndex: 1,
+  position: "absolute",
+  objectFit: "contain",
+  width: "100%",
+  bottom: 0,
+  left: 0,
 });
 
 interface Props {}
 const ReportHero: React.FC<Props> = () => {
   return (
-    <Container>
-      <Wrapper className="pb5">
+    <Container style={{ position: "relative" }}>
+      <Img
+        src={`/static/images/charts-small.png`}
+        srcSet={`/static/images/charts-small.png, /static/images/charts-small@2x.png 2x`}
+        alt={"Charts Graphic"}
+      />
+      <Wrapper className="pb5" style={{ zIndex: 2, position: "relative" }}>
         <Title className="measure">
           Venezuelan Ambassador Program
           <br />

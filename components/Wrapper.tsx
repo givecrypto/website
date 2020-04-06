@@ -1,7 +1,7 @@
-import glamorous from "glamorous";
 import * as React from "react";
 import { breakpoints } from "../design-system";
 import { Step } from "../utils/Scale";
+import styled from "@emotion/styled";
 
 export interface WrapperProps extends React.HTMLProps<any> {
   color?: string;
@@ -10,28 +10,19 @@ export interface WrapperProps extends React.HTMLProps<any> {
   narrow?: boolean;
   wide?: boolean;
 }
-// export interface WrapperState {}
-
-const Wrapper: React.SFC<any> = props => {
-  const { color, background, narrow, wide, children, ...rest } = props;
-
-  const Container = glamorous.div(
-    {
-      width: "100%",
-      background,
-    },
-    (styleProps: any) => {
-      if (!styleProps.flush) {
-        return {
-          padding: `0 ${Step(4)}`,
+const Container = styled.div(
+  ({ width = "100%", background, padding, ...rest }: any) => {
+    const flushStyles: any = !rest.flush
+      ? {
+          padding: padding || `0 ${Step(4)}`,
           [breakpoints.l]: {
-            padding: 0,
+            padding: padding || 0,
           },
-        };
-      }
+        }
+      : {};
 
-      if (styleProps.pattern) {
-        return {
+    const patternStyles: any = rest.pattern
+      ? {
           position: "relative",
           zIndex: 1,
 
@@ -57,22 +48,36 @@ const Wrapper: React.SFC<any> = props => {
             left: "auto",
             right: -200,
           },
-        };
-      }
-    },
-  );
+        }
+      : {};
 
+    return {
+      width: "100%",
+      background,
+      ...patternStyles,
+      ...flushStyles,
+    };
+  },
+);
+
+const WrapperInner = styled.section(({ narrow, wide }: any) => {
   const narrowWidth = narrow ? 890 : 1100;
   const defaultWidth = wide ? 1240 : narrowWidth;
-  const WrapperInner = glamorous.section({
+
+  return {
     maxWidth: narrow ? narrowWidth : defaultWidth,
     margin: "0 auto",
-    ...rest,
-  });
+  };
+});
+
+const Wrapper: React.SFC<any> = props => {
+  const { color, background, narrow, wide, children, ...rest } = props;
 
   return (
-    <Container {...rest}>
-      <WrapperInner>{children}</WrapperInner>
+    <Container background={background} wide={wide} {...rest}>
+      <WrapperInner narrow={narrow} wide={wide}>
+        {children}
+      </WrapperInner>
     </Container>
   );
 };
