@@ -27,12 +27,12 @@ const Pill = styled.div({
   border: `1px solid ${colors.greyLightest}`,
   borderRadius: 12,
   padding: "0.5rem 0.5rem",
-  margin: "0 1rem 0 0",
+  margin: "0 1rem 1rem 0",
 });
 
 const Legend: React.FunctionComponent<Props> = ({ data, onHighlight }) => {
   return (
-    <div className="flex mb3">
+    <div className="flex flex-wrap mb3">
       {data.map(item => {
         const { label, color } = item;
         return (
