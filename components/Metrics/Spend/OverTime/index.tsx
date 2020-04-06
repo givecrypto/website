@@ -47,7 +47,12 @@ const OverTime = () => {
           >
             <HorizontalGridLines />
             <VerticalGridLines />
-            <XAxis title="Date" tickTotal={valueData.length} />
+            <XAxis
+              title="Date"
+              tickTotal={valueData.length}
+              tickFormat={val => `${format(val, "MMM d")}`}
+              tickLabelAngle={width < 600 ? -35 : 0}
+            />
             <YAxis
               tickFormat={value => asCurrency(value)}
               title="Amount in USD"
