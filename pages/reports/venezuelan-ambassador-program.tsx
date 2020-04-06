@@ -186,7 +186,7 @@ const Report: React.FC<Props> = () => {
         </Tabs>
       </Wrapper>
       {page === ActivePage.Spend ? (
-        <Wrapper className="ph3 bb b--light-gray">
+        <Wrapper style={{ padding: 0 }} className="ph3 bw2 b--light-gray">
           <Spend />
         </Wrapper>
       ) : (
@@ -194,7 +194,7 @@ const Report: React.FC<Props> = () => {
           <Wrapper className="ph3 bb b--light-gray">
             <Age />
           </Wrapper>
-          <Wrapper className="ph0 bb b--light-gray">
+          <Wrapper style={{ padding: 0 }} className="ph0 bb b--light-gray">
             <div className="flex flex-wrap">
               <div className="ph3 w-100 w-50-l pb4 pb0-l bb bn-ns br-l b--light-gray pt4">
                 <Gender />
