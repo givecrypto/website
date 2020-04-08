@@ -19,7 +19,6 @@ import valueData from "../../../../content/ambassadors-report/data/crypto-spend-
 
 const asCurrency = (amount: number) => {
   const formatter = new Intl.NumberFormat("en-US", {
-    maximumSignificantDigits: 2,
     style: "currency",
     currency: "usd",
   });
