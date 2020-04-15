@@ -8,7 +8,6 @@ import {
   YAxis,
   HorizontalGridLines,
   Hint,
-  VerticalGridLines,
   LineMarkSeries,
 } from "react-vis";
 import { colors } from "../../../../design-system";
@@ -16,9 +15,19 @@ import { isEmpty } from "lodash";
 
 // Data Import
 import valueData from "../../../../content/ambassadors-report/data/crypto-spend-value.csv";
+const MAX_TICKS = 4;
 
 const asCurrency = (amount: number) => {
   const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "usd",
+  });
+  return formatter.format(amount);
+};
+
+const asCurrencyFloor = (amount: number) => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    maximumSignificantDigits: 2,
     style: "currency",
     currency: "usd",
   });
@@ -45,15 +54,17 @@ const OverTime = () => {
             margin={{ right: 20 }}
           >
             <HorizontalGridLines />
-            <VerticalGridLines />
             <XAxis
               title="Date"
-              tickTotal={valueData.length}
+              tickTotal={
+                valueData.length > MAX_TICKS ? MAX_TICKS : valueData.length
+              }
               tickFormat={val => `${format(val, "MMM d")}`}
               tickLabelAngle={width < 600 ? -35 : 0}
             />
             <YAxis
-              tickFormat={value => asCurrency(value)}
+              tickFormat={value => asCurrencyFloor(value)}
+              width={60}
               title="Amount in USD"
             />
             <LineMarkSeries
