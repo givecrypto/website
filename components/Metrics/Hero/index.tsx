@@ -2,88 +2,100 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import chroma from "chroma-js";
 import Button from "../../../components/Button";
-import { breakpoints, colors } from "../../../design-system";
+import { breakpoints, colors, shadows } from "../../../design-system";
 import { Step } from "../../../utils/Scale";
 import Wrapper from "../../../components/Wrapper";
 
 const Container = styled.section({
-  background: `${colors.coldWater} url(/static/images/report-hero@2x.jpg)`,
+  // background: `${colors.coldWater} url(/static/images/report-hero@2x.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "bottom",
-  paddingTop: "7rem",
-  paddingBottom: "7rem",
-  minHeight: 450,
-  transform: "translateY(-7rem)",
+  paddingTop: "4rem",
+  paddingBottom: "4rem",
+  minHeight: 800,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
 });
+
 const Title = styled.h1({
-  color: colors.white,
-  fontSize: Step(4.5),
+  color: colors.black,
+  fontSize: Step(5),
   [breakpoints.ns]: {
-    fontSize: Step(5.45),
+    fontSize: Step(5.65),
   },
-  lineHeight: 1.35,
 });
-const Subtitle = styled.h2({
-  color: colors.greyLightest,
+
+const Subtitle = styled.h1({
+  marginBottom: Step(5.5),
+  color: colors.greyLight,
   fontWeight: 500,
-  opacity: 0.6,
-  lineHeight: 1.5,
-  maxWidth: 675,
-  marginBottom: "4rem",
-  fontSize: Step(4.5),
+  fontSize: Step(4.125),
   [breakpoints.ns]: {
-    fontSize: Step(4.5),
+    fontSize: Step(5),
   },
+});
+
+const Box = styled.div({
+  maxWidth: "40rem",
+  padding: "2rem",
+  margin: "0 auto",
+  background: "rgba(255, 255, 255, 0.4)",
+  boxShadow: shadows.card,
+  borderRadius: Step(3),
+  overflow: "hidden",
+  position: "relative",
 });
 
 const Img = styled.img({
   // mixBlendMode: "multiply",
-  zIndex: 1,
   position: "absolute",
-  objectFit: "contain",
-  width: "100%",
-  bottom: 0,
-  left: 0,
+  objectFit: "cover",
+  width: "200%",
+  top: 0,
+  maxWidth: "200%",
+  right: -400,
+  zIndex: 0,
+  pointerEvents: "none",
 });
 
 interface Props {}
 const ReportHero: React.FC<Props> = () => {
   return (
     <Container style={{ position: "relative" }}>
-      <Img
-        src={`/static/images/charts-small.png`}
-        srcSet={`/static/images/charts-small.png, /static/images/charts-small@2x.png 2x`}
-        alt={"Charts Graphic"}
-      />
       <Wrapper className="pb5" style={{ zIndex: 2, position: "relative" }}>
-        <Title className="measure">
-          Venezuelan Ambassador Program
-          <br />
-          Real Time Data
-        </Title>
-        <Subtitle className="measure">
-          We are sharing the live results of our randomized controlled trial
-          that compares the benefits of giving cash and crypto.
-        </Subtitle>
-        <Button
-          className="mr3 button-donate"
-          css={{
-            background: colors.blue,
-            borderColor: colors.blue,
-            "&:hover, :active": {
-              background: chroma(colors.blue)
-                .brighten(0.25)
-                .css(),
-            },
-          }}
-          href={"/reports/venezuelan-ambassador-program"}
-          scheme="light"
-        >
-          View Data
-        </Button>
+        <Box>
+          <Img
+            src={`/static/images/charts-small.png`}
+            srcSet={`/static/images/charts-small.png, /static/images/charts-small@2x.png 2x`}
+            alt={"Charts Graphic"}
+          />
+          <Title className="measure">
+            Venezuelan Ambassador
+            <br />
+            Program Real Time Data
+          </Title>
+          <Subtitle className="lh-copy measure-narrow">
+            We are sharing the live results of our randomized controlled trial
+            that compares the benefits of giving cash and crypto.
+          </Subtitle>
+          <Button
+            className="mr3 button-donate"
+            css={{
+              background: colors.blue,
+              borderColor: colors.blue,
+              "&:hover, :active": {
+                background: chroma(colors.blue)
+                  .brighten(0.25)
+                  .css(),
+              },
+            }}
+            href={"/reports/venezuelan-ambassador-program"}
+            scheme="light"
+          >
+            View Data
+          </Button>
+        </Box>
       </Wrapper>
     </Container>
   );

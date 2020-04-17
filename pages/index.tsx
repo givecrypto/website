@@ -75,8 +75,6 @@ export default class App extends React.Component<{}, {}> {
         </Head>
         <HeadMeta path="/home" description={seo.description} />
 
-        <ReportHero />
-
         <Container>
           {/* <Wrapper>
             <Hooks />
@@ -91,6 +89,8 @@ export default class App extends React.Component<{}, {}> {
             <Hero page="home" />
             <Div display="block" className="mb3 mb6-ns" />
           </Wrapper>
+
+          <ReportHero />
 
           <Wrapper narrow={true}>
             <HowItWorks />

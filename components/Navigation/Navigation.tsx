@@ -9,7 +9,7 @@ import { Link as ScrollLink } from "react-scroll";
 import animationData from "../../animations/menu--grey-white.json";
 import Button from "../../components/Button";
 import Link, { linkStyles } from "../../components/Link";
-import { breakpoints, colors } from "../../design-system";
+import { breakpoints, colors, shadows } from "../../design-system";
 import Logo from "../../svgs/GiveCrypto.svg";
 import { Step } from "../../utils/Scale";
 import Links from "./Links";
@@ -30,32 +30,27 @@ const Container = styled.div(({ currentRoute }: any) =>
     ? {
         "& svg path": {
           transition: "color none",
-          fill: colors.white,
-        },
-        "& a, span": {
-          color: colors.white,
+          fill: colors.coldWater,
         },
         "& .headroom": {
-          transition: "background 200ms ease",
-          background: "rgba(255, 255, 255 0)",
+          transition: "all 200ms ease",
+          background: "rgba(255, 255, 255, 0)",
+          boxShadow: shadows.none,
         },
         "& .headroom--pinned.headroom--scrolled": {
           background: colors.white,
-          "& svg path": {
-            transition: "color none",
-            fill: colors.coldWater,
-          },
-          "& a, span": {
-            color: colors.coldWater,
-          },
-          "& span a span": {
-            color: colors.white,
-          },
+          boxShadow: shadows.default,
         },
       }
     : {
+        "& .headroom": {
+          transition: "all 200ms ease",
+          background: "rgba(255, 255, 255, 0)",
+          boxShadow: shadows.none,
+        },
         "& .headroom--pinned.headroom--scrolled": {
           background: colors.white,
+          boxShadow: shadows.card,
         },
       },
 );
