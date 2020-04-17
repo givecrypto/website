@@ -89,9 +89,11 @@ export default class App extends React.Component<{}, {}> {
             <Hero page="home" />
             <Div display="block" className="mb3 mb6-ns" />
           </Wrapper>
+        </Container>
 
-          <ReportHero />
+        <ReportHero />
 
+        <Container>
           <Wrapper narrow={true}>
             <HowItWorks />
           </Wrapper>
