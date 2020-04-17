@@ -7,64 +7,81 @@ import { Step } from "../../../utils/Scale";
 import Wrapper from "../../../components/Wrapper";
 
 const Container = styled.section({
-  background: `${colors.coldWater} url(/static/images/report-hero@2x.jpg)`,
+  background: "#f4f6fa",
+  // backgroundImage: `linear-gradient(to right, #f4f6fa, ${colors.greyLightest})`,
   backgroundSize: "cover",
   backgroundPosition: "bottom",
-  paddingTop: "7rem",
-  paddingBottom: "7rem",
-  minHeight: 450,
-  transform: "translateY(-7rem)",
+  minHeight: 350,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-});
-const Title = styled.h1({
-  color: colors.white,
-  fontSize: Step(4.5),
-  [breakpoints.ns]: {
-    fontSize: Step(5.45),
+  [breakpoints.l]: {
+    paddingLeft: Step(6),
   },
-  lineHeight: 1.35,
-});
-const Subtitle = styled.h2({
-  color: colors.greyLightest,
-  fontWeight: 500,
-  opacity: 0.6,
-  lineHeight: 1.5,
-  maxWidth: 675,
-  marginBottom: "4rem",
-  fontSize: Step(4.5),
+  [breakpoints.m]: {
+    paddingLeft: Step(6),
+  },
   [breakpoints.ns]: {
-    fontSize: Step(4.5),
+    minHeight: 550,
+    fontSize: Step(5.65),
+  },
+});
+
+const Title = styled.h1({
+  color: colors.navy,
+  fontSize: Step(5),
+  [breakpoints.ns]: {
+    fontSize: Step(5.65),
+  },
+});
+
+const Subtitle = styled.h1({
+  marginBottom: Step(5.5),
+  color: colors.greyLight,
+  fontWeight: 500,
+  fontSize: Step(4.125),
+  [breakpoints.ns]: {
+    fontSize: Step(5),
   },
 });
 
 const Img = styled.img({
   // mixBlendMode: "multiply",
-  zIndex: 1,
+  pointerEvents: "none",
   position: "absolute",
-  objectFit: "contain",
-  width: "100%",
-  bottom: 0,
-  left: 0,
+  objectFit: "cover",
+  width: "300%",
+  maxWidth: "300%",
+  right: "-90%",
+  top: -100,
+  [breakpoints.ns]: {
+    top: "auto",
+    right: "auto",
+    bottom: "-40%",
+    left: 0,
+    width: "100%",
+    maxHeight: 820,
+    objectFit: "contain",
+    objectPosition: "right",
+  },
 });
 
 interface Props {}
 const ReportHero: React.FC<Props> = () => {
   return (
     <Container style={{ position: "relative" }}>
-      <Img
-        src={`/static/images/charts-small.png`}
-        srcSet={`/static/images/charts-small.png, /static/images/charts-small@2x.png 2x`}
-        alt={"Charts Graphic"}
-      />
       <Wrapper className="pb5" style={{ zIndex: 2, position: "relative" }}>
+        <Img
+          src={`/static/images/charts-small.png`}
+          srcSet={`/static/images/charts-small.png, /static/images/charts-small@2x.png 2x`}
+          alt={"Charts Graphic"}
+        />
         <Title className="measure">
-          Venezuelan Ambassador Program
+          Venezuelan Ambassador
           <br />
-          Real Time Data
+          Program Real Time Data
         </Title>
-        <Subtitle className="measure">
+        <Subtitle className="lh-copy measure-narrow">
           We are sharing the live results of our randomized controlled trial
           that compares the benefits of giving cash and crypto.
         </Subtitle>
