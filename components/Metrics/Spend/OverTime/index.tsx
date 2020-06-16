@@ -72,10 +72,10 @@ const OverTime = () => {
               curve={"curveMonotoneX"}
               color={colors.blue}
               onNearestXY={setValue}
-              data={valueData.map(({ Date: date, Amount }) => {
+              data={valueData.map(({ Date: date, Spend }) => {
                 return {
                   x: new Date(date),
-                  y: Number(Amount.replace(/[^0-9.-]+/g, "")),
+                  y: Number(Spend.replace(/[^0-9.-]+/g, "")),
                 };
               })}
             />
