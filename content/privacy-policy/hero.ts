@@ -1,3 +1,4 @@
+// @ts-ignore
 const dateTimeStamp = preval`module.exports = new Date().toLocaleDateString();`;
 
 export default {
