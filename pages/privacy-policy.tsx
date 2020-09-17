@@ -36,7 +36,7 @@ const Subtitle = glamorous.h1({
   },
 });
 
-export default class ComplianceProgram extends React.Component<{}, {}> {
+export default class PrivacyPolicy extends React.Component<{}, {}> {
   public componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -61,11 +61,7 @@ export default class ComplianceProgram extends React.Component<{}, {}> {
             <HappyIcon />
           </IconContainer>
         </Wrapper>
-        <Wrapper
-          className="ph3 ph0-l"
-          background={colors.white}
-          padding={"4rem 0"}
-        >
+        <Wrapper className="ph3 ph0-l" background={colors.white}>
           <Legal />
         </Wrapper>
         <Wrapper className="ph3 ph0-l">
