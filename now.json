@@ -1,5 +1,5 @@
 {
-  "alias": ["www.givecrypto.org"],
+  "alias": ["www.givecrypto.org", "givecrypto.org"],
   "version": 2,
   "builds": [
     {
