@@ -38,8 +38,10 @@ const Footer: React.SFC = () => (
       <Div className="o-30 order-2 order-1-ns">
         <Legal>
           <Copyright />
-          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
           <Link href="/compliance-program">Compliance Program</Link>
+          <span>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </Legal>
       </Div>
       <Div className="order-1 order-2-ns tc">
