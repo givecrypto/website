@@ -28,7 +28,7 @@ const Wrapper = styled.div(({ scheme }: any) => ({
     "& a": {
       color: colors.green,
       "&:hover": {
-        color: colors.white,
+        color: scheme === "light" ? colors.black : colors.white,
       },
     },
     "> h2": {
